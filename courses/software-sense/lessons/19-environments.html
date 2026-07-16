@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>19 Â· Environments: Dev, Staging, Production</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="19-environments">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#ec4899">Module 5 Â· Real-World Operations</span>
+    <span>Lesson 19 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Same software, different copies</p>
+  <h1>Environments: Dev, Staging, Production</h1>
+  <p class="dek">Software rarely exists in just one place. It usually runs in several separate copies at once â€” and knowing which copy you're looking at is the difference between a safe experiment and a real disaster.</p>
+
+  <h2>An environment is a separate copy of your software, running somewhere</h2>
+  <p>An <strong>environment</strong> is one running copy of your software, plus everything it needs to run (its own
+     data, its own settings) â€” kept separate from the other copies. The same code can run in several environments
+     at once, like the same play being rehearsed backstage while a different cast performs it live on stage. Same
+     script, very different stakes if someone forgets a line.</p>
+  <p>Most teams use three environments, and it helps to think of them as three rooms with three different purposes.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Development</h3><p>Your workbench. Where you or the AI make changes and try things.
+       Safe to break â€” that's the point. Nobody but you (and maybe your team) ever sees this copy.</p></div>
+    <div class="card"><h3>Staging</h3><p>A rehearsal copy that mimics the real thing as closely as possible â€”
+       same setup, fake or copied data. You test here <em>before</em> anything reaches real users.</p></div>
+  </div>
+  <div class="note"><span class="label">The third room</span> <strong>Production</strong> is the real thing â€”
+     the live copy your actual users touch, with their actual data. Whatever happens here, happens for real:
+     a mistake isn't a lesson, it's an incident. Production is why staging exists.</div>
+
+  <h2>Why "it works on my machine" happens</h2>
+  <p>You've probably heard this line, or will soon: someone tests a change, it works perfectly, and then it breaks
+     the moment real users touch it. This isn't bad luck â€” it's environments quietly being different from each
+     other. Your workbench (development) might use a different set of test data, different settings, or even a
+     slightly different version of a tool than the live setting (production) does. The code is identical; the
+     surrounding conditions aren't.</p>
+  <p>The fix isn't cleverness, it's discipline: make staging match production as closely as you reasonably can, and
+     always test there before the live environment ever sees a change. The closer the rehearsal is to the real
+     performance, the fewer surprises on opening night.</p>
+
+  <h2>The one rule that protects your users</h2>
+  <p><strong>Never test a risky change directly in production.</strong> "Risky" means anything that touches real
+     data, changes how something core behaves, or you're genuinely unsure about. If you (or an AI assistant) are
+     tempted to "just try it live and see," that's exactly the moment to stop and use staging instead. Production
+     is not a testing ground â€” it's where the consequences are real and often hard to undo.</p>
+
+  <table>
+    <tr><th>Environment</th><th>Who sees it</th><th>Safe to break?</th></tr>
+    <tr><td>Development</td><td>You / your team</td><td>Yes â€” that's its job</td></tr>
+    <tr><td>Staging</td><td>Your team, maybe testers</td><td>Mostly â€” treat carefully</td></tr>
+    <tr><td>Production</td><td>Real users</td><td>No</td></tr>
+  </table>
+
+  <p>This matters more than ever with AI helping you build. An AI assistant can generate a change in seconds, which
+     makes it tempting to skip the rehearsal and go straight to the live setting. Resist that. The speed of writing
+     the change has nothing to do with the safety of shipping it â€” that's exactly the gap staging is built to catch.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>Someone says "let's just try it in production, it's quick" â€” for anything touching real user data.</li>
+      <li>There's no staging environment at all, so every change's first real test is with live users.</li>
+      <li>Staging is so out of date or different from production that passing tests there doesn't mean much.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Which environment does this change get tested in before it reaches real users?"</li>
+      <li>"What's different between our staging setup and production that could cause surprises?"</li>
+      <li>"Is this change risky enough that it needs to go through staging first?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Staging exists specifically to mimic production closely enough that testing there predicts what will happen live â€” without any real-user risk.">
+    <p class="q">What is staging mainly for?</p>
+    <button>It's where you write brand-new code from scratch</button>
+    <button>Rehearsing changes in a copy that mimics production, before real users see them</button>
+    <button>It's just a backup copy of production in case something breaks</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="The classic cause is that the environments differ â€” different data, settings, or versions â€” not that the code itself is unreliable." >
+    <p class="q">"It works on my machine" but breaks for users usually means what?</p>
+    <button>The development and production environments differ in some way that matters</button>
+    <button>The user's device is broken</button>
+    <button>The code has no bugs, so it must be a fluke</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Production holds real user data and real consequences â€” risky changes belong in staging first, never tried live 'to see what happens.'">
+    <p class="q">Where should a risky, uncertain change be tested first?</p>
+    <button>Directly in production, since that's the real conditions</button>
+    <button>Nowhere â€” just ship it and watch for complaints</button>
+    <button>In staging, a rehearsal copy that mimics production</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Environments are separate copies of your software with different stakes â€” development is safe to break,
+     staging is your rehearsal, and production is the real thing your users touch, so risky changes always
+     go through the rehearsal first.</strong></p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a time an app you used seemed to be
+     "testing something" on you â€” an odd glitch, a half-finished feature. Do you think that reached you straight
+     from someone's workbench, or slipped past a rehearsal that didn't quite match reality? Share your guess in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="18-privacy-and-user-data.html"><span class="lbl">Previous</span>â† 18 Â· Privacy &amp; User Data</a>
+    <a class="r" href="20-deployment.html"><span class="lbl">Next</span>20 Â· Deployment â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 5 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17 Â· Common Vulnerabilities</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="17-common-vulnerabilities">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Keeping It Safe</span>
+    <span>Lesson 17 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">The greatest hits, in plain English</p>
+  <h1>Common Vulnerabilities</h1>
+  <p class="dek">You don't need to become a security researcher. You just need to recognize the shape of the
+     three mistakes that show up in breach after breach â€” because they all trace back to the same root cause.</p>
+
+  <h2>The common thread: trusting input it shouldn't</h2>
+  <p>Every vulnerability in this lesson comes from the same place: the app trusted something a user typed,
+     uploaded, or sent, and treated it as safe instructions or safe data without checking it first. Lesson 14
+     called this "never trust user input" â€” here's what it looks like when that rule gets broken.</p>
+
+  <h2>Injection: tricking the app into running your instructions</h2>
+  <p><strong>Injection</strong> happens when an attacker types something into an ordinary-looking box â€” a
+     search bar, a login field, a web address â€” that isn't just data, but is crafted to be understood as a
+     <em>command</em> by the system underneath. If the app doesn't check the input carefully, it ends up
+     following the attacker's instructions instead of just treating the text as, say, someone's name.</p>
+  <p>A simple mental picture: imagine a form letter that says "Dear [Name], your balance is [Amount]." If
+     "Name" is supposed to be filled in with plain text but someone instead writes a new instruction in that
+     blank â€” and the system that assembles the letter can't tell the difference â€” the new instruction gets
+     carried out. That's injection: input pretending to be data, but actually acting as a command.</p>
+
+  <h2>Exposed data: reachable by changing a number</h2>
+  <p><strong>Exposed data</strong> is private information that turns out to be reachable simply by editing part
+     of a web address or a request the app makes, without the app double-checking who's allowed to see it. This
+     is the same disaster described in Lesson 15 â€” an order, profile, or file that should be private, but is
+     actually shown to anyone who guesses or changes an ID number, because the app never rechecked ownership.</p>
+
+  <h2>Cross-site scripting: content that attacks other users</h2>
+  <p><strong>Cross-site scripting (XSS)</strong> happens when an app lets someone submit content â€” a comment,
+     a profile bio, a review â€” that isn't properly checked, and that content later gets shown to <em>other</em>
+     users in a way that lets it act instead of just display. Imagine a comment section where, instead of
+     leaving a normal comment, someone leaves something designed to run as an active instruction the moment
+     another visitor loads the page â€” quietly acting on that visitor's behalf, in their browser, without them
+     doing anything except viewing the page.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Injection</h3><p>Input tricks the app's own systems into running the attacker's
+       instructions.</p></div>
+    <div class="card"><h3>Exposed data</h3><p>Private info is reachable just by changing a number or address,
+       with no ownership check.</p></div>
+  </div>
+  <p>Cross-site scripting rounds out the set: malicious content aimed not at the app itself, but at the other
+     people who view it.</p>
+
+  <div class="note"><span class="label">Where this comes from</span> These three are part of the
+     <a href="https://owasp.org" target="_blank" rel="noopener">OWASP Top Ten</a>, the industry's list of the
+     most common, most damaging security mistakes in real software â€” a good name to recognize if you ever
+     see it mentioned in a security tool or a developer's notes.</div>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>User-typed text gets combined directly into a command or lookup without being checked first.</li>
+      <li>Changing an ID number in a web address shows you information that isn't yours.</li>
+      <li>Content one user submits (a comment, a bio) is shown to other users without being checked or cleaned first.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Is any user input combined directly into a command or database lookup without being checked first?"</li>
+      <li>"If I change an ID number in this request, could I see or edit something that isn't mine?"</li>
+      <li>"Is user-submitted content (comments, bios) properly checked before it's shown to other users?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="0" data-why="Injection is when input crafted to look like a command is followed by the underlying system instead of treated as plain data.">
+    <p class="q">What is "injection," in plain terms?</p>
+    <button>Input that tricks the app into running it as a command instead of treating it as plain data</button>
+    <button>An app running too slowly under heavy traffic</button>
+    <button>A user forgetting their password</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Exposed data happens when private info is reachable simply by editing an ID or address, because the app never rechecks who owns that data.">
+    <p class="q">A user changes a number in a web address and sees another customer's private order. What category of problem is this?</p>
+    <button>Cross-site scripting</button>
+    <button>Injection</button>
+    <button>Exposed data</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="1" data-why="Cross-site scripting is when unchecked user-submitted content is later shown to other users in a way that lets it act, not just display.">
+    <p class="q">What is cross-site scripting mainly about?</p>
+    <button>Guessing someone's password</button>
+    <button>Malicious content submitted by one user that acts against other users who view it</button>
+    <button>A database password stored in plain text</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Injection, exposed data, and cross-site scripting all come from the same root cause â€” the app
+     trusted input it shouldn't have â€” so checking every input before it's used is the single habit that
+     prevents most of this module's worst-case scenarios.</strong></p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Next time you type something into a search
+     box or comment field, notice: are you typing plain data, or could that box be tricked into treating your
+     text as an instruction? Share what you notice in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="16-secrets-and-keys.html"><span class="lbl">Previous</span>â† 16 Â· Secrets &amp; Keys</a>
+    <a class="r" href="18-privacy-and-user-data.html"><span class="lbl">Next</span>18 Â· Privacy &amp; User Data â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

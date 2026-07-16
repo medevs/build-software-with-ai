@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13 Â· Validate &amp; Gates</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="13-validate-and-gates">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#10b981">Module 3 Â· The Core Loop</span>
+    <span>Lesson 13 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Two questions, never one</p>
+  <h1>Validate &amp; Gates</h1>
+  <p class="dek">"Does it work?" and "Is it built well?" are two completely different questions. Keep them separate, and never let the human step be optional.</p>
+
+  <h2>Don't get the agent's first draft</h2>
+  <p>The final step of the core loop is Validate, and the first thing to understand about it is what it isn't:
+     it isn't "read whatever the agent produces on its first try and decide if you like it." A good implementation
+     step keeps working after the first draft â€” running checks, catching its own mistakes, and fixing them â€”
+     before a human ever looks at the result.</p>
+  <p>That self-correction is only possible because the plan from two lessons ago already spelled out a
+     validation strategy. The agent isn't guessing what "correct" means; it's checking its work against a bar you
+     set in advance.</p>
+
+  <h2>Two separate questions</h2>
+  <p>Validation actually splits into two distinct questions that should never get merged into one pass:</p>
+  <div class="cards two">
+    <div class="card"><h3>Does it work?</h3><p>This is <strong>validation</strong> â€” a functional question.
+       Does the code do what it's supposed to do? This is what the agent checks and self-corrects on, before
+       anyone looks at the result.</p></div>
+    <div class="card"><h3>Is it built well?</h3><p>This is <strong>review</strong> â€” a quality question. Is the
+       code well structured, maintainable, and free of shortcuts that will bite later? This needs a genuinely
+       fresh perspective, not the same conversation that wrote the code.</p></div>
+  </div>
+
+  <div class="warn"><span class="label">Why keep them apart</span> Mixing "does it work" with "is it well built"
+     tends to produce shallow versions of both â€” a quick functional glance that also tries to judge architecture,
+     and neither gets done properly. Treat them as two separate passes with two separate goals.</div>
+
+  <h2>The validation pyramid</h2>
+  <p>"Does it work?" is best answered cheapest-first. Picture it as a pyramid: broad, fast checks at the base,
+     narrower and more expensive checks as you go up.</p>
+  <div class="steps">
+    <li><strong>Lint and type checks.</strong> Fast, mechanical, catches obvious mistakes immediately.</li>
+    <li><strong>Unit tests.</strong> Confirms individual pieces of logic behave as expected.</li>
+    <li><strong>Integration checks.</strong> Confirms those pieces work together correctly.</li>
+    <li><strong>End-to-end.</strong> The agent actually drives the real, running application the way a user would, confirming the whole path works.</li>
+  </div>
+  <p>The agent runs this whole pyramid itself and fixes what it finds before handing anything back. Cheap and
+     broad checks first means problems get caught in seconds, not after a slow, expensive end-to-end run.</p>
+
+  <h2>Why review needs a different session</h2>
+  <p>Once something passes validation, it still needs the second question answered: is it actually built well?
+     That judgment shouldn't come from the same conversation that wrote the code â€” for the same reason a
+     student shouldn't grade their own exam. A session that's been immersed in "how I built this" naturally
+     defends its own choices.</p>
+  <p>So review runs separately, with fresh eyes that only see the finished result â€” the same instinct behind
+     starting implementation in a clean session, applied one step later in the process.</p>
+
+  <div class="tip"><span class="label">Recall check</span> This should sound familiar: it's the exact same idea
+     as the "no prior knowledge" bar from the plan â€” a fresh perspective, with no bias from what came before,
+     gives you the most honest judgment.</div>
+
+  <h2>The human is the final gate</h2>
+  <p>None of this â€” self-correction, the pyramid, fresh-eyes review â€” replaces a human making the final call.
+     After the agent's checks pass and a fresh review weighs in, a person still does their own manual check and
+     looks over the result before anything actually merges. Every task ends at a human gate. That gate has to
+     clear before any work that depends on this task moves forward.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="2" data-why="Validation ('does it work?') and review ('is it built well?') are deliberately kept separate â€” mixing them produces a shallow version of both.">
+    <p class="q">Why are "does it work" and "is it built well" treated as two separate questions?</p>
+    <button>Because only one of them actually matters</button>
+    <button>Because mixing them produces a shallow answer to both</button>
+    <button>Because agents can only answer one question per session</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="1" data-why="Cheap, broad checks (lint, types, unit tests) come first; slower, narrower checks like end-to-end come last â€” so problems get caught fast, before the expensive checks even run.">
+    <p class="q">In the validation pyramid, what comes first?</p>
+    <button>Cheap, broad checks like linting and unit tests</button>
+    <button>A full end-to-end run through the live application</button>
+    <button>A human manually reading every changed line</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="3" data-why="The 'no prior knowledge' test from the planning lesson and fresh-eyes review here are the same underlying idea: an unbiased perspective, with no memory of how the work was produced, judges it most honestly.">
+    <p class="q">Fresh-eyes review echoes an idea from an earlier lesson in this module. Which one?</p>
+    <button>Research scaling with how novel a task is</button>
+    <button>Running the loop on one small task at a time</button>
+    <button>The "no prior knowledge" test used to judge a plan</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>"Does it work?" and "is it built well?" are two separate questions, and a human is always the final
+     gate.</strong> The agent proves function through a cheap-first validation pyramid; a fresh session judges
+     quality; you decide what actually merges.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Have you ever caught yourself judging
+     "does it work" and "is it well built" in the same glance? What did that cost you later? Share it in the
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” this is one of the easiest habits to slip on, and hearing real examples helps it stick.</p>
+
+  <nav class="prevnext">
+    <a class="l" href="12-clean-context.html"><span class="lbl">Prev</span>â† 12 Â· Clean Context</a>
+    <a class="r" href="14-three-altitudes.html"><span class="lbl">Next</span>14 Â· The Three Altitudes â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 3 Â· The Core Loop Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

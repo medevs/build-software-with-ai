@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>18 Â· Two-Way vs. One-Way Doors</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="18-two-way-doors">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Planning at Altitude</span>
+    <span>Lesson 18 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Not every decision deserves the same amount of thought</p>
+  <h1>Two-Way vs. One-Way Doors</h1>
+  <p class="dek">Some decisions you can walk back through cheaply. Others you can't. Confusing the two is how teams either agonize over nothing or rush into something they can't undo.</p>
+
+  <h2>Two kinds of doors</h2>
+  <p>Picture a decision as a door you walk through. A <strong>two-way door</strong> swings both ways: if it turns out to be the wrong room, you just walk back and try another. A <strong>one-way door</strong> locks behind you: once you're through, undoing it is expensive, slow, or sometimes impossible. This framing â€” popularized at Amazon by Jeff Bezos â€” is a lens for calibrating how much deliberation any given decision actually deserves.</p>
+  <div class="note"><span class="label">The key move</span> The mistake isn't making a bad call. It's applying the wrong amount of care to it â€” agonizing over something reversible, or rushing something that isn't.</div>
+
+  <table>
+    <thead><tr><th></th><th>Two-way door</th><th>One-way door</th></tr></thead>
+    <tbody>
+      <tr><td>Reversibility</td><td>Cheap to undo</td><td>Expensive or impossible to undo</td></tr>
+      <tr><td>Right pace</td><td>Decide fast, move on</td><td>Slow down, deliberate, maybe spike it</td></tr>
+      <tr><td>Example</td><td>Naming a function, choosing a library for one small utility</td><td>A schema change that ripples through the API and several downstream consumers</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Most coding decisions are two-way doors</h2>
+  <p>Here's the part that surprises people: the overwhelming majority of decisions you make while building software are reversible. Which variable name to use, how to structure one function, which of two nearly-identical libraries to reach for â€” all of these are two-way doors. If you pick wrong, the fix is a small, contained change. Treating every one of these like a irreversible commitment is how planning grinds to a halt over decisions that genuinely don't matter that much.</p>
+  <p>The rare one-way door is the decision that touches many parts of a system at once â€” a shared schema change that ripples through an API and every consumer downstream of it, say, or a boundary decision that a dozen other pieces of code will come to depend on. Get one of those wrong, and the cost of walking it back isn't a small diff â€” it's re-touching everything that grew on top of it.</p>
+
+  <h2>Applying it while planning with an agent</h2>
+  <p>This lens is exactly what makes architecture decisions manageable. As you and an agent surface the two or three approaches worth considering, sort each decision by door type. For the two-way doors, let the agent move fast: propose an approach, pick one, keep going. Don't burn a planning session re-debating a reversible call. For the one-way doors, pull the human in for real deliberation â€” this is where your judgment matters most, and it's worth slowing down.</p>
+  <div class="tip"><span class="label">The concrete move: spike it</span> For a genuine one-way door, build a small proof-of-concept â€” a spike â€” that tests the riskiest assumption cheaply, before you commit the whole plan to it. A spike is deliberately small: just enough real code to prove (or disprove) the risky part, not a finished feature. Whatever needs a spike is usually also the part of your plan that's least certain, which makes it doubly worth doing early.</p>
+  </div>
+
+  <h2>A quick gut check</h2>
+  <ol class="steps">
+    <li>Ask: if this turns out wrong, what does undoing it cost? A few minutes of editing, or weeks of untangling downstream code?</li>
+    <li>If the cost of undoing it is small, treat it as two-way â€” decide quickly and move on.</li>
+    <li>If the cost of undoing it is large â€” touches many parts of the system, hard to reverse â€” slow down, deliberate, and consider a spike before committing.</li>
+  </ol>
+
+  <h2>Spaced recall: back to altitude</h2>
+  <p>This lens only works because you already know which altitude you're standing at. Two-way vs. one-way door judgment calls happen mostly at the architecture altitude â€” the middle one, from a couple lessons back â€” where you're deciding the shape of the solution before any ticket exists. Mixing altitudes and mixing up door types tend to go together: rushing a one-way door often looks exactly like accidentally deciding intent-level questions down at task altitude, without meaning to.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Two-way doors are cheap to reverse and should be decided quickly; the mistake is spending heavy deliberation on something you could just as easily walk back from." >
+    <p class="q">What should you do with a decision that's cheap and easy to reverse if it's wrong?</p>
+    <button>Schedule a dedicated planning session to deliberate carefully</button>
+    <button>Decide it quickly and move on</button>
+    <button>Build a spike before committing to it</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Spikes are the concrete move for a one-way door: a small proof-of-concept that tests the risky, hard-to-reverse assumption cheaply and early." >
+    <p class="q">What's the concrete move for de-risking a genuine one-way door before committing to it?</p>
+    <button>Write more detailed documentation about the decision</button>
+    <button>Ask the agent to proceed and fix problems if they come up</button>
+    <button>Build a small spike that tests the riskiest assumption first</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="Two-way vs. one-way doors is a lens applied at the architecture altitude â€” the shape of the solution â€” one level below intent and one level above per-ticket task work." >
+    <p class="q">Spaced recall: at which altitude does two-way vs. one-way door thinking mainly come into play?</p>
+    <button>Architecture altitude â€” while deciding the shape of the solution</button>
+    <button>Intent altitude â€” while writing the strategic doc</button>
+    <button>Task altitude â€” while an agent writes an individual function</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Match your deliberation to the door: move fast on what's reversible, and slow down â€” spike it if you have to â€” on what isn't.</strong> Most decisions are two-way doors; treat the rare one-way door with the care it deserves.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a recent decision you agonized over that turned out to be a two-way door â€” or one you rushed that turned out to be one-way. What would you do differently next time? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>; comparing notes with other learners is where a lot of the real learning happens.</div>
+
+  <nav class="prevnext">
+    <a href="17-architecture-decisions.html"><span class="lbl">Previous</span>17 Â· Architecture Decisions</a>
+    <a class="r" href="19-slicing-tickets.html"><span class="lbl">Next</span>19 Â· Slicing the Work â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

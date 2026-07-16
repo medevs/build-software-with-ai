@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curriculum Â· Software Sense</title>
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<nav class="topnav">
+  <a class="brand" href="index.html"><b>Software Sense</b></a>
+  <a href="index.html">Map</a>
+  <a href="curriculum.html">Curriculum</a>
+  <a href="resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <p class="kicker">The full path</p>
+  <h1>Curriculum</h1>
+  <p class="dek">30 lessons Â· 7 modules Â· start at the top. A âœ“ marks lessons you've opened on this device.</p>
+  <div id="mods"></div>
+  <p class="foot">Tip: the <a href="index.html">knowledge map</a> shows how every topic connects.</p>
+</div>
+
+<script src="course.js"></script>
+<script>
+  var C = window.COURSE, root = document.getElementById("mods");
+  C.modules.forEach(function (m) {
+    var block = document.createElement("section");
+    block.className = "modblock";
+    var h = document.createElement("h2");
+    h.style.borderLeftColor = m.color;
+    h.textContent = "Module " + m.n + " â€” " + m.title;
+    block.appendChild(h);
+    var grid = document.createElement("div"); grid.className = "lessongrid";
+    C.lessons.filter(function (l) { return l.module === m.id; }).forEach(function (l) {
+      var visited = false;
+      try { visited = !!localStorage.getItem("visited:" + l.slug); } catch (e) {}
+      var a = document.createElement("a");
+      a.className = "lcard" + (visited ? " visited" : "");
+      a.href = "lessons/" + l.slug + ".html";
+      a.style.borderLeftColor = m.color;
+      a.innerHTML = '<div class="n">Lesson ' + l.n + '</div><div class="t">' + l.title + '</div><div class="b">' + l.blurb + '</div>';
+      grid.appendChild(a);
+    });
+    block.appendChild(grid); root.appendChild(block);
+  });
+</script>
+</body>
+</html>

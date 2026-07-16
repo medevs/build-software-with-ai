@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8 Â· State &amp; Storage</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="08-state-and-storage">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#0ea5e9">Module 2 Â· Where Data Lives</span>
+    <span>Lesson 8 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">What the app knows right now</p>
+  <h1>State &amp; Storage</h1>
+  <p class="dek">"It forgot my cart" is one of the most common software complaints there is. Almost always, it
+     traces back to the same mix-up: something the app should have written down permanently was only ever held
+     in its head.</p>
+
+  <h2>"State" is what the app currently knows</h2>
+  <p><strong>State</strong> is a word for everything an app currently knows about what's going on: are you logged
+     in? What's in your cart? Which tab is open? Every one of those facts is a small piece of state, and the app
+     has to keep it <em>somewhere</em>. The whole question this lesson answers is: somewhere, but where, exactly â€”
+     because different somewheres behave very differently.</p>
+
+  <h2>Four places state can live</h2>
+  <div class="cards two">
+    <div class="card"><h3>The database</h3><p>Permanent. Survives closing the app, restarting the device, months
+       passing. This is where anything the user would be upset to lose belongs â€” orders, saved posts, account
+       details.</p></div>
+    <div class="card"><h3>A session</h3><p>Lasts only until you log out or leave â€” a temporary "you are logged in
+       as Priya" note the app keeps for as long as you're actively using it, then discards.</p></div>
+    <div class="card"><h3>Files</h3><p>Storage for things like uploaded photos or documents â€” not tucked inside a
+       database table, but saved as their own files, with the database usually just keeping a note of where to
+       find them.</p></div>
+    <div class="card"><h3>Memory (in-process)</h3><p>The most temporary of all: information held only while a
+       specific screen or feature is actively running, gone the instant it closes â€” like text you've typed but
+       not yet submitted.</p></div>
+  </div>
+  <p>Each one trades permanence for speed. Memory is instant but vanishes almost immediately. The database is
+     slower to read from but practically permanent. Sessions and files sit in between.</p>
+
+  <h2>Why mixing these up causes real bugs</h2>
+  <p>"It forgot my cart" is usually one specific mistake: the cart was kept only in memory or a session, when the
+     user expected database-level permanence. Add an item, close the app before checking out, come back tomorrow â€”
+     and if the cart lived only in short-term state, it's gone, even though nothing "went wrong" from the
+     computer's point of view. It did exactly what it was told; it just wasn't told to remember that far.</p>
+  <div class="cards two">
+    <div class="card"><h3>Too permanent</h3><p>Saving something to the database that should have been temporary â€”
+       like every keystroke of an unsent message â€” wastes space and can even leak information the user never
+       meant to keep.</p></div>
+    <div class="card"><h3>Too temporary</h3><p>Keeping something only in a session or memory that the user
+       clearly expects to survive â€” like a shopping cart, or a half-finished order â€” causes exactly the "it
+       forgot" complaint.</p></div>
+  </div>
+  <p>Getting this right isn't a technical detail â€” it's a judgment call about user expectations, which is
+     something you can absolutely weigh in on without writing a line of code.</p>
+
+  <h2>A quick look ahead: caching</h2>
+  <p>One more term you'll hear: <strong>caching</strong>, which means keeping a fast, temporary copy of
+     information that's really stored somewhere else (usually the database), so the app doesn't have to fetch
+     it the slow way every single time. It's a close cousin of the "where does state live" question â€” but it
+     comes with its own tricky failure mode (showing you stale, out-of-date information), so it gets a full
+     lesson of its own later in the course.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> When you hit a bug where the app
+     "forgets" something, the first useful question isn't "what's broken" â€” it's "where was this supposed to be
+     stored, and was it actually stored there?" That single question resolves a surprising share of real bugs.</div>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>Something the user would expect to survive closing the app â€” a cart, a draft, a setting â€” is only ever kept in memory or a session.</li>
+      <li>Sensitive information (like a full card number) is kept around in storage longer than it needs to be.</li>
+      <li>Nobody can tell you, for a given piece of data, which of the four places it actually lives.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Where exactly is [this specific piece of data] stored â€” database, session, file, or just memory?"</li>
+      <li>"If the user closes the app right now, what will they lose?"</li>
+      <li>"Is anything here being saved permanently that should really just be temporary?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="0" data-why="State is simply everything the app currently knows â€” logged in or not, what's in the cart, which tab is open.">
+    <p class="q">What does "state" mean in software?</p>
+    <button>Everything the app currently knows about what's going on right now</button>
+    <button>The physical location of the company's servers</button>
+    <button>A list of bugs that haven't been fixed yet</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="1" data-why="A cart the user expects to survive should live in the database, not just in a session or in-memory state that disappears when they leave." >
+    <p class="q">Someone complains their shopping cart emptied itself overnight. What's the most likely cause?</p>
+    <button>The database lost power</button>
+    <button>The cart was only kept in a temporary session or memory, not saved to the database</button>
+    <button>The user's internet connection was too slow</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>State is what the app knows right now, and it can live in the database, a session, a file, or
+     memory â€” mixing those up is exactly how "it forgot my cart" bugs happen.</strong> Matching the storage to
+     how permanent the user expects it to be is the whole game.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a time an app forgot something you
+     expected it to remember. Based on what you just read, guess which of the four places it was probably storing
+     that information wrong. Share your guess in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="07-modeling-your-data.html"><span class="lbl">Prev</span>7 Â· Modeling Your Data</a>
+    <a class="r" href="09-migrations-and-backups.html"><span class="lbl">Next</span>9 Â· Migrations &amp; Backups â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 2 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

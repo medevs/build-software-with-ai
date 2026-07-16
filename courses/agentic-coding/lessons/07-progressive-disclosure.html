@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7 Â· Progressive Disclosure</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="07-progressive-disclosure">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#0ea5e9">Module 2 Â· The Context Layer</span>
+    <span>Lesson 7 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Why more isn't always better context</p>
+  <h1>Progressive Disclosure</h1>
+  <p class="dek">If you were tempted to cram everything the agent might ever need into its always-loaded context, this lesson is the reason not to.</p>
+
+  <h2>Context is scarce, not free</h2>
+  <p>It's tempting to think "more context is always better" â€” if a little background helps the agent, surely a
+     lot helps more. It doesn't work that way. An agent's attention is a limited resource, much like a person's.
+     Load it up with pages of detail before it has even seen the task, and the important parts get buried in
+     the unimportant ones. Past a certain point, more upfront context makes the agent's judgment noticeably
+     worse, not better.</p>
+  <div class="warn"><span class="label">The trap</span> Writing a giant, all-inclusive rules file feels
+     thorough. In practice it competes with itself â€” the agent has to wade through everything you ever thought
+     might matter just to find the one convention relevant to the task in front of it.</div>
+
+  <h2>The fix: two tiers, not one pile</h2>
+  <p>The fix isn't to write less down. It's to organize what you write into two tiers:</p>
+  <div class="cards two">
+    <div class="card"><h3>Always-loaded</h3><p>A small set that ships into every single conversation, whatever
+       the task. Kept short and high-level on purpose â€” just enough for the agent to orient and to know what
+       exists.</p></div>
+    <div class="card"><h3>On-demand</h3><p>Everything else: the heavier detail, the edge cases, the
+       task-specific instructions. It only gets pulled in when a task actually calls for it.</p></div>
+  </div>
+  <p>Think of it like a table of contents versus the chapters behind it. You don't hand someone the entire book
+     open to every page at once â€” you hand them the table of contents, and they turn to the one chapter they
+     need. The rest of the book is still there, fully available, just not competing for attention until it's
+     relevant.</p>
+  <figure>
+    <svg viewBox="0 0 520 170" width="100%" style="max-width:520px" role="img" aria-label="Always-loaded tier stays small; on-demand tier expands only when a task needs it">
+      <rect x="10" y="20" width="180" height="50" rx="6" fill="#0ea5e922" stroke="#0ea5e9"/>
+      <text x="100" y="50" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">Always-loaded (small)</text>
+      <polygon points="200,45 250,45 250,35 290,55 250,75 250,65 200,65" fill="#8a3a2e"/>
+      <text x="245" y="25" text-anchor="middle" font-family="sans-serif" font-size="11" fill="currentColor">task needs detail â†’</text>
+      <rect x="300" y="10" width="210" height="150" rx="6" fill="#10b98122" stroke="#10b981"/>
+      <text x="405" y="90" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">On-demand detail,</text>
+      <text x="405" y="108" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">loaded only when relevant</text>
+    </svg>
+    <figcaption>Small and constant on the left; large and situational on the right.</figcaption>
+  </figure>
+
+  <h2>Where it shows up in your context layer</h2>
+  <p>Two of the six building blocks from the last lesson are built around exactly this idea:</p>
+  <ul>
+    <li><strong>Skills</strong> only show the agent a name and a one-line description up front â€” that's the
+       always-loaded part, and it's just enough for the agent to recognize "this is relevant" and decide to use
+       it. The full step-by-step instructions only get read once the skill is actually invoked.</li>
+    <li><strong>Rules</strong> work the same way. The always-loaded rules file stays short and high-level, while
+       detail specific to one kind of task â€” a particular workflow, a tricky subsystem â€” lives in a separate
+       reference document that the rules file points to but doesn't paste in. The agent only opens that
+       reference when the task in front of it matches.</li>
+  </ul>
+  <div class="tip"><span class="label">Why this compounds</span> Doing the heavy explaining once, up front, in a
+     well-organized reference means the agent never has to re-explore or re-learn it from scratch in a later
+     session. You pay the cost of writing it once; every future task gets to borrow it for free, without
+     paying the attention cost of loading it every single time.</div>
+
+  <h2>A habit that makes this easier</h2>
+  <p>Progressive disclosure gets much easier to maintain if you keep a consistent structure across your
+     documents â€” the same section headings, in the same order, every time. Predictable structure is what lets
+     you (and the agent) jump straight to the slice that's needed instead of reading a whole document to find
+     it. It's a small habit, but it's what makes "load only what's relevant" actually practical instead of just
+     a nice idea.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Context is a scarce resource â€” piling everything into the always-loaded tier buries the relevant details and degrades the agent's judgment." >
+    <p class="q">Why doesn't stuffing every possible detail into the always-loaded rules file make the agent smarter?</p>
+    <button>The agent can't read long files at all</button>
+    <button>It competes for limited attention and buries what's actually relevant</button>
+    <button>Long files cost extra to store</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="A skill's name and description are the always-loaded tier â€” enough for the agent to recognize relevance. The full instructions are on-demand, read only once invoked." >
+    <p class="q">What does a skill show the agent before it's ever invoked?</p>
+    <button>Just its name and a short description</button>
+    <button>The entire step-by-step workflow</button>
+    <button>Nothing â€” skills are invisible until run</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Keep the always-loaded context small, and push everything else into on-demand detail the agent
+     pulls in only when a task needs it.</strong> That's how skills and rules stay useful instead of becoming
+     their own burden.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Look at any long instructions file you've
+     handed an agent recently. Is there a paragraph in there that only matters for one specific kind of task?
+     Could it move to an on-demand reference instead? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="06-six-building-blocks.html"><span class="lbl">Prev</span>6 Â· The Six Building Blocks</a>
+    <a class="r" href="08-evolving-the-system.html"><span class="lbl">Next</span>8 Â· Evolving the System â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 2 Â· The Context Layer Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

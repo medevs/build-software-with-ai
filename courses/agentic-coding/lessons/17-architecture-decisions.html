@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>17 Â· Architecture Decisions</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="17-architecture-decisions">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Planning at Altitude</span>
+    <span>Lesson 17 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Decide the shape before you slice the work</p>
+  <h1>Architecture Decisions</h1>
+  <p class="dek">The strategic doc says what and why. Before any ticket gets written, something else has to say how â€” the high-level shape of the solution. That's the architecture decisions doc, and it lives at the middle altitude.</p>
+
+  <h2>The twin of the strategic doc</h2>
+  <p>Recall the three altitudes: intent, architecture, task. The strategic doc from a couple lessons back covers intent. Architecture decisions cover the next one down â€” the stack you'll use, the key components, how data flows between them, and where this work plugs into anything that already exists. Think of the two documents as twins: linked, but deliberately kept separate, so a reader focused on the product doesn't have to wade through engineering detail, and a reader focused on engineering doesn't have to re-litigate the product bet.</p>
+  <div class="note"><span class="label">The key move</span> Architecture decisions answer "what's the shape of the solution," not "what exact code do we write." That's still one altitude further down, at task level, per ticket.</div>
+
+  <h2>Decisions, not tasks</h2>
+  <p>It's tempting, once you're deciding the how, to keep going straight down into pseudocode, schema diffs, and file-by-file plans. Resist that. An architecture doc deliberately stops one level above implementation. It records the choice â€” "we'll add a new adapter here, following the existing pattern" â€” and leaves the exact lines of code to the per-ticket planning that happens later, one small slice at a time. Stopping here keeps the doc a decision record, not a task list, and keeps it useful even as the fine-grained plan around it changes.</p>
+
+  <h2>Ground it in the real codebase</h2>
+  <p>An architecture decision made in the abstract, without looking at the actual code, is a guess wearing a suit. The useful version of this doc comes from holding two things side by side: the actual codebase â€” its existing structure, its established patterns, the places new code is meant to plug in â€” and the strategic doc's intent. Decisions that ignore the first tend to look great on a whiteboard and fall apart on contact with a real file tree.</p>
+  <p>In practice, that means the decisions here should point at real seams: the boundaries and extension points your project already has, documented in your project's own rules. New work should plug into those known seams rather than inventing new ones for no reason. When it does need to invent something new, that's worth calling out explicitly as a decision, not sliding past quietly.</p>
+
+  <h2>What the doc contains</h2>
+  <div class="cards two">
+    <div class="card"><h3>Options considered</h3><p>The two or three real approaches you weighed, briefly, so the final call has visible reasoning behind it instead of appearing out of nowhere.</p></div>
+    <div class="card"><h3>The recommended approach</h3><p>The stack, the key components, and how data moves between them â€” the actual shape you're committing to.</p></div>
+    <div class="card"><h3>Integration points</h3><p>Where this plugs into what already exists, grounded in the codebase's real seams.</p></div>
+    <div class="card"><h3>Door decisions</h3><p>Which calls are cheap to reverse and which aren't â€” the subject of the next lesson.</p></div>
+  </div>
+
+  <div class="tip"><span class="label">Use the template</span> A ready-made architecture decisions template is available in the course resources: <a href="https://github.com/your-org/agentic-coding-course/tree/main/templates/architecture" target="_blank" rel="noopener">architecture template</a>. Start there instead of a blank page.</div>
+
+  <h2>Why decide this before slicing tickets</h2>
+  <p>Once architecture decisions are settled, every ticket that comes out of slicing the work inherits the same shape â€” the same stack, the same boundaries, the same conventions â€” instead of each ticket quietly reinventing its own. That consistency is what lets several small, independent loops of work stay compatible with each other later, even when they're implemented separately, sometimes weeks apart. Skip this step, and you get a codebase that works, piece by piece, but doesn't agree with itself.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Architecture decisions are the middle altitude â€” the high-level shape of the solution â€” deliberately one level above per-ticket implementation detail." >
+    <p class="q">Where do architecture decisions sit relative to the three altitudes?</p>
+    <button>At intent altitude, alongside the problem statement</button>
+    <button>At the middle altitude â€” the high-level shape, above individual ticket detail</button>
+    <button>At task altitude, describing the exact code to write</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Grounding decisions in the actual codebase â€” its real structure and existing seams â€” is what separates a workable architecture decision from a guess made in the abstract." >
+    <p class="q">Why should architecture decisions be grounded in the actual codebase rather than decided in the abstract?</p>
+    <button>Because the codebase is more interesting to read than the strategic doc</button>
+    <button>It isn't necessary â€” architecture is a purely conceptual exercise</button>
+    <button>Because decisions that ignore existing structure and seams tend to look fine on paper and fall apart once real code is involved</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Decide the high-level shape â€” stack, components, data flow, integration points â€” before you slice any tickets, and ground every decision in the real codebase.</strong> That's what keeps the individual loops of work consistent with each other.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a project where two parts of the codebase clearly disagreed with each other â€” different patterns for the same kind of problem. Would an architecture decisions doc, made once up front, have prevented that? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>; comparing notes with other learners is where a lot of the real learning happens.</div>
+
+  <nav class="prevnext">
+    <a href="16-falsifiable-hypothesis.html"><span class="lbl">Previous</span>16 Â· The Falsifiable Hypothesis</a>
+    <a class="r" href="18-two-way-doors.html"><span class="lbl">Next</span>18 Â· Two-Way vs. One-Way Doors â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

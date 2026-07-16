@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 Â· How Apps Get Built</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="05-how-apps-get-built">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#6366f1">Module 1 Â· How Software Works</span>
+    <span>Lesson 5 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">A time machine for your instructions</p>
+  <h1>How Apps Get Built</h1>
+  <p class="dek">All the instructions from Lesson 1, wired together with the dependencies from Lesson 4, have to live somewhere and change safely over time. Here's how that actually works.</p>
+
+  <h2>The codebase: all the instructions, together</h2>
+  <p>Every instruction file that makes up an app â€” frontend, backend, and everything in between â€” lives together
+     in a collection called the <strong>codebase</strong>. Think of it as the complete recipe book for a restaurant:
+     every recipe, every prep note, every substitution rule, all in one place. When your AI "opens the codebase," it's
+     reading that whole recipe book before changing anything in it.</p>
+  <p>A codebase is rarely one single file. It's usually hundreds or thousands of smaller files, each handling one
+     piece â€” one screen, one rule, one connection to the database â€” organized into folders the way a recipe book is
+     organized into chapters.</p>
+
+  <h2>Version control: a save-history and time machine</h2>
+  <p>Recipe books get revised. Someone tweaks a recipe, and if it turns out worse, you want to go back to the old
+     version. Software has the same need, magnified: many changes, made often, by possibly more than one person (or
+     AI) at once. The tool that manages this is called <strong>version control</strong> â€” most commonly a system
+     called <strong>git</strong>.</p>
+  <blockquote>Git is a save-history for your entire codebase: every meaningful change is recorded, labeled, and reversible.</blockquote>
+  <p>Each recorded change is called a <strong>commit</strong> â€” a labeled snapshot of "here's exactly what the
+     codebase looked like, and here's what changed, at this moment." String enough commits together and you get a
+     complete timeline of how the app came to be exactly what it is today.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Undo, for real</h3><p>If a change breaks something, version control lets you go back to
+       the last known-good commit â€” a real undo button for the whole codebase, not just your last keystroke.</p></div>
+    <div class="card"><h3>Who changed what</h3><p>Every commit records what changed and, usually, why. When
+       something goes wrong, you can look back through the history instead of guessing.</p></div>
+  </div>
+
+  <div class="note"><span class="label">Why this matters for you</span> An AI that changes code without any version
+     control is working without a safety net â€” there's no "before" to go back to if the change makes things worse.
+     Asking "is this being tracked with git, and can we undo it?" is one of the simplest habits that protects you.</div>
+
+  <h2>Your machine vs. what users actually see</h2>
+  <p>Here's something that trips people up: the codebase usually exists in more than one place at once. There's the
+     copy being worked on â€” often called a <strong>local</strong> copy, sitting on a developer's or an AI's own
+     machine â€” and there's the copy actually running for real users, sometimes called <strong>live</strong> or
+     <strong>production</strong>. A change isn't real for your users until it's moved from the first place to the
+     second.</p>
+  <p>It's exactly like a restaurant testing a new dish in a back kitchen before ever putting it on the public menu.
+     Something can look completely finished on the test copy and still not be on the real menu yet. We'll spend a
+     whole lesson later on these different "environments" and what has to happen to move safely between them.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>Changes are being made with no version control at all â€” no history, no undo.</li>
+      <li>"I already fixed it" with no clarity on whether that fix is only on a local copy or actually live for users.</li>
+      <li>Nobody can tell you what changed between "it worked yesterday" and "it's broken today."</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Is this change being tracked with version control, and can we undo it if needed?"</li>
+      <li>"Is this fix only on my local copy, or is it actually live for users yet?"</li>
+      <li>"Can you show me the history of changes to this part of the codebase?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Software is precise instructions a computer follows literally â€” with no common sense to fill in gaps, as Lesson 1 covered." >
+    <p class="q">Spaced recall from Lesson 1: why does the quality of the instructions matter so much in software?</p>
+    <button>Because computers are slow at reading long files</button>
+    <button>Because a computer does exactly what it's told, with no common sense to fill in gaps</button>
+    <button>Because instructions are only a small part of any app</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Working once in a demo only proves it ran under those exact conditions â€” not that it's safe, tested, or ready for real users, as Lesson 1 covered." >
+    <p class="q">Spaced recall from Lesson 1: an AI shows a feature working once in a demo. What has that actually proven?</p>
+    <button>That it's ready to ship to real users</button>
+    <button>That it will hold up under heavy traffic</button>
+    <button>Only that it ran once, under those exact conditions</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="A commit is a labeled, reversible snapshot of the codebase at a moment in time â€” the core unit of version control's save-history." >
+    <p class="q">What is a "commit," in plain terms?</p>
+    <button>A labeled snapshot of what changed in the codebase at a moment in time</button>
+    <button>The live copy of the app that real users see</button>
+    <button>A pre-built library the app depends on</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>A codebase lives in more than one place and changes over time â€” version control is what lets you undo, track, and trust those changes instead of just hoping they were safe.</strong></p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a time you wished you could "undo" a
+     real-world change â€” a sent email, a home renovation, a decision at work. What would a save-history have given
+     you back? Share your example in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="04-languages-and-dependencies.html"><span class="lbl">Prev</span>â† 4 Â· Languages &amp; Dependencies</a>
+    <a class="r" href="06-what-is-a-database.html"><span class="lbl">Next</span>6 Â· What a Database Is â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 1 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

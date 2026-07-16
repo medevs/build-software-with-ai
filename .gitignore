@@ -1,0 +1,6 @@
+# OS / editor cruft — this is a dependency-free static site, nothing to build.
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/

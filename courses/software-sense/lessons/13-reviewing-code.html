@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13 Â· Reviewing Code</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="13-reviewing-code">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#10b981">Module 3 Â· Making It Correct</span>
+    <span>Lesson 13 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">A second look, before the instructions go live</p>
+  <h1>Reviewing Code</h1>
+  <p class="dek">You don't need to write code to review it well. You need to ask the right questions and actually read the answers.</p>
+
+  <h2>Code review is a second pair of eyes, on purpose</h2>
+  <p><strong>Code review</strong> is a deliberate second look at a set of instructions before they go live, asking three plain questions: is this correct, is this clear, and is this safe? It happens after something is built but before real users touch it â€” the last checkpoint where a problem is cheap to catch, instead of expensive to clean up afterward.</p>
+  <p>Here's the part that surprises people: reviewing doesn't require being able to write the code yourself. It requires being able to ask sharp questions and actually evaluate the answers â€” a skill that's entirely learnable without ever touching a programming language.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> When an AI writes the code, you become the reviewer by default â€” there's often no one else in the loop. That makes this the single most valuable skill in this course: not writing software, but knowing what to ask about it before you trust it.</div>
+
+  <h2>Three questions that do most of the work</h2>
+  <div class="cards two">
+    <div class="card"><h3>Is it correct?</h3><p>Does it actually do what the <a href="10-what-done-means.html">requirement</a> said, including the edge cases â€” empty, duplicate, huge, malicious â€” not just the happy path?</p></div>
+    <div class="card"><h3>Is it clear?</h3><p>Can the AI explain, in plain English, what this piece does and why â€” in a way that actually makes sense to you? If the explanation is foggy, that's a signal, not a formality.</p></div>
+  </div>
+  <div class="card"><h3>Is it safe?</h3><p>What happens with a wrong or hostile input? Does a mistake fail loudly and safely, or silently do the wrong thing? We go deeper on this in <a href="14-security-mindset.html">the next lesson</a>.</p></div>
+
+  <h2>Ask for the plain-English explanation â€” then actually read it</h2>
+  <p>The single highest-leverage review habit: ask the AI to explain what it just built, in plain English, as if to someone who's never coded. Then genuinely read the answer, sentence by sentence, and ask yourself: does this match what I actually asked for?</p>
+  <p>This works because it forces the explanation to surface at the level you can judge â€” behavior and intent â€” rather than syntax you can't. If the explanation mentions handling something you never discussed, or skips something you clearly asked for, that mismatch is exactly what review is for catching.</p>
+
+  <h2>What good looks like</h2>
+  <p>You don't need deep technical skill to recognize these â€” they show up in how the AI describes and organizes its own work:</p>
+  <table>
+    <tr><th>Good sign</th><th>What it looks like in the AI's explanation</th></tr>
+    <tr><td>Readable</td><td>The explanation is short and specific, not vague hand-waving</td></tr>
+    <tr><td>Does one thing</td><td>Each piece has one clear job you could name in a sentence</td></tr>
+    <tr><td>Handles errors</td><td>It says what happens on bad input â€” not just the happy path</td></tr>
+  </table>
+  <p>This is simplified â€” real review of complex systems involves technical judgment too, and pairing with someone technical is valuable as stakes rise. But these three signs get you remarkably far on their own, because they're really the same three questions from lesson 10 and 11, asked one more time before launch.</p>
+
+  <h2>Spaced recall: the demo trap, again</h2>
+  <p>Back in <a href="01-what-is-software.html">lesson 1</a> you learned the most important idea in this course: a demo working once is not the same as being ready for real users. Review is where that idea becomes an action. It's the checkpoint that stops "it ran once, in a demo" from quietly becoming "we shipped it" without anyone asking the harder questions in between.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>Nobody asked the AI to explain its own work in plain English before it shipped.</li>
+      <li>The explanation you got was vague, and you accepted it anyway instead of asking again.</li>
+      <li>The only thing reviewed was whether it ran â€” not whether it was correct, clear, and safe.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Explain what this does in plain English, as if I've never coded â€” what does each part handle?"</li>
+      <li>"Walk me through what happens on a wrong, empty, or malicious input here."</li>
+      <li>"What's the one part of this you're least confident about, and why?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Code review asks whether something is correct, clear, and safe â€” a judgment call anyone can learn to make by asking sharp questions and reading the answers, not a skill limited to people who can write code.">
+    <p class="q">Do you need to know how to code to review code well?</p>
+    <button>Yes, review is only meaningful if you could have written it yourself</button>
+    <button>No â€” asking sharp questions and evaluating the plain-English answers is a learnable, non-technical skill</button>
+    <button>No, because AI code never needs reviewing</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="A demo proving the happy path works once is not proof of correctness, clarity, or safety â€” review is the checkpoint that asks those questions before real users are exposed.">
+    <p class="q">Why isn't "it worked in the demo" enough to skip review?</p>
+    <button>It is enough â€” a working demo is the whole point of review</button>
+    <button>Demos are always faked, so they prove nothing at all</button>
+    <button>A demo only proves the happy path ran once â€” not that it's correct, clear, and safe overall</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="Correct, clear, and safe are the three review questions â€” does it do what was required (including edge cases), can it be explained plainly, and does it fail safely on bad input.">
+    <p class="q">What are the three questions at the heart of code review?</p>
+    <button>Is it correct, is it clear, and is it safe?</button>
+    <button>Is it fast, is it fancy, and is it finished?</button>
+    <button>Did it compile, did it deploy, and did it get approved?</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>You can review software without writing it â€” ask whether it's correct, clear, and safe, and actually read the plain-English explanation you get back.</strong> That habit is what turns "it ran once" into software you can trust.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Next time an AI builds something for you, ask it to explain the result in plain English before you accept it. What did that explanation reveal that you hadn't thought to ask about? Share it in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="12-bugs-and-debugging.html"><span class="lbl">Prev</span>12 Â· Bugs &amp; Debugging</a>
+    <a class="r" href="14-security-mindset.html"><span class="lbl">Next</span>14 Â· The Security Mindset â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 3 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

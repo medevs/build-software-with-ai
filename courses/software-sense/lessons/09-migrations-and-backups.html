@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9 Â· Migrations &amp; Backups</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="09-migrations-and-backups">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#0ea5e9">Module 2 Â· Where Data Lives</span>
+    <span>Lesson 9 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Changing the foundation without bringing down the house</p>
+  <h1>Migrations &amp; Backups</h1>
+  <p class="dek">Apps grow, and their data model grows with them. The question isn't whether the shape of your
+     data will need to change â€” it's whether you change it safely, or you find out the hard way what you lost.</p>
+
+  <h2>A migration is a careful, tracked change to the data's shape</h2>
+  <p>Back in <a href="07-modeling-your-data.html">Lesson 7</a>, we compared the data model to a house's
+     foundation â€” cheap to plan carefully up front, expensive to redo once real data is sitting on top of it.
+     A <strong>migration</strong> is exactly that redo, done as safely as possible: a written, step-by-step,
+     tracked change to the shape of the database â€” adding a column, splitting a table, renaming a field â€” done
+     in a way that doesn't damage the data already there.</p>
+  <p>The word "tracked" matters. A good migration is a recorded, repeatable set of steps â€” not someone quietly
+     clicking around in the database by hand. That record means the same change can be tested first, applied
+     the same way every time, and undone if something goes wrong.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Adding a room</h3><p>Adding a new column, like letting users add a profile picture, is
+       usually a low-risk migration â€” existing rows just get a blank or default value for the new field.</p></div>
+    <div class="card"><h3>Moving a wall</h3><p>Splitting one table into two, or changing what a column means, is
+       a high-risk migration â€” every existing row has to be reshaped to fit, without losing or scrambling
+       anything.</p></div>
+  </div>
+
+  <h2>Backups: copies for when something goes wrong anyway</h2>
+  <p>A <strong>backup</strong> is a regular, separate copy of the database, kept so that a mistake, a bad
+     migration, a hardware failure, or an attack doesn't mean the data is gone forever. Think of it as the
+     software equivalent of photographing your passport before a trip: you hope you never need it, and the one
+     time you do, nothing else matters more.</p>
+  <p>Backups and migrations are a pair for a reason: a migration is the moment data is most at risk of being
+     damaged, which is exactly why you'd want a recent backup sitting there first, just in case.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> "We'll add backups later" is one of the
+     most common things said right before real data gets lost for good. Backups aren't a nice-to-have polish
+     item â€” they're the safety net that has to exist before real users' data does.</div>
+
+  <h2>The golden rules</h2>
+  <div class="steps">
+    <li><strong>Never lose user data.</strong> Any change to the data's shape should be checked, before it runs
+       for real, for whether it could delete or corrupt information that's already there.</li>
+    <li><strong>Test migrations before running them for real.</strong> Run the change against a copy of the data
+       first, confirm it does what it's supposed to, then apply it to the real thing.</li>
+    <li><strong>Keep backups you've actually tried restoring.</strong> A backup nobody has ever restored from is
+       an assumption, not a safety net â€” the only way to know it works is to have practiced getting data back
+       out of it.</li>
+  </div>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>A change to the database's shape gets run directly on real user data with no test first.</li>
+      <li>Backups exist "in theory," but no one has ever actually restored one to check it works.</li>
+      <li>"We'll add backups later" is said about an app that already has real users on it.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Walk me through this migration step by step â€” could it delete or damage any existing data?"</li>
+      <li>"Has this migration been tested against a copy of real data before running it for real?"</li>
+      <li>"How often are backups taken, and when was one last actually restored to confirm it works?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="A migration is a careful, tracked, tested change to the database's shape â€” designed specifically to not damage existing data." data-spaced="7">
+    <p class="q">Why does reshaping your data model later (from Lesson 7) require special care?</p>
+    <button>Because it's against the law to change a database once it's created</button>
+    <button>Because real data is already sitting on top of the old shape, and a careless change can lose or scramble it</button>
+    <button>Because databases can only be changed once a year</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="A migration is the tracked, careful change itself; a backup is the separate safety copy in case anything â€” including the migration â€” goes wrong.">
+    <p class="q">What's the difference between a migration and a backup?</p>
+    <button>They're two names for the same thing</button>
+    <button>A migration copies data elsewhere; a backup changes its shape</button>
+    <button>A migration is a tracked change to the data's shape; a backup is a safety copy in case something goes wrong</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="An untested backup is just an assumption â€” restoring it is the only way to confirm it actually works when you need it.">
+    <p class="q">Why should you actually test restoring from a backup, not just take backups?</p>
+    <button>Because a backup that's never been restored might not actually work when you need it</button>
+    <button>Because backups expire after 24 hours</button>
+    <button>Because it makes the database run faster</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Migrations let you change your data's shape as the app grows, and backups protect you when
+     something goes wrong anyway â€” treat both as required safety equipment, not optional polish.</strong> Test
+     the change, and test that you can recover, before real users' data is on the line.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> If your most important app lost all its
+     data tomorrow, would there be a tested, working way to get it back? Share your honest answer in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="08-state-and-storage.html"><span class="lbl">Prev</span>8 Â· State &amp; Storage</a>
+    <a class="r" href="10-what-done-means.html"><span class="lbl">Next</span>10 Â· What "Done" Really Means â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 2 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

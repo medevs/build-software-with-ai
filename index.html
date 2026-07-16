@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builder Academy — learn to ship real software with AI</title>
+<meta name="description" content="Two complementary courses: Software Sense teaches what good software needs; The Agentic Coding Course teaches the system for building it reliably with an AI agent.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav class="topnav">
+  <a class="brand" href="index.html">AI <b>Builder</b> Academy</a>
+  <a href="#courses">Courses</a>
+</nav>
+
+<header class="hero home-hero">
+  <p class="hero-kicker">Two courses · one goal</p>
+  <h1>Ship real software with AI — and know it's good.</h1>
+  <p>Free, self-paced, dependency-free courses. No framework worship, no tool lock-in:
+     just the understanding and the system you need to build reliably with an AI agent.</p>
+  <a class="cta" href="#courses">Pick your course ↓</a>
+</header>
+
+<main class="wrap home-wrap" id="courses">
+  <p class="kicker">The courses</p>
+  <h2 class="home-h2">Pick your starting point</h2>
+  <div class="coursecards" id="coursecards"></div>
+
+  <div class="note fit-note"><span class="label">How these fit together</span>
+    <strong>Software Sense</strong> teaches <em>what</em> good software needs — data, testing, security,
+    deployment, cost — in plain English. <strong>The Agentic Coding Course</strong> teaches the
+    <em>system</em> for building it reliably with an AI agent — research, plan, implement, validate.
+    One gives you judgment, the other gives you the method. Take either first; together they cover
+    the whole journey from "I have an idea" to "it's live and I trust it."</div>
+
+  <footer class="foot home-foot">AI Builder Academy · 60 lessons · self-paced &amp; free ·
+    built as plain HTML — no accounts, no tracking. Progress is saved only in your browser.</footer>
+</main>
+
+<script src="assets/courses.js"></script>
+<script>
+  var root = document.getElementById("coursecards");
+  window.COURSES.forEach(function (c) {
+    var card = document.createElement("article");
+    card.className = "coursecard";
+    card.style.setProperty("--course-accent", c.accent);
+    card.innerHTML =
+      '<p class="cc-tag">' + c.tagline + "</p>" +
+      '<h3><a href="' + c.dir + 'index.html">' + c.title + "</a></h3>" +
+      '<p class="cc-pitch">' + c.pitch + "</p>" +
+      '<p class="cc-meta">' + c.modules + " modules · " + c.lessons + " lessons · ~5 min each</p>" +
+      '<p class="cc-aud">' + c.audience + "</p>" +
+      '<div class="cc-actions">' +
+      '<a class="btn primary" href="' + c.dir + c.firstLesson + '">Start lesson 1</a>' +
+      '<a class="btn" href="' + c.dir + 'index.html">Explore the map</a>' +
+      '<a class="btn ghost" href="' + c.dir + 'curriculum.html">Curriculum</a></div>';
+    root.appendChild(card);
+  });
+</script>
+</body>
+</html>

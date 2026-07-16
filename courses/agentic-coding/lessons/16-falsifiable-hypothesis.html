@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>16 Â· The Falsifiable Hypothesis</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="16-falsifiable-hypothesis">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Planning at Altitude</span>
+    <span>Lesson 16 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">State your bet so reality can prove it wrong</p>
+  <h1>The Falsifiable Hypothesis</h1>
+  <p class="dek">"This would be nice to have" is a wish. "If we build X, then Y measurable thing will happen â€” and if it doesn't, we were wrong" is a bet. Only one of those can be tested before you spend weeks building it.</p>
+
+  <h2>A wish versus a bet</h2>
+  <p>Somewhere in most surveys of shipped software sits an uncomfortable number: a large share of features that teams build are barely used once they ship. That's not usually a coding failure. It's a planning failure â€” nobody stated, in a checkable way, what the feature was supposed to do before they started building it. An agent makes this worse, not better, because it makes building fast and cheap enough that "let's just build it and see" feels like a reasonable plan. It isn't â€” building fast doesn't tell you whether you built the right thing.</p>
+  <div class="note"><span class="label">The key move</span> A falsifiable hypothesis names the outcome you expect <em>and</em> the condition that would prove you wrong. If nothing could ever prove it wrong, it isn't a hypothesis â€” it's just a hope with confident phrasing.</div>
+
+  <h2>The shape of the sentence</h2>
+  <p>A falsifiable hypothesis fits a simple template: <strong>"We believe [this change] will cause [this measurable outcome]."</strong> The word doing all the work is <em>measurable</em>. If you can't imagine the data that would come back and disagree with you, you haven't written a hypothesis yet â€” you've written a preference.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Vague hope</h3><p>"Users will love having a search bar." No number, no way to be wrong, no way to check it.</p></div>
+    <div class="card"><h3>Falsifiable bet</h3><p>"We believe adding search will cause weekly active users to complete their task in under two clicks, for at least 60% of sessions. If usage stays below that, we were wrong."</p></div>
+  </div>
+
+  <h2>Why the "wrong" condition is the whole point</h2>
+  <p>It's easy to write a hypothesis that sounds testable and quietly isn't. "This will improve the user experience" feels concrete but names no number and no failure condition â€” it can never come back false. A real falsifiable hypothesis forces you to decide, in advance, what evidence would make you abandon the idea. That's uncomfortable on purpose. It's much cheaper to admit a bet was wrong on paper than after three sprints of building it.</p>
+  <p>Writing the hypothesis well is mostly a planning discipline, not a data-science one. The goal during planning is to strip out your own unstated assumptions â€” to get grilled with questions until the belief and its failure condition are sharp â€” before an agent ever writes a line of code against it. A vague hypothesis produces a vague plan; a sharp one produces tickets that are actually easy to validate later.</p>
+
+  <h2>What it buys you downstream</h2>
+  <p>Once the bet is written down in checkable form, it becomes something you can go test against real evidence â€” usage data, existing analytics, prior feedback â€” before committing engineering time. That check can confirm the bet, reshape it into something better, or kill it outright, and all three outcomes are wins compared to finding out after launch. A hypothesis you can't falsify gives you none of that; it just sits there sounding reasonable until the feature ships and nobody uses it.</p>
+  <div class="tip"><span class="label">Where it lives</span> The falsifiable hypothesis isn't a separate document â€” it's a section inside the strategic doc from the last lesson, usually right next to "success criteria." That's deliberate: intent and its testable bet belong together.</div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="2" data-why="A falsifiable hypothesis names both the expected outcome and the condition that would prove it wrong. Without the wrong-condition, it's just a hope." >
+    <p class="q">What turns a feature idea into a falsifiable hypothesis?</p>
+    <button>Writing it down in a formal-sounding document</button>
+    <button>Getting a manager to approve it</button>
+    <button>Stating the expected outcome plus the measurable condition that would prove it wrong</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="\"This will improve the experience\" names no number and no failure condition â€” nothing could ever come back and prove it false, so it isn't falsifiable." >
+    <p class="q">Which of these is NOT falsifiable?</p>
+    <button>"This will improve the user experience."</button>
+    <button>"We believe this will cut checkout time below 90 seconds for 70% of sessions, or we were wrong."</button>
+    <button>"We believe this will raise week-two retention above 40%, or we were wrong."</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>State your bet as a claim reality can knock down, not a hope reality can't touch.</strong> If nothing could prove you wrong, you haven't planned yet â€” you've just described a wish.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Take a feature you're currently considering building. Try writing its falsifiable hypothesis in one sentence â€” outcome plus wrong-condition. Was it harder than you expected? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>; comparing notes with other learners is where a lot of the real learning happens.</div>
+
+  <nav class="prevnext">
+    <a href="15-strategic-doc.html"><span class="lbl">Previous</span>15 Â· The Strategic Doc</a>
+    <a class="r" href="17-architecture-decisions.html"><span class="lbl">Next</span>17 Â· Architecture Decisions â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

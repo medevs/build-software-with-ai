@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11 Â· Testing, Explained</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="11-testing-basics">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#10b981">Module 3 Â· Making It Correct</span>
+    <span>Lesson 11 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Proof that keeps working, not just a good first impression</p>
+  <h1>Testing, Explained</h1>
+  <p class="dek">You checked it once and it worked. Six weeks from now, will it still? A test is how you find out without crossing your fingers.</p>
+
+  <h2>A test is a small, automated check</h2>
+  <p>A <strong>test</strong> is a short piece of software whose whole job is to check that another piece of software behaves the way it's supposed to. You (or the AI) write it once. From then on, it runs automatically â€” in seconds â€” and tells you pass or fail.</p>
+  <p>Think of it like a smoke detector. You don't check for smoke by wandering the house sniffing the air every hour. You install a detector once, and it keeps checking, forever, without you thinking about it. A test is the same idea, aimed at your software instead of your house.</p>
+  <p>Recall from <a href="10-what-done-means.html">the last lesson</a> that "done" means a requirement plus its edge cases. A test is simply that definition of done, turned into something the computer can check for you, over and over, instead of you eyeballing it once.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> "It worked when I tried it" is a moment in time. A test is a standing promise: this still works, checked automatically, every time anything changes. Those are very different kinds of confidence.</div>
+
+  <h2>Three sizes of test, in plain English</h2>
+  <p>Tests come in a few common shapes, mostly differing in how much of the software they check at once:</p>
+  <div class="cards two">
+    <div class="card"><h3>Unit test</h3><p>Checks one small piece in isolation â€” like "does this function correctly calculate a discount?" Fast, narrow, and the first line of defense.</p></div>
+    <div class="card"><h3>Integration test</h3><p>Checks that several pieces work correctly <em>together</em> â€” like "when the order is saved, does the confirmation email actually get sent?" Catches problems that show up only when parts connect.</p></div>
+  </div>
+  <p>There's a third, broader kind:</p>
+  <div class="card"><h3>End-to-end test</h3><p>Acts like a real user clicking through the actual product â€” open the site, add an item to the cart, check out, see the confirmation. Slowest to run, but closest to what a real person actually experiences.</p></div>
+
+  <table>
+    <tr><th>Type</th><th>Checks</th><th>Speed</th><th>Catches</th></tr>
+    <tr><td>Unit</td><td>One small piece</td><td>Very fast</td><td>Logic mistakes in a single function</td></tr>
+    <tr><td>Integration</td><td>Pieces working together</td><td>Medium</td><td>Broken connections between parts</td></tr>
+    <tr><td>End-to-end</td><td>The whole user journey</td><td>Slower</td><td>What a real user would actually hit</td></tr>
+  </table>
+  <p>You don't need to memorize the taxonomy. What matters is the idea underneath all three: each one is a small, repeatable proof that something still works, simplified here to keep the picture clear â€” real testing setups have more nuance than three tidy boxes.</p>
+
+  <h2>Why AI-written code needs tests <em>more</em>, not less</h2>
+  <p>It's tempting to think: the AI wrote it, it looks clean, it must be fine. But you didn't write it â€” which means you can't fully vouch for what it actually does in every situation, only what you saw it do once. That gap is exactly what tests are for.</p>
+  <p>A test doesn't ask you to read and understand every line of code. It asks a much simpler question: given this input, did we get the expected output? You can define the expected output â€” the requirement â€” even without being able to write the code yourself. That's a review you're fully qualified to do.</p>
+
+  <h2>Tests as a safety net for tomorrow's changes</h2>
+  <p>The real payoff of tests shows up later, not on day one. Software keeps changing â€” a new feature, a fix, a request to the AI to "also add this." Every change risks quietly breaking something that used to work.</p>
+  <p>With tests in place, that risk becomes visible immediately: change something, run the tests, and anything that broke turns red right away â€” before a real user ever sees it. Without tests, the same broken thing might sit undiscovered for weeks, waiting for an actual person to stumble into it.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"It looked right when I tried it" is being treated as equivalent to "there's a test for it."</li>
+      <li>New features get added with no mention of tests for the edge cases from lesson 10.</li>
+      <li>Nobody re-runs the tests after a change â€” they were only ever run once, at the start.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Write tests for this feature that cover the edge cases we listed, not just the happy path."</li>
+      <li>"Run the existing tests and tell me if this change broke anything."</li>
+      <li>"In plain English, what does each of these tests actually check?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="A test is a small automated check â€” it proves a behavior works now, and keeps proving it every time something changes, without you manually re-checking." >
+    <p class="q">What does a test actually give you that manually trying the feature once doesn't?</p>
+    <button>A nicer-looking interface</button>
+    <button>An automatic, repeatable check that keeps proving the behavior still works as things change</button>
+    <button>Faster software overall</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="End-to-end tests act like a real user clicking through the actual product from start to finish â€” the broadest of the three common types." >
+    <p class="q">Which type of test acts most like a real user clicking through the product?</p>
+    <button>Unit test</button>
+    <button>Integration test</button>
+    <button>End-to-end test</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="You didn't write the AI's code, so you can't fully vouch for it from reading alone â€” tests give you proof, not just an impression, which matters more, not less, for AI-written code." >
+    <p class="q">Why does AI-written code need tests more, not less?</p>
+    <button>Because you didn't write it, so you need proof it does what it should â€” not just a read-through</button>
+    <button>Because AI code is always buggier than human code</button>
+    <button>It doesn't â€” AI code is already tested by the AI itself</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>A test turns "it worked once" into "it keeps working" â€” and because you didn't write the AI's code yourself, that proof matters more, not less.</strong> Tests are the safety net under every future change.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a time an app update broke something that used to work fine. A test covering that old behavior would have caught it before it shipped. Share the story in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="10-what-done-means.html"><span class="lbl">Prev</span>10 Â· What "Done" Means</a>
+    <a class="r" href="12-bugs-and-debugging.html"><span class="lbl">Next</span>12 Â· Bugs &amp; Debugging â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 3 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

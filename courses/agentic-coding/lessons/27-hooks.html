@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>27 Â· Hooks (Guardrails)</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="27-hooks">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#8b5cf6">Module 6 Â· The Building Blocks</span>
+    <span>Lesson 27 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Building block #6, in depth</p>
+  <h1>Hooks (Guardrails)</h1>
+  <p class="dek">Every other building block asks the agent nicely to do the right thing. A hook doesn't ask â€” it's a plain command that fires automatically, whether the agent remembers to or not.</p>
+
+  <h2>Ask nicely vs. enforce</h2>
+  <p>A rules file (<a href="22-rules.html">Lesson 22</a>) tells the agent what it should do. That's powerful, but
+     it's still a request â€” a very well-followed request, most of the time, but a probabilistic one. Under a
+     long, complicated task, even a well-written instruction can get missed or deprioritized.</p>
+  <p>A hook is different in kind, not just in degree. It's a deterministic script wired to a specific moment in
+     the agent's workflow â€” before a file gets edited, after the agent declares itself finished, and so on â€”
+     and it runs automatically at that moment, every time, with no dependence on the agent choosing to comply.
+     Nothing is being asked. Something is simply guaranteed to happen.</p>
+
+  <div class="note"><span class="label">The distinction in one line</span> Rules are how you ask an agent to
+     behave. Hooks are how you guarantee it anyway, even if it forgets, gets distracted, or decides otherwise.</div>
+
+  <h2>What a hook looks like in practice</h2>
+  <p>The clearest example is validation. Instead of trusting the agent to remember "run the test suite before you
+     say you're done," a hook can fire automatically the moment the agent finishes its work, run the tests
+     itself, and force the agent to keep iterating if anything fails. The check isn't a step in the
+     instructions the agent might skip under pressure â€” it's a script that runs no matter what.</p>
+  <p>A few other common shapes the same idea takes:</p>
+  <div class="cards two">
+    <div class="card"><h3>Blocking a risky edit</h3><p>A hook can refuse an edit to a protected file â€” a
+       migration, a production config â€” before it's ever written, regardless of what the agent intended.</p></div>
+    <div class="card"><h3>Running the formatter</h3><p>Instead of hoping the agent remembers to format code
+       consistently, a hook runs the formatter automatically every time a file is saved.</p></div>
+    <div class="card"><h3>"Don't stop until tests pass"</h3><p>A hook can keep the agent in its loop, forcing
+       another attempt, until a real command reports success â€” not until the agent merely claims success.</p></div>
+    <div class="card"><h3>Logging what happened</h3><p>A hook can record every command run during a session, so
+       you have a plain factual trail, independent of any summary the agent gives you.</p></div>
+  </div>
+
+  <h2>Why "deterministic" is the whole point</h2>
+  <p>Everything else in your system leans on the agent being smart and cooperative â€” usually a safe bet, but
+     never a certainty. Hooks exist for the handful of things you're not willing to leave to chance at all: the
+     tests really did run, that file really was never touched, the formatter really did apply. A hook can't
+     forget, get talked out of it, or decide the rule doesn't apply this time.</p>
+  <p>That also means hooks are cheap to reuse across projects. Like skills, a hook is behavior, not
+     codebase-specific truth â€” "always run the formatter on save" is just as true on your next project as this
+     one, so a well-written hook tends to travel with you.</p>
+
+  <table>
+    <tr><th>Situation</th><th>Better fit</th></tr>
+    <tr><td>"I'd like the agent to generally follow this convention"</td><td>A rule</td></tr>
+    <tr><td>"This must happen every single time, no exceptions"</td><td>A hook</td></tr>
+    <tr><td>"Don't ever let this specific file get edited"</td><td>A hook</td></tr>
+  </table>
+
+  <h2>Check yourself â€” and a recap of all six</h2>
+
+  <div class="quiz" data-answer="1" data-why="A hook is a deterministic script that fires automatically at a lifecycle point â€” it guarantees an action instead of relying on the agent remembering to do it.">
+    <p class="q">What makes a hook different from a rule?</p>
+    <button>Hooks are just longer, more detailed rules</button>
+    <button>A hook runs automatically and deterministically, whether the agent remembers or not</button>
+    <button>Hooks only apply to greenfield projects</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="A hook that blocks edits to protected files enforces the boundary directly and deterministically â€” no dependence on the agent choosing to respect it.">
+    <p class="q">You want to guarantee your agent never edits a specific production config file. What's the better tool?</p>
+    <button>A strongly-worded line in the rules file</button>
+    <button>A skill that reminds the agent each time</button>
+    <button>A hook that blocks the edit outright</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Rules, skills, subagents, tool connections (MCP), code navigation, and hooks are the six building blocks first introduced in Lesson 6 â€” this module walked through each one in depth.">
+    <p class="q">Quick recall: which six building blocks make up the context layer, first introduced back in Lesson 6?</p>
+    <button>Planning, coding, testing, deploying, monitoring, documenting</button>
+    <button>Prompts, models, tokens, weights, temperature, context windows</button>
+    <button>Rules, skills, subagents, tools/connections (MCP), code navigation, and hooks</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Rules ask, hooks enforce.</strong> Reach for a hook whenever something absolutely must happen every
+     time â€” running tests, running a formatter, protecting a file â€” and you don't want to leave it to chance.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Of the six building blocks you've now
+     covered in depth â€” rules, skills, subagents, tools/connections, code navigation, and hooks â€” which one is
+     still missing from your own project, and what's the first small step to add it? Bring your answer to the
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” and see a few
+     <a href="https://github.com/your-org/agentic-coding-course/tree/main/examples/hooks" target="_blank" rel="noopener">example hooks</a> in the course repo.</div>
+
+  <nav class="prevnext">
+    <a href="26-code-navigation.html"><span class="lbl">Prev</span>26 Â· Code Navigation & Search</a>
+    <a class="r" href="28-choosing-your-agent.html"><span class="lbl">Next</span>28 Â· Choosing Your Coding Agent â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 6 Â· The Building Blocks Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

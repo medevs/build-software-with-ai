@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1 Â· What Software Really Is</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="01-what-is-software">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#6366f1">Module 1 Â· How Software Works</span>
+    <span>Lesson 1 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">The foundation everything else sits on</p>
+  <h1>What Software Really Is</h1>
+  <p class="dek">Before you can judge whether software is any good, it helps to know what it actually is. Good news: the core idea is simpler than it looks.</p>
+
+  <h2>Software is just very precise instructions</h2>
+  <p>A piece of software is a list of instructions a computer follows, step by step, to get something done â€”
+     show a page, save your order, send an email. That's it. When people say â€œcode,â€ they mean those written
+     instructions. When an AI â€œwrites code,â€ it's writing that instruction list for you.</p>
+  <p>Here's the mental model to keep for the whole course:</p>
+  <blockquote>A computer is an incredibly fast, perfectly obedient cook with zero common sense.</blockquote>
+  <p>Give a human cook a sloppy recipe and they'll fill in the gaps â€” â€œsimmer until done,â€ â€œseason to taste.â€
+     Give a computer a sloppy instruction and it does something technically correct but possibly ridiculous,
+     or it stops cold. It never guesses what you <em>meant</em>. It does <em>exactly</em> what it was told.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> If the computer only does exactly what
+     it's told, then the quality of any software comes down to the quality of the instructions. AI can produce
+     those instructions fast â€” but â€œfastâ€ and â€œcorrectâ€ are different things, and telling them apart is your job.</div>
+
+  <h2>It's instructions all the way down</h2>
+  <p>You don't write instructions for the raw machine â€” that would be brutal. Instead software is built in
+     <strong>layers</strong>, each one a friendlier set of instructions sitting on top of a more technical one:</p>
+  <div class="cards two">
+    <div class="card"><h3>What you write</h3><p>Human-readable code, in a language with words like <code>if</code>,
+       <code>save</code>, <code>send</code>. This is the layer you and the AI work in.</p></div>
+    <div class="card"><h3>What the machine runs</h3><p>That code gets translated down into the tiny electrical
+       on/off steps the hardware actually understands. You never touch this â€” but it's why â€œit's just 1s and 0sâ€ is true.</p></div>
+  </div>
+  <p>You'll almost never care about the bottom layer. What matters is that software is <em>assembled</em> from
+     layers of other people's instructions â€” a fact that comes back in a big way when we talk about
+     <a href="04-languages-and-dependencies.html">dependencies</a> and <a href="14-security-mindset.html">security</a>.</p>
+
+  <h2>â€œApp,â€ â€œwebsite,â€ â€œprogramâ€ â€” same idea</h2>
+  <p>Don't let the words trip you. A website, a phone app, a desktop program, a chatbot â€” all of them are the
+     same core thing: instructions running on a computer somewhere, doing something with information. The
+     differences are mostly about <em>where</em> they run and <em>how</em> you reach them, which is exactly what
+     the next two lessons â€” <a href="02-the-stack.html">the stack</a> and
+     <a href="03-client-and-server.html">client &amp; server</a> â€” are about.</p>
+
+  <h2>The trap: a demo is not a product</h2>
+  <p>The single most important idea for building with AI: <strong>working once is not the same as being ready.</strong>
+     An AI can whip up something that runs in a demo. Whether it protects your users' data, survives a thousand
+     people using it at once, or can be changed next month without breaking â€” those are separate questions the demo
+     never answered. The rest of this course is those questions.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>You (or the AI) call it â€œdoneâ€ before anyone ever said what â€œdoneâ€ should mean.</li>
+      <li>It worked once in a quick test, and that gets treated as proof it's ready for real users.</li>
+      <li>You can't explain, in one plain sentence, what a piece of the software is <em>for</em>.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>â€œExplain what this code does in plain English, as if I'm not a programmer.â€</li>
+      <li>â€œWhat assumptions did you make that I should double-check?â€</li>
+      <li>â€œWhat would need to be true for this to be safe to show real users?â€</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="A computer does exactly what it's told, with no common sense to fill gaps â€” so the instructions have to be right.">
+    <p class="q">Why does the <em>quality of the instructions</em> matter so much in software?</p>
+    <button>Computers are usually a bit unreliable</button>
+    <button>A computer does exactly what it's told â€” nothing more, nothing less</button>
+    <button>Instructions are the slowest part of an app</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Running once in a demo says nothing about safety, scale, or maintainability â€” those are separate questions.">
+    <p class="q">The AI shows you a feature working in a quick demo. What has that actually proven?</p>
+    <button>That it's secure and ready for users</button>
+    <button>That it will handle heavy traffic</button>
+    <button>Only that it ran once, under those exact conditions</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Software is just precise instructions, followed literally â€” so â€œit ranâ€ and â€œit's readyâ€ are two
+     completely different claims.</strong> Learning to tell them apart is what this whole course is for.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of an app you use every day. Can you
+     name one thing it does that would be <em>dangerous</em> to get wrong (losing your data? showing it to the wrong
+     person?)? That instinct â€” spotting what matters â€” is what we'll sharpen. Share yours in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <span></span>
+    <a class="r" href="02-the-stack.html"><span class="lbl">Next</span>2 Â· The Stack â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 1 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

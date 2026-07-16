@@ -1,0 +1,82 @@
+/* graph-data.js — single source of truth for the whole course.
+   Used by the homepage mindmap (graph.js) AND the curriculum page. */
+window.COURSE = {
+  title: "The Agentic Coding Course",
+  centerLines: ["The Agentic", "Coding Course"],
+  modules: [
+    { id:"m1", n:1, title:"Foundations — Why a System", color:"#6366f1" },
+    { id:"m2", n:2, title:"The Context Layer",           color:"#0ea5e9" },
+    { id:"m3", n:3, title:"The Core Loop",               color:"#10b981" },
+    { id:"m4", n:4, title:"Planning at Altitude",        color:"#f59e0b" },
+    { id:"m5", n:5, title:"From Idea to Shipped",        color:"#ec4899" },
+    { id:"m6", n:6, title:"The Building Blocks Up Close", color:"#8b5cf6" },
+    { id:"m7", n:7, title:"Putting It To Work",          color:"#ef4444" },
+  ],
+  lessons: [
+    // Module 1
+    { n:1,  slug:"01-why-a-system",         module:"m1", title:"Why AI Coding Needs a System", blurb:"The gap isn't the model — it's the system around it." },
+    { n:2,  slug:"02-driver-or-passenger",  module:"m1", title:"Driver's Seat vs. Passenger",  blurb:"Delegate the typing, keep the thinking. The opposite of vibe coding." },
+    { n:3,  slug:"03-the-two-loops",        module:"m1", title:"The Two Loops",                blurb:"Build the work; improve the builder. Everything decomposes into these." },
+    { n:4,  slug:"04-three-ways-in",        module:"m1", title:"Three Ways In",                blurb:"New project, existing project, or a bug — all roads reach the same loop." },
+    // Module 2
+    { n:5,  slug:"05-the-context-layer",    module:"m2", title:"The Context Layer",            blurb:"Everything you build around the agent to make it reliable." },
+    { n:6,  slug:"06-six-building-blocks",  module:"m2", title:"The Six Building Blocks",      blurb:"Rules, workflows, specialists, tools, code-search, guardrails." },
+    { n:7,  slug:"07-progressive-disclosure",module:"m2",title:"Progressive Disclosure",       blurb:"Keep the always-on context tiny; load detail only when needed." },
+    { n:8,  slug:"08-evolving-the-system",  module:"m2", title:"Evolving the System",          blurb:"When a mistake recurs, fix the system — not just the code." },
+    // Module 3
+    { n:9,  slug:"09-the-core-loop",        module:"m3", title:"The Core Loop",                blurb:"Research → Plan → Implement → Validate, one small task at a time." },
+    { n:10, slug:"10-research-first",       module:"m3", title:"Research First",               blurb:"Understand before you build. Research scales with novelty." },
+    { n:11, slug:"11-the-plan",             module:"m3", title:"The Plan That Ships in One Pass", blurb:"A plan a stranger could build from — with a validation strategy." },
+    { n:12, slug:"12-clean-context",        module:"m3", title:"Clean Context",                blurb:"Commit the plan, clear the chat, implement fresh. Dodge context rot." },
+    { n:13, slug:"13-validate-and-gates",   module:"m3", title:"Validate & Gates",             blurb:"Two questions: does it work, and is it built well? You're the gate." },
+    // Module 4
+    { n:14, slug:"14-three-altitudes",      module:"m4", title:"The Three Altitudes",          blurb:"Intent, architecture, task — plan at the right height." },
+    { n:15, slug:"15-strategic-doc",        module:"m4", title:"The Strategic Doc",            blurb:"The what and why of a project or epic, before any code." },
+    { n:16, slug:"16-falsifiable-hypothesis",module:"m4",title:"The Falsifiable Hypothesis",   blurb:"State the bet so reality can prove you wrong." },
+    { n:17, slug:"17-architecture-decisions",module:"m4",title:"Architecture Decisions",       blurb:"Decide the shape of the solution before slicing tasks." },
+    { n:18, slug:"18-two-way-doors",        module:"m4", title:"Two-Way vs. One-Way Doors",    blurb:"Move fast on reversible calls; slow down on the ones you can't undo." },
+    // Module 5
+    { n:19, slug:"19-slicing-tickets",      module:"m5", title:"Slicing the Work",             blurb:"One testable concern per slice — the loop's raw material." },
+    { n:20, slug:"20-full-loop-end-to-end", module:"m5", title:"The Full Loop, End to End",    blurb:"One ticket from idea to a reviewed, shipped change." },
+    { n:21, slug:"21-parallel-loops",       module:"m5", title:"Running Loops in Parallel",    blurb:"Isolated copies of the repo so several loops run at once." },
+    // Module 6
+    { n:22, slug:"22-rules",                module:"m6", title:"Rules",                        blurb:"The always-loaded conventions your agent never forgets." },
+    { n:23, slug:"23-skills",               module:"m6", title:"Skills (Reusable Workflows)",  blurb:"Package a workflow once; invoke it like a command forever." },
+    { n:24, slug:"24-subagents",            module:"m6", title:"Subagents",                    blurb:"Specialists with their own context that report back a summary." },
+    { n:25, slug:"25-tools-and-mcp",        module:"m6", title:"Tools & Connections (MCP)",    blurb:"Give the agent arms: databases, trackers, analytics, the web." },
+    { n:26, slug:"26-code-navigation",      module:"m6", title:"Code Navigation & Search",     blurb:"Help the agent find the right code in a large codebase." },
+    { n:27, slug:"27-hooks",                module:"m6", title:"Hooks (Guardrails)",           blurb:"Deterministic guarantees that fire at lifecycle points." },
+    // Module 7
+    { n:28, slug:"28-choosing-your-agent",  module:"m7", title:"Choosing Your Coding Agent",   blurb:"The tool is the base of your harness. How to pick and switch." },
+    { n:29, slug:"29-scaling-and-automation",module:"m7",title:"Scaling & Automation",         blurb:"Move loops off your screen: background, remote, and CI agents." },
+    { n:30, slug:"30-your-first-week",      module:"m7", title:"Your First Week",              blurb:"A concrete plan to put the whole system to work on real code." },
+  ],
+  // conceptual links drawn on the mindmap (slug -> slug)
+  edges: [
+    ["01-why-a-system","03-the-two-loops"],["01-why-a-system","02-driver-or-passenger"],
+    ["01-why-a-system","05-the-context-layer"],["02-driver-or-passenger","09-the-core-loop"],
+    ["03-the-two-loops","09-the-core-loop"],["03-the-two-loops","08-evolving-the-system"],
+    ["03-the-two-loops","04-three-ways-in"],["04-three-ways-in","09-the-core-loop"],
+    ["05-the-context-layer","06-six-building-blocks"],["05-the-context-layer","08-evolving-the-system"],
+    ["06-six-building-blocks","22-rules"],["06-six-building-blocks","23-skills"],
+    ["06-six-building-blocks","24-subagents"],["06-six-building-blocks","25-tools-and-mcp"],
+    ["06-six-building-blocks","26-code-navigation"],["06-six-building-blocks","27-hooks"],
+    ["06-six-building-blocks","07-progressive-disclosure"],["07-progressive-disclosure","23-skills"],
+    ["07-progressive-disclosure","12-clean-context"],["08-evolving-the-system","22-rules"],
+    ["09-the-core-loop","10-research-first"],["09-the-core-loop","11-the-plan"],
+    ["09-the-core-loop","12-clean-context"],["09-the-core-loop","13-validate-and-gates"],
+    ["10-research-first","14-three-altitudes"],["11-the-plan","12-clean-context"],
+    ["11-the-plan","13-validate-and-gates"],["11-the-plan","19-slicing-tickets"],
+    ["13-validate-and-gates","24-subagents"],["13-validate-and-gates","20-full-loop-end-to-end"],
+    ["14-three-altitudes","15-strategic-doc"],["14-three-altitudes","11-the-plan"],
+    ["15-strategic-doc","16-falsifiable-hypothesis"],["15-strategic-doc","17-architecture-decisions"],
+    ["16-falsifiable-hypothesis","10-research-first"],["17-architecture-decisions","18-two-way-doors"],
+    ["17-architecture-decisions","19-slicing-tickets"],["19-slicing-tickets","20-full-loop-end-to-end"],
+    ["20-full-loop-end-to-end","21-parallel-loops"],["20-full-loop-end-to-end","09-the-core-loop"],
+    ["21-parallel-loops","12-clean-context"],["22-rules","28-choosing-your-agent"],
+    ["23-skills","24-subagents"],["23-skills","25-tools-and-mcp"],["25-tools-and-mcp","26-code-navigation"],
+    ["28-choosing-your-agent","05-the-context-layer"],["29-scaling-and-automation","21-parallel-loops"],
+    ["29-scaling-and-automation","20-full-loop-end-to-end"],["30-your-first-week","09-the-core-loop"],
+    ["30-your-first-week","05-the-context-layer"],["30-your-first-week","20-full-loop-end-to-end"],
+  ],
+};

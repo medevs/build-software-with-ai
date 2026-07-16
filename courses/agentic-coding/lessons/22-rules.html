@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>22 Â· Rules</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="22-rules">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#8b5cf6">Module 6 Â· The Building Blocks</span>
+    <span>Lesson 22 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Building block #1, in depth</p>
+  <h1>Rules</h1>
+  <p class="dek">Of the six building blocks you met earlier, rules are the one that pays off first and pays off biggest â€” because they're the one piece of your system that's entirely, specifically yours.</p>
+
+  <h2>What a rules file actually is</h2>
+  <p>A rules file is a single markdown document, usually sitting at the root of your project, that your agent
+     reads automatically at the start of every single task. Nobody has to remember to paste it in. It's just
+     there, every time, the way a new hire's onboarding doc should be but rarely is.</p>
+  <p>Inside it you write down the standing truth about your codebase: the stack you use, how the data is shaped,
+     which boundaries not to cross, how you test, how you log, and where new code is supposed to go. Think of it
+     as everything a good teammate already knows by feel after a few months on the project â€” written down once,
+     so the agent doesn't have to guess or re-learn it every session.</p>
+
+  <div class="note"><span class="label">Why this is the highest-leverage block</span> Every other building block
+     is somewhat generic â€” a skill or a hook can often be reused across projects almost as-is. A rules file
+     cannot. It encodes <em>your</em> codebase's truth, so it's the one piece of your system nobody else could
+     have written for you.</div>
+
+  <h2>The one rule that matters more than any other</h2>
+  <p>Rules must come from what your codebase <strong>actually does</strong>, never from what you wish it did.
+     If you write "we always validate input at the API boundary" and half your endpoints skip that, you've just
+     taught your agent something false â€” and it will confidently repeat the mistake back to you, dressed up as
+     following the rules.</p>
+  <p>On an existing codebase, that means doing the legwork first: read through the code, or have the agent
+     explore it, before you write a single rule down. On a brand-new project, this is the one exception â€”
+     there's no existing truth yet, so it's fine to write down what you've <em>decided</em> the project should
+     become.</p>
+  <div class="cards two">
+    <div class="card"><h3>Existing codebase</h3><p>Derive rules from what the code really does. If you can't
+       point to evidence of a rule in the codebase, it doesn't belong in the file yet.</p></div>
+    <div class="card"><h3>Brand-new project</h3><p>You're allowed to be aspirational here, because you're the one
+       deciding the conventions as you go. Write down the decisions, not vague hopes.</p></div>
+  </div>
+
+  <h2>Keep it lean, on purpose</h2>
+  <p>Because a rules file loads on <em>every</em> task whether it's relevant or not, it competes for the same
+     limited attention as everything else you hand the agent. A bloated rules file doesn't make the agent more
+     careful â€” it makes the agent worse at everything, because the important lines are buried in restated
+     framework advice and generic best practices it already knows.</p>
+  <p>This is the same idea covered back in <a href="06-six-building-blocks.html">Lesson 6</a> and the lesson on
+     progressive disclosure: keep the always-loaded file short and high-level, and push anything long or
+     situational into separate reference documents the agent only opens when a task actually calls for it. A
+     rules file that tries to explain everything ends up explaining nothing well.</p>
+  <div class="tip"><span class="label">A habit worth building in</span> Add a short "where new code goes"
+     section â€” the handful of extension points where new work usually plugs in (a new endpoint, a new database
+     column, a new integration). It turns "I have no idea where to put this" into a five-second lookup.</div>
+
+  <h2>Write it once, recheck it occasionally</h2>
+  <p>A rules file isn't a living diary you update daily. You write it once, up front, and it stays mostly stable.
+     The one exception is a periodic drift check: every so often â€” a natural point is after a chunk of new work
+     lands â€” you compare the file against the code again and prune anything that's gone stale. Code moves on;
+     an unwatched rules file quietly stops being true, and a false rule is worse than no rule at all.</p>
+
+  <table>
+    <tr><th>Situation</th><th>What to do</th></tr>
+    <tr><td>Starting a rules file for the first time</td><td>Explore the codebase first, then write down only
+       what you can point to in the code.</td></tr>
+    <tr><td>The file feels long and generic</td><td>Prune it â€” move detail into separate reference docs, keep
+       only what's specific and true.</td></tr>
+    <tr><td>You just shipped a chunk of new work</td><td>Do a quick drift check: does the file still match what
+       the code does today?</td></tr>
+  </table>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Rules must be derived from what the codebase actually does â€” writing aspirational rules on an existing project just teaches the agent something false.">
+    <p class="q">On an existing codebase, where should a rules file's content come from?</p>
+    <button>Whatever conventions you wish the team followed</button>
+    <button>What the code actually does today</button>
+    <button>A generic best-practices checklist</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="The rules file loads on every task, so anything long or generic in it crowds out the specific lines that actually matter.">
+    <p class="q">Why keep an always-loaded rules file short instead of comprehensive?</p>
+    <button>It loads on every task, so bloat crowds out what actually matters</button>
+    <button>Long files are against the file format's rules</button>
+    <button>Agents refuse to read files past a certain length</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Your rules file is the one building block that's entirely, specifically yours â€” derive it from
+     what the code truly does, and keep it lean.</strong> Get this one piece right and almost everything else
+     your agent does gets easier.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think about a mistake your agent keeps
+     repeating. Is it because a rule is missing, or because the true rule is buried under too much noise in the
+     file? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” and if you want a starting point, there's a
+     <a href="https://github.com/your-org/agentic-coding-course/tree/main/templates/rules-file" target="_blank" rel="noopener">rules-file template</a> in the course repo.</div>
+
+  <nav class="prevnext">
+    <a href="21-parallel-loops.html"><span class="lbl">Prev</span>21 Â· Running Loops in Parallel</a>
+    <a class="r" href="23-skills.html"><span class="lbl">Next</span>23 Â· Skills (Reusable Workflows) â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 6 Â· The Building Blocks Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

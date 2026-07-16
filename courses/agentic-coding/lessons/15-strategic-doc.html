@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>15 Â· The Strategic Doc</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="15-strategic-doc">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Planning at Altitude</span>
+    <span>Lesson 15 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Write down the what and why, before any code</p>
+  <h1>The Strategic Doc</h1>
+  <p class="dek">One document sits above everything else you'll plan: the strategic doc. It captures intent â€” the problem, the users, the bet â€” and deliberately says nothing about how to build it.</p>
+
+  <h2>The document at the top of the stack</h2>
+  <p>In the last lesson you met the three altitudes: intent, architecture, and task. The strategic doc lives at the very top â€” intent altitude. If you're starting something brand new, it's a <strong>PRD</strong> (product requirements document): what should this product be? If you're adding a feature to something that already exists, it's an <strong>epic</strong>: what's the next meaningful slice of work? Same shape, same job, just a different starting point.</p>
+  <div class="note"><span class="label">The key move</span> A strategic doc answers the what and the why. It never answers the how â€” that's a different document, one altitude down, written next.</div>
+
+  <h2>What it holds</h2>
+  <p>Whether it's called a PRD or an epic, a good strategic doc has the same core sections:</p>
+  <div class="cards two">
+    <div class="card"><h3>Problem &amp; evidence</h3><p>What's actually broken or missing today, and what makes you believe that, not just guess it.</p></div>
+    <div class="card"><h3>Users</h3><p>Who this is for, specifically enough that "everyone" isn't a valid answer.</p></div>
+    <div class="card"><h3>Success</h3><p>How you'll know it worked â€” ideally a falsifiable hypothesis, which the next lesson covers in depth.</p></div>
+    <div class="card"><h3>Scope &amp; non-goals</h3><p>What's explicitly in for this pass, and just as important, what you're deliberately leaving out.</p></div>
+  </div>
+  <p>Notice what's missing from that list: the stack, the data model, the components, the file layout. None of that belongs here. Keeping the how out is not laziness â€” it's what keeps the doc reviewable by anyone who cares about the product, without wading through engineering detail that isn't their job to weigh in on.</p>
+
+  <h2>Why it's worth the extra step</h2>
+  <p>It's tempting to skip straight from an idea to code, especially with an agent that will happily start typing the moment you describe something. But every plan that follows â€” the architecture, the tickets, the actual implementation â€” inherits its assumptions from this doc. One wrong guess about who the user is, or what "done" means, doesn't just cost you one bad line of code. It cascades: it becomes a wrong architectural boundary, which becomes a dozen wrong tickets, which becomes hundreds of lines built confidently in the wrong direction.</p>
+  <p>The strategic doc exists so that every later loop of work has something solid to "grab onto" â€” shared context that doesn't have to be re-explained or re-guessed each time you sit down with an agent. Write it once, well, and reference it from everywhere downstream.</p>
+
+  <h2>A repeatable shape beats a clever one</h2>
+  <p>Resist the urge to freestyle a new structure every time. The value of a strategic doc comes largely from consistency: the same sections, in the same order, every single time you write one. That predictability is what makes the doc easy to review quickly, easy for an agent to parse when it's grounding later work in it, and easy for you to trust that nothing important got skipped.</p>
+  <div class="tip"><span class="label">Use the template</span> A ready-made strategic doc template â€” with all the sections above already laid out â€” is available in the course resources: <a href="https://github.com/your-org/agentic-coding-course/tree/main/templates/strategic-doc" target="_blank" rel="noopener">strategic-doc template</a>. Start there instead of a blank page.</div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="A strategic doc is intent altitude â€” the what and the why. The how belongs in a separate architecture document." >
+    <p class="q">Which of these belongs in a strategic doc?</p>
+    <button>The database schema and API routes</button>
+    <button>The problem, the users, and what success looks like</button>
+    <button>Pseudocode for the first ticket</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Every later plan â€” architecture, tickets, implementation â€” inherits its assumptions from the strategic doc. A wrong assumption here cascades downstream." >
+    <p class="q">Why does a wrong assumption in the strategic doc matter so much more than a wrong assumption in one ticket?</p>
+    <button>It doesn't â€” a doc is easy to fix later</button>
+    <button>Because it takes longer to write than a ticket</button>
+    <button>Because every downstream plan and every ticket inherits it, so the mistake compounds</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>The strategic doc is the what and the why, written down once, in a repeatable shape, before any code exists.</strong> Everything you plan afterward leans on it.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a feature you've seen built (or built yourself) without a clear problem statement up front. What went wrong, and would a short strategic doc have caught it? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>; comparing notes with other learners is where a lot of the real learning happens.</div>
+
+  <nav class="prevnext">
+    <a href="14-three-altitudes.html"><span class="lbl">Previous</span>14 Â· The Three Altitudes</a>
+    <a class="r" href="16-falsifiable-hypothesis.html"><span class="lbl">Next</span>16 Â· The Falsifiable Hypothesis â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>19 Â· Slicing the Work</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="19-slicing-tickets">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#ec4899">Module 5 Â· From Idea to Shipped</span>
+    <span>Lesson 19 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">From a big idea to small, buildable pieces</p>
+  <h1>Slicing the Work</h1>
+  <p class="dek">You've decided what to build and how. Now comes the step people skip: cutting that decision into pieces small enough for one loop to build well.</p>
+
+  <h2>Why you can't just hand over the whole thing</h2>
+  <p>Imagine you've just finished deciding the shape of a new feature â€” the "what" and the "how" are both settled.
+     The tempting move is to paste the whole thing into a chat and ask the agent to build all of it in one go.
+     This is close to the worst way to use a coding agent.</p>
+  <p>An agent working on one enormous task has to hold too much in its head at once. The more it's juggling, the
+     more it starts guessing, skipping details, or quietly drifting from what you actually meant â€” the same
+     "dumb zone" that shows up whenever a context window gets overloaded. And a giant task removes the one
+     thing that makes delegation safe: a point where you, the human, look at a small result and say yes or no
+     before more work piles on top of it.</p>
+  <div class="note"><span class="label">The rule</span> A slice is bounded not by how many lines of code it takes,
+     but by <strong>one testable concern</strong> â€” one result a human can actually check once the agent is done.</div>
+
+  <h2>Capacity is not permission</h2>
+  <p>Modern coding agents can hold a huge amount of context. That's exactly the trap: just because a whole
+     project would technically fit in the context window doesn't mean it should be run as one piece of work.
+     Fitting is not the same as being wise to run that way.</p>
+  <p>A ticket sized for an agent can be far bigger than one sized for a human â€” think roughly eight to ten
+     subtasks, five hundred to fifteen hundred lines of change â€” because the agent handles more mechanical
+     work per pass than a person typing by hand. But it must still resolve to <em>one</em> thing you can
+     validate. That's the discipline: plan the whole project up front, at a wide angle, then cut it thin
+     before any code gets written.</p>
+
+  <h2>Three ways to cut a slice</h2>
+  <p>There's no single correct way to split work â€” but three approaches cover almost every case.</p>
+  <table>
+    <tr><th>Approach</th><th>How it works</th><th>When to reach for it</th></tr>
+    <tr><td>By dependency</td><td>One piece has to exist before the next can be built on top of it.</td><td>Sequencing work, and pulling riskier pieces earlier so you learn fast if something won't work.</td></tr>
+    <tr><td>By concern</td><td>Group by the part of the codebase touched â€” the database schema, the API, the front-end.</td><td>The simplest and most common split; a good default when you're not sure.</td></tr>
+    <tr><td>Thin end-to-end slice</td><td>One narrow feature that cuts through every layer at once â€” database to UI.</td><td>Rarer, more technical; useful when you need to prove a whole path works before widening it.</td></tr>
+  </table>
+  <p>Whichever way you cut, the output is the same shape: a set of tickets, each one testable concern, with the
+     dependencies between them mapped out. Some of those tickets can run one after another; others, once you
+     trust the process, can run <a href="21-parallel-loops.html">at the same time</a>. Where those tickets live
+     doesn't matter â€” a tracker like Jira or Linear, GitHub Issues, or just a folder of markdown files all work.</p>
+
+  <h2>Signs a slice is still too big</h2>
+  <div class="cards two">
+    <div class="card"><h3>You can't state the check</h3><p>If you can't say, in one sentence, what "done" looks
+       like for this ticket, it's still bundling more than one concern. Split it until you can.</p></div>
+    <div class="card"><h3>It touches unrelated layers for no reason</h3><p>A ticket that edits the database schema,
+       rewrites an unrelated UI screen, <em>and</em> adds a new integration is really three tickets wearing
+       one coat.</p></div>
+    <div class="card"><h3>"And" keeps showing up in the title</h3><p>"Add the endpoint <em>and</em> update the
+       settings page <em>and</em> fix the old bug" â€” each "and" is usually a seam where the ticket should split.</p></div>
+    <div class="card"><h3>You can't imagine reviewing it in one sitting</h3><p>If the resulting change would be
+       too large to review with fresh eyes in one pass, it was too large to build in one pass, too.</p></div>
+  </div>
+
+  <div class="tip"><span class="label">What slicing is <em>not</em></span> Don't deep-plan each ticket at slicing
+     time. Dependencies aren't fully knowable until upstream tickets actually exist, and priorities shift as you
+     go â€” so the detailed, one-pass-ready plan for a ticket gets built <em>inside</em> the loop that picks it up,
+     right before implementation, as covered in <a href="11-the-plan.html">The Plan That Ships in One Pass</a>.
+     Slicing just decides the boundaries and the order.</div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Line count says nothing about whether a human can check the result. The bound is one testable concern per ticket.">
+    <p class="q">What actually determines whether a ticket is sized correctly?</p>
+    <button>Whether it's under some fixed line-count limit</button>
+    <button>Whether it resolves to one testable concern</button>
+    <button>Whether it fits in the agent's context window</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="A huge task overwhelms the model into guessing and drift, and it removes the human checkpoint between small, reviewable pieces of work.">
+    <p class="q">Why does handing an agent an entire epic in one go tend to produce bad results?</p>
+    <button>It overloads the model and removes the human review checkpoint</button>
+    <button>Agents refuse tasks above a certain size</button>
+    <button>It costs significantly more in API usage</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Detailed, per-ticket planning happens just-in-time, inside the loop that picks the ticket up â€” not while slicing the epic.">
+    <p class="q">When should you write the detailed, one-pass-ready plan for an individual ticket?</p>
+    <button>Immediately, while slicing the whole epic</button>
+    <button>Never â€” the agent should infer the plan on its own</button>
+    <button>Later, inside the loop that picks that ticket up</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>One testable concern per ticket.</strong> Slicing is what turns a big decision into clean raw material
+     for the loop â€” plan wide, then implement narrow, one small, checkable piece at a time.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a recent task you handed to an agent
+     that came out messy. Was it really one testable concern, or was it secretly two or three? Bring your answer to
+     the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€”
+     comparing notes with other learners is where a lot of the real learning happens.</p>
+
+  <nav class="prevnext">
+    <a href="18-two-way-doors.html"><span class="lbl">Previous</span>â† 18 Â· Two-Way vs. One-Way Doors</a>
+    <a class="r" href="20-full-loop-end-to-end.html"><span class="lbl">Next</span>20 Â· The Full Loop, End to End â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 5 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

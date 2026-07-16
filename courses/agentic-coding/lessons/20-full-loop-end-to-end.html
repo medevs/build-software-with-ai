@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>20 Â· The Full Loop, End to End</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="20-full-loop-end-to-end">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#ec4899">Module 5 Â· From Idea to Shipped</span>
+    <span>Lesson 20 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">One ticket, start to finish</p>
+  <h1>The Full Loop, End to End</h1>
+  <p class="dek">Every lesson so far has covered one piece of the system. This lesson walks a single small ticket through all of them, in order, so you can see the whole shape at once.</p>
+
+  <h2>One ticket, picked up from the slice</h2>
+  <p>Say your slicing pass produced a small, well-bounded ticket: <em>add a "resend confirmation email" button
+     to the account settings page</em>. It touches one screen, one existing email template, and one small
+     backend action. One testable concern: click the button, get the email. That's exactly the kind of slice
+     the <a href="09-the-core-loop.html">core loop</a> is built to consume â€” and this is what running it looks
+     like from open to merged.</p>
+
+  <ol class="steps">
+    <li><strong>Isolate the work.</strong> Before anything else, the work gets its own git feature branch, named
+        after the ticket. Nothing for this change ever gets written straight onto the main branch â€” the branch is
+        what keeps this one small change reviewable and revertable on its own.</li>
+    <li><strong>Research (optional).</strong> For a ticket this small and well-understood, research may add little â€”
+        skip it. On a vaguer ticket, or in an unfamiliar part of the codebase, this step primes the agent on
+        how the account settings page and the email system actually work today, before any plan gets written.</li>
+    <li><strong>Plan.</strong> A short back-and-forth turns the idea into a concrete plan: which file the button
+        goes in, which backend function it calls, which existing email template it reuses, and â€” critically â€”
+        exactly how you'll validate it (click it, confirm an email arrives, confirm a second click doesn't send
+        two). This becomes a plan a stranger could implement without asking you anything.</li>
+    <li><strong>Save the plan, clear the context.</strong> The plan is committed somewhere durable, and the
+        chat that produced it is closed. A fresh session opens with the plan as its only input â€” no leftover
+        back-and-forth, no accumulated clutter, just the plan.</li>
+    <li><strong>Implement, in that fresh session.</strong> The agent writes the button, wires it to the backend
+        action, and â€” as its own final step â€” runs the validation strategy the plan specified. This proves the
+        feature functions: the button appears, the click fires, the email sends.</li>
+    <li><strong>Validate again, with fresh eyes.</strong> A second, separate pass â€” often a different session or
+        even a different agent â€” reviews the actual change. This pass isn't asking "does it work?" anymore
+        (the previous step already showed that). It's asking a different question: is this <em>built well</em>?
+        Right naming, no leftover debug code, no obvious edge case missed, nothing that will bite the next
+        person who touches this file.</li>
+    <li><strong>Open the change for review.</strong> The branch becomes a pull request (or equivalent change
+        request), with a clear description of what changed and how it was validated.</li>
+    <li><strong>A human approves and merges.</strong> You read the small, focused diff â€” it's short enough to
+        actually read, because it was sliced that way from the start â€” and merge it into the main branch. The
+        ticket is done; you move to the next one.</li>
+  </ol>
+
+  <div class="note"><span class="label">Why the split matters</span> Steps 6 and 7 look similar but ask different
+     questions on purpose. <strong>Implementing proves the app works.</strong> <strong>Reviewing proves the code
+     is good.</strong> Folding them into one pass means one of the two questions quietly stops getting asked.</div>
+
+  <h2>What made delegating all of that safe</h2>
+  <p>Notice what the agent never did alone: it never decided what "done" means, and it never got the final word
+     on whether the result was good enough to ship. The agent wrote every line of code, but that delegation was
+     sandwiched â€” a human-owned plan on one side, a human-gated validation on the other. That sandwich is the
+     entire reason it's safe to hand over the typing.</p>
+  <div class="tip"><span class="label">It doesn't have to be perfect</span> The loop doesn't need a flawless run to
+     be worth using. A plan that's slightly off, or a first implementation that needs a second pass, still beats
+     no structure at all â€” each run's rough edges are exactly the kind of signal that improves the system for
+     next time.</div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="2" data-why="Implementation is deliberately sandwiched between a human-owned plan and a human-gated validation â€” that's what makes handing over every line of code safe.">
+    <p class="q">What makes it safe to let the agent write every line of code in this loop?</p>
+    <button>The agent is only allowed to change small files</button>
+    <button>A senior engineer watches every keystroke live</button>
+    <button>Implementation is sandwiched between a plan the human owns and validation the human gates</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="1" data-why="Implement proves the feature functions; the separate review pass judges whether the code is well built. They are deliberately not the same check.">
+    <p class="q">Why does validation happen as two separate passes rather than one?</p>
+    <button>To make the loop take longer on purpose</button>
+    <button>"Does it work" and "is it built well" are different questions, and folding them together drops one</button>
+    <button>Because a single agent session can't run tests</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>The full loop is one ticket, walked end to end: research, plan, clear context, implement, validate
+     twice, review, merge.</strong> It's the same core loop from Module 3, made concrete â€” the exact sequence
+     every shipped change in this system is made of.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Walk one small task you finished recently
+     through these eight steps in your head. Which step, if any, did you skip â€” and what would have caught it if
+     you hadn't? Bring your answer to the
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>;
+     comparing notes with other learners is where a lot of the real learning happens.</p>
+
+  <nav class="prevnext">
+    <a href="19-slicing-tickets.html"><span class="lbl">Previous</span>â† 19 Â· Slicing the Work</a>
+    <a class="r" href="21-parallel-loops.html"><span class="lbl">Next</span>21 Â· Running Loops in Parallel â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 5 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

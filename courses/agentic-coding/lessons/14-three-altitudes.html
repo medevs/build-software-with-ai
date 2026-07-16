@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>14 Â· The Three Altitudes</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="14-three-altitudes">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Planning at Altitude</span>
+    <span>Lesson 14 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Know where you're standing before you plan</p>
+  <h1>The Three Altitudes</h1>
+  <p class="dek">Planning goes wrong less often because of bad ideas and more often because of ideas pitched at the wrong height. Before you write a single planning doc, learn the three altitudes and which one you're at.</p>
+
+  <h2>Why "altitude" is the right word</h2>
+  <p>Picture looking down at a city from a plane, then from a rooftop, then from the sidewalk. Each view answers a different question, and none of them is wrong â€” they're just different heights. Planning a build works the same way. There are three altitudes of decision, and mixing them up is one of the most common beginner mistakes when working with an agent.</p>
+  <div class="note"><span class="label">The key move</span> Know which altitude you're operating at, always. The moment you let an agent quietly answer a question from a higher altitude than the one you handed it, you've lost the driver's seat.</div>
+
+  <h2>The three altitudes, top to bottom</h2>
+  <table>
+    <thead><tr><th>Altitude</th><th>Question it answers</th><th>Who owns it</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Intent</strong></td><td>What are we building, and why does it matter?</td><td>You â€” the strategic doc</td></tr>
+      <tr><td><strong>Architecture</strong></td><td>What's the high-level shape of the solution?</td><td>You, with the agent's help</td></tr>
+      <tr><td><strong>Task</strong></td><td>What exact code does this one ticket need?</td><td>The agent, from your plan</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Intent</strong> is the problem, the users, and the bet you're making â€” the product conversation. <strong>Architecture</strong> is the stack, the data flow, the boundaries between pieces â€” the engineering shape of the answer. <strong>Task</strong> is the actual line-by-line work: writing a function, wiring a route, passing a test. Each altitude sits on top of the one below it â€” a task only makes sense once the architecture is set, and an architecture only makes sense once the intent is clear.</p>
+
+  <figure>
+    <svg viewBox="0 0 480 190" width="100%" style="max-width:480px" role="img" aria-label="Three stacked altitudes: intent on top, architecture in the middle, task at the bottom">
+      <rect x="40" y="10" width="400" height="50" rx="6" fill="#f59e0b22" stroke="#f59e0b"/>
+      <text x="240" y="40" text-anchor="middle" font-family="sans-serif" font-size="14" fill="currentColor">Intent â€” the what &amp; why</text>
+      <rect x="70" y="70" width="340" height="50" rx="6" fill="#0ea5e922" stroke="#0ea5e9"/>
+      <text x="240" y="100" text-anchor="middle" font-family="sans-serif" font-size="14" fill="currentColor">Architecture â€” the high-level shape</text>
+      <rect x="100" y="130" width="280" height="50" rx="6" fill="#10b98122" stroke="#10b981"/>
+      <text x="240" y="160" text-anchor="middle" font-family="sans-serif" font-size="14" fill="currentColor">Task â€” the per-ticket plan</text>
+    </svg>
+    <figcaption>Each altitude only makes sense resting on the one beneath it.</figcaption>
+  </figure>
+
+  <h2>The mistake this prevents</h2>
+  <p>Beginners tend to make one of two errors. The first is skipping straight to task altitude: opening an agent and asking it to "build the feature" with no intent or architecture behind it. The agent will happily invent both on your behalf, usually guessing wrong, and you won't find out until the code is already written. The second error is the opposite: getting stuck re-litigating intent (should we even build this?) in the middle of writing a single function, which stalls small, reversible work with big, slow questions it doesn't need.</p>
+  <div class="warn"><span class="label">Watch for this</span> If you catch yourself deciding "what should this product even do" while looking at a single ticket, you've drifted up to intent altitude mid-task. Zoom back out, answer it at the right level, then come back down.</div>
+  <p>The fix is simple to say and takes practice to feel natural: plan wide at the top two altitudes, across the whole piece of work, and then split narrow to implement one small slice at a time. You commit to intent and architecture once, up front â€” then every individual unit of work descends from decisions you've already made, instead of re-deciding them each time.</p>
+
+  <h2>How the next lessons map onto this</h2>
+  <div class="cards two">
+    <div class="card"><h3>Intent altitude</h3><p>Captured in the strategic doc â€” a PRD for something new, or an epic for a feature on an existing product. That's the next lesson.</p></div>
+    <div class="card"><h3>Architecture altitude</h3><p>Captured in an architecture decisions doc â€” the stack, the components, the data flow â€” grounded in your actual codebase and constraints.</p></div>
+  </div>
+  <p>Only after both of those are settled does work descend to task altitude, where it gets sliced into the small, testable pieces an agent actually implements.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Intent is the what and why; architecture is the shape of the solution; task is the per-ticket implementation. Each rests on the one above it." >
+    <p class="q">Which altitude answers "what problem are we solving, and for whom"?</p>
+    <button>Task</button>
+    <button>Intent</button>
+    <button>Architecture</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Letting an agent invent the product intent and the architecture while you only asked for a task is the classic altitude mix-up â€” and it's usually invisible until the code is already wrong.">
+    <p class="q">An agent is asked to "just build the feature" with no strategic doc and no architecture decisions in place. What's the risk?</p>
+    <button>Nothing â€” the agent will ask before deciding anything</button>
+    <button>The task will simply take longer to run</button>
+    <button>The agent quietly decides the what/why and the how on its own, and you find out only after the code is written</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="Plan wide across the whole piece of work at the top two altitudes, then split narrow â€” implementing one small, testable slice at a time.">
+    <p class="q">What's the right rhythm for planning across a whole epic or feature?</p>
+    <button>Plan wide at intent and architecture altitude, then split narrow to implement</button>
+    <button>Plan narrow for each ticket first, then infer the architecture afterward</button>
+    <button>Skip planning and let each ticket decide its own architecture</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Know your altitude at every moment â€” intent, architecture, or task â€” and never let an agent silently climb to one you meant to own.</strong> Mixing altitudes, not bad ideas, is what derails most plans.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a time an agent (or a teammate) answered a question at the wrong altitude â€” deciding "what" when you only asked "how," say. What tipped you off? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>; comparing notes with other learners is where a lot of the real learning happens.</div>
+
+  <nav class="prevnext">
+    <a href="13-validate-and-gates.html"><span class="lbl">Previous</span>13 Â· Validate &amp; Gates</a>
+    <a class="r" href="15-strategic-doc.html"><span class="lbl">Next</span>15 Â· The Strategic Doc â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

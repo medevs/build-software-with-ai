@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 Â· The Context Layer</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="05-the-context-layer">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#0ea5e9">Module 2 Â· The Context Layer</span>
+    <span>Lesson 5 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Naming the thing you're actually going to build</p>
+  <h1>The Context Layer</h1>
+  <p class="dek">You already know a system beats a raw prompt. Now let's name the piece you build once and reuse forever: the context layer.</p>
+
+  <h2>What the context layer actually is</h2>
+  <p>Picture handing a new contractor the keys to your codebase with zero onboarding. No conventions, no
+     workflow docs, no idea which systems talk to which. They'd guess, and some of those guesses would be
+     wrong in expensive ways. A raw coding agent starts every session exactly like that contractor â€” capable,
+     but blank.</p>
+  <p>The <strong>context layer</strong> is everything you build on top of the agent to fix that: the knowledge
+     about your project, the workflows you want it to follow, and the connections to the other systems it needs
+     to reach. Concretely, it's a set of files that live right alongside your code â€” conventions, reusable
+     workflows, specialist helpers, connections to outside tools â€” checked into the same repository as
+     everything else you ship.</p>
+  <p>Because it's checked in, it isn't personal to you. Open a new session tomorrow, or hand the project to a
+     teammate next week, and the context layer is already there. Nobody re-explains the codebase from scratch,
+     and nobody starts back at zero.</p>
+
+  <h2>Three layers, one stack</h2>
+  <p>It helps to see where the context layer sits relative to everything else in play when you're working with
+     an agent. Think of it as three layers, stacked bottom to top:</p>
+  <div class="cards two">
+    <div class="card"><h3>1 Â· The agent you pick</h3><p>The coding tool itself â€” Claude Code, Codex, Cursor, or
+       whatever you reach for. This is the foundation. You don't build it, you choose it, and it's the first
+       thing that turns a raw model into something that can read and write code.</p></div>
+    <div class="card"><h3>2 Â· The context layer you build</h3><p>Everything this lesson is about: the reusable
+       knowledge, workflows, and connections you add on top of the agent. You build this once per project and
+       keep improving it. This is the layer under your control.</p></div>
+  </div>
+  <div class="cards two">
+    <div class="card"><h3>3 Â· The plan for one task</h3><p>Inside a single work session, you produce a
+       focused, per-task plan â€” what to build, right now, for this one piece of work. It's temporary: useful
+       for this loop, then done.</p></div>
+    <div class="card"><h3>Why the order matters</h3><p>Each layer leans on the one below it. A good per-task
+       plan is easy to write when the context layer already carries the conventions and workflows. A reliable
+       context layer is easy to build on top of a capable agent. Skip a layer and the ones above it get shakier.</p></div>
+  </div>
+  <figure>
+    <svg viewBox="0 0 520 190" width="100%" style="max-width:520px" role="img" aria-label="Three stacked layers: the agent you pick, the context layer you build, the per-task plan you produce">
+      <rect x="10" y="130" width="500" height="45" rx="6" fill="#6366f122" stroke="#6366f1"/>
+      <text x="260" y="157" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">The agent you pick (Claude Code, Codex, Cursorâ€¦)</text>
+      <rect x="10" y="70" width="500" height="45" rx="6" fill="#0ea5e922" stroke="#0ea5e9"/>
+      <text x="260" y="97" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">The context layer you build (rules, workflows, connections)</text>
+      <rect x="10" y="10" width="500" height="45" rx="6" fill="#10b98122" stroke="#10b981"/>
+      <text x="260" y="37" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">The plan for one task, inside one loop</text>
+    </svg>
+    <figcaption>Bottom to top: what you pick, what you build, what you produce each time.</figcaption>
+  </figure>
+
+  <h2>Moldable, not a framework</h2>
+  <p>It's tempting to picture the context layer as a rigid process you install once and follow forever â€” a set
+     of steps you're locked into. Resist that. Some off-the-shelf approaches do work that way, forcing every
+     project through the same fixed pipeline whether it fits or not. That's the opposite of what you want here.</p>
+  <div class="note"><span class="label">The key move</span> The context layer is <em>yours</em> to shape. Start
+     small, notice where the agent stumbles, and adjust. It should feel more like a garden you tend than a
+     machine you install.</div>
+  <p>That's also why it's worth starting light. A context layer that tries to cover every possible situation on
+     day one becomes its own maintenance burden. A context layer that starts with a handful of true, useful
+     conventions and grows only when reality demands it stays something you can actually keep up with.</p>
+
+  <h2>Why this lives in your repo, not your head</h2>
+  <p>The alternative to a context layer isn't "no structure" â€” it's structure that lives in one person's head,
+     re-explained verbally every time someone new joins or a new session starts. That doesn't scale past one
+     person, and it doesn't survive you being on vacation.</p>
+  <table>
+    <tr><th>Kept in your head</th><th>Kept in the context layer</th></tr>
+    <tr><td>Re-explained every session</td><td>Loaded automatically, every session</td></tr>
+    <tr><td>Lost when you're unavailable</td><td>Available to any teammate, any time</td></tr>
+    <tr><td>Drifts silently as the project changes</td><td>Reviewed and versioned like the rest of your code</td></tr>
+  </table>
+  <p>Put it in the repo, and the context layer becomes a shared asset that compounds â€” every session, every
+     teammate, every future you gets the benefit of what you already figured out.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="The agent is the base you pick, the context layer is what you build on top of it, and the per-task plan is produced fresh inside a single work session." >
+    <p class="q">In the three-layer stack, where does the context layer sit?</p>
+    <button>It's the coding agent itself</button>
+    <button>Between the agent you pick and the plan you produce for one task</button>
+    <button>It only exists after the project ships</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="A context layer that tries to anticipate everything up front becomes its own burden. Start small, keep it true, and grow it as reality demands." >
+    <p class="q">What's the risk of treating the context layer like a rigid framework you install once?</p>
+    <button>It becomes too easy to maintain</button>
+    <button>The agent ignores it entirely</button>
+    <button>It stops fitting your project and becomes a burden instead of a help</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>The context layer is what you build on top of your agent, kept in your repo so every session and
+     every teammate reuses it â€” and it's yours to shape, not a framework to obey.</strong> The next lesson
+     breaks it into the six concrete pieces you'll actually build.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think about the last piece of project
+     knowledge you had to re-explain to a teammate or to an agent session. Would writing it into a context
+     layer have saved that re-explanation? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="04-three-ways-in.html"><span class="lbl">Prev</span>4 Â· Three Ways In</a>
+    <a class="r" href="06-six-building-blocks.html"><span class="lbl">Next</span>6 Â· The Six Building Blocks â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 2 Â· The Context Layer Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

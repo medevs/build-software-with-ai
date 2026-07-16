@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 Â· What "Done" Means</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="10-what-done-means">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#10b981">Module 3 Â· Making It Correct</span>
+    <span>Lesson 10 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Define the finish line before you run the race</p>
+  <h1>What "Done" Means</h1>
+  <p class="dek">"Done" feels obvious until you try to say it out loud. Most software problems start here â€” nobody agreed what finished actually looks like.</p>
+
+  <h2>"Done" is a definition, not a feeling</h2>
+  <p>When you ask an AI to "build a signup form," it will build <em>something</em>. It will run. A box will appear, you'll type a name and an email, and it'll say "success." That can feel done. But done for whom, doing what, under what conditions?</p>
+  <p>A <strong>requirement</strong> is a plain statement of what the software must do. Not how â€” just what. "A visitor can create an account with an email and password" is a requirement. It sounds simple, but it's already doing real work: it tells you what to build and, just as importantly, what to check afterward.</p>
+  <p>Without a written requirement, "done" quietly becomes "whatever the AI happened to produce." That's not a definition â€” that's luck.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> You don't need a thick spec document. You need one or two sentences per feature, written down <em>before</em> you ask the AI to build it. That small habit is the difference between steering the software and being steered by whatever came out first.</div>
+
+  <h2>The happy path is the easy 20%</h2>
+  <p>The <strong>happy path</strong> is the scenario where everything goes exactly right: a real name, a valid email, a strong password, one click, done. Demos almost always show the happy path â€” it's fast, it looks good, and it's the first thing any builder (human or AI) gets working.</p>
+  <p>Real users don't stay on the happy path. They paste their email twice by accident. They leave a field blank. They type an address with no @ sign. They try to sign up with an account that already exists. None of that is unusual â€” it's just Tuesday for any software with real users.</p>
+
+  <h2>Edge cases: the weird inputs that reveal reality</h2>
+  <p>An <strong>edge case</strong> is an input at the boundary of what's expected â€” unusual, extreme, or invalid, but entirely realistic. A short list to picture, using that same signup form:</p>
+  <table>
+    <tr><th>Edge case</th><th>What actually happens if you never asked</th></tr>
+    <tr><td>Empty â€” no email typed</td><td>Might crash, might silently create a broken account</td></tr>
+    <tr><td>Huge â€” a 5,000-character name</td><td>Might break the page layout or overflow storage</td></tr>
+    <tr><td>Wrong â€” "not-an-email" as the email</td><td>Might get accepted and never receive a confirmation</td></tr>
+    <tr><td>Zero / negative â€” age field set to 0 or -5</td><td>Might pass validation that only checks "is it a number"</td></tr>
+    <tr><td>Duplicate â€” signing up twice with the same email</td><td>Might create two accounts, or silently overwrite one</td></tr>
+    <tr><td>Malicious â€” someone pastes code into the name field</td><td>Might get stored and later run as instructions â€” a real security risk</td></tr>
+  </table>
+  <p>None of these are exotic hacker tricks. They're what happens the first ordinary week your software is live. A demo that never tried them hasn't been tested â€” it's only been shown once, in ideal conditions.</p>
+
+  <h2>Writing a tiny definition of done</h2>
+  <p>You don't need engineering training to write one. A useful definition of done for a feature has three short parts:</p>
+  <div class="steps">
+    <li><strong>The requirement.</strong> One sentence: what must this do? "A visitor can create an account with an email and password."</li>
+    <li><strong>The edge cases you care about.</strong> A short list: empty fields, duplicate email, obviously invalid email, a password that's too short.</li>
+    <li><strong>What "handled" means.</strong> Not "crash" or "silently do the wrong thing" â€” instead, a clear message telling the person what went wrong.</li>
+  </div>
+  <p>Hand that whole thing to the AI along with your feature request. You're no longer asking it to guess what matters â€” you're asking it to build to a spec you defined, and you now know exactly what to test afterward.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>The feature was declared "done" the moment the happy path worked once.</li>
+      <li>Nobody can name what happens on an empty, duplicate, or malicious input â€” because nobody asked.</li>
+      <li>The requirement only exists in your head, not written anywhere the AI or a teammate can see it.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Here's my requirement: [one sentence]. What edge cases should we handle before this is done?"</li>
+      <li>"What happens right now if this field is left empty, or the input is a duplicate?"</li>
+      <li>"Show me what the user sees when something goes wrong, not just when it goes right."</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="A requirement is what the software must do â€” a plain sentence written down before building, so everyone (including the AI) is aiming at the same target.">
+    <p class="q">What is a "requirement," in plain terms?</p>
+    <button>The programming language the AI uses</button>
+    <button>A plain statement of what the software must do, written before you build it</button>
+    <button>A bug that was found after launch</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Edge cases â€” empty, huge, wrong, zero, negative, duplicate, malicious â€” are realistic inputs real users hit constantly. The happy path only proves the ideal case works.">
+    <p class="q">Why do edge cases matter if the demo already worked?</p>
+    <button>They don't â€” if the demo works, the feature is done</button>
+    <button>They're rare hacker tricks that only affect big companies</button>
+    <button>They're realistic inputs â€” empty, duplicate, malicious â€” that ordinary users hit regularly</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="Definition of done = requirement + the edge cases you care about + what 'handled' looks like. Handing that to the AI turns a guess into a spec.">
+    <p class="q">What should a tiny "definition of done" include?</p>
+    <button>The requirement, the edge cases to check, and what "handled" looks like</button>
+    <button>Only the requirement â€” edge cases can be figured out later</button>
+    <button>A full technical architecture diagram</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>A demo proves the happy path works once. "Done" means you defined the requirement and the edge cases first, and checked both.</strong> Say what "done" means before you build â€” not after something breaks.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Pick a form you've filled out recently â€” a signup, a checkout, a booking. What's one weird input (empty, duplicate, huge) you bet it never really planned for? Share it in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="09-migrations-and-backups.html"><span class="lbl">Prev</span>9 Â· Migrations &amp; Backups</a>
+    <a class="r" href="11-testing-basics.html"><span class="lbl">Next</span>11 Â· Testing, Explained â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 3 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

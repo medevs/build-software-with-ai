@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>15 Â· Login &amp; Permissions</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="15-login-and-permissions">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Keeping It Safe</span>
+    <span>Lesson 15 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Two questions your app must never confuse</p>
+  <h1>Login &amp; Permissions</h1>
+  <p class="dek">"Who are you?" and "what are you allowed to do?" sound like the same question. They aren't â€”
+     and mixing them up is one of the most common, most damaging mistakes in software.</p>
+
+  <h2>Authentication: proving who you are</h2>
+  <p><strong>Authentication</strong> is the process of proving you are who you claim to be. The everyday version
+     is logging in: you type an email and a password, and the app checks that the password matches the account.
+     It's the digital version of showing ID at the door.</p>
+  <p>Two things make authentication stronger. "Sign in with Google" (or Apple, or similar) lets you reuse a
+     login that a large company already secures carefully, instead of creating yet another password for the
+     app to protect â€” one less password for you to forget, and one less password database for the app to
+     guard. <strong>Two-factor authentication (2FA)</strong> adds a second proof on top of the password â€” usually
+     a code sent to your phone â€” so that even if someone steals your password, they still can't get in without
+     also having your phone.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> Authentication answers exactly one
+     question: is this really the account owner? It says nothing yet about what that person should be able to
+     see or do once they're in. That's a separate job, coming up next.</div>
+
+  <h2>Authorization: what you're allowed to do</h2>
+  <p><strong>Authorization</strong> is the process of checking what a logged-in person is actually allowed to
+     do. Being logged in doesn't mean being allowed to do everything. A normal customer being logged in should
+     not mean they can open the admin panel, see other customers' orders, or change someone else's account â€”
+     even though the app already knows who they are.</p>
+  <p>Think of a hotel key card. Showing your ID at the front desk (authentication) gets you a key card. But
+     that key card should only open <em>your</em> room â€” not the room next door, not the manager's office.
+     Authorization is the part of the system that checks the key card against the door, every single time
+     someone tries to open one.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Authentication</h3><p>Proves who you are. Happens once, at login. The question:
+       "is this really you?"</p></div>
+    <div class="card"><h3>Authorization</h3><p>Checks what you're allowed to do. Happens on every action. The
+       question: "are you allowed to do <em>this</em>, on <em>this</em> specific thing?"</p></div>
+  </div>
+
+  <h2>The classic disaster</h2>
+  <p>Here's the mistake that shows up again and again in real breaches: an app checks <em>who</em> you are
+     but forgets to check <em>what you're allowed to reach</em>. Imagine an order page reachable at a web
+     address like <code>orders.example.com/view?id=1042</code>. If the app only confirms "yes, this is a
+     logged-in user" and never checks "does order 1042 actually belong to this user," then any logged-in
+     customer can simply change the number in the address and read someone else's order. They didn't hack
+     anything clever â€” the app just never asked the second question.</p>
+  <p>This is why authorization has to be checked on <em>every</em> action that touches someone's data, not
+     just once at the login screen.</p>
+
+  <h2>Passwords must be stored scrambled</h2>
+  <p>A well-built app never stores your password as plain, readable text. Instead it runs your password through
+     a one-way scrambling process called <strong>hashing</strong>, and stores only the scrambled result. When
+     you log in later, the app scrambles what you typed and compares the two scrambled versions â€” it never
+     needs to see or store your real password at all.</p>
+  <p>This matters because if a company's database is ever stolen (and sometimes they are), hashed passwords are
+     close to useless to the thief, while plain-text passwords hand over everyone's login instantly, often for
+     other sites too, since people reuse passwords.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>A page or action checks "are you logged in?" but never checks "is this <em>your</em> data?"</li>
+      <li>Passwords appear anywhere in the database, logs, or code in plain, readable form.</li>
+      <li>Every logged-in user, regardless of role, can reach admin-only pages or actions.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"For this feature, does it check that the logged-in user actually owns the data being requested?"</li>
+      <li>"Are passwords hashed before being stored, and never logged or stored in plain text?"</li>
+      <li>"Which pages or actions here should be limited to admins, and are they actually restricted?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Authentication proves who you are (login); authorization checks what that person is allowed to do. They are separate steps, checked at different times." >
+    <p class="q">What's the difference between authentication and authorization?</p>
+    <button>They're two names for the same login step</button>
+    <button>Authentication proves who you are; authorization checks what you're allowed to do</button>
+    <button>Authorization happens first, then authentication</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="The classic disaster is checking WHO someone is but never checking WHAT they're allowed to reach â€” letting any logged-in user view others' data by changing an ID.">
+    <p class="q">A user changes the number in a web address and sees someone else's order. What most likely went wrong?</p>
+    <button>The password wasn't hashed</button>
+    <button>The user wasn't logged in at all</button>
+    <button>The app checked that the user was logged in, but never checked that the order belonged to them</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="Hashing is one-way scrambling â€” the app compares scrambled versions and never needs to store the real password, so a stolen database doesn't hand over plain passwords.">
+    <p class="q">Why should passwords be stored "hashed" instead of as plain text?</p>
+    <button>So a stolen database doesn't hand attackers everyone's real password</button>
+    <button>So the app loads pages faster</button>
+    <button>So users can recover their exact password if they forget it</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Proving who you are and checking what you're allowed to do are two separate jobs â€” and every
+     single action that touches someone's data needs the second check, not just the first.</strong></p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of an app where you have an account.
+     Can you think of one piece of data on there that should be visible only to you? What do you imagine
+     happens behind the scenes to make sure a stranger can't see it? Share your thoughts in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="14-security-mindset.html"><span class="lbl">Previous</span>â† 14 Â· The Security Mindset</a>
+    <a class="r" href="16-secrets-and-keys.html"><span class="lbl">Next</span>16 Â· Secrets &amp; Keys â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

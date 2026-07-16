@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 Â· The Two Loops</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="03-the-two-loops">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#6366f1">Module 1 Â· Foundations</span>
+    <span>Lesson 3 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">The map for everything you'll do</p>
+  <h1>The Two Loops</h1>
+  <p class="dek">Once a system surrounds your agent, almost everything you do collapses into just two repeating loops â€” one you live in daily, one you visit rarely.</p>
+
+  <h2>Two loops, not a hundred workflows</h2>
+  <p>It's tempting to think agentic coding requires a different workflow for every situation â€” one for bug fixes,
+     another for new features, another for refactors. It doesn't. Nearly everything decomposes into two loops that
+     you'll recognize instantly once you see them named.</p>
+  <div class="cards two">
+    <div class="card"><h3>The inner loop</h3><p>Where you do the actual work. You take one small, well-defined
+       piece of a project and run it through a simple four-step rhythm.</p></div>
+    <div class="card"><h3>The outer loop</h3><p>Where you improve the system itself. You step back and adjust how
+       you work so the same kind of mistake is less likely to happen again.</p></div>
+  </div>
+
+  <h2>The inner loop: the core loop</h2>
+  <p>The inner loop is a four-step rhythm you'll run over and over, on one small unit of work at a time â€” a single
+     feature, a single fix, a single improvement. We'll call it <strong>the core loop</strong>, and it goes:</p>
+  <div class="steps">
+    <li><strong>Research.</strong> Get oriented â€” understand what already exists and what this piece of work
+       actually needs before deciding anything.</li>
+    <li><strong>Plan.</strong> Decide the approach and the shape of "done," on paper, before any code gets
+       written.</li>
+    <li><strong>Implement.</strong> Let the agent write the code, following the plan you set.</li>
+    <li><strong>Validate.</strong> Check the result against a real standard â€” run it, test it, read it â€” before you
+       call it finished.</li>
+  </div>
+  <p>Notice the shape from the last lesson hiding in here: Research and Plan are the thinking that comes before the
+     agent types anything; Validate is the checking that comes after. Implement â€” the part you fully hand off â€” is
+     sandwiched in the middle. That's the driver's seat, formalized into four repeatable steps.</p>
+
+  <div class="tip"><span class="label">Where you actually live</span> Almost all of your time as an agentic coder
+     is spent right here, in the inner loop. It doesn't need to run perfectly every time to be useful â€” a rough
+     pass through Research â†’ Plan â†’ Implement â†’ Validate on a small task still beats no structure at all.</p></div>
+
+  <h2>The outer loop: improving the builder, not the build</h2>
+  <p>The outer loop is different in kind. You don't step into it to finish a task â€” you step into it when you
+     notice the <em>same kind of problem</em> keeps showing up across tasks. Maybe the agent keeps missing a
+     project convention. Maybe it keeps skipping a check you always want done. That's your signal to pause building
+     for a moment and have a conversation with your agent about what should change in your project's setup â€” the
+     instructions, habits, and shortcuts you've built up around it â€” so that class of mistake is less likely next
+     time.</p>
+  <p>Think of the inner loop as driving to work every day, and the outer loop as occasionally tuning the car â€”
+     adjusting the mirrors, topping off the oil â€” so tomorrow's drive goes a little more smoothly. You don't tune
+     the car every morning. You tune it when something about the ride keeps bothering you.</p>
+
+  <h2>The asymmetry: rare visits, big payoff</h2>
+  <p>The two loops are deliberately lopsided. You spend the overwhelming majority of your time in the inner loop,
+     shipping one small piece of work after another. You step out to the outer loop only occasionally â€” when an
+     issue is significant enough, or recurring enough, to be worth fixing at the source rather than working around
+     it again.</p>
+  <p>And as your setup matures, you'll notice yourself stepping out to the outer loop less and less. Early on, you
+     might adjust your system every few tasks. Later, whole weeks of inner-loop work go by without needing a single
+     outer-loop conversation â€” not because problems stopped happening, but because you already fixed the recurring
+     ones at the root.</p>
+  <table>
+    <thead><tr><th></th><th>Inner loop</th><th>Outer loop</th></tr></thead>
+    <tbody>
+      <tr><td>Purpose</td><td>Build the thing</td><td>Improve the system that builds things</td></tr>
+      <tr><td>Frequency</td><td>Constant â€” every task</td><td>Occasional â€” only when needed</td></tr>
+      <tr><td>Trigger</td><td>You have work to do</td><td>A mistake or gap keeps recurring</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="0" data-why="You live in the inner loop for the overwhelming majority of your work â€” it's the loop that actually ships things. The outer loop is a rare, deliberate step out.">
+    <p class="q">Which loop should take up most of your time as an agentic coder?</p>
+    <button>The inner loop</button>
+    <button>The outer loop</button>
+    <button>Both equally, on a fixed schedule</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="1" data-why="Lesson 1's system gap is exactly what the outer loop closes: when the same mistake recurs, you step out and fix the system around the agent instead of the model itself.">
+    <p class="q">Back in Lesson 1 we said the real bottleneck is the system around the model, not the model itself. Which loop is specifically about closing that kind of gap when it shows up repeatedly?</p>
+    <button>The inner loop, by running Validate more carefully</button>
+    <button>The outer loop, by adjusting the system so the recurring mistake is less likely</button>
+    <button>Neither â€” you'd just switch to a different agent</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Implement is the one step you fully hand to the agent. Research and Plan are your thinking beforehand; Validate is your checking afterward â€” the sandwich from the driver's-seat lesson.">
+    <p class="q">In the four-step core loop, which single step is the one you delegate entirely to the agent?</p>
+    <button>Research</button>
+    <button>Plan</button>
+    <button>Implement</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>You live in the inner loop; you visit the outer loop rarely, and only on purpose.</strong> One builds
+     the thing in front of you â€” the other makes every future thing easier to build.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a mistake an agent has made for you
+     more than once. Was it ever worth a trip to the outer loop to fix the root cause, or did you just re-explain it
+     every time? Share it in the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” recurring-mistake stories are some of the most useful ones to compare.</div>
+
+  <nav class="prevnext">
+    <a href="02-driver-or-passenger.html"><span class="lbl">Previous</span>â† Driver's Seat vs. Passenger</a>
+    <a class="r" href="04-three-ways-in.html"><span class="lbl">Next</span>4 Â· Three Ways In â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 1 Â· Foundations Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

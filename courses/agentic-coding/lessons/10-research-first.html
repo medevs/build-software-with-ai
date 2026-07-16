@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 Â· Research First</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="10-research-first">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#10b981">Module 3 Â· The Core Loop</span>
+    <span>Lesson 10 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Look before you leap</p>
+  <h1>Research First</h1>
+  <p class="dek">Before you plan a task, make sure you and the agent actually understand what you're planning. Research is the step that keeps the plan from being built on guesses.</p>
+
+  <h2>What "research" means here</h2>
+  <p>Research, the R in the core loop, is simply this: before you sit down to plan a task, build the
+     understanding that task actually needs. That might mean reading the relevant part of the codebase, checking
+     how a similar feature was built elsewhere in the project, confirming a business rule, or just getting clear
+     on what "done" should look like.</p>
+  <p>It's the least glamorous step and the easiest one to skip â€” which is exactly why it causes so many
+     downstream problems when it's skipped at the wrong moment.</p>
+
+  <div class="note"><span class="label">Plain-language version</span> This is just "look before you leap." Don't
+     start writing a plan for a task until you actually understand the ground it stands on.</div>
+
+  <h2>Research is optional â€” and it scales with novelty</h2>
+  <p>Unlike the other three steps, research isn't something you always do in full. How much of it you need scales
+     directly with how new or unclear the task is:</p>
+  <div class="cards two">
+    <div class="card"><h3>Skip it (or keep it light)</h3><p>The task is already well understood â€” you've built
+       something like it before, the codebase area is familiar, and the requirements are crisp. Jump straight to
+       planning.</p></div>
+    <div class="card"><h3>Do it properly</h3><p>The task touches unfamiliar code, a new domain, or a vague
+       request ("make search better"). Spend real time here â€” reading code, asking questions, mapping what
+       exists â€” before you plan anything.</p></div>
+  </div>
+  <p>Treat research as a dial, not a switch. A task you've done ten times before might need thirty seconds of
+     double-checking. A task in a part of the codebase you've never touched might need real, focused exploration
+     â€” reading the actual files involved, not just skimming a summary.</p>
+
+  <h2>What good research produces</h2>
+  <p>Research isn't about writing a report â€” it's about arriving at the planning conversation with the right
+     facts already in hand: which files are involved, what patterns the codebase already uses, what constraints
+     exist (a rule you can't break, a data shape you must match), and what "success" concretely looks like for
+     this task.</p>
+  <p>Bring that understanding into the planning conversation and the plan that comes out the other side will be
+     grounded in reality rather than guesswork. Skip it on a task that actually needed it, and you'll often only
+     discover the missing understanding mid-implementation â€” the most expensive place to discover it.</p>
+
+  <div class="tip"><span class="label">A quick gut-check</span> Before you start planning, ask yourself: "Could I
+     explain, in one or two sentences, exactly what part of the system this touches and why?" If the honest
+     answer is no, that's your signal to research first.</div>
+
+  <h2>Research at the task level vs. research earlier on</h2>
+  <p>You may have already done some research well before this point â€” when the bigger piece of work this task
+     came from was first scoped out. That's a different, larger-scale pass. The research step inside the core
+     loop is narrower and more practical: it's about this one task, right now, and whether you and the agent
+     have enough grounding to plan it well.</p>
+  <p>If the earlier scoping already answered the key questions, this step can be quick. If it didn't â€” or if the
+     task changed shape since then â€” this is where you catch that before it costs you an implementation cycle.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Research scales with novelty â€” skip or lighten it for familiar work, invest real effort for new or vague work.">
+    <p class="q">When should you spend real time and effort on the research step?</p>
+    <button>When the task is new, vague, or touches unfamiliar code</button>
+    <button>Every single time, in exactly the same depth</button>
+    <button>Only after the implementation has already failed once</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="3" data-why="Skipping research on a task that actually needed it usually means the missing understanding surfaces mid-implementation, which is the most expensive place to find it.">
+    <p class="q">What's the risk of skipping research on a task that genuinely needed it?</p>
+    <button>Nothing â€” research is purely optional overhead</button>
+    <button>The plan will simply take a little longer to write</button>
+    <button>You discover the missing understanding mid-implementation, which is costly to fix</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Research is the dial you turn based on how new the task is â€” light for familiar ground, real effort
+     for anything unfamiliar or vague.</strong> Get the understanding right first, and the plan you write next
+     will actually hold up.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a task you've handed an agent that
+     went off the rails. Looking back, was it missing research â€” did you (or the agent) not really understand
+     the area of the codebase you were changing? Share it in the
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” patterns tend to jump out once a few people compare notes.</p>
+
+  <nav class="prevnext">
+    <a class="l" href="09-the-core-loop.html"><span class="lbl">Prev</span>â† 9 Â· The Core Loop</a>
+    <a class="r" href="11-the-plan.html"><span class="lbl">Next</span>11 Â· The Plan That Ships in One Pass â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 3 Â· The Core Loop Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

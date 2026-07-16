@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 Â· Client &amp; Server</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="03-client-and-server">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#6366f1">Module 1 Â· How Software Works</span>
+    <span>Lesson 3 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Sending mail, and waiting for the reply</p>
+  <h1>Client &amp; Server</h1>
+  <p class="dek">"It's slow." "It's down." Almost every complaint like that is really about one relationship: your device asking a distant computer for something, and waiting for the answer.</p>
+
+  <h2>You ask, something else answers</h2>
+  <p>Your phone or laptop, running the frontend from last lesson, is called the <strong>client</strong>. It's the
+     one asking for things. Somewhere else â€” often in a data center you'll never see â€” sits the
+     <strong>server</strong>: an always-on computer running the backend, waiting to answer.</p>
+  <p>The whole exchange works like ordering something by mail:</p>
+  <div class="steps">
+    <li>You write an order and send it off. In software, this is a <strong>request</strong> â€” the client asking the server for something ("show me my messages," "save this photo").</li>
+    <li>Your letter travels over a delivery network. In software, that's the internet â€” cables, towers, and routers carrying the request to the right server.</li>
+    <li>The server reads the request, does the work, and mails something back. That's the <strong>response</strong> â€” the answer the client receives and shows you.</li>
+  </div>
+  <p>Every single thing an app does â€” loading a page, posting a comment, checking your balance â€” is one or more of
+     these request-and-response round trips happening, usually in well under a second.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> Nothing your app does is instant or free.
+     Every tap sends a letter out and waits for a reply. That round trip is where slowness, errors, and "why did
+     this fail" almost always come from.</div>
+
+  <h2>The API: a menu of what you're allowed to ask for</h2>
+  <p>A client can't just ask a server for anything, in any form â€” there has to be an agreed set of requests the
+     server understands and is willing to answer. That agreed set is called an <strong>API</strong> (application
+     programming interface). Think of it as the menu a waiter hands you: you can't order anything you like, you order
+     from the list of dishes the kitchen has agreed to make.</p>
+  <blockquote>The API is the waiter: it only accepts requests the kitchen has agreed to handle, phrased the way the kitchen expects.</blockquote>
+  <p>When an AI "builds an API" for your app, it's writing down that menu â€” which requests the server will accept
+     ("get my order history," "add an item to my cart") and exactly what it needs from you to do it. Anything not on
+     the menu, the server refuses.</p>
+
+  <h2>"It's slow" or "it's down" â€” where to look</h2>
+  <table>
+    <tr><th>Symptom</th><th>Where to look first</th></tr>
+    <tr><td>Whole app won't load, for everyone</td><td>The server is probably down or overloaded</td></tr>
+    <tr><td>Just your device is stuck spinning</td><td>Your connection to the internet</td></tr>
+    <tr><td>App loads but one action never finishes</td><td>That one request â€” likely a slow or broken part of the backend</td></tr>
+  </table>
+  <p>Because the client and server are separate machines, either one can be the problem â€” and so can the delivery
+     network between them. That's also why an app can feel instant for you and unusably slow for someone with a
+     weak connection, even though the server is doing exactly the same work both times.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"It's not our servers' fault" said with no actual evidence of where the request failed.</li>
+      <li>A feature that works fine for the builder but is never tested on a slow or unreliable connection.</li>
+      <li>An API that will quietly accept requests it was never designed to handle safely.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"When I do this action, what request gets sent to the server, and what response comes back?"</li>
+      <li>"What does this API actually accept â€” and what happens if I send it something outside that?"</li>
+      <li>"If the server is slow or down, what does the user see right now?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="0" data-why="The client sends the request; the server is the always-on computer elsewhere that sends back the response.">
+    <p class="q">Which one sends the request, and which one sends back the response?</p>
+    <button>The client sends the request; the server sends the response</button>
+    <button>The server sends the request; the client sends the response</button>
+    <button>They both send requests to each other at the same time</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="1" data-why="An API is the agreed menu of requests a server will accept and answer â€” like a waiter only taking orders from the menu." >
+    <p class="q">What is an API, in plain terms?</p>
+    <button>The screens and buttons you see in an app</button>
+    <button>The agreed menu of requests a server accepts and knows how to answer</button>
+    <button>The physical cables that carry internet traffic</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Your device is the client sending letters; a server somewhere else writes back â€” and "it's slow" or "it's down" almost always means a problem in that request, that response, or the delivery in between.</strong></p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Next time an app feels slow, try to guess which
+     part is the bottleneck: your connection, the server, or one specific request. Share what you noticed in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="02-the-stack.html"><span class="lbl">Prev</span>â† 2 Â· The Stack</a>
+    <a class="r" href="04-languages-and-dependencies.html"><span class="lbl">Next</span>4 Â· Languages &amp; Dependencies â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 1 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>23 Â· Skills (Reusable Workflows)</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="23-skills">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#8b5cf6">Module 6 Â· The Building Blocks</span>
+    <span>Lesson 23 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Building block #2, in depth</p>
+  <h1>Skills (Reusable Workflows)</h1>
+  <p class="dek">A skill is a workflow you write down once and trigger by name forever after. If rules are the block worth setting up first, skills are usually the block worth investing in most.</p>
+
+  <h2>A skill is a named, repeatable workflow</h2>
+  <p>Picture the workflows you already repeat by hand: planning a new feature, reviewing a diff before you
+     commit, setting up a fresh environment, drafting a ticket the same way every time. Each of those is a
+     multi-step process you currently re-explain â€” out loud, in your head, or in a fresh prompt â€” every single
+     time you need it.</p>
+  <p>A skill packages that whole process into one document with a short name and description. Instead of
+     re-explaining "first check the tests, then look at the diff, then flag anything risky, then write it up
+     this way" for the tenth time, you just say the skill's name and the agent runs the entire routine, the same
+     way, every time.</p>
+
+  <div class="tip"><span class="label">Why this is the highest-leverage block</span> Almost <em>any</em>
+     workflow you find yourself repeating can become a skill â€” planning, reviewing, onboarding, drafting,
+     checking. One skill, written once, can save you from re-explaining the same steps for the rest of the
+     project's life. Few investments pay back that fast.</div>
+
+  <h2>How skills stay lean: progressive disclosure</h2>
+  <p>Here's the part that makes skills practical instead of bloating your agent's context: the agent does not
+     read a skill's full instructions until it actually decides to use it. Up front, all it sees is the skill's
+     name and a one-line description â€” enough to recognize "this is relevant" without loading the whole thing
+     into every conversation.</p>
+  <p>Only once the agent invokes a skill does it open the full document and follow the detailed steps inside.
+     This two-tier pattern â€” a tiny always-visible summary, a larger on-demand body â€” is called
+     <strong>progressive disclosure</strong>, and it's the same idea that keeps a rules file lean (see
+     <a href="22-rules.html">Lesson 22</a>). You can have dozens of skills sitting around without any of them
+     weighing down a task that doesn't need them.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Always visible</h3><p>A short name plus a one-line description of what the skill does
+       and when to reach for it â€” small enough to keep dozens of these around at no real cost.</p></div>
+    <div class="card"><h3>Loaded on demand</h3><p>The full step-by-step instructions, examples, and detail â€” only
+       read once the agent (or you) actually triggers that specific skill.</p></div>
+  </div>
+
+  <h2>Where a skill's value comes from</h2>
+  <p>The payoff isn't just saving typing. A skill written once and used repeatedly means the workflow gets done
+     the <em>same way</em> every time â€” same checks, same order, same output shape â€” instead of drifting a little
+     each time you explain it slightly differently under time pressure. Consistency is what makes a workflow
+     trustworthy enough to stop watching closely.</p>
+  <p>It also compounds. Skills are behavior, not codebase-specific truth, so a well-written skill for reviewing
+     changes or drafting a plan tends to travel cleanly from one project to the next â€” unlike a rules file, which
+     has to be rebuilt for each codebase.</p>
+
+  <table>
+    <tr><th>Signal</th><th>What it suggests</th></tr>
+    <tr><td>You've explained the same multi-step process three times this month</td><td>That's a skill waiting
+       to be written.</td></tr>
+    <tr><td>A workflow only ever applies to this one project</td><td>Still worth a skill â€” it just may not
+       travel to your next project unchanged.</td></tr>
+    <tr><td>A one-off task you'll likely never repeat</td><td>Not worth packaging â€” just do it directly.</td></tr>
+  </table>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="2" data-why="A skill packages a repeated multi-step workflow under a name, so you trigger the whole routine instead of re-explaining it each time.">
+    <p class="q">What is a skill, in plain terms?</p>
+    <button>A rule the agent must always obey</button>
+    <button>A connection to an external tool</button>
+    <button>A repeatable workflow packaged under a name you can trigger</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="Progressive disclosure keeps only a short name and description always-visible; the full instructions load only once a skill is actually invoked.">
+    <p class="q">Why doesn't having dozens of skills bloat every single task?</p>
+    <button>Only a short name and description stay always-visible; full detail loads on demand</button>
+    <button>Skills are deleted automatically after one use</button>
+    <button>The agent ignores skills unless you name them out loud</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>Any workflow you find yourself repeating is a candidate to become a skill â€” write it once, and
+     progressive disclosure keeps it from weighing down every other task.</strong> This is usually the
+     highest-leverage building block you can invest in.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> What's a workflow you've re-explained to
+     your agent more than twice this month? That's very likely your next skill. Bring your answer to the
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” and browse a few
+     <a href="https://github.com/your-org/agentic-coding-course/tree/main/examples/skills" target="_blank" rel="noopener">example skills</a> in the course repo for inspiration.</div>
+
+  <nav class="prevnext">
+    <a href="22-rules.html"><span class="lbl">Prev</span>22 Â· Rules</a>
+    <a class="r" href="24-subagents.html"><span class="lbl">Next</span>24 Â· Subagents â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 6 Â· The Building Blocks Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

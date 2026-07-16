@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12 Â· Bugs &amp; Debugging</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="12-bugs-and-debugging">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#10b981">Module 3 Â· Making It Correct</span>
+    <span>Lesson 12 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">The instructions did something other than intended</p>
+  <h1>Bugs &amp; Debugging</h1>
+  <p class="dek">Software doesn't "glitch" or have a bad day. When it misbehaves, some instruction was wrong or missing â€” and finding which one is a skill anyone can learn.</p>
+
+  <h2>A bug is a gap between "should" and "does"</h2>
+  <p>A <strong>bug</strong> is any case where software does something other than what it was intended to do. Recall from <a href="01-what-is-software.html">lesson 1</a>: a computer follows instructions exactly, with no common sense. So if it's misbehaving, the instructions it was given were wrong, incomplete, or didn't account for something â€” a case, an edge, an assumption nobody wrote down.</p>
+  <p>This reframes what a bug actually is. It's not the computer "acting up." It's a precise, findable gap between what the instructions say and what they should have said. That gap can always be located, because the computer is doing exactly what it was told â€” the trick is figuring out what it was actually told versus what you meant.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> You don't need to read code to reason about a bug. You need to reason about behavior: what should have happened, what actually happened, and where those two split apart. That's a plain-English skill, not a technical one.</div>
+
+  <h2>Debugging is detective work, not guessing</h2>
+  <p><strong>Debugging</strong> is the process of finding and fixing a bug. Good debugging follows a repeatable sequence, the same one a detective uses on a case:</p>
+  <div class="steps">
+    <li><strong>Reproduce it.</strong> Make the bug happen again, on purpose, following exact steps. If you can't trigger it reliably, you don't understand it yet.</li>
+    <li><strong>Find the cause.</strong> Trace backward from where it went wrong to the instruction that caused it â€” the missing check, the wrong assumption, the edge case nobody handled.</li>
+    <li><strong>Fix it.</strong> Correct the instruction â€” and check the fix doesn't quietly break something else that used to work.</li>
+  </div>
+  <p>Skipping step one is the most common mistake. It's tempting to guess at a fix for something you never actually reproduced. That's not debugging â€” that's hoping.</p>
+
+  <h2>"I can't reproduce it" is a real problem, not an excuse</h2>
+  <p>If a bug can't be reliably triggered, it can't be reliably confirmed as fixed either. "It seems fine now" after a guessed-at fix is not the same as "we found the actual cause and corrected it." The bug may simply be waiting for the same rare conditions to line up again.</p>
+  <p>This is exactly why <a href="11-testing-basics.html">tests</a> matter: a bug that gets a test written for it can never silently come back unnoticed. The test becomes a permanent, automatic check that this specific mistake stays fixed.</p>
+
+  <h2>A good bug report is a gift to your future self and the AI</h2>
+  <p>Whether you're describing a bug to a coworker or to an AI, the same short report does the job. It needs three things:</p>
+  <table>
+    <tr><th>Part</th><th>What it answers</th><th>Example</th></tr>
+    <tr><td>Steps to reproduce</td><td>Exactly what you did, in order</td><td>"Go to checkout, leave the coupon field empty, click Pay"</td></tr>
+    <tr><td>Expected</td><td>What should have happened</td><td>"Payment should go through with no coupon applied"</td></tr>
+    <tr><td>Actual</td><td>What actually happened</td><td>"Page shows an error and the Pay button stops working"</td></tr>
+  </table>
+  <p>Vague reports like "checkout is broken" force the AI (or a person) to guess at all three of these before any real debugging can start. A precise report skips straight to step two â€” finding the cause â€” because reproducing it is already done.</p>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>A fix gets applied for a bug nobody could actually reproduce first.</li>
+      <li>Bug reports say only "it's broken" with no steps, expected result, or actual result.</li>
+      <li>A bug gets called "fixed" with no test added, so it could silently return unnoticed.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Here are the exact steps to reproduce this, what I expected, and what actually happened â€” what's the likely cause?"</li>
+      <li>"Once you fix this, write a test so this specific bug can't come back unnoticed."</li>
+      <li>"What else in the code makes the same assumption that caused this bug?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="0" data-why="Computers follow instructions exactly with no common sense â€” so a bug always traces back to an instruction that was wrong, incomplete, or missed a case.">
+    <p class="q">What does it mean, in plain terms, that a bug exists?</p>
+    <button>Some instruction was wrong, incomplete, or missed a case the computer was actually given</button>
+    <button>The computer had a temporary glitch with no real cause</button>
+    <button>The user did something they weren't supposed to do</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="1" data-why="Reproduce it, find the cause, then fix it â€” in that order. Guessing at a fix before reproducing the bug is not real debugging.">
+    <p class="q">What's the correct order for debugging?</p>
+    <button>Guess at a fix, then see if it happens to work</button>
+    <button>Reproduce the bug, find the cause, then fix it</button>
+    <button>Fix it first, then check whether it was actually broken</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="A good bug report gives exact reproduction steps plus expected vs. actual behavior â€” that lets whoever fixes it (human or AI) skip straight to finding the cause.">
+    <p class="q">What makes a bug report actually useful?</p>
+    <button>A long, detailed description of how frustrating the bug is</button>
+    <button>A screenshot alone, with no other context</button>
+    <button>Steps to reproduce it, plus what was expected versus what actually happened</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>A bug is a findable gap between what the instructions say and what they should say â€” and reproducing it exactly is the first, non-skippable step to fixing it for good.</strong></p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of the last time you reported a bug to a company (an app crash, a broken button). Did you give steps to reproduce it, or just say "it's broken"? Share what you'd do differently in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="11-testing-basics.html"><span class="lbl">Prev</span>11 Â· Testing, Explained</a>
+    <a class="r" href="13-reviewing-code.html"><span class="lbl">Next</span>13 Â· Reviewing Code â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 3 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

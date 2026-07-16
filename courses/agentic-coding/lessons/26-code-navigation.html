@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>26 Â· Code Navigation & Search</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="26-code-navigation">
+<nav class="topnav">
+  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#8b5cf6">Module 6 Â· The Building Blocks</span>
+    <span>Lesson 26 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">Building block #5, in depth</p>
+  <h1>Code Navigation &amp; Search</h1>
+  <p class="dek">In a small project, blind text search is good enough. In a large one, finding the wrong code costs you time, tokens, and trust â€” and better navigation is the fix.</p>
+
+  <h2>Two very different ways to "find" code</h2>
+  <p>Imagine you need to see everywhere a particular function is used before you change its signature. There
+     are two very different ways an agent can go about that:</p>
+  <div class="cards two">
+    <div class="card"><h3>Blind text search</h3><p>Search for the function's name as plain text across every
+       file. It's fast to set up, but it has no idea what it's actually looking at â€” it will match a comment
+       that mentions the name, a different function that happens to share it, and a string that isn't code at
+       all.</p></div>
+    <div class="card"><h3>Symbol-level navigation</h3><p>Jump straight to where a symbol is defined, and list
+       every real reference to it â€” the same way "go to definition" and "find references" work in a modern code
+       editor. It understands the code's actual structure, not just its text.</p></div>
+  </div>
+  <p>The second approach is what this building block is about: giving the agent the same precise, structural way
+     of moving through code that a good editor gives a human developer, instead of leaving it to guess from
+     plain text matches.</p>
+
+  <h2>Why blind search quietly breaks down</h2>
+  <p>On a small project, the difference barely matters â€” there's so little code that even a clumsy search
+     usually turns up the right answer eventually. The trouble shows up as a codebase grows: common names get
+     reused in dozens of unrelated places, similar-looking functions live in different modules, and a plain-text
+     match starts returning far more noise than signal.</p>
+  <p>When that happens, two costs stack up. The agent burns time and context sifting through irrelevant matches
+     before finding the real one â€” context that could have gone toward actually solving your problem. And worse,
+     it sometimes edits the <em>wrong</em> match entirely, confidently changing a function that merely looked
+     right instead of the one you meant.</p>
+
+  <div class="warn"><span class="label">Where this bites hardest</span> The bigger and older a codebase gets,
+     the more it depends on precise navigation instead of text matching. A pattern that works fine on a small
+     app can quietly produce wrong edits on a large one.</div>
+
+  <h2>Why this matters for reliability and cost</h2>
+  <p>Precise navigation pays off in two ways that are easy to underrate until you feel them:</p>
+  <table>
+    <tr><th>Benefit</th><th>Why it matters</th></tr>
+    <tr><td>Reliability</td><td>The agent finds the actual definition and actual call sites, not a
+       lookalike â€” so the change it makes is the change you meant.</td></tr>
+    <tr><td>Token cost</td><td>Less time spent sifting irrelevant search results means less wasted context â€” more
+       of the agent's attention goes toward your actual problem.</td></tr>
+  </table>
+  <p>Neither of these is dramatic on a small project. Both become the difference between a smooth session and a
+     frustrating one once a codebase is large enough that plain-text search starts turning up more noise than
+     signal.</p>
+
+  <h2>You don't need to build this yourself</h2>
+  <p>Better code search usually isn't something you write from scratch â€” it's a capability you enable, often
+     through the same tool connections covered in <a href="25-tools-and-mcp.html">Lesson 25</a>. The practical
+     move is simply knowing this building block exists and reaching for it once your project is big enough that
+     you start noticing the agent finding the wrong thing, or spending visibly long stretches searching before it
+     acts.</p>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Symbol-level navigation understands code structure â€” it finds the real definition and real references, the way go-to-definition and find-references work in an editor.">
+    <p class="q">What does symbol-level navigation give an agent that blind text search doesn't?</p>
+    <button>Faster typing speed</button>
+    <button>An understanding of code structure â€” the real definition and real references</button>
+    <button>The ability to run tests automatically</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="As a codebase grows, common names repeat across unrelated files, so plain-text matching returns more noise, costing time, tokens, and sometimes causing edits to the wrong place.">
+    <p class="q">Why does blind text search get worse as a codebase grows larger?</p>
+    <button>Common names repeat across unrelated files, so matches turn into noise</button>
+    <button>Large codebases disable search entirely</button>
+    <button>Bigger files can no longer be opened by the agent</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>In a large codebase, precise symbol-level navigation beats blind text search â€” it finds the right
+     code instead of a lookalike, saving both reliability and tokens.</strong> Reach for it once your project is
+     big enough that plain search starts missing.</p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Has your agent ever edited the wrong
+     function because a search turned up a similarly-named lookalike? Bring your story to the
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” comparing war stories is often
+     the fastest way to spot the pattern in your own work.</div>
+
+  <nav class="prevnext">
+    <a href="25-tools-and-mcp.html"><span class="lbl">Prev</span>25 Â· Tools & Connections (MCP)</a>
+    <a class="r" href="27-hooks.html"><span class="lbl">Next</span>27 Â· Hooks (Guardrails) â†’</a>
+  </nav>
+  <p class="foot">The Agentic Coding Course Â· Module 6 Â· The Building Blocks Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

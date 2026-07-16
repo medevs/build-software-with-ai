@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>18 Â· Privacy &amp; User Data</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body data-lesson="18-privacy-and-user-data">
+<nav class="topnav">
+  <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <a href="../index.html">Map</a>
+  <a href="../curriculum.html">Curriculum</a>
+  <a href="../resources.html">Resources</a>
+</nav>
+
+<div class="wrap">
+  <div class="lesson-meta">
+    <span class="pill" style="background:#f59e0b">Module 4 Â· Keeping It Safe</span>
+    <span>Lesson 18 of 30</span><span>Â·</span><span>~5 min</span>
+  </div>
+
+  <p class="kicker">You can't leak what you never stored</p>
+  <h1>Privacy &amp; User Data</h1>
+  <p class="dek">Security keeps other people out. Privacy is about how you, the app's own builder, treat the
+     information people trust you with. It turns out the simplest privacy rule is also the strongest one.</p>
+
+  <h2>Privacy is respecting the info people give you</h2>
+  <p><strong>Privacy</strong> means respecting the personal information people hand over when they use your
+     app â€” treating it the way you'd want your own information treated, not just the way that's most convenient
+     for you to build with. It covers what you collect, what you do with it, who else can see it, and whether
+     people can get it back or have it removed.</p>
+
+  <h2>The single best rule: collect the least you need</h2>
+  <p>The most effective privacy habit isn't a clever technical trick â€” it's restraint. Every extra piece of
+     information you collect "just in case it's useful later" is one more thing that could leak, be misused, or
+     sit around unnecessarily. The rule: only collect what you actually need for the feature in front of you.</p>
+
+  <blockquote>You can't leak what you never stored in the first place.</blockquote>
+
+  <p>This should sound familiar â€” it's the same idea as "least access" from Lesson 14, just pointed at data
+     instead of at people or system parts. Less collected, less exposed if something goes wrong.</p>
+
+  <h2>Tell people, and let them delete it</h2>
+  <p>Two practices go along with collecting less: telling users plainly what you collect and why (not buried in
+     dense legal text nobody reads), and giving them a real way to see, correct, or delete their own information.
+     These aren't just nice manners â€” for real applications, laws like <strong>GDPR</strong> (a data-protection
+     law covering people in the European Union) actually require this: clear disclosure, and a genuine right to
+     have your data deleted.</p>
+
+  <div class="note"><span class="label">Why this matters for you</span> An AI can build a signup form in
+     minutes and will happily collect a birthday, a phone number, and a home address if you ask for them â€”
+     it won't stop to ask whether the feature actually needs all three. That judgment call is yours.</div>
+
+  <h2>PII, and data that needs extra care</h2>
+  <p><strong>PII</strong> stands for <strong>personally identifiable information</strong> â€” any piece of data
+     that can identify a specific real person, like a name, an email address, or a home location. Most apps
+     collect at least some PII, and it deserves the "collect the least you need" treatment above.</p>
+  <p>Some information deserves even more caution than ordinary PII: health information, payment details, and
+     anything else that could seriously harm someone if it leaked â€” financially, physically, or personally.
+     The more sensitive the data, the smaller the group of people and systems that should ever be able to
+     touch it, and the more layers of protection (remember defense in depth) it deserves.</p>
+
+  <div class="cards two">
+    <div class="card"><h3>Ordinary PII</h3><p>Name, email, general location. Collect only what the feature
+       needs; disclose it; allow deletion.</p></div>
+    <div class="card"><h3>Sensitive data</h3><p>Health info, payment details. Same rules, plus extra layers
+       of protection and an even smaller circle of access.</p></div>
+  </div>
+
+  <div class="warn"><span class="label">Red flags to catch</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>A form collects information (birthday, address, phone) that this particular feature doesn't actually need.</li>
+      <li>Users have no clear way to see, correct, or delete the personal data the app holds on them.</li>
+      <li>Sensitive data (health, payment) is stored or handled with no more care than an ordinary comment field.</li>
+    </ul>
+  </div>
+
+  <div class="tip"><span class="label">Ask your AI</span>
+    <ul style="margin:.3rem 0 0;">
+      <li>"Does this form collect anything the feature doesn't actually need? What could we remove?"</li>
+      <li>"Is there a way for a user to see, correct, or delete the personal data we store about them?"</li>
+      <li>"Is any health, payment, or other sensitive data being handled with extra care compared to regular data?"</li>
+    </ul>
+  </div>
+
+  <h2>Check yourself</h2>
+
+  <div class="quiz" data-answer="1" data-why="Collecting only what's needed means there's simply less personal data that could ever be exposed if something goes wrong.">
+    <p class="q">Why is "collect the least you need" such an effective privacy rule?</p>
+    <button>It makes forms load faster</button>
+    <button>Data you never collected can't be leaked or misused later</button>
+    <button>It's legally required in every country, with no exceptions</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="PII is any information that can identify a specific real person, like a name, email, or location.">
+    <p class="q">What does "PII" stand for?</p>
+    <button>Personally identifiable information</button>
+    <button>Private internal instructions</button>
+    <button>Payment and identity insurance</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="2" data-why="Spaced recall from Lesson 14: never trust user input, and give every part of a system the least access it needs â€” both are about limiting what could go wrong if something slips.">
+    <p class="q">Back in Lesson 14, two core security ideas were introduced. Which pair is it?</p>
+    <button>Fast code and clean code</button>
+    <button>Strong passwords and frequent backups</button>
+    <button>Never trust user input, and give every part of the system the least access it needs</button>
+    <p class="fb"></p>
+  </div>
+
+  <h2>The one thing to remember</h2>
+  <p><strong>You can't leak what you never stored â€” so collect the least personal data you need, tell people
+     what you have, and let them delete it.</strong></p>
+
+  <hr>
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of an app you signed up for recently.
+     Did it ask for anything that felt like more than it actually needed? Share what you noticed in the
+     <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+
+  <nav class="prevnext">
+    <a href="17-common-vulnerabilities.html"><span class="lbl">Previous</span>â† 17 Â· Common Vulnerabilities</a>
+    <a class="r" href="19-environments.html"><span class="lbl">Next</span>19 Â· Environments â†’</a>
+  </nav>
+  <p class="foot">Software Sense Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+</div>
+
+<script src="../../../assets/progress.js"></script>
+<script src="../../../assets/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* graph-data.js — single source of truth for the whole course.
+   Used by the homepage mindmap (graph.js) AND the curriculum page. */
+window.COURSE = {
+  title: "Software Sense",
+  centerLines: ["Software", "Sense"],
+  modules: [
+    { id:"m1", n:1, title:"How Software Actually Works", color:"#6366f1" },
+    { id:"m2", n:2, title:"Where Data Lives",            color:"#0ea5e9" },
+    { id:"m3", n:3, title:"Making It Correct",           color:"#10b981" },
+    { id:"m4", n:4, title:"Keeping It Safe",             color:"#f59e0b" },
+    { id:"m5", n:5, title:"Running It in the Real World", color:"#ec4899" },
+    { id:"m6", n:6, title:"Fast, Big & Affordable",      color:"#8b5cf6" },
+    { id:"m7", n:7, title:"Doing It With AI",            color:"#ef4444" },
+  ],
+  lessons: [
+    // Module 1 — How Software Actually Works
+    { n:1,  slug:"01-what-is-software",       module:"m1", title:"What Software Really Is", blurb:"A program is just very precise instructions. Start here." },
+    { n:2,  slug:"02-the-stack",              module:"m1", title:"The Stack",              blurb:"Frontend, backend, database — the three parts of almost every app." },
+    { n:3,  slug:"03-client-and-server",      module:"m1", title:"Client & Server",       blurb:"What happens between your click and the screen updating." },
+    { n:4,  slug:"04-languages-and-dependencies", module:"m1", title:"Languages & Dependencies", blurb:"Why apps are built from thousands of other people's code." },
+    { n:5,  slug:"05-how-apps-get-built",     module:"m1", title:"How Apps Get Built",     blurb:"Codebases, versions, and the difference between 'my machine' and 'live'." },
+    // Module 2 — Where Data Lives
+    { n:6,  slug:"06-what-is-a-database",     module:"m2", title:"What a Database Is",     blurb:"Where your app remembers everything — and why not a spreadsheet." },
+    { n:7,  slug:"07-modeling-your-data",     module:"m2", title:"Modeling Your Data",     blurb:"Getting the shape of your data right — the costliest thing to fix later." },
+    { n:8,  slug:"08-state-and-storage",      module:"m2", title:"State & Storage",        blurb:"What the app remembers, for how long, and where it keeps it." },
+    { n:9,  slug:"09-migrations-and-backups", module:"m2", title:"Migrations & Backups",   blurb:"Changing your data safely — and never, ever losing it." },
+    // Module 3 — Making It Correct
+    { n:10, slug:"10-what-done-means",        module:"m3", title:"What 'Done' Really Means", blurb:"Requirements and edge cases: the gap between 'works' and 'done'." },
+    { n:11, slug:"11-testing-basics",         module:"m3", title:"Testing, Explained",     blurb:"How software proves it works — and why AI code needs it most." },
+    { n:12, slug:"12-bugs-and-debugging",     module:"m3", title:"Bugs & Debugging",       blurb:"What a bug actually is and how problems get tracked down." },
+    { n:13, slug:"13-reviewing-code",         module:"m3", title:"Reviewing Code",         blurb:"What good looks like — and how to review what the AI wrote." },
+    // Module 4 — Keeping It Safe
+    { n:14, slug:"14-security-mindset",       module:"m4", title:"The Security Mindset",   blurb:"Assume someone's trying to break in. Because they are." },
+    { n:15, slug:"15-login-and-permissions",  module:"m4", title:"Login & Permissions",   blurb:"Who are you (authentication) vs. what you're allowed to do (authorization)." },
+    { n:16, slug:"16-secrets-and-keys",       module:"m4", title:"Secrets & Keys",        blurb:"Passwords, API keys, and the #1 way beginners get burned." },
+    { n:17, slug:"17-common-vulnerabilities", module:"m4", title:"Common Vulnerabilities", blurb:"Injection, leaked data, and other classics — in plain English." },
+    { n:18, slug:"18-privacy-and-user-data",  module:"m4", title:"Privacy & User Data",    blurb:"Collecting less, protecting more, and staying on the right side of the law." },
+    // Module 5 — Running It in the Real World
+    { n:19, slug:"19-environments",           module:"m5", title:"Environments",          blurb:"Why 'it works on my machine' happens — and how pros avoid it." },
+    { n:20, slug:"20-deployment",             module:"m5", title:"Deployment",            blurb:"What it means to put software 'live' where real users reach it." },
+    { n:21, slug:"21-monitoring-and-logs",    module:"m5", title:"Monitoring & Logs",     blurb:"Knowing your app is healthy — before your users tell you it isn't." },
+    { n:22, slug:"22-when-it-breaks",         module:"m5", title:"When It Breaks",         blurb:"Errors, rollbacks, and failing gracefully instead of catastrophically." },
+    // Module 6 — Fast, Big & Affordable
+    { n:23, slug:"23-performance",            module:"m6", title:"Performance",           blurb:"What makes software feel slow, and why speed is a feature." },
+    { n:24, slug:"24-scale",                  module:"m6", title:"Scale",                 blurb:"The difference between 10 users and 10,000 — and when to care." },
+    { n:25, slug:"25-caching-and-optimizing", module:"m6", title:"Caching & Optimizing",  blurb:"Doing work once instead of a million times — without over-doing it." },
+    { n:26, slug:"26-cost",                   module:"m6", title:"The Cost of Running It", blurb:"What actually runs up the bill, and how to build cost-aware." },
+    // Module 7 — Doing It With AI
+    { n:27, slug:"27-directing-ai",           module:"m7", title:"Directing the AI",      blurb:"Briefing an agent well, using everything you now understand." },
+    { n:28, slug:"28-reviewing-ai-output",    module:"m7", title:"Reviewing AI's Work",   blurb:"A red-flag checklist across every dimension you've learned." },
+    { n:29, slug:"29-maintainability",        module:"m7", title:"Maintainability & Debt", blurb:"Why 'it works' isn't enough, and how software rots if you let it." },
+    { n:30, slug:"30-your-shipping-checklist", module:"m7", title:"Your Shipping Checklist", blurb:"The pre-ship checklist that pulls the whole course together." },
+  ],
+  edges: [
+    ["01-what-is-software","02-the-stack"],["02-the-stack","03-client-and-server"],
+    ["02-the-stack","06-what-is-a-database"],["03-client-and-server","04-languages-and-dependencies"],
+    ["03-client-and-server","20-deployment"],["04-languages-and-dependencies","16-secrets-and-keys"],
+    ["04-languages-and-dependencies","17-common-vulnerabilities"],["05-how-apps-get-built","19-environments"],
+    ["05-how-apps-get-built","13-reviewing-code"],["06-what-is-a-database","07-modeling-your-data"],
+    ["07-modeling-your-data","08-state-and-storage"],["07-modeling-your-data","24-scale"],
+    ["08-state-and-storage","25-caching-and-optimizing"],["09-migrations-and-backups","06-what-is-a-database"],
+    ["09-migrations-and-backups","22-when-it-breaks"],["10-what-done-means","11-testing-basics"],
+    ["11-testing-basics","12-bugs-and-debugging"],["11-testing-basics","28-reviewing-ai-output"],
+    ["12-bugs-and-debugging","21-monitoring-and-logs"],["13-reviewing-code","28-reviewing-ai-output"],
+    ["13-reviewing-code","29-maintainability"],["14-security-mindset","15-login-and-permissions"],
+    ["14-security-mindset","17-common-vulnerabilities"],["15-login-and-permissions","16-secrets-and-keys"],
+    ["16-secrets-and-keys","05-how-apps-get-built"],["17-common-vulnerabilities","18-privacy-and-user-data"],
+    ["18-privacy-and-user-data","07-modeling-your-data"],["19-environments","20-deployment"],
+    ["20-deployment","21-monitoring-and-logs"],["21-monitoring-and-logs","22-when-it-breaks"],
+    ["22-when-it-breaks","14-security-mindset"],["23-performance","24-scale"],
+    ["24-scale","25-caching-and-optimizing"],["24-scale","26-cost"],["25-caching-and-optimizing","23-performance"],
+    ["26-cost","20-deployment"],["27-directing-ai","10-what-done-means"],
+    ["27-directing-ai","28-reviewing-ai-output"],["28-reviewing-ai-output","14-security-mindset"],
+    ["28-reviewing-ai-output","11-testing-basics"],["29-maintainability","13-reviewing-code"],
+    ["30-your-shipping-checklist","28-reviewing-ai-output"],["30-your-shipping-checklist","27-directing-ai"],
+    ["30-your-shipping-checklist","01-what-is-software"],["30-your-shipping-checklist","14-security-mindset"],
+  ],
+};
