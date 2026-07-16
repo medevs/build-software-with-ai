@@ -182,6 +182,21 @@ tbody tr:hover{background:var(--paper-2);}
 .qp-nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;
   font-family:var(--sans);font-size:.9rem;}
 
+/* ---------- lesson search (search.js) ---------- */
+#coursesearch{margin:1.4rem 0;}
+.searchbox{width:100%;box-sizing:border-box;font:inherit;font-family:var(--sans);font-size:.95rem;
+  padding:.7rem .95rem;border:1.5px solid var(--rule);border-radius:var(--radius-sm);
+  background:var(--paper);color:var(--ink);}
+.searchbox:focus{outline:none;border-color:var(--accent-ink);}
+.searchresults{list-style:none;margin:.5rem 0 0;padding:0;font-family:var(--sans);}
+.searchresults li{border-bottom:1px solid var(--rule-soft);}
+.searchresults a{display:block;padding:.55rem .3rem;text-decoration:none;color:var(--ink);}
+.searchresults a:hover{background:var(--paper-2);}
+.searchresults .sn{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
+.searchresults .st{font-weight:700;}
+.searchresults .sh{color:var(--muted);font-size:.9rem;}
+.searchresults .noresult{padding:.6rem .3rem;color:var(--muted);font-size:.9rem;}
+
 /* ---------- lesson chrome ---------- */
 .lesson-meta{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:0 0 1.7rem;
   display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;}
