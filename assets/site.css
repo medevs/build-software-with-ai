@@ -283,7 +283,14 @@ tbody tr:hover{background:var(--paper-2);}
 .visited::after{content:" ✓";color:var(--ok);font-weight:700;}
 
 /* ---------- landing page ---------- */
-.home-hero{padding-bottom:3.4rem;}
+.home-hero{padding-bottom:3.4rem;position:relative;overflow:hidden;}
+.hero-motif{position:absolute;right:-90px;top:-60px;width:520px;height:600px;
+  opacity:.4;pointer-events:none;}
+.home-hero>:not(.hero-motif){position:relative;}
+@media (max-width:720px){ .hero-motif{opacity:.18;} }
+/* course-home hero stats line */
+.hero-stats{font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:#8f8a80;margin:-.7rem auto 1.5rem;}
 .hero-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;
   font-size:.72rem;font-weight:800;color:#b8b2a6;margin:0 0 .9rem;}
 .home-wrap{max-width:56rem;}

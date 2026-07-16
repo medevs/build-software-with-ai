@@ -74,6 +74,11 @@
   (function () {
     var C = window.COURSE, np = document.getElementById("navpct"), done = 0;
     if (!C || !np) return;
+    var st = document.createElement("p");
+    st.className = "hero-stats";
+    st.textContent = C.modules.length + " modules · " + C.lessons.length + " short lessons · free & self-paced";
+    var hp = document.querySelector(".hero p");
+    if (hp) hp.after(st);
     C.lessons.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) done++; } catch (e) {} });
     if (done) {
       np.hidden = false; np.innerHTML = "<b>" + done + "</b>/" + C.lessons.length + " lessons completed";
