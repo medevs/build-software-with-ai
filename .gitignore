@@ -4,3 +4,6 @@ Thumbs.db
 *.swp
 .vscode/
 .idea/
+
+# private planning docs - keep local only
+ROADMAP.md
