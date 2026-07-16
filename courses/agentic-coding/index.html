@@ -51,7 +51,19 @@
     var C = window.COURSE, np = document.getElementById("navpct"), done = 0;
     if (!C || !np) return;
     C.lessons.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) done++; } catch (e) {} });
-    if (done) { np.hidden = false; np.innerHTML = "<b>" + done + "</b>/" + C.lessons.length + " lessons visited"; }
+    if (done) {
+      np.hidden = false; np.innerHTML = "<b>" + done + "</b>/" + C.lessons.length + " lessons completed";
+      var next = C.lessons.filter(function (l) { try { return !localStorage.getItem("visited:" + l.slug); } catch (e) { return true; } })
+                          .sort(function (a, b) { return a.n - b.n; })[0];
+      var cta = document.querySelector(".hero .cta");
+      if (next && cta) {
+        var a = document.createElement("a");
+        a.className = "cta secondary";
+        a.href = "lessons/" + next.slug + ".html";
+        a.textContent = "Continue → Lesson " + next.n;
+        cta.after(a);
+      }
+    }
   })();</script>
 <script>
   // build legend from module list
@@ -64,5 +76,6 @@
   });
 </script>
 <script src="../../assets/graph.js"></script>
+<script src="../../assets/theme.js"></script>
 </body>
 </html>

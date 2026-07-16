@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resource · The Agentic Coding Course</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<nav class="topnav">
+  <a class="home" href="../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
+  <a class="brand" href="index.html">The <b>Agentic Coding</b> Course</a>
+  <a href="index.html">Map</a>
+  <a href="curriculum.html">Curriculum</a>
+  <a href="resources.html" aria-current="page">Resources</a>
+</nav>
+
+<div class="wrap">
+  <p class="kicker">Resource</p>
+  <div id="doc"><p>Loading…</p></div>
+  <p class="foot"><a id="raw" download>Download the raw Markdown</a> · <a href="resources.html">← All resources</a></p>
+</div>
+
+<script src="../../assets/md.js"></script>
+<script src="../../assets/theme.js"></script>
+<script>
+(function () {
+  var f = new URLSearchParams(location.search).get("f") || "";
+  var doc = document.getElementById("doc");
+  if (!/^resources\/[\w./-]+\.md$/.test(f) || f.indexOf("..") > -1) {
+    doc.innerHTML = "<p>Resource not found. <a href='resources.html'>Back to all resources</a>.</p>"; return;
+  }
+  document.getElementById("raw").setAttribute("href", f);
+  fetch(f).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (t) {
+    doc.innerHTML = mdToHtml(t);
+    var h1 = doc.querySelector("h1");
+    if (h1) document.title = h1.textContent + " · The Agentic Coding Course";
+  }).catch(function () {
+    doc.innerHTML = "<p>Couldn't load this resource. <a href=\"" + f + "\" download>Download the raw file</a> instead.</p>";
+  });
+})();
+</script>
+</body>
+</html>

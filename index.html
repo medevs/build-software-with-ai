@@ -42,6 +42,13 @@
 <script>
   var root = document.getElementById("coursecards");
   window.COURSES.forEach(function (c) {
+    // "continue where you left off": progress.js stores the last-opened lesson per course
+    var last = null;
+    try { last = localStorage.getItem("last:" + c.dir.replace(/^courses\/|\/$/g, "")); } catch (e) {}
+    var start = last
+      ? '<a class="btn primary" href="' + c.dir + "lessons/" + last + '.html">Continue reading →</a>' +
+        '<a class="btn" href="' + c.dir + c.firstLesson + '">Lesson 1</a>'
+      : '<a class="btn primary" href="' + c.dir + c.firstLesson + '">Start lesson 1</a>';
     var card = document.createElement("article");
     card.className = "coursecard";
     card.style.setProperty("--course-accent", c.accent);
@@ -51,12 +58,12 @@
       '<p class="cc-pitch">' + c.pitch + "</p>" +
       '<p class="cc-meta">' + c.modules + " modules · " + c.lessons + " lessons · ~5 min each</p>" +
       '<p class="cc-aud">' + c.audience + "</p>" +
-      '<div class="cc-actions">' +
-      '<a class="btn primary" href="' + c.dir + c.firstLesson + '">Start lesson 1</a>' +
+      '<div class="cc-actions">' + start +
       '<a class="btn" href="' + c.dir + 'index.html">Explore the map</a>' +
       '<a class="btn ghost" href="' + c.dir + 'curriculum.html">Curriculum</a></div>';
     root.appendChild(card);
   });
 </script>
+<script src="assets/theme.js"></script>
 </body>
 </html>

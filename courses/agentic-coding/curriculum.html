@@ -21,7 +21,7 @@
 <div class="wrap">
   <p class="kicker">The full path</p>
   <h1>Curriculum</h1>
-  <p class="dek">30 lessons · 7 modules · start at the top. A ✓ marks lessons you've opened on this device.</p>
+  <p class="dek">30 lessons · 7 modules · start at the top. A ✓ marks lessons you've completed on this device.</p>
   <div id="mods"></div>
   <p class="foot">Tip: the <a href="index.html">knowledge map</a> shows how every lesson connects.</p>
 </div>
@@ -32,7 +32,7 @@
     var C = window.COURSE, np = document.getElementById("navpct"), done = 0;
     if (!C || !np) return;
     C.lessons.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) done++; } catch (e) {} });
-    if (done) { np.hidden = false; np.innerHTML = "<b>" + done + "</b>/" + C.lessons.length + " lessons visited"; }
+    if (done) { np.hidden = false; np.innerHTML = "<b>" + done + "</b>/" + C.lessons.length + " lessons completed"; }
   })();</script>
 <script>
   var C = window.COURSE, root = document.getElementById("mods");
@@ -43,8 +43,15 @@
     h.style.borderLeftColor = m.color;
     h.textContent = "Module " + m.n + " — " + m.title.replace(/^.*?—\s*/, "");
     block.appendChild(h);
+    var mine = C.lessons.filter(function (l) { return l.module === m.id; }), done = 0;
+    mine.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) done++; } catch (e) {} });
+    var meta = document.createElement("div");
+    meta.className = "modmeta";
+    meta.innerHTML = "<span>" + done + "/" + mine.length + " done</span>" +
+      '<span class="modbar"><i style="width:' + Math.round(done / mine.length * 100) + '%"></i></span>';
+    block.appendChild(meta);
     var grid = document.createElement("div"); grid.className = "lessongrid";
-    C.lessons.filter(function (l) { return l.module === m.id; }).forEach(function (l) {
+    mine.forEach(function (l) {
       var visited = false;
       try { visited = !!localStorage.getItem("visited:" + l.slug); } catch (e) {}
       var a = document.createElement("a");
@@ -57,5 +64,6 @@
     block.appendChild(grid); root.appendChild(block);
   });
 </script>
+<script src="../../assets/theme.js"></script>
 </body>
 </html>

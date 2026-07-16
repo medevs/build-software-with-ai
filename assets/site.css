@@ -36,6 +36,25 @@
     --ok:#3ecf9a;
   }
 }
+/* explicit theme override (the topnav toggle sets data-theme; wins over the OS default) */
+:root[data-theme="dark"]{
+  --paper:#191813; --paper-2:#201e18; --ink:#ece8df; --muted:#aaa496;
+  --rule:#36332b; --rule-soft:#2a2822;
+  --accent:#c96a52; --accent-ink:#e69c85; --accent-soft:#2b211c;
+  --code-bg:#262419;
+  --shadow:0 1px 2px rgb(0 0 0 / .4), 0 8px 24px -12px rgb(0 0 0 / .6);
+  --shadow-lg:0 2px 4px rgb(0 0 0 / .5), 0 18px 44px -16px rgb(0 0 0 / .7);
+  --ok:#3ecf9a;
+}
+:root[data-theme="light"]{
+  --paper:#faf9f6; --paper-2:#f3f1ec; --ink:#211f1b; --muted:#5d594f;
+  --rule:#e4dfd4; --rule-soft:#eeeae1;
+  --accent:#8a3a2e; --accent-ink:#8a3a2e; --accent-soft:#f6ede9;
+  --code-bg:#efece5;
+  --shadow:0 1px 2px rgb(28 25 18 / .06), 0 8px 24px -12px rgb(28 25 18 / .18);
+  --shadow-lg:0 2px 4px rgb(28 25 18 / .08), 0 18px 44px -16px rgb(28 25 18 / .25);
+  --ok:#0d8a63;
+}
 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -64,6 +83,14 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
 .navpct{font-size:.72rem;font-weight:700;color:var(--muted);border:1px solid var(--rule);
   border-radius:999px;padding:.18rem .6rem;white-space:nowrap;font-family:var(--sans);}
 .navpct b{color:var(--ok);}
+/* theme toggle (appended to the topnav by theme.js) */
+.themetoggle{width:2rem;height:2rem;flex:none;border:1px solid var(--rule);border-radius:50%;
+  background:transparent;color:var(--ink);cursor:pointer;font-size:.92rem;line-height:1;
+  display:grid;place-items:center;font-family:var(--sans);opacity:.72;
+  transition:opacity .15s, border-color .15s;}
+.themetoggle:hover{opacity:1;border-color:var(--accent-ink);}
+/* reading-position bar (lessons) */
+.readbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;}
 @media (max-width:560px){ .topnav{gap:.7rem;} .topnav .home span{display:none;} .navpct{display:none;} }
 
 /* ---------- generic reading page ---------- */
@@ -85,6 +112,9 @@ hr{border:none;border-top:1px solid var(--rule);margin:2.8rem 0;}
 strong{font-weight:700;}
 code{font-family:var(--mono);font-size:.85em;background:var(--code-bg);
   padding:.12em .4em;border-radius:5px;}
+pre{background:var(--code-bg);padding:.9rem 1.1rem;border-radius:var(--radius-sm);
+  overflow-x:auto;font-size:.85rem;line-height:1.55;margin:1.4rem 0;}
+pre code{background:none;padding:0;font-size:1em;}
 blockquote{margin:1.5rem 0;padding:.4rem 0 .4rem 1.15rem;border-left:3px solid var(--accent);
   color:var(--muted);font-style:italic;}
 figure{margin:1.7rem 0;text-align:center;}
@@ -152,6 +182,14 @@ tbody tr:hover{background:var(--paper-2);}
   color:var(--muted);margin-bottom:.15rem;}
 .prevnext .r{text-align:right;margin-left:auto;}
 .foot{margin-top:2.6rem;font-size:.85rem;color:var(--muted);font-family:var(--sans);}
+/* explicit "mark complete" button (lessons, rendered by progress.js) */
+.complete-btn{display:block;margin:2.8rem auto 0;padding:.7rem 1.5rem;font:inherit;
+  font-family:var(--sans);font-weight:700;font-size:.92rem;border-radius:999px;
+  border:1.5px solid var(--rule);background:var(--paper-2);color:var(--ink);cursor:pointer;
+  transition:border-color .15s, background .15s, color .15s;}
+.complete-btn:hover{border-color:var(--ok);}
+.complete-btn.done{background:color-mix(in srgb,var(--ok) 12%,var(--paper));
+  border-color:var(--ok);color:var(--ok);}
 
 /* ---------- course home: hero + graph ---------- */
 .hero{background:linear-gradient(180deg,var(--canvas-2),var(--canvas));color:var(--canvas-ink);
@@ -163,6 +201,9 @@ tbody tr:hover{background:var(--paper-2);}
   box-shadow:0 6px 20px -6px color-mix(in srgb,var(--accent) 60%,transparent);
   transition:transform .15s, box-shadow .15s;}
 .hero .cta:hover{transform:translateY(-1.5px);box-shadow:0 10px 26px -6px color-mix(in srgb,var(--accent) 70%,transparent);}
+.hero .cta.secondary{background:transparent;border:1.5px solid #565064;color:var(--canvas-ink);
+  box-shadow:none;margin-left:.55rem;}
+.hero .cta.secondary:hover{border-color:#8f8a80;box-shadow:none;}
 .graph-help{font-family:var(--sans);font-size:.78rem;color:#8f8a80;margin:.6rem 0 0;}
 #graph{width:100%;height:min(76vh,740px);display:block;background:var(--canvas);cursor:grab;touch-action:none;}
 #graph:active{cursor:grabbing;}
@@ -222,6 +263,13 @@ tbody tr:hover{background:var(--paper-2);}
 .modblock{margin:2.6rem 0;}
 .modblock h2{display:flex;align-items:center;gap:.6rem;border-left:4px solid var(--m1);
   padding-left:.75rem;margin-bottom:.2rem;}
+/* per-module progress ("2/5 done" + bar) */
+.modmeta{font-family:var(--sans);font-size:.75rem;color:var(--muted);
+  display:flex;align-items:center;gap:.6rem;margin:.25rem 0 0 1rem;}
+.modbar{flex:none;width:min(11rem,40vw);height:5px;border-radius:999px;
+  background:var(--rule-soft);overflow:hidden;}
+.modbar i{display:block;height:100%;border-radius:999px;background:var(--ok);
+  transition:width .3s;}
 .lessongrid{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));margin-top:1rem;}
 .lcard{border:1px solid var(--rule);border-radius:var(--radius);padding:.9rem 1.05rem;
   text-decoration:none;color:var(--ink);display:block;border-left:4px solid var(--rule);
@@ -268,7 +316,8 @@ tbody tr:hover{background:var(--paper-2);}
 
 /* ---------- print (lessons read well on paper) ---------- */
 @media print{
-  .topnav,.prevnext,.quiz,.foot,.graph-help,#graph,.graph-wrap,.legend,.cc-actions{display:none !important;}
+  .topnav,.prevnext,.quiz,.foot,.graph-help,#graph,.graph-wrap,.legend,.cc-actions,
+  .readbar,.complete-btn,.themetoggle{display:none !important;}
   body{background:#fff;color:#000;font-size:11pt;}
   .wrap{max-width:100%;padding:0;}
   a{color:#000;border-bottom:none;}
