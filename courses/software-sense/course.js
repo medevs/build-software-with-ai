@@ -4,12 +4,12 @@ window.COURSE = {
   title: "Software Sense",
   centerLines: ["Software", "Sense"],
   modules: [
-    { id:"m1", n:1, title:"How Software Actually Works", color:"#6366f1" },
+    { id:"m1", n:1, title:"How Software Actually Works", color:"#818cf8" },
     { id:"m2", n:2, title:"Where Data Lives",            color:"#0ea5e9" },
     { id:"m3", n:3, title:"Making It Correct",           color:"#10b981" },
     { id:"m4", n:4, title:"Keeping It Safe",             color:"#f59e0b" },
     { id:"m5", n:5, title:"Running It in the Real World", color:"#ec4899" },
-    { id:"m6", n:6, title:"Fast, Big & Affordable",      color:"#8b5cf6" },
+    { id:"m6", n:6, title:"Fast, Big & Affordable",      color:"#a78bfa" },
     { id:"m7", n:7, title:"Doing It With AI",            color:"#ef4444" },
   ],
   lessons: [

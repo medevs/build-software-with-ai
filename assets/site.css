@@ -14,9 +14,9 @@
   --canvas:#12111a; --canvas-2:#1b1a26; --canvas-ink:#f3f0ea;
   --shadow:0 1px 2px rgb(28 25 18 / .06), 0 8px 24px -12px rgb(28 25 18 / .18);
   --shadow-lg:0 2px 4px rgb(28 25 18 / .08), 0 18px 44px -16px rgb(28 25 18 / .25);
-  /* module accents (shared by both courses) */
-  --m1:#6366f1; --m2:#0ea5e9; --m3:#10b981; --m4:#f59e0b;
-  --m5:#ec4899; --m6:#8b5cf6; --m7:#ef4444;
+  /* module accents (shared by both courses); all pass WCAG AA (≥4.5:1) with dark ink #0c0b10 */
+  --m1:#818cf8; --m2:#0ea5e9; --m3:#10b981; --m4:#f59e0b;
+  --m5:#ec4899; --m6:#a78bfa; --m7:#ef4444;
   --ok:#0d8a63;
   /* rhythm */
   --measure:44rem;
@@ -201,7 +201,7 @@ tbody tr:hover{background:var(--paper-2);}
 .lesson-meta{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:0 0 1.7rem;
   display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;}
 .pill{font-family:var(--sans);font-size:.68rem;font-weight:800;text-transform:uppercase;
-  letter-spacing:.07em;padding:.22rem .65rem;border-radius:999px;color:#fff;}
+  letter-spacing:.07em;padding:.22rem .65rem;border-radius:999px;color:#0c0b10;}
 .cite{font-size:.82rem;color:var(--muted);}
 .prevnext{display:flex;justify-content:space-between;gap:1rem;margin-top:3.2rem;
   padding-top:1.4rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.9rem;}

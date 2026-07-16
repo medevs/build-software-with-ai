@@ -4,12 +4,12 @@ window.COURSE = {
   title: "The Agentic Coding Course",
   centerLines: ["The Agentic", "Coding Course"],
   modules: [
-    { id:"m1", n:1, title:"Foundations — Why a System", color:"#6366f1" },
+    { id:"m1", n:1, title:"Foundations — Why a System", color:"#818cf8" },
     { id:"m2", n:2, title:"The Context Layer",           color:"#0ea5e9" },
     { id:"m3", n:3, title:"The Core Loop",               color:"#10b981" },
     { id:"m4", n:4, title:"Planning at Altitude",        color:"#f59e0b" },
     { id:"m5", n:5, title:"From Idea to Shipped",        color:"#ec4899" },
-    { id:"m6", n:6, title:"The Building Blocks Up Close", color:"#8b5cf6" },
+    { id:"m6", n:6, title:"The Building Blocks Up Close", color:"#a78bfa" },
     { id:"m7", n:7, title:"Putting It To Work",          color:"#ef4444" },
   ],
   lessons: [
