@@ -22,19 +22,18 @@
   <h1>Resources</h1>
   <p class="dek">The take-anywhere companions to the lessons — a checklist, a glossary, and a set of ready-to-use prompts.</p>
 
-  <div class="note"><span class="label">Companion repository</span>
-    Downloadable versions live here:
-    <a href="https://github.com/your-name/software-sense" id="repo-root">github.com/your-name/software-sense</a>.
-    <br>Replace <code>your-name/software-sense</code> with your own once you publish — every link below is built from that base.</p>
+  <div class="note"><span class="label">How these work</span>
+    Every resource below is a plain Markdown file that lives inside this course. Click to download it,
+    then open it in any text editor or notes app - no account, no external site.</div>
 
   <h2>The essentials</h2>
   <table>
     <thead><tr><th>Resource</th><th>What it's for</th><th>Lesson</th></tr></thead>
     <tbody>
-      <tr><td><a class="repo" data-path="tree/main/checklists/pre-ship.md">The pre-ship checklist</a></td><td>Run through this before you put anything in front of real users — one line per module.</td><td><a href="lessons/30-your-shipping-checklist.html">30</a></td></tr>
-      <tr><td><a class="repo" data-path="tree/main/glossary.md">Plain-English glossary</a></td><td>Every term in the course, defined in one sentence a non-coder can use.</td><td>All</td></tr>
-      <tr><td><a class="repo" data-path="tree/main/prompts/ask-your-ai.md">“Ask your AI” prompt pack</a></td><td>The review questions from every lesson, collected as copy-paste prompts.</td><td><a href="lessons/28-reviewing-ai-output.html">28</a></td></tr>
-      <tr><td><a class="repo" data-path="tree/main/checklists/red-flags.md">Red-flag reference</a></td><td>The warning signs to catch, grouped by area (security, data, scale, cost…).</td><td><a href="lessons/28-reviewing-ai-output.html">28</a></td></tr>
+      <tr><td><a href="resources/checklists/pre-ship.md" download>The pre-ship checklist</a></td><td>Run through this before you put anything in front of real users — one line per module.</td><td><a href="lessons/30-your-shipping-checklist.html">30</a></td></tr>
+      <tr><td><a href="resources/glossary.md" download>Plain-English glossary</a></td><td>Every term in the course, defined in one sentence a non-coder can use.</td><td>All</td></tr>
+      <tr><td><a href="resources/prompts/ask-your-ai.md" download>“Ask your AI” prompt pack</a></td><td>The review questions from every lesson, collected as copy-paste prompts.</td><td><a href="lessons/28-reviewing-ai-output.html">28</a></td></tr>
+      <tr><td><a href="resources/checklists/red-flags.md" download>Red-flag reference</a></td><td>The warning signs to catch, grouped by area (security, data, scale, cost…).</td><td><a href="lessons/28-reviewing-ai-output.html">28</a></td></tr>
     </tbody>
   </table>
 
@@ -47,16 +46,10 @@
 
   <div class="tip"><span class="label">Sister course</span> Once you understand <em>what</em> good software needs,
      learn the <em>system</em> for building it reliably with an AI agent — planning, implementing, and validating
-     one piece at a time. That's a natural next step after this course.</div>
+     one piece at a time. <a href="../agentic-coding/index.html">The Agentic Coding Course</a> is the natural next step after this one.</div>
 
-  <p class="foot">A standalone, tool-agnostic course. Contributions welcome via the repository above.</p>
+  <p class="foot">A standalone, tool-agnostic course.</p>
 </div>
 
-<script>
-  var base = document.getElementById("repo-root").getAttribute("href").replace(/\/$/, "");
-  document.querySelectorAll("a.repo").forEach(function (a) {
-    a.setAttribute("href", base + "/" + a.getAttribute("data-path"));
-  });
-</script>
 </body>
 </html>

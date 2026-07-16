@@ -16,6 +16,7 @@
   <a href="curriculum.html">Curriculum</a>
   <a href="resources.html">Resources</a>
   <a href="lessons/01-what-is-software.html">Start →</a>
+  <span class="navpct" id="navpct" hidden></span>
 </nav>
 
 <header class="hero">
@@ -54,6 +55,13 @@
 </div>
 
 <script src="course.js"></script>
+<script>
+  (function () {
+    var C = window.COURSE, np = document.getElementById("navpct"), done = 0;
+    if (!C || !np) return;
+    C.lessons.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) done++; } catch (e) {} });
+    if (done) { np.hidden = false; np.innerHTML = "<b>" + done + "</b>/" + C.lessons.length + " lessons visited"; }
+  })();</script>
 <script>
   var lg = document.getElementById("legend");
   window.COURSE.modules.forEach(function (m) {
