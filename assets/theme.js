@@ -4,7 +4,7 @@
   var root = document.documentElement;
   try { var t = localStorage.getItem("theme"); if (t) root.setAttribute("data-theme", t); } catch (e) {}
   var nav = document.querySelector(".topnav");
-  if (!nav) return;
+  if (!nav || nav.querySelector(".themetoggle")) return;
   function cur() {
     return root.getAttribute("data-theme") ||
       (window.matchMedia && matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light");

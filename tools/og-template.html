@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- og-template.html — 1200×630 social-card template. Not deployed; open locally
+     with query params and screenshot at a 1200×630 viewport into assets/og/:
+       ?k=KICKER&t=TITLE&s=SUBTITLE&a=%23accent-hex
+     e.g. tools/og-template.html?k=Free%20course&t=The%20Agentic%20Coding%20Course -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden; position: relative;
+    background: linear-gradient(160deg, #1b1a26, #12111a 70%);
+    color: #f3f0ea;
+    font-family: -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 90px;
+  }
+  svg.motif { position: absolute; right: -60px; top: -40px; width: 620px; height: 710px; opacity: .5; }
+  .kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 26px; font-weight: 800;
+    color: var(--a, #c96a52); margin-bottom: 28px; }
+  h1 { font-family: Georgia, "Iowan Old Style", serif; font-size: 76px; line-height: 1.08;
+    letter-spacing: -.02em; font-weight: 800; max-width: 17ch; margin-bottom: 30px; }
+  .sub { font-size: 30px; line-height: 1.4; color: #b7b2a7; max-width: 44ch; margin-bottom: 44px; }
+  .brand { display: flex; align-items: center; gap: 14px; font-size: 26px; font-weight: 700; color: #8f8a80; }
+  .brand b { color: #f3f0ea; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--a, #c96a52); }
+</style>
+</head>
+<body>
+<svg class="motif" viewBox="0 0 600 700" fill="none">
+  <g stroke="#403c4e" stroke-width="1.6">
+    <path d="M120 140 Q 260 90 400 170"/><path d="M400 170 Q 470 300 380 420"/>
+    <path d="M380 420 Q 240 500 150 400"/><path d="M150 400 Q 90 260 120 140"/>
+    <path d="M120 140 Q 300 300 380 420"/><path d="M400 170 Q 260 280 150 400"/>
+    <path d="M400 170 Q 500 120 560 200"/><path d="M380 420 Q 480 480 540 430"/>
+  </g>
+  <g>
+    <circle cx="120" cy="140" r="17" fill="#6366f1"/><circle cx="400" cy="170" r="17" fill="#0ea5e9"/>
+    <circle cx="380" cy="420" r="17" fill="#10b981"/><circle cx="150" cy="400" r="17" fill="#f59e0b"/>
+    <circle cx="560" cy="200" r="13" fill="#ec4899"/><circle cx="540" cy="430" r="13" fill="#8b5cf6"/>
+  </g>
+</svg>
+<div class="kicker" id="k">Free course</div>
+<h1 id="t">AI Builder Academy</h1>
+<div class="sub" id="s">Learn to ship real software with AI.</div>
+<div class="brand"><span class="dot"></span>AI <b>Builder</b> Academy · free &amp; open source</div>
+<script>
+  var q = new URLSearchParams(location.search);
+  ["k", "t", "s"].forEach(function (id) {
+    if (q.get(id)) document.getElementById(id).textContent = q.get(id);
+  });
+  if (q.get("a")) document.body.style.setProperty("--a", q.get("a"));
+</script>
+</body>
+</html>
