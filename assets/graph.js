@@ -114,8 +114,8 @@
     g._slug = l.slug;
     gRoot.appendChild(g); nodeEls.push(g);
 
-    g.addEventListener("mouseenter", function () { if (!selected) { highlight(l.slug); showTip(l.slug, false); } });
-    g.addEventListener("mouseleave", function () { if (!selected) { restore(); hideTip(); } });
+    g.addEventListener("mouseenter", function () { if (!selected) { cancelHide(); highlight(l.slug); showTip(l.slug, false); } });
+    g.addEventListener("mouseleave", function () { if (!selected) scheduleHide(); });
     link.addEventListener("focus", function () { highlight(l.slug); showTip(l.slug, false); });
     link.addEventListener("blur", function () { if (!selected) { restore(); hideTip(); } });
     link.addEventListener("click", function (e) {
@@ -155,6 +155,15 @@
   tip.innerHTML = '<span class="gtip-mod"></span><span class="gtip-done" hidden>✓ completed</span>' +
                   '<p class="gtip-t"></p><p class="gtip-b"></p><a class="gtip-open">Open lesson →</a>';
   wrap.appendChild(tip);
+  // grace period so the pointer can travel from a node onto the card (to click "Open lesson")
+  var hideTimer = null;
+  function cancelHide() { clearTimeout(hideTimer); hideTimer = null; }
+  function scheduleHide() {
+    cancelHide();
+    hideTimer = setTimeout(function () { restore(); hideTip(); }, 300);
+  }
+  tip.addEventListener("mouseenter", cancelHide);
+  tip.addEventListener("mouseleave", function () { if (!selected) scheduleHide(); });
   function showTip(slug, touch) {
     var p = pos[slug], l = p.l;
     tip.querySelector(".gtip-mod").textContent = modName[p.mod];
