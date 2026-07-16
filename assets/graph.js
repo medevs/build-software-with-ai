@@ -191,13 +191,17 @@
       em.textContent = done + "/" + total + " ✓";
       s.appendChild(em);
     }
+    // keyboard-operable toggle button (was a mouse-only span)
+    s.setAttribute("role", "button"); s.setAttribute("tabindex", "0"); s.setAttribute("aria-pressed", "false");
     s.addEventListener("mouseenter", function () { if (!selected) highlightModule(mid); });
     s.addEventListener("mouseleave", function () { if (!selected) restore(); });
+    s.addEventListener("keydown", function (e) { if (e.key === " " || e.key === "Enter") { e.preventDefault(); s.click(); } });
     s.addEventListener("click", function () {
       deselect();
       pinnedMod = pinnedMod === mid ? null : mid;
       document.querySelectorAll(".legend span[data-mod]").forEach(function (o) {
-        o.classList.toggle("on", o.getAttribute("data-mod") === pinnedMod);
+        var on = o.getAttribute("data-mod") === pinnedMod;
+        o.classList.toggle("on", on); o.setAttribute("aria-pressed", on ? "true" : "false");
       });
       restore();
     });
@@ -205,7 +209,7 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       pinnedMod = null;
-      document.querySelectorAll(".legend span.on").forEach(function (o) { o.classList.remove("on"); });
+      document.querySelectorAll(".legend span.on").forEach(function (o) { o.classList.remove("on"); o.setAttribute("aria-pressed", "false"); });
       deselect();
     }
   });

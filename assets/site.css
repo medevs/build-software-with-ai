@@ -187,7 +187,7 @@ tbody tr:hover{background:var(--paper-2);}
 .searchbox{width:100%;box-sizing:border-box;font:inherit;font-family:var(--sans);font-size:.95rem;
   padding:.7rem .95rem;border:1.5px solid var(--rule);border-radius:var(--radius-sm);
   background:var(--paper);color:var(--ink);}
-.searchbox:focus{outline:none;border-color:var(--accent-ink);}
+.searchbox:focus{border-color:var(--accent-ink);}
 .searchresults{list-style:none;margin:.5rem 0 0;padding:0;font-family:var(--sans);}
 .searchresults li{border-bottom:1px solid var(--rule-soft);}
 .searchresults a{display:block;padding:.55rem .3rem;text-decoration:none;color:var(--ink);}

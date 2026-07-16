@@ -28,7 +28,9 @@
   qs.forEach(function (item, qi) {
     var card = document.createElement("div");
     card.className = "quiz qp";
-    var q = document.createElement("p"); q.className = "q";
+    var qid = "qh" + qi;
+    card.setAttribute("role", "group"); card.setAttribute("aria-labelledby", qid);
+    var q = document.createElement("p"); q.className = "q"; q.id = qid;
     q.innerHTML = (qi + 1) + ". " + item.q;
     card.appendChild(q);
     item.opts.forEach(function (opt, oi) {

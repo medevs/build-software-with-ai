@@ -14,6 +14,9 @@
   input.setAttribute("aria-label", "Search lessons");
   var results = document.createElement("ul");
   results.className = "searchresults";
+  results.id = "searchresults";
+  results.setAttribute("aria-live", "polite");
+  input.setAttribute("aria-controls", "searchresults");
   results.hidden = true;
   host.appendChild(input);
   host.appendChild(results);
