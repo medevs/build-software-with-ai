@@ -6,6 +6,7 @@
 <title>Curriculum · Software Sense</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../assets/site.css">
+
 <!-- seo:start -->
 <meta name="description" content="All 30 lessons of Software Sense in 7 modules — the plain-English software-engineering literacy that lets a non-coder ship with confidence.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/curriculum.html">
@@ -61,8 +62,11 @@
     mine.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) mdone++; } catch (e) {} });
     var meta = document.createElement("div");
     meta.className = "modmeta";
+    var best = null; try { best = localStorage.getItem("quiz:software-sense:" + m.id); } catch (e) {}
     meta.innerHTML = "<span>" + mdone + "/" + mine.length + " done</span>" +
-      '<span class="modbar"><i style="width:' + Math.round(mdone / mine.length * 100) + '%"></i></span>';
+      '<span class="modbar"><i style="width:' + Math.round(mdone / mine.length * 100) + '%"></i></span>' +
+      '<a class="modquiz" href="quiz.html?m=' + m.id + '">Take the Module ' + m.n + ' quiz →</a>' +
+      (best ? '<span class="quizbest">Best ' + best + '</span>' : '');
     block.appendChild(meta);
     var grid = document.createElement("div"); grid.className = "lessongrid";
     mine.forEach(function (l) {

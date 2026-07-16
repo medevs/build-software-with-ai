@@ -167,6 +167,21 @@ tbody tr:hover{background:var(--paper-2);}
 .quiz button.wrong{background:color-mix(in srgb,var(--m7) 10%,var(--paper));border-color:var(--m7);opacity:1;}
 .quiz .fb{margin:.65rem 0 0;font-size:.88rem;color:var(--muted);min-height:1.2em;font-family:var(--sans);}
 
+/* ---------- scored quiz page (quizpage.js) ---------- */
+.qp .q{margin-bottom:.9rem;}
+.qp-opt{display:flex;gap:.6rem;align-items:flex-start;margin:.4rem 0;padding:.6rem .8rem;
+  font-family:var(--sans);font-size:.92rem;border:1.5px solid var(--rule);border-radius:var(--radius-sm);
+  cursor:pointer;transition:border-color .15s,background .15s;}
+.qp-opt:hover{border-color:var(--accent-ink);}
+.qp-opt input{margin-top:.15rem;accent-color:var(--accent-ink);}
+.qp-opt.correct{background:color-mix(in srgb,var(--m3) 14%,var(--paper));border-color:var(--m3);font-weight:700;}
+.qp-opt.wrong{background:color-mix(in srgb,var(--m7) 10%,var(--paper));border-color:var(--m7);}
+.review-link{display:inline-block;margin-left:.3rem;font-weight:700;}
+.qp-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin:1.8rem 0 .5rem;}
+.score{font-family:var(--sans);font-weight:800;font-size:1.05rem;}
+.qp-nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;
+  font-family:var(--sans);font-size:.9rem;}
+
 /* ---------- lesson chrome ---------- */
 .lesson-meta{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:0 0 1.7rem;
   display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;}
@@ -269,6 +284,8 @@ tbody tr:hover{background:var(--paper-2);}
   background:var(--rule-soft);overflow:hidden;}
 .modbar i{display:block;height:100%;border-radius:999px;background:var(--ok);
   transition:width .3s;}
+.modquiz{font-weight:700;white-space:nowrap;}
+.quizbest{font-weight:700;color:var(--ok);}
 .lessongrid{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));margin-top:1rem;}
 .lcard{border:1px solid var(--rule);border-radius:var(--radius);padding:.9rem 1.05rem;
   text-decoration:none;color:var(--ink);display:block;border-left:4px solid var(--rule);

@@ -17,6 +17,7 @@ const COURSES = {
     name: "The Agentic Coding Course",
     desc: "A free, beginner-friendly, tool-agnostic course on building a system around your AI coding agent — 30 lessons on planning, context, and validation so it ships production-quality software.",
     curriculum: "All 30 lessons of The Agentic Coding Course in 7 modules — from why AI coding needs a system to putting it to work on real code this week.",
+    quiz: "Test what you've learned in The Agentic Coding Course — a scored, per-module quiz drawn from each lesson's self-checks, with instant feedback and links back to review.",
     resources: "Templates, worked examples, and checklists from The Agentic Coding Course — rules files, plan templates, skills, subagents, and hooks to copy into your own project.",
     viewer: "Read the course resources — templates, examples, and checklists — as styled pages, with raw Markdown downloads.",
     og: "assets/og/agentic-coding.png",
@@ -25,6 +26,7 @@ const COURSES = {
     name: "Software Sense",
     desc: "A free, plain-English course on software literacy for people who build with AI — 30 lessons on data, security, testing, and deployment so you can judge what your AI ships.",
     curriculum: "All 30 lessons of Software Sense in 7 modules — the plain-English software-engineering literacy that lets a non-coder ship with confidence.",
+    quiz: "Test what you've learned in Software Sense — a scored, per-module quiz drawn from each lesson's self-checks, with instant feedback and links back to review.",
     resources: "The take-anywhere companions to Software Sense — a pre-ship checklist, plain-English glossary, red-flag reference, and ready-to-use AI review prompts.",
     viewer: "Read the course resources — the checklist, glossary, and prompt pack — as styled pages, with raw Markdown downloads.",
     og: "assets/og/software-sense.png",
@@ -113,6 +115,7 @@ for (const [dir, c] of Object.entries(COURSES)) {
     },
   }));
   urls.push(inject(`courses/${dir}/curriculum.html`, { desc: c.curriculum, og: c.og }));
+  urls.push(inject(`courses/${dir}/quiz.html`, { desc: c.quiz, og: c.og }));
   urls.push(inject(`courses/${dir}/resources.html`, { desc: c.resources, og: c.og }));
   inject(`courses/${dir}/resource.html`, { desc: c.viewer, og: c.og }); // viewer: not in sitemap itself
 
