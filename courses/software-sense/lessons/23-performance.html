@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>23 Â· Performance: Why Speed Is a Feature</title>
+<title>23 · Performance: Why Speed Is a Feature</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="23-performance">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,51 +19,51 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#8b5cf6">Module 6 Â· Fast, Big &amp; Affordable</span>
-    <span>Lesson 23 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#8b5cf6">Module 6 · Fast, Big &amp; Affordable</span>
+    <span>Lesson 23 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">The feature nobody asks for, and everybody notices</p>
   <h1>Performance: Why Speed Is a Feature</h1>
-  <p class="dek">You can build software that does everything right and still lose people â€” because it feels slow. Speed isn't a nice-to-have. It's a feature, whether anyone put it on the requirements list or not.</p>
+  <p class="dek">You can build software that does everything right and still lose people — because it feels slow. Speed isn't a nice-to-have. It's a feature, whether anyone put it on the requirements list or not.</p>
 
   <h2>What "performance" actually means</h2>
   <p><strong>Performance</strong> is how fast and responsive a piece of software feels while you're using it. Tap a
      button, does the screen react instantly or does it hang? Load a page, does it appear in a blink or does it
      crawl? That felt speed is performance.</p>
-  <p>The technical word for the specific delay is <strong>latency</strong> â€” the wait between you doing something
+  <p>The technical word for the specific delay is <strong>latency</strong> — the wait between you doing something
      (clicking, submitting, opening a page) and the software giving you a result. Low latency means barely any
      wait. High latency means you sit there watching a spinner, wondering if it's broken.</p>
   <blockquote>Latency is the gap between "I asked" and "it answered." Everything about performance is really about
      shrinking that gap, or making it feel smaller than it is.</blockquote>
 
   <h2>Why speed is a real feature, not a technical detail</h2>
-  <p>People don't file a complaint about slowness â€” they just leave. A slow checkout loses sales. A slow chatbot
+  <p>People don't file a complaint about slowness — they just leave. A slow checkout loses sales. A slow chatbot
      gets abandoned mid-conversation. A slow internal tool makes employees route around it. Nobody writes "please
      be fast" in a feature request, because it's assumed. When it's missing, it's the first thing anyone notices,
-     even if they can't say exactly what's wrong â€” they just call the app "clunky" or "annoying."</p>
+     even if they can't say exactly what's wrong — they just call the app "clunky" or "annoying."</p>
   <div class="note"><span class="label">Why this matters for you</span> When you ask an AI to build something,
      it will usually make it <em>work</em> first. Whether it's fast is a separate question you have to ask on
-     purpose â€” "does this feel snappy?" is not implied by "does this run?"</div>
+     purpose — "does this feel snappy?" is not implied by "does this run?"</div>
 
   <h2>Common causes of slowness, in plain English</h2>
   <p>You don't need to debug code to understand why software drags. Almost every slowdown traces back to one of a
      few simple habits:</p>
   <div class="cards two">
     <div class="card"><h3>Doing too much work</h3><p>The software recalculates or reprocesses something it didn't
-       need to â€” like re-reading an entire book every time you ask for one sentence.</p></div>
+       need to — like re-reading an entire book every time you ask for one sentence.</p></div>
     <div class="card"><h3>Asking the database too many times</h3><p>Instead of asking once for everything it
-       needs, the software makes hundreds of small requests, one after another â€” like walking to the pantry
+       needs, the software makes hundreds of small requests, one after another — like walking to the pantry
        separately for every single ingredient instead of grabbing them all in one trip.</p></div>
     <div class="card"><h3>Huge images and files</h3><p>A photo sized for a billboard gets sent to a phone screen.
        The extra size has to travel over the network and be processed, and that takes time for no visible
        benefit.</p></div>
     <div class="card"><h3>Slow or distant servers</h3><p>If the computer answering your request is far away or
-       overloaded, every single interaction inherits that delay â€” this connects to <a href="24-scale.html">scale</a>,
+       overloaded, every single interaction inherits that delay — this connects to <a href="24-scale.html">scale</a>,
        coming up next.</p></div>
   </div>
   <p>None of these are exotic bugs. They're ordinary shortcuts that quietly add up, and an AI writing code quickly
-     can absolutely introduce them without meaning to â€” it's optimizing for "produces the right answer," not for
+     can absolutely introduce them without meaning to — it's optimizing for "produces the right answer," not for
      "produces it efficiently."</p>
 
   <h2>Perceived speed matters as much as actual speed</h2>
@@ -69,29 +72,29 @@
      often feels faster than a page that takes one second but shows a blank screen the whole time, then
      everything at once. Good software manages your attention and expectation, not just the raw clock.</p>
   <p>That's why you'll see loading spinners, skeleton screens (gray placeholder boxes before content arrives), and
-     "saving..." messages â€” they're not decoration. They're telling you the wait is happening and hasn't been
+     "saving..." messages — they're not decoration. They're telling you the wait is happening and hasn't been
      forgotten. A silent, frozen screen is worse than an honest, visible wait, even if the silent one is
      technically a touch faster.</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
       <li>A screen goes blank or freezes with no spinner, message, or any sign it's working.</li>
-      <li>The AI can't explain why a page or action is slow â€” "it's just slow sometimes" isn't a diagnosis.</li>
+      <li>The AI can't explain why a page or action is slow — "it's just slow sometimes" isn't a diagnosis.</li>
       <li>Every action re-fetches or recalculates everything from scratch, even things that haven't changed.</li>
     </ul>
   </div>
 
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
-      <li>â€œWhich part of this feature is likely to be the slowest, and why?â€</li>
-      <li>â€œIs this making more requests to the database than it needs to?â€</li>
-      <li>â€œCan you add a loading indicator so people know something is happening while they wait?â€</li>
+      <li>“Which part of this feature is likely to be the slowest, and why?”</li>
+      <li>“Is this making more requests to the database than it needs to?”</li>
+      <li>“Can you add a loading indicator so people know something is happening while they wait?”</li>
     </ul>
   </div>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Latency is specifically the wait between an action and the result â€” the gap performance is trying to shrink.">
+  <div class="quiz" data-answer="1" data-why="Latency is specifically the wait between an action and the result — the gap performance is trying to shrink.">
     <p class="q">What does "latency" mean?</p>
     <button>The total number of features in an app</button>
     <button>The wait between doing something and getting a result</button>
@@ -99,7 +102,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="0" data-why="People rarely complain about slowness in words â€” they just quietly abandon the slow experience.">
+  <div class="quiz" data-answer="0" data-why="People rarely complain about slowness in words — they just quietly abandon the slow experience.">
     <p class="q">Why is speed considered a "real feature" even though it's rarely requested explicitly?</p>
     <button>Because slow software loses people even when nobody files a complaint</button>
     <button>Because speed is required by law for most software</button>
@@ -108,7 +111,7 @@
   </div>
 
   <div class="quiz" data-answer="2" data-why="A visible, honest wait (spinner, progress) tends to feel less frustrating than a silent freeze, even if the freeze resolves slightly faster.">
-    <p class="q">Why might a page with a visible loading spinner feel faster than a silent, frozen page â€” even if the frozen one technically loads sooner?</p>
+    <p class="q">Why might a page with a visible loading spinner feel faster than a silent, frozen page — even if the frozen one technically loads sooner?</p>
     <button>Spinners make the computer process the request faster</button>
     <button>Users always prefer more visual movement on screen</button>
     <button>Perceived speed depends on managing attention, not just the raw clock time</button>
@@ -116,7 +119,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Performance is a feature people feel before they can name it â€” most slowness comes from ordinary
+  <p><strong>Performance is a feature people feel before they can name it — most slowness comes from ordinary
      habits like doing unnecessary work, over-asking the database, or shipping oversized files, so ask about
      speed on purpose instead of assuming it comes free.</strong></p>
 
@@ -127,10 +130,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="22-when-it-breaks.html"><span class="lbl">Previous</span>â† 22 Â· When It Breaks</a>
-    <a class="r" href="24-scale.html"><span class="lbl">Next</span>24 Â· Scale â†’</a>
+    <a href="22-when-it-breaks.html"><span class="lbl">Previous</span>← 22 · When It Breaks</a>
+    <a class="r" href="24-scale.html"><span class="lbl">Next</span>24 · Scale →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 6 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 6 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

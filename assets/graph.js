@@ -70,11 +70,11 @@
     var g = el("g", { class: "gnode" });
     var link = el("a"); link.setAttributeNS("http://www.w3.org/1999/xlink", "href", "lessons/" + l.slug + ".html");
     link.setAttribute("href", "lessons/" + l.slug + ".html");
-    var c = el("circle", { cx: p.x, cy: p.y, r: 9, fill: modColor[l.module], opacity: visited[l.slug] ? 1 : .82 });
+    var c = el("circle", { cx: p.x, cy: p.y, r: 10, fill: modColor[l.module], opacity: visited[l.slug] ? 1 : .82 });
     if (visited[l.slug]) c.setAttribute("stroke", "#10b981"), c.setAttribute("stroke-width", "2.5");
-    var num = el("text", { x: p.x, y: p.y + 3.5, "text-anchor": "middle", "font-size": "9", fill: "#0c0b10", "font-weight": "800" });
+    var num = el("text", { class: "gnum", x: p.x, y: p.y + 3.5, "text-anchor": "middle", fill: "#0c0b10", "font-weight": "800" });
     num.textContent = l.n;
-    var lbl = el("text", { x: p.x, y: p.y - 14, "text-anchor": "middle" });
+    var lbl = el("text", { class: "glabel", x: p.x, y: p.y - 15, "text-anchor": "middle" });
     lbl.textContent = l.title.length > 26 ? l.title.slice(0, 24) + "…" : l.title;
     link.appendChild(c); link.appendChild(num); link.appendChild(lbl); g.appendChild(link);
     g._slug = l.slug;
@@ -105,12 +105,34 @@
     s.addEventListener("mouseleave", clear);
   });
 
-  // pan + zoom
+  // pan + zoom (mouse drag/wheel, touch drag/pinch)
   var scale = 1, tx = 0, ty = 0, dragging = false, sx, sy;
+  var pointers = {}, pinchDist = 0;
   function apply() { gRoot.setAttribute("transform", "translate(" + tx + "," + ty + ") scale(" + scale + ")"); }
-  svg.addEventListener("pointerdown", function (e) { dragging = true; sx = e.clientX - tx; sy = e.clientY - ty; svg.setPointerCapture(e.pointerId); });
-  svg.addEventListener("pointermove", function (e) { if (!dragging) return; tx = e.clientX - sx; ty = e.clientY - sy; apply(); });
-  svg.addEventListener("pointerup", function () { dragging = false; });
+  function zoomAt(px, py, f) {
+    var ns = Math.min(2.5, Math.max(0.5, scale * f));
+    var r = svg.getBoundingClientRect(), mx = (px - r.left) / r.width * W, my = (py - r.top) / r.height * H;
+    tx = mx - (mx - tx) * (ns / scale); ty = my - (my - ty) * (ns / scale); scale = ns; apply();
+  }
+  svg.addEventListener("pointerdown", function (e) {
+    pointers[e.pointerId] = e;
+    dragging = true; sx = e.clientX - tx; sy = e.clientY - ty; svg.setPointerCapture(e.pointerId);
+  });
+  svg.addEventListener("pointermove", function (e) {
+    if (pointers[e.pointerId]) pointers[e.pointerId] = e;
+    var ids = Object.keys(pointers);
+    if (ids.length === 2) { // pinch
+      var a = pointers[ids[0]], b = pointers[ids[1]];
+      var d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+      if (pinchDist) zoomAt((a.clientX + b.clientX) / 2, (a.clientY + b.clientY) / 2, d / pinchDist);
+      pinchDist = d;
+      return;
+    }
+    if (!dragging) return; tx = e.clientX - sx; ty = e.clientY - sy; apply();
+  });
+  function lift(e) { delete pointers[e.pointerId]; pinchDist = 0; dragging = false; }
+  svg.addEventListener("pointerup", lift);
+  svg.addEventListener("pointercancel", lift);
   svg.addEventListener("wheel", function (e) {
     e.preventDefault();
     var f = e.deltaY < 0 ? 1.1 : 0.9, ns = Math.min(2.5, Math.max(0.5, scale * f));

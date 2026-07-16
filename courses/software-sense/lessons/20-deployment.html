@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>20 Â· Deployment</title>
+<title>20 · Deployment</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="20-deployment">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ec4899">Module 5 Â· Real-World Operations</span>
-    <span>Lesson 20 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ec4899">Module 5 · Real-World Operations</span>
+    <span>Lesson 20 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">From your workbench to the world</p>
@@ -26,45 +29,45 @@
 
   <h2>Deploying means publishing your software to where users can reach it</h2>
   <p><strong>Deploying</strong> (or "shipping") means taking your software and publishing it to the production
-     environment â€” the live copy real users can reach, described in the last lesson. Before deployment, your
+     environment — the live copy real users can reach, described in the last lesson. Before deployment, your
      change exists only on your workbench or in a rehearsal copy. After deployment, it's real: anyone with the
      address can open it and start using it.</p>
   <p>Two ordinary-sounding words carry most of the weight here.</p>
 
   <div class="cards two">
     <div class="card"><h3>Hosting</h3><p>A computer, owned by someone else, that keeps your software running and
-       reachable around the clock â€” so you don't need your own machine on 24/7. You rent space on it, much like
+       reachable around the clock — so you don't need your own machine on 24/7. You rent space on it, much like
        renting a storefront instead of building your own building.</p></div>
     <div class="card"><h3>Domain name</h3><p>The human-friendly address people type or click to reach your
-       software â€” like <code>example.com</code> â€” instead of a long string of numbers. You register it separately
+       software — like <code>example.com</code> — instead of a long string of numbers. You register it separately
        from hosting, then point it at where your software lives.</p></div>
   </div>
 
   <h2>Deploys don't have to be scary manual events</h2>
   <p>The old-fashioned image of "deploying" is someone nervously copying files onto a live server late at night,
      hoping nothing breaks. That's not how it has to work. Most modern teams use an automated pipeline, often
-     called <strong>CI/CD</strong> (continuous integration / continuous delivery) â€” a series of automatic checks
+     called <strong>CI/CD</strong> (continuous integration / continuous delivery) — a series of automatic checks
      and steps that run every time a change is ready to ship.</p>
   <p>Think of it like an airport security line that every piece of luggage goes through the same way, every time:
      the pipeline runs tests, checks for obvious problems, and only then publishes the change to production. No
-     human has to remember every step or do it manually at 11pm â€” the pipeline does the same careful process
+     human has to remember every step or do it manually at 11pm — the pipeline does the same careful process
      every single time, which is exactly why it's trustworthy.</p>
 
   <div class="note"><span class="label">Why this matters for you</span> If deploying is automated and checked,
      shipping small changes often becomes routine and low-stress. If it's manual and unchecked, every deploy is a
-     small gamble â€” and gambles compound the more often you ship.</div>
+     small gamble — and gambles compound the more often you ship.</div>
 
   <h2>Rolling changes out gradually</h2>
   <p>Even with good checks, teams often avoid flipping a switch for <em>everyone</em> at once. Instead they roll a
-     change out gradually â€” showing it to a small slice of users first, watching what happens, then expanding to
+     change out gradually — showing it to a small slice of users first, watching what happens, then expanding to
      more people once it looks healthy. It's the same instinct as a chef tasting a new dish before serving it to
      the whole restaurant, rather than plating it for every table simultaneously.</p>
-  <p>This matters because some problems only show up with real users and real traffic â€” no amount of testing on
+  <p>This matters because some problems only show up with real users and real traffic — no amount of testing on
      your workbench or in staging perfectly predicts it. A gradual rollout limits how many people a mistake can
      reach before someone notices and reverses it.</p>
 
   <h2>What this means when AI is doing the building</h2>
-  <p>An AI assistant can produce a working change in minutes â€” but "produced a change" and "deployed a change
+  <p>An AI assistant can produce a working change in minutes — but "produced a change" and "deployed a change
      safely" are two very different milestones. The pipeline, the gradual rollout, and the domain-and-hosting setup
      all still have to exist and do their job, no matter how the code was written. Speed of writing code says
      nothing about safety of shipping it.</p>
@@ -87,7 +90,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="2" data-why="Deploying specifically means publishing to production â€” the live environment real users can reach â€” not just finishing the code.">
+  <div class="quiz" data-answer="2" data-why="Deploying specifically means publishing to production — the live environment real users can reach — not just finishing the code.">
     <p class="q">What does "deploying" software actually mean?</p>
     <button>Writing the first draft of the code</button>
     <button>Testing a change on your own workbench</button>
@@ -103,7 +106,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="0" data-why="Gradual rollout limits how many users a mistake can reach before it's caught â€” some problems only surface with real traffic.">
+  <div class="quiz" data-answer="0" data-why="Gradual rollout limits how many users a mistake can reach before it's caught — some problems only surface with real traffic.">
     <p class="q">Why roll a change out to a small group of users before everyone?</p>
     <button>To limit how many people a hidden problem could affect before it's caught</button>
     <button>Because hosting charges less for fewer users</button>
@@ -112,7 +115,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Deploying is publishing your software to the live environment where users reach it â€” and an
+  <p><strong>Deploying is publishing your software to the live environment where users reach it — and an
      automated pipeline plus a gradual rollout is what turns that from a scary manual event into a routine,
      checked step.</strong></p>
 
@@ -123,10 +126,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="19-environments.html"><span class="lbl">Previous</span>â† 19 Â· Environments</a>
-    <a class="r" href="21-monitoring-and-logs.html"><span class="lbl">Next</span>21 Â· Monitoring &amp; Logs â†’</a>
+    <a href="19-environments.html"><span class="lbl">Previous</span>← 19 · Environments</a>
+    <a class="r" href="21-monitoring-and-logs.html"><span class="lbl">Next</span>21 · Monitoring &amp; Logs →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 5 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 5 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

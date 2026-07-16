@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>21 Â· Monitoring &amp; Logs</title>
+<title>21 · Monitoring &amp; Logs</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="21-monitoring-and-logs">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,21 +19,21 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ec4899">Module 5 Â· Real-World Operations</span>
-    <span>Lesson 21 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ec4899">Module 5 · Real-World Operations</span>
+    <span>Lesson 21 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Knowing before your users tell you</p>
   <h1>Monitoring &amp; Logs</h1>
-  <p class="dek">Once software is live, someone has to know whether it's actually healthy â€” and the good news is you don't have to wait for angry users to find out. Here's how software tells on itself.</p>
+  <p class="dek">Once software is live, someone has to know whether it's actually healthy — and the good news is you don't have to wait for angry users to find out. Here's how software tells on itself.</p>
 
   <h2>The diary your software keeps: logs</h2>
-  <p><strong>Logs</strong> are a running diary of what your software did â€” a timestamped list of events like
+  <p><strong>Logs</strong> are a running diary of what your software did — a timestamped list of events like
      "user logged in," "payment attempted," or "something went wrong here." Nobody reads a log for fun; it's the
      record you go digging through <em>after</em> something looks off, to reconstruct exactly what happened and
      in what order.</p>
   <p>Think of logs like a ship's logbook. Most days, nobody opens it. But the one day something goes wrong, it's
-     the only honest account of what actually occurred, minute by minute â€” far more reliable than anyone's memory
+     the only honest account of what actually occurred, minute by minute — far more reliable than anyone's memory
      of "I think it happened around then."</p>
 
   <div class="note"><span class="label">Why this matters for you</span> When you ask an AI to help fix a bug, one
@@ -38,25 +41,25 @@
      happened. Logs turn "it's broken somehow" into "here's exactly what it did, in order."</div>
 
   <h2>Watching the vital signs: monitoring</h2>
-  <p><strong>Monitoring</strong> is automatic, ongoing watching of your software's key signals â€” is it up or down?
+  <p><strong>Monitoring</strong> is automatic, ongoing watching of your software's key signals — is it up or down?
      Is it responding quickly or slowly? Is it throwing errors? It's the difference between a doctor checking your
      pulse once a year and a heart monitor quietly watching around the clock. Monitoring doesn't wait to be asked;
      it's always looking.</p>
 
   <div class="cards two">
-    <div class="card"><h3>Alerts</h3><p>When monitoring spots something wrong â€” the software is down, or errors
-       are spiking â€” it can automatically notify a human. That's an <strong>alert</strong>: getting told about a
+    <div class="card"><h3>Alerts</h3><p>When monitoring spots something wrong — the software is down, or errors
+       are spiking — it can automatically notify a human. That's an <strong>alert</strong>: getting told about a
        problem instead of stumbling across it, or worse, hearing about it first from a user.</p></div>
-    <div class="card"><h3>Observability</h3><p>The broader idea that all this together â€” logs, monitoring, and
-       alerts â€” gives you enough visibility to understand <em>why</em> something is happening inside your
+    <div class="card"><h3>Observability</h3><p>The broader idea that all this together — logs, monitoring, and
+       alerts — gives you enough visibility to understand <em>why</em> something is happening inside your
        software, not just that something is wrong.</p></div>
   </div>
 
   <h2>You can't fix what you can't see</h2>
-  <p>This is the whole point of this lesson. Software that's live but unwatched can be quietly failing for hours â€”
-     slow, throwing errors, or entirely down â€” while everyone assumes it's fine because nobody's complained yet
+  <p>This is the whole point of this lesson. Software that's live but unwatched can be quietly failing for hours —
+     slow, throwing errors, or entirely down — while everyone assumes it's fine because nobody's complained yet
      (or the people affected simply left without saying anything). Silence is not the same as health.</p>
-  <p>Good monitoring turns invisible problems into visible, addressable ones â€” often before a single user notices.
+  <p>Good monitoring turns invisible problems into visible, addressable ones — often before a single user notices.
      That's a completely different experience for your users than "we found out something was broken when people
      started emailing us."</p>
 
@@ -64,11 +67,11 @@
     <tr><th>Tool</th><th>Answers</th><th>When you use it</th></tr>
     <tr><td>Logs</td><td>"What exactly happened, step by step?"</td><td>After something looks wrong, digging in</td></tr>
     <tr><td>Monitoring</td><td>"Is it healthy right now?"</td><td>Continuously, automatically</td></tr>
-    <tr><td>Alerts</td><td>"Something's wrong â€” go look."</td><td>The moment a problem starts</td></tr>
+    <tr><td>Alerts</td><td>"Something's wrong — go look."</td><td>The moment a problem starts</td></tr>
   </table>
 
   <p>None of this requires you to personally read dashboards all day. It requires the software to have these
-     things set up at all â€” which is exactly the kind of unglamorous, easy-to-skip step that's worth asking about
+     things set up at all — which is exactly the kind of unglamorous, easy-to-skip step that's worth asking about
      before you call anything "done."</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
@@ -105,7 +108,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="2" data-why="Silence from monitoring or logs isn't proof of health â€” without watching, a problem can run unnoticed for a long time.">
+  <div class="quiz" data-answer="2" data-why="Silence from monitoring or logs isn't proof of health — without watching, a problem can run unnoticed for a long time.">
     <p class="q">Why is "no one has complained" not proof that live software is healthy?</p>
     <button>Because users always complain immediately about everything</button>
     <button>Because complaints only matter in staging, not production</button>
@@ -114,7 +117,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>You can't fix what you can't see â€” logs tell you what happened, monitoring watches whether things
+  <p><strong>You can't fix what you can't see — logs tell you what happened, monitoring watches whether things
      are healthy right now, and alerts make sure a human finds out before your users do.</strong></p>
 
   <hr>
@@ -124,10 +127,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="20-deployment.html"><span class="lbl">Previous</span>â† 20 Â· Deployment</a>
-    <a class="r" href="22-when-it-breaks.html"><span class="lbl">Next</span>22 Â· When It Breaks â†’</a>
+    <a href="20-deployment.html"><span class="lbl">Previous</span>← 20 · Deployment</a>
+    <a class="r" href="22-when-it-breaks.html"><span class="lbl">Next</span>22 · When It Breaks →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 5 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 5 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

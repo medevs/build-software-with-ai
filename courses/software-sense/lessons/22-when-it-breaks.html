@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>22 Â· When It Breaks</title>
+<title>22 · When It Breaks</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="22-when-it-breaks">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,17 +19,17 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ec4899">Module 5 Â· Real-World Operations</span>
-    <span>Lesson 22 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ec4899">Module 5 · Real-World Operations</span>
+    <span>Lesson 22 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
-  <p class="kicker">The question isn't if â€” it's how gracefully</p>
+  <p class="kicker">The question isn't if — it's how gracefully</p>
   <h1>When It Breaks</h1>
   <p class="dek">Every piece of software breaks eventually. That's not a scandal, it's just reality. What separates good software from bad software is what happens in the moment things go wrong.</p>
 
-  <h2>Things will break â€” that's not the failure</h2>
+  <h2>Things will break — that's not the failure</h2>
   <p>No software is perfect, and no amount of care changes that: networks drop, people make mistakes, a service
-     someone else runs goes down at the worst possible time. Accepting this is the first step â€” the real question
+     someone else runs goes down at the worst possible time. Accepting this is the first step — the real question
      isn't <em>whether</em> something will break, it's <em>how gracefully</em> it breaks when it does.</p>
   <p>Picture two elevators that both get stuck. One quietly alerts building maintenance, keeps its lights and air
      on, and reopens the doors safely. The other goes completely dark and jams shut. Same failure, wildly
@@ -38,16 +41,16 @@
 
   <div class="cards two">
     <div class="card"><h3>Friendly message, not a crash</h3><p>Instead of a blank screen or a wall of technical
-       gibberism, the user sees something like "Something went wrong â€” please try again," and the rest of the
+       gibberism, the user sees something like "Something went wrong — please try again," and the rest of the
        app keeps working.</p></div>
-    <div class="card"><h3>One failure, not everything</h3><p>If one small part fails â€” say, a shipment-tracking
-       widget â€” it shouldn't take the entire order-checkout with it. Failures should stay contained, not spread.</p></div>
+    <div class="card"><h3>One failure, not everything</h3><p>If one small part fails — say, a shipment-tracking
+       widget — it shouldn't take the entire order-checkout with it. Failures should stay contained, not spread.</p></div>
   </div>
   <p>The best version of this also protects your work: a form that's failed to submit shouldn't silently throw
      away everything you typed. Good error handling means failing without also punishing the user for it.</p>
 
   <h2>Rollback: undoing a bad change fast</h2>
-  <p>Sometimes the thing that broke isn't a random fluke â€” it's the change that just got deployed. When that
+  <p>Sometimes the thing that broke isn't a random fluke — it's the change that just got deployed. When that
      happens, the fastest fix is often not to debug live under pressure, but to perform a <strong>rollback</strong>:
      quickly reverting to the last version that was known to work, buying time to fix the real problem calmly
      afterward.</p>
@@ -70,7 +73,7 @@
   <p>The real design question behind all of this is: when something inevitably breaks, does it fail <em>safely</em>
      (a contained hiccup, no lost data, a clear message) or <em>catastrophically</em> (data lost, everything down,
      users locked out with no explanation)? You can't prevent every failure, but you can absolutely choose which
-     kind of failure your software has â€” and that choice gets made in advance, not in the panic of the moment.</p>
+     kind of failure your software has — and that choice gets made in advance, not in the panic of the moment.</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
@@ -82,7 +85,7 @@
 
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
-      <li>"What happens to the user if this specific part fails â€” do they see a friendly message, or a crash?"</li>
+      <li>"What happens to the user if this specific part fails — do they see a friendly message, or a crash?"</li>
       <li>"Can we roll back this change quickly if something goes wrong after deploying it?"</li>
       <li>"If this fails, does it fail safely, or could it lose data or take down other parts too?"</li>
     </ul>
@@ -90,7 +93,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Perfection isn't realistic â€” the real measure of quality is how contained and graceful the failure is when it happens.">
+  <div class="quiz" data-answer="1" data-why="Perfection isn't realistic — the real measure of quality is how contained and graceful the failure is when it happens.">
     <p class="q">What's the real measure of good software when it comes to failure?</p>
     <button>Whether it ever breaks at all</button>
     <button>How gracefully it fails when it inevitably does break</button>
@@ -106,8 +109,8 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="0" data-why="Monitoring and logs are exactly what tell you something has broken and give clues to why â€” without them, you're finding out from users instead.">
-    <p class="q">Spaced recall â€” from Lesson 21: how would you know something in production just broke, before users start complaining?</p>
+  <div class="quiz" data-answer="0" data-why="Monitoring and logs are exactly what tell you something has broken and give clues to why — without them, you're finding out from users instead.">
+    <p class="q">Spaced recall — from Lesson 21: how would you know something in production just broke, before users start complaining?</p>
     <button>Monitoring and alerts would flag it, and logs would help explain what happened</button>
     <button>You'd have no way to know until someone emails you</button>
     <button>The domain name would automatically stop working</button>
@@ -115,7 +118,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Things will break â€” the job is making sure they break safely: a contained, friendly failure with a
+  <p><strong>Things will break — the job is making sure they break safely: a contained, friendly failure with a
      fast way back (rollback) beats a catastrophic one every time.</strong></p>
 
   <hr>
@@ -125,10 +128,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="21-monitoring-and-logs.html"><span class="lbl">Previous</span>â† 21 Â· Monitoring &amp; Logs</a>
-    <a class="r" href="23-performance.html"><span class="lbl">Next</span>23 Â· Performance â†’</a>
+    <a href="21-monitoring-and-logs.html"><span class="lbl">Previous</span>← 21 · Monitoring &amp; Logs</a>
+    <a class="r" href="23-performance.html"><span class="lbl">Next</span>23 · Performance →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 5 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 5 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

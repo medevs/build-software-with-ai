@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 Â· What Is a Database</title>
+<title>6 · What Is a Database</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="06-what-is-a-database">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,22 +19,22 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#0ea5e9">Module 2 Â· Where Data Lives</span>
-    <span>Lesson 6 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#0ea5e9">Module 2 · Where Data Lives</span>
+    <span>Lesson 6 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">The app's memory</p>
   <h1>What Is a Database</h1>
   <p class="dek">Close an app, reopen it a week later, and your messages, your order history, your saved
-     settings are all still there. That doesn't happen by accident â€” a database is where all of it lives.</p>
+     settings are all still there. That doesn't happen by accident — a database is where all of it lives.</p>
 
   <h2>A database remembers so the app doesn't have to</h2>
-  <p>While an app is running, it keeps things in the computer's short-term memory â€” fast, but wiped clean the
+  <p>While an app is running, it keeps things in the computer's short-term memory — fast, but wiped clean the
      moment the app closes or the device restarts. A <strong>database</strong> is separate storage built to hold
      information <em>permanently</em>: it survives closing the app, restarting the phone, even the app being
      updated to a new version. When you open your banking app and see last month's transactions, the app isn't
-     "remembering" them itself â€” it's asking a database to hand them over.</p>
-  <p>Almost every app you'd call "real" â€” one that has accounts, orders, messages, posts â€” has a database behind
+     "remembering" them itself — it's asking a database to hand them over.</p>
+  <p>Almost every app you'd call "real" — one that has accounts, orders, messages, posts — has a database behind
      it. The app itself is mostly a set of instructions for showing and changing data. The database is the data.</p>
 
   <div class="note"><span class="label">Why this matters for you</span> When you're judging whether an AI-built
@@ -39,13 +42,13 @@
      If the answer is "nowhere, really," the app will quietly lose things.</div>
 
   <h2>Tables: like a spreadsheet, one sheet per kind of thing</h2>
-  <p>The most common way a database organizes information is in <strong>tables</strong> â€” and a table is very
+  <p>The most common way a database organizes information is in <strong>tables</strong> — and a table is very
      close to a spreadsheet sheet. Each table holds one kind of thing: a "Users" table, an "Orders" table, a
      "Products" table.</p>
   <div class="cards two">
-    <div class="card"><h3>Rows = records</h3><p>Each row is one specific item â€” one user, one order. If you have
+    <div class="card"><h3>Rows = records</h3><p>Each row is one specific item — one user, one order. If you have
        4,000 customers, the Users table has 4,000 rows.</p></div>
-    <div class="card"><h3>Columns = fields</h3><p>Each column is one piece of information every row has â€” name,
+    <div class="card"><h3>Columns = fields</h3><p>Each column is one piece of information every row has — name,
        email, signup date. Every row in the table fills in the same columns.</p></div>
   </div>
   <table>
@@ -53,7 +56,7 @@
     <tr><td>1</td><td>Priya Shah</td><td>priya@example.com</td><td>2024-03-02</td></tr>
     <tr><td>2</td><td>Marco Ruiz</td><td>marco@example.com</td><td>2024-05-19</td></tr>
   </table>
-  <p>That's a "Users" table with two rows. A real app usually has several tables that connect to each other â€”
+  <p>That's a "Users" table with two rows. A real app usually has several tables that connect to each other —
      an "Orders" table that says <em>which</em> user placed <em>which</em> order. We'll build that connective
      tissue in the next lesson.</p>
 
@@ -61,7 +64,7 @@
   <p>A spreadsheet can store rows and columns too, so it's a fair question. It falls apart the moment an app
      needs any of these:</p>
   <div class="cards two">
-    <div class="card"><h3>Many people at once</h3><p>A spreadsheet gets confused â€” or corrupted â€” when two people
+    <div class="card"><h3>Many people at once</h3><p>A spreadsheet gets confused — or corrupted — when two people
        try to change it at the same second. A database is built for thousands of people reading and writing at
        the same time without stepping on each other.</p></div>
     <div class="card"><h3>Speed at scale</h3><p>Searching a spreadsheet with ten million rows for "orders from
@@ -78,13 +81,13 @@
   <p>You'll hear two broad families of database mentioned: <strong>"SQL" databases</strong>, which use strict,
      predefined tables like the ones above (great when your data has a clear, stable shape), and
      <strong>"NoSQL" databases</strong>, which store more flexible, loosely-shaped records (handy when the shape
-     varies a lot). Neither is "better" â€” they're suited to different jobs, and we're simplifying heavily here
+     varies a lot). Neither is "better" — they're suited to different jobs, and we're simplifying heavily here
      just so the terms don't surprise you later.</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
       <li>The AI stores real user data only in memory or in a plain file with no database at all, "for now."</li>
-      <li>Nobody can tell you which table a piece of information â€” like a user's order history â€” actually lives in.</li>
+      <li>Nobody can tell you which table a piece of information — like a user's order history — actually lives in.</li>
       <li>The app lets you save something the data clearly shouldn't allow, like an order with no customer.</li>
     </ul>
   </div>
@@ -99,7 +102,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="A database is separate, permanent storage â€” it's built to survive the app closing, restarting, or updating.">
+  <div class="quiz" data-answer="1" data-why="A database is separate, permanent storage — it's built to survive the app closing, restarting, or updating.">
     <p class="q">What makes a database different from the app's regular short-term memory?</p>
     <button>It's faster to read from</button>
     <button>It keeps information even after the app closes or the device restarts</button>
@@ -115,7 +118,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="0" data-why="Spreadsheets aren't built for many simultaneous writers, huge scale, or enforcing data rules â€” databases are.">
+  <div class="quiz" data-answer="0" data-why="Spreadsheets aren't built for many simultaneous writers, huge scale, or enforcing data rules — databases are.">
     <p class="q">Why does a real app need a database instead of just a spreadsheet?</p>
     <button>A database handles many users at once, stays fast at scale, and can enforce rules a spreadsheet can't</button>
     <button>Spreadsheets can't store text, only numbers</button>
@@ -124,21 +127,21 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>A database is the app's permanent memory, organized into tables â€” rows of records, columns of
-     fields â€” built to stay correct with many people using it at once.</strong> Everything else the app does is
+  <p><strong>A database is the app's permanent memory, organized into tables — rows of records, columns of
+     fields — built to stay correct with many people using it at once.</strong> Everything else the app does is
      really just reading from, or writing to, that memory.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Pick an app you use often. What's one piece
-     of information it clearly remembers about you across sessions â€” your cart, your settings, your history?
+     of information it clearly remembers about you across sessions — your cart, your settings, your history?
      That's living in a database somewhere. Share what you found in the
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="05-how-apps-get-built.html"><span class="lbl">Prev</span>5 Â· How Apps Get Built</a>
-    <a class="r" href="07-modeling-your-data.html"><span class="lbl">Next</span>7 Â· Modeling Your Data â†’</a>
+    <a href="05-how-apps-get-built.html"><span class="lbl">Prev</span>5 · How Apps Get Built</a>
+    <a class="r" href="07-modeling-your-data.html"><span class="lbl">Next</span>7 · Modeling Your Data →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 2 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 2 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

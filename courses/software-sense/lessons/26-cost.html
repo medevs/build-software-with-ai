@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>26 Â· The Cost of Running It</title>
+<title>26 · The Cost of Running It</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="26-cost">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,44 +19,44 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#8b5cf6">Module 6 Â· Fast, Big &amp; Affordable</span>
-    <span>Lesson 26 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#8b5cf6">Module 6 · Fast, Big &amp; Affordable</span>
+    <span>Lesson 26 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Software doesn't run for free, even when it feels invisible</p>
   <h1>The Cost of Running It</h1>
-  <p class="dek">Building software is one bill. Running it, every hour of every day, is another â€” and that second
+  <p class="dek">Building software is one bill. Running it, every hour of every day, is another — and that second
      one is easy to lose track of until it shows up on a credit card statement.</p>
 
   <h2>Running software costs real money</h2>
   <p>Once software is built, it has to actually run somewhere, and that "somewhere" costs money. A few of the
      ongoing costs:</p>
   <div class="cards two">
-    <div class="card"><h3>Servers</h3><p>The computers that run your software and answer requests aren't free â€”
+    <div class="card"><h3>Servers</h3><p>The computers that run your software and answer requests aren't free —
        you rent time on them, usually from a cloud provider, and pay for however much you use.</p></div>
     <div class="card"><h3>Storage</h3><p>Every photo, document, and database record has to live somewhere, and
        that storage space is billed too, usually by how much you keep and for how long.</p></div>
-    <div class="card"><h3>Data transfer</h3><p>Moving information around â€” sending a video to a viewer, syncing
-       data between services â€” often has its own cost, based on how much data moves.</p></div>
+    <div class="card"><h3>Data transfer</h3><p>Moving information around — sending a video to a viewer, syncing
+       data between services — often has its own cost, based on how much data moves.</p></div>
     <div class="card"><h3>Paid services and APIs</h3><p>Many apps lean on other companies' tools: payment
-       processing, maps, email sending, and â€” increasingly â€” AI itself. Each of those is usually billed by usage,
+       processing, maps, email sending, and — increasingly — AI itself. Each of those is usually billed by usage,
        not a flat one-time fee.</p></div>
   </div>
   <p>The pattern across all of these: you're almost never charged a single flat price. You're charged for
-     <em>usage</em> â€” how much you stored, how much moved, how many requests you made. That's convenient when
+     <em>usage</em> — how much you stored, how much moved, how many requests you made. That's convenient when
      usage is low, and dangerous when usage spikes and nobody's watching.</p>
 
   <h2>What runs up unexpected bills</h2>
   <p>Because billing follows usage, anything that quietly multiplies usage multiplies the bill right along with
      it:</p>
   <div class="cards two">
-    <div class="card"><h3>Inefficient code</h3><p>Code that does 100 times more work than it needs to â€” recall
-       <a href="23-performance.html">performance</a> â€” doesn't just feel slow, it also burns through paid
+    <div class="card"><h3>Inefficient code</h3><p>Code that does 100 times more work than it needs to — recall
+       <a href="23-performance.html">performance</a> — doesn't just feel slow, it also burns through paid
        computing time 100 times faster than it should.</p></div>
     <div class="card"><h3>Storing everything forever</h3><p>Keeping every log, every draft, every old file with
        no plan to delete or archive anything means storage costs only ever go up, never down.</p></div>
     <div class="card"><h3>A runaway loop</h3><p>A mistake that makes the software repeat an action over and over
-       with no limit â€” retrying a failed request endlessly, for example â€” can burn through paid usage in hours
+       with no limit — retrying a failed request endlessly, for example — can burn through paid usage in hours
        instead of months.</p></div>
     <div class="card"><h3>Leaked API keys</h3><p>If a secret key that grants access to a paid service gets exposed
        publicly, anyone who finds it can rack up usage on your account. This is exactly the scenario from
@@ -63,10 +66,10 @@
   <h2>Building with cost in mind</h2>
   <p>You don't need to become an accountant to build responsibly. The mindset is simple: usage-based billing means
      every design decision has a cost shadow. Storing something forever, calling an AI service on every keystroke,
-     re-fetching the same data repeatedly â€” these are choices, and each one has a dollar sign attached, even if
+     re-fetching the same data repeatedly — these are choices, and each one has a dollar sign attached, even if
      small at first. Being "cost-aware" just means asking about that shadow before it becomes a surprise.</p>
   <p>One concrete habit worth adopting immediately: set <strong>billing alerts</strong>. Most cloud providers and
-     paid services let you set a threshold â€” say, an email or notification if spending crosses $50 in a day â€”
+     paid services let you set a threshold — say, an email or notification if spending crosses $50 in a day —
      so a runaway loop or a leaked key gets caught in hours, not discovered a month later on an invoice. This is a
      five-minute setup that can save you from a genuinely painful surprise.</p>
   <blockquote>You can't stop every cost mistake before it happens. You can make sure you find out about it the same
@@ -82,18 +85,18 @@
 
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
-      <li>â€œWhat in this feature could cause an unexpectedly large bill if usage spiked?â€</li>
-      <li>â€œIs there any risk of a loop or retry here running without limit?â€</li>
-      <li>â€œWhere are secrets or API keys used here, and are they safely stored?â€</li>
+      <li>“What in this feature could cause an unexpectedly large bill if usage spiked?”</li>
+      <li>“Is there any risk of a loop or retry here running without limit?”</li>
+      <li>“Where are secrets or API keys used here, and are they safely stored?”</li>
     </ul>
   </div>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Almost every ongoing software cost â€” servers, storage, data transfer, APIs â€” is billed based on how much you actually use, not a flat fee.">
+  <div class="quiz" data-answer="1" data-why="Almost every ongoing software cost — servers, storage, data transfer, APIs — is billed based on how much you actually use, not a flat fee.">
     <p class="q">How is running software typically billed?</p>
     <button>A single flat fee, paid once, forever</button>
-    <button>Usually by usage â€” how much you store, move, or call, over time</button>
+    <button>Usually by usage — how much you store, move, or call, over time</button>
     <button>It's always free once the software is built</button>
     <p class="fb"></p>
   </div>
@@ -116,20 +119,20 @@
 
   <h2>The one thing to remember</h2>
   <p><strong>Software is billed by usage, so inefficiency, endless storage, runaway loops, and leaked keys all
-     turn directly into money â€” build with that cost shadow in mind, and set billing alerts so surprises get
+     turn directly into money — build with that cost shadow in mind, and set billing alerts so surprises get
      caught in hours, not months.</strong></p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Have you ever been surprised by a bill from
-     an app or service â€” a subscription, a cloud storage plan, anything? What would have caught it earlier? Share
+     an app or service — a subscription, a cloud storage plan, anything? What would have caught it earlier? Share
      your story in the
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="25-caching-and-optimizing.html"><span class="lbl">Previous</span>â† 25 Â· Caching &amp; Optimizing</a>
-    <a class="r" href="27-directing-ai.html"><span class="lbl">Next</span>27 Â· Directing the AI â†’</a>
+    <a href="25-caching-and-optimizing.html"><span class="lbl">Previous</span>← 25 · Caching &amp; Optimizing</a>
+    <a class="r" href="27-directing-ai.html"><span class="lbl">Next</span>27 · Directing the AI →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 6 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 6 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

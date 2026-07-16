@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>25 Â· Tools & Connections (MCP)</title>
+<title>25 · Tools & Connections (MCP)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="25-tools-and-mcp">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#8b5cf6">Module 6 Â· The Building Blocks</span>
-    <span>Lesson 25 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#8b5cf6">Module 6 · The Building Blocks</span>
+    <span>Lesson 25 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Building block #4, in depth</p>
@@ -27,25 +30,25 @@
   <h2>Giving the agent arms, not just a brain</h2>
   <p>By default, an agent only knows what's in the codebase in front of it and whatever you type into the
      conversation. Ask it what a ticket says, what real users are actually doing, or what's currently sitting in
-     a database table, and without a connection to those systems, it can only guess â€” or ask you to paste the
+     a database table, and without a connection to those systems, it can only guess — or ask you to paste the
      answer in yourself.</p>
-  <p>A tool connection closes that gap. It wires the agent directly into an external system â€” a ticket tracker,
-     a database, an analytics platform, the open web â€” so it can read (and sometimes write) real data instead of
+  <p>A tool connection closes that gap. It wires the agent directly into an external system — a ticket tracker,
+     a database, an analytics platform, the open web — so it can read (and sometimes write) real data instead of
      working from secondhand descriptions. Think of it as giving the agent arms to reach outside its own
      sandbox.</p>
 
   <h2>MCP: one standard, many connections</h2>
   <p>Wiring up a new external system used to mean custom, one-off integration work for every single tool. The
      <strong>Model Context Protocol</strong> (MCP) fixes that by giving agents and tools a single shared way to
-     talk to each other â€” a common connector, the same idea as a universal port that many different devices can
+     talk to each other — a common connector, the same idea as a universal port that many different devices can
      plug into. Once a system exposes an MCP server, any MCP-capable agent can connect to it the same way.</p>
   <p>You can read the open standard itself at
      <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">modelcontextprotocol.io</a>. You
-     don't need to memorize the protocol's internals â€” the useful takeaway is simpler: MCP is why "connect my
+     don't need to memorize the protocol's internals — the useful takeaway is simpler: MCP is why "connect my
      agent to my ticket tracker" is now a small, repeatable setup step instead of a custom project.</p>
 
   <div class="note"><span class="label">Setting one up is usually simple</span> Most platforms that offer an MCP
-     server publish straightforward setup docs. You typically don't need to hand-write the integration â€” you can
+     server publish straightforward setup docs. You typically don't need to hand-write the integration — you can
      often just point your agent at the docs and have it configure the connection and handle authentication for
      you.</div>
 
@@ -53,10 +56,10 @@
   <p>A few concrete, beginner-friendly examples of what a connection actually buys you:</p>
   <div class="cards two">
     <div class="card"><h3>Reading a ticket</h3><p>Instead of copy-pasting a ticket's description and comments
-       into the conversation, the agent fetches it directly from your tracker by its ID â€” always current, never
+       into the conversation, the agent fetches it directly from your tracker by its ID — always current, never
        stale.</p></div>
     <div class="card"><h3>Querying usage data</h3><p>Ask the agent to check what a product-analytics platform
-       actually shows about how a feature is used, instead of guessing from a hunch â€” real numbers instead of
+       actually shows about how a feature is used, instead of guessing from a hunch — real numbers instead of
        assumptions.</p></div>
     <div class="card"><h3>Checking a database</h3><p>The agent can query a database directly to see the actual
        shape or contents of your data, rather than inferring it from code that might be out of date.</p></div>
@@ -65,7 +68,7 @@
   </div>
 
   <h2>Connections are optional, and added when they earn their place</h2>
-  <p>You don't need every connection on day one. Add a tool connection when a real, recurring need shows up â€” you
+  <p>You don't need every connection on day one. Add a tool connection when a real, recurring need shows up — you
      keep manually pasting ticket text in, or you keep wishing the agent could just check the data itself. That
      mirrors the broader lesson from <a href="06-six-building-blocks.html">Lesson 6</a>: rules and skills are
      where you start, and the remaining blocks, including connections, tend to get added once you actually feel
@@ -81,7 +84,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="2" data-why="MCP is an open standard that lets any MCP-capable agent connect to any system that exposes an MCP server, the same way each time â€” instead of custom integration work per tool.">
+  <div class="quiz" data-answer="2" data-why="MCP is an open standard that lets any MCP-capable agent connect to any system that exposes an MCP server, the same way each time — instead of custom integration work per tool.">
     <p class="q">What problem does MCP actually solve?</p>
     <button>It makes the model itself smarter</button>
     <button>It replaces the need for a rules file</button>
@@ -89,7 +92,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="1" data-why="Without a connection, the agent can only guess or wait for you to paste data in â€” a connection lets it read the real thing directly.">
+  <div class="quiz" data-answer="1" data-why="Without a connection, the agent can only guess or wait for you to paste data in — a connection lets it read the real thing directly.">
     <p class="q">Without any tool connections, how does an agent answer a question about a live ticket or a database?</p>
     <button>It automatically connects to whatever it needs</button>
     <button>It has to guess, or wait for you to paste the information in</button>
@@ -103,16 +106,16 @@
      same outside information by hand, over and over.</p>
 
   <hr>
-  <div class="note"><span class="label">Reflect &amp; discuss</span> What's one piece of outside information â€”
-     a ticket, a dashboard, a database â€” you find yourself manually copying into your agent right now? Bring
-     your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” and see a
+  <div class="note"><span class="label">Reflect &amp; discuss</span> What's one piece of outside information —
+     a ticket, a dashboard, a database — you find yourself manually copying into your agent right now? Bring
+     your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> — and see a
      <a href="https://github.com/your-org/agentic-coding-course/tree/main/examples/mcp" target="_blank" rel="noopener">worked MCP example</a> in the course repo.</div>
 
   <nav class="prevnext">
-    <a href="24-subagents.html"><span class="lbl">Prev</span>24 Â· Subagents</a>
-    <a class="r" href="26-code-navigation.html"><span class="lbl">Next</span>26 Â· Code Navigation & Search â†’</a>
+    <a href="24-subagents.html"><span class="lbl">Prev</span>24 · Subagents</a>
+    <a class="r" href="26-code-navigation.html"><span class="lbl">Next</span>26 · Code Navigation & Search →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 6 Â· The Building Blocks Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 6 · The Building Blocks · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

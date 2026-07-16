@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>25 Â· Caching &amp; Optimizing</title>
+<title>25 · Caching &amp; Optimizing</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="25-caching-and-optimizing">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,23 +19,23 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#8b5cf6">Module 6 Â· Fast, Big &amp; Affordable</span>
-    <span>Lesson 25 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#8b5cf6">Module 6 · Fast, Big &amp; Affordable</span>
+    <span>Lesson 25 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Not redoing work you already did once</p>
   <h1>Caching &amp; Optimizing</h1>
   <p class="dek">A lot of speed problems have a boring, elegant fix: stop redoing expensive work you already did a
-     minute ago. That single idea â€” caching â€” quietly powers most of the "fast" software you use every day.</p>
+     minute ago. That single idea — caching — quietly powers most of the "fast" software you use every day.</p>
 
   <h2>What caching is</h2>
   <p><strong>Caching</strong> means keeping a ready-made copy of something expensive to produce, so the software
      doesn't have to redo the work every single time it's needed. Think about snacks on your kitchen counter
      versus a trip to the store: if you kept your favorite snack at the store and drove there every time you
-     wanted one, you'd survive, but it would be exhausting and slow. Keeping a stash at home â€” a cache â€” means
+     wanted one, you'd survive, but it would be exhausting and slow. Keeping a stash at home — a cache — means
      the "expensive" trip only happens occasionally, and grabbing a snack the rest of the time is instant.</p>
   <p>Software does the same thing with information. If calculating or fetching something takes real time or
-     effort, and the answer doesn't change often, the software can save that answer once and reuse it â€” instead
+     effort, and the answer doesn't change often, the software can save that answer once and reuse it — instead
      of redoing the full calculation or a trip to the database every single time someone asks.</p>
   <blockquote>Caching is just: do the expensive thing once, remember the answer, and hand out the memory instead of
      redoing the work.</blockquote>
@@ -40,28 +43,28 @@
   <h2>Where caching helps</h2>
   <div class="cards two">
     <div class="card"><h3>Popular, unchanging content</h3><p>A homepage, a product listing, a list of country
-       names â€” things that are the same for every visitor and don't change every second are perfect candidates
+       names — things that are the same for every visitor and don't change every second are perfect candidates
        to store a ready copy of, rather than rebuild from scratch on every single visit.</p></div>
-    <div class="card"><h3>Expensive calculations</h3><p>If producing an answer takes real computing effort â€” a
-       report, a summary, an AI-generated response â€” saving that result means the next person who asks the same
+    <div class="card"><h3>Expensive calculations</h3><p>If producing an answer takes real computing effort — a
+       report, a summary, an AI-generated response — saving that result means the next person who asks the same
        question gets it instantly instead of triggering the same slow work again.</p></div>
   </div>
-  <p>Caching isn't free, though â€” it's a simplification worth naming. A cached copy can go stale: if the real data
+  <p>Caching isn't free, though — it's a simplification worth naming. A cached copy can go stale: if the real data
      changes but the cached copy doesn't get refreshed, people might see old information. Good caching includes a
      plan for when to refresh or throw away the stored copy, not just when to create it.</p>
 
   <h2>A light word on indexes</h2>
   <p>A related idea lives inside databases: an <strong>index</strong>. A database is like a giant filing cabinet
      full of records. Without an index, finding one specific record means checking every single page, one by
-     one â€” slow once there are a lot of records. An index is like the table of contents at the front of a book:
+     one — slow once there are a lot of records. An index is like the table of contents at the front of a book:
      it tells the database roughly where to look, so it can jump straight to the right spot instead of scanning
      everything. You'll rarely set these up yourself, but knowing the word helps you understand why an AI might
      say "let's add an index" when something is running slow.</p>
 
   <h2>The big warning: don't optimize too early</h2>
   <p>Here's the trap that catches even experienced builders: spending time making something fast before you even
-     know if it needs to be fast, or before you know it's even correct. This has a name â€” <strong>premature
-     optimization</strong> â€” and it's widely considered a mistake for a good reason. Optimizing takes real time
+     know if it needs to be fast, or before you know it's even correct. This has a name — <strong>premature
+     optimization</strong> — and it's widely considered a mistake for a good reason. Optimizing takes real time
      and often makes code more complicated and harder to change. If you spend that effort on a part of the app
      that barely matters, or that turns out to be wrong anyway, you've wasted the effort and made everything
      harder to fix.</p>
@@ -79,9 +82,9 @@
 
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
-      <li>â€œIs this data a good candidate for caching, or does it need to be live every time?â€</li>
-      <li>â€œIf we cache this, how and when does the cached copy get refreshed?â€</li>
-      <li>â€œIs this optimization actually necessary right now, or are we solving a problem we don't have yet?â€</li>
+      <li>“Is this data a good candidate for caching, or does it need to be live every time?”</li>
+      <li>“If we cache this, how and when does the cached copy get refreshed?”</li>
+      <li>“Is this optimization actually necessary right now, or are we solving a problem we don't have yet?”</li>
     </ul>
   </div>
 
@@ -95,7 +98,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="1" data-why="An index works like a table of contents â€” it lets the database jump to the right place instead of scanning every record.">
+  <div class="quiz" data-answer="1" data-why="An index works like a table of contents — it lets the database jump to the right place instead of scanning every record.">
     <p class="q">What does a database "index" do?</p>
     <button>It stores a permanent backup of all the data</button>
     <button>It helps the database find records quickly, like a book's table of contents</button>
@@ -103,7 +106,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="2" data-why="Premature optimization means spending effort making something fast before confirming it's slow or even correct â€” usually wasted effort.">
+  <div class="quiz" data-answer="2" data-why="Premature optimization means spending effort making something fast before confirming it's slow or even correct — usually wasted effort.">
     <p class="q">Why is "premature optimization" considered a trap?</p>
     <button>Because fast software is always worse for users</button>
     <button>Because optimizing is illegal without special training</button>
@@ -112,7 +115,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Caching saves time by not redoing expensive work â€” but the real discipline is making things correct
+  <p><strong>Caching saves time by not redoing expensive work — but the real discipline is making things correct
      first, and only optimizing the specific part that's actually slow once you know it matters.</strong></p>
 
   <hr>
@@ -122,10 +125,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="24-scale.html"><span class="lbl">Previous</span>â† 24 Â· Scale</a>
-    <a class="r" href="26-cost.html"><span class="lbl">Next</span>26 Â· The Cost of Running It â†’</a>
+    <a href="24-scale.html"><span class="lbl">Previous</span>← 24 · Scale</a>
+    <a class="r" href="26-cost.html"><span class="lbl">Next</span>26 · The Cost of Running It →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 6 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 6 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

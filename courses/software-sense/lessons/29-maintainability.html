@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>29 Â· Maintainability &amp; Debt</title>
+<title>29 · Maintainability &amp; Debt</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="29-maintainability">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,34 +19,34 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ef4444">Module 7 Â· Doing It With AI</span>
-    <span>Lesson 29 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ef4444">Module 7 · Doing It With AI</span>
+    <span>Lesson 29 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">"It works" isn't the finish line</p>
   <h1>Maintainability &amp; Debt</h1>
-  <p class="dek">Software isn't built once and left alone â€” it gets changed, over and over, for as long as it's used. Whether that's easy or a nightmare depends on a choice you can influence today.</p>
+  <p class="dek">Software isn't built once and left alone — it gets changed, over and over, for as long as it's used. Whether that's easy or a nightmare depends on a choice you can influence today.</p>
 
   <h2>Software is never really "finished"</h2>
   <p>Once software ships, the requests don't stop: fix this, add that, handle one more edge case, connect it to
      one more thing. Every piece of real software you've ever used has been changed dozens or hundreds of times
-     since it first launched. That means the real question isn't just "does it work today" â€” it's "how hard
+     since it first launched. That means the real question isn't just "does it work today" — it's "how hard
      will it be to change safely tomorrow?"</p>
   <p>Two pieces of software can do the exact same thing today and be worlds apart on that second question. The
      difference is called <strong>maintainability</strong>: how easy the software is to understand, fix, and
-     extend later, by anyone â€” including a future AI session that doesn't remember today's conversation.</p>
+     extend later, by anyone — including a future AI session that doesn't remember today's conversation.</p>
 
   <div class="note"><span class="label">Why this matters for you</span> You may never open the code yourself.
-     But every future change â€” a new feature, a bug fix, a request to an AI six months from now â€” either builds
+     But every future change — a new feature, a bug fix, a request to an AI six months from now — either builds
      smoothly on what's there, or fights it. Maintainability is what decides which one happens.</div>
 
   <h2>Technical debt: the bill that comes due later</h2>
   <p><strong>Technical debt</strong> is the future cost of a shortcut taken today. Like financial debt, a little
-     of it, taken on purpose, can be a reasonable trade â€” ship the simple version now, clean it up next week.
+     of it, taken on purpose, can be a reasonable trade — ship the simple version now, clean it up next week.
      The trouble is debt taken on by accident, never tracked, and never paid down: every shortcut compounds, and
      eventually even small changes become slow and risky because nobody can safely touch the pile without
      something else breaking.</p>
-  <blockquote>Debt isn't the shortcut itself â€” it's the shortcut nobody wrote down and nobody ever came back for.</blockquote>
+  <blockquote>Debt isn't the shortcut itself — it's the shortcut nobody wrote down and nobody ever came back for.</blockquote>
 
   <h2>What maintainable software actually looks like</h2>
   <div class="cards two">
@@ -51,7 +54,7 @@
        even for something built months ago.</p></div>
     <div class="card"><h3>Consistent</h3><p>Similar problems are solved the same way throughout, instead of a
        different approach every time a new piece was added.</p></div>
-    <div class="card"><h3>Documented</h3><p>The non-obvious decisions â€” why this, not the simpler option â€” are
+    <div class="card"><h3>Documented</h3><p>The non-obvious decisions — why this, not the simpler option — are
        written down somewhere, not just remembered by whoever built it.</p></div>
     <div class="card"><h3>Not copy-pasted everywhere</h3><p>The same logic lives in one place. Fixing a bug
        means fixing it once, not hunting down every copy.</p></div>
@@ -60,13 +63,13 @@
      the same way you asked review questions in the <a href="28-reviewing-ai-output.html">previous lesson</a>.</p>
 
   <h2>Why this matters more, not less, with AI</h2>
-  <p>An AI coding agent can generate an enormous amount of code very fast â€” far faster than a person typing it
+  <p>An AI coding agent can generate an enormous amount of code very fast — far faster than a person typing it
      by hand. That's the appeal. It's also the risk: a mountain of code produced in an afternoon can just as
      easily be a mountain of <em>messy</em> code, and messy code at ten times the normal speed is still a
      liability, just one that arrived faster. Volume was never the goal. Software that can keep being changed
-     safely was always the goal â€” AI just makes it easier to lose sight of that while you're moving fast.</p>
+     safely was always the goal — AI just makes it easier to lose sight of that while you're moving fast.</p>
   <p>The fix isn't slowing down. It's asking for maintainability explicitly, the same way you'd name security
-     or cost as a constraint in <a href="27-directing-ai.html">Lesson 27</a> â€” because left unstated, speed is
+     or cost as a constraint in <a href="27-directing-ai.html">Lesson 27</a> — because left unstated, speed is
      what gets optimized for by default.</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
@@ -80,14 +83,14 @@
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
       <li>"Is any of this logic duplicated elsewhere? If so, can it live in one place instead?"</li>
-      <li>"What's the one part of this you'd want a future developer â€” or a future you â€” to understand before changing it?"</li>
+      <li>"What's the one part of this you'd want a future developer — or a future you — to understand before changing it?"</li>
       <li>"Did you take any shortcuts here I should know about, even ones that are reasonable for now?"</li>
     </ul>
   </div>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="0" data-why="Technical debt is the future cost of a shortcut taken today â€” reasonable if it's deliberate and tracked, dangerous if it's accidental and forgotten.">
+  <div class="quiz" data-answer="0" data-why="Technical debt is the future cost of a shortcut taken today — reasonable if it's deliberate and tracked, dangerous if it's accidental and forgotten.">
     <p class="q">What is "technical debt," in plain terms?</p>
     <button>The future cost of a shortcut taken today</button>
     <button>Money owed to a software vendor</button>
@@ -95,17 +98,17 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="1" data-why="AI can produce a huge volume of code fast â€” which means messy code piles up just as fast, and it's still a liability regardless of how quickly it was written.">
+  <div class="quiz" data-answer="1" data-why="AI can produce a huge volume of code fast — which means messy code piles up just as fast, and it's still a liability regardless of how quickly it was written.">
     <p class="q">Why does maintainability matter more, not less, when an AI is writing the code?</p>
     <button>AI-written code is always messier than human-written code</button>
-    <button>AI can produce a mountain of code fast â€” a mountain of messy code is still a liability</button>
+    <button>AI can produce a mountain of code fast — a mountain of messy code is still a liability</button>
     <button>AI cannot write maintainable code at all</button>
     <p class="fb"></p>
   </div>
 
   <h2>The one thing to remember</h2>
   <p><strong>Software is changed constantly, and messy software gets exponentially harder and riskier to
-     change â€” so ask for maintainable, not just working, and ask for it on purpose.</strong> "It ran once" was
+     change — so ask for maintainable, not just working, and ask for it on purpose.</strong> "It ran once" was
      never the finish line; this lesson is the reminder that "it stays easy to change" is.</p>
 
   <hr>
@@ -114,10 +117,10 @@
      Share it in the <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="28-reviewing-ai-output.html"><span class="lbl">Prev</span>28 Â· Reviewing AI's Work</a>
-    <a class="r" href="30-your-shipping-checklist.html"><span class="lbl">Next</span>30 Â· Your Shipping Checklist â†’</a>
+    <a href="28-reviewing-ai-output.html"><span class="lbl">Prev</span>28 · Reviewing AI's Work</a>
+    <a class="r" href="30-your-shipping-checklist.html"><span class="lbl">Next</span>30 · Your Shipping Checklist →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 7 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 7 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

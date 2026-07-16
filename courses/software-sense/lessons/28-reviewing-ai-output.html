@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>28 Â· Reviewing AI's Work</title>
+<title>28 · Reviewing AI's Work</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="28-reviewing-ai-output">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,32 +19,32 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ef4444">Module 7 Â· Doing It With AI</span>
-    <span>Lesson 28 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ef4444">Module 7 · Doing It With AI</span>
+    <span>Lesson 28 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">One walk across everything you've learned</p>
   <h1>Reviewing AI's Work</h1>
-  <p class="dek">This is the lesson everything else led to. You don't need to read code to review it well â€” you need to ask the right questions, in the right order. Here they are.</p>
+  <p class="dek">This is the lesson everything else led to. You don't need to read code to review it well — you need to ask the right questions, in the right order. Here they are.</p>
 
   <h2>You review with questions, not syntax</h2>
-  <p>You will probably never read a line of code the AI writes and understand it directly â€” and you don't need
+  <p>You will probably never read a line of code the AI writes and understand it directly — and you don't need
      to. What you <em>can</em> do is ask the AI targeted questions about its own work and judge the answers,
      the same way you'd ask a contractor to walk you through renovation work you didn't do yourself. Each
-     question below maps to a module you've already completed. You're not learning anything new here â€” you're
+     question below maps to a module you've already completed. You're not learning anything new here — you're
      assembling what you know into one pass.</p>
 
   <h2>The capstone review checklist</h2>
   <table>
     <thead><tr><th>Ask</th><th>Why it matters</th><th>From</th></tr></thead>
     <tbody>
-      <tr><td>Does it do what I asked â€” including the edge cases, not just the happy path?</td>
+      <tr><td>Does it do what I asked — including the edge cases, not just the happy path?</td>
           <td>A demo proves the happy path once. Real users hit empty fields, duplicates, and invalid input constantly.</td>
           <td><a href="10-what-done-means.html">L10</a></td></tr>
       <tr><td>Is there any test covering this, and does it actually run?</td>
           <td>A test is a promise the behavior was checked at least once, automatically, not just eyeballed.</td>
           <td><a href="11-testing-basics.html">L11</a></td></tr>
-      <tr><td>Is there anything that looks like a secret â€” a password, API key â€” sitting in the code itself?</td>
+      <tr><td>Is there anything that looks like a secret — a password, API key — sitting in the code itself?</td>
           <td>Secrets in code get copied, shared, and leaked. They belong somewhere the code never shows.</td>
           <td><a href="14-security-mindset.html">L14</a></td></tr>
       <tr><td>Does every sensitive action check <em>who</em> is asking before doing it?</td>
@@ -53,7 +56,7 @@
       <tr><td>What data does this store, and is that data modeled and backed up sensibly?</td>
           <td>Data that's shaped wrong or never backed up is expensive, sometimes irreversibly, to fix later.</td>
           <td><a href="07-modeling-your-data.html">L7</a>, <a href="09-migrations-and-backups.html">L9</a></td></tr>
-      <tr><td>Will this hold up if a lot more people use it â€” or cost too much if it does?</td>
+      <tr><td>Will this hold up if a lot more people use it — or cost too much if it does?</td>
           <td>What works fine for you alone can slow to a crawl, or get expensive, under real traffic.</td>
           <td><a href="23-performance.html">L23</a>, <a href="26-cost.html">L26</a></td></tr>
       <tr><td>Is this readable and consistent enough that changing it later won't be a nightmare?</td>
@@ -65,18 +68,18 @@
   <h2>How to actually run this, in practice</h2>
   <div class="steps">
     <li><strong>Paste the checklist to your AI</strong>, one section at a time, and ask it to answer honestly
-       against the actual code â€” not a summary of what it meant to do.</li>
+       against the actual code — not a summary of what it meant to do.</li>
     <li><strong>Ask it to show you, not just tell you.</strong> "Show me the part of the code that checks for
        a duplicate email" is a better question than "did you handle duplicates?"</li>
     <li><strong>Treat a confident answer as a starting point, not a verdict.</strong> If something feels
        hand-wavy, ask it to point to the exact spot that proves the claim.</li>
-    <li><strong>Keep a short list of what you couldn't verify</strong> â€” those are the open risks you're
+    <li><strong>Keep a short list of what you couldn't verify</strong> — those are the open risks you're
        consciously accepting, not ones you missed.</li>
   </div>
 
   <div class="note"><span class="label">Why this matters for you</span> This checklist is the same one a
      technical reviewer runs in their head, just translated into plain questions. Running it doesn't require
-     you to become technical â€” it requires you to not skip the questions because the demo looked good.</div>
+     you to become technical — it requires you to not skip the questions because the demo looked good.</div>
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
@@ -88,19 +91,19 @@
 
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
-      <li>"Walk me through what happens for each edge case in my definition of done â€” show me, don't just tell me."</li>
+      <li>"Walk me through what happens for each edge case in my definition of done — show me, don't just tell me."</li>
       <li>"Is there anywhere untrusted input reaches this code without being checked first?"</li>
       <li>"If a hundred times more people used this tomorrow, what's the first thing that would break or get expensive?"</li>
     </ul>
   </div>
 
   <p>Every one of these questions is also collected as a ready-to-paste prompt in the
-     <a href="../resources.html">resources page's "Ask your AI" prompt pack</a> â€” worth bookmarking so you're
+     <a href="../resources.html">resources page's "Ask your AI" prompt pack</a> — worth bookmarking so you're
      never starting a review from a blank page.</p>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="You review by asking the AI targeted questions and judging its answers and evidence â€” not by reading the code yourself.">
+  <div class="quiz" data-answer="1" data-why="You review by asking the AI targeted questions and judging its answers and evidence — not by reading the code yourself.">
     <p class="q">How does a non-coder meaningfully review AI-written code?</p>
     <button>By reading every line and understanding the syntax</button>
     <button>By asking targeted questions and requiring the AI to show evidence, not just claims</button>
@@ -110,14 +113,14 @@
 
   <div class="quiz" data-answer="2" data-why="Confident answers without a concrete example are exactly the case where you should ask the AI to point to the specific proof.">
     <p class="q">The AI says "yes, this is fully tested and secure" with no example. What should you do?</p>
-    <button>Accept it â€” the AI knows its own code best</button>
+    <button>Accept it — the AI knows its own code best</button>
     <button>Assume it's lying and start over</button>
     <button>Ask it to show you the specific test or check that proves the claim</button>
     <p class="fb"></p>
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>You review AI's work with questions, not code-reading â€” one question per module you've learned,
+  <p><strong>You review AI's work with questions, not code-reading — one question per module you've learned,
      and evidence, not confidence, as the bar for "yes."</strong> This checklist is the whole course in one pass.</p>
 
   <hr>
@@ -126,10 +129,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="27-directing-ai.html"><span class="lbl">Prev</span>27 Â· Directing Your AI</a>
-    <a class="r" href="29-maintainability.html"><span class="lbl">Next</span>29 Â· Maintainability &amp; Debt â†’</a>
+    <a href="27-directing-ai.html"><span class="lbl">Prev</span>27 · Directing Your AI</a>
+    <a class="r" href="29-maintainability.html"><span class="lbl">Next</span>29 · Maintainability &amp; Debt →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 7 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 7 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

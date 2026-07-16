@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>12 Â· Clean Context</title>
+<title>12 · Clean Context</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="12-clean-context">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#10b981">Module 3 Â· The Core Loop</span>
-    <span>Lesson 12 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#10b981">Module 3 · The Core Loop</span>
+    <span>Lesson 12 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">The signature move between planning and building</p>
@@ -28,33 +31,33 @@
   <p>Here's the habit that separates people who get consistently solid results from people who get a slow slide
      into mush: once the plan from the last lesson is written down, you <strong>save it, clear the
      conversation, and open a completely fresh session</strong> whose only input is that plan.</p>
-  <p>Not "keep chatting in the same window and just tell it to start building." A genuinely new session â€” one
+  <p>Not "keep chatting in the same window and just tell it to start building." A genuinely new session — one
      that never saw your brain-dump, your back-and-forth, or any of the dead ends you explored along the way.</p>
 
   <div class="steps">
-    <li><strong>Save.</strong> Commit or otherwise store the finished plan somewhere durable â€” it's your rollback point if anything goes wrong.</li>
+    <li><strong>Save.</strong> Commit or otherwise store the finished plan somewhere durable — it's your rollback point if anything goes wrong.</li>
     <li><strong>Clear.</strong> Close out the planning conversation. It already did its job; treat it as disposable from here on.</li>
     <li><strong>Start fresh.</strong> Open a new session and hand it nothing but the plan.</li>
   </div>
 
   <h2>Why not just keep going in the same conversation?</h2>
-  <p>It seems more efficient to stay in one long conversation â€” why re-explain anything? But context is the
+  <p>It seems more efficient to stay in one long conversation — why re-explain anything? But context is the
      agent's most limited resource, and it degrades well before you'd expect.</p>
   <p>Long before a model hits its hard technical limit, it enters what you might call a <strong>"dumb
-     zone"</strong> â€” typically somewhere in the range of 200,000 to 300,000 tokens of accumulated conversation â€”
+     zone"</strong> — typically somewhere in the range of 200,000 to 300,000 tokens of accumulated conversation —
      where it visibly gets worse at reasoning. It starts losing track of details, contradicting earlier
      decisions, and drifting from what you actually asked for. This effect is sometimes called
      <strong>context rot</strong>: not a hard wall, but a steady decline in quality as the conversation piles up.</p>
 
   <div class="warn"><span class="label">The trap</span> A long planning conversation full of dead ends,
      rejected approaches, and back-and-forth is exactly the kind of history that pushes a session toward the dumb
-     zone. Carrying all of that into implementation doesn't give the agent more context â€” it gives it noise.</div>
+     zone. Carrying all of that into implementation doesn't give the agent more context — it gives it noise.</div>
 
   <h2>A fresh session is also a fresh set of eyes</h2>
-  <p>Clearing context isn't only about avoiding degraded performance â€” it's also about bias. A session that
+  <p>Clearing context isn't only about avoiding degraded performance — it's also about bias. A session that
      lived through your entire messy planning process has opinions baked in: half-considered ideas, approaches
      you talked yourself out of, tangents that never went anywhere. A brand-new session has none of that
-     baggage. Its only reality is the plan in front of it, so it builds exactly what the plan says â€” nothing
+     baggage. Its only reality is the plan in front of it, so it builds exactly what the plan says — nothing
      more, nothing colored by conversation history you've already moved past.</p>
 
   <div class="tip"><span class="label">Analogy</span> Think of handing a blueprint to a contractor who wasn't in
@@ -63,7 +66,7 @@
 
   <h2>Why this is safe: it depends on the last lesson</h2>
   <p>This move only works because of what you learned last lesson. A fresh session with no memory of the
-     conversation is only safe to launch if the plan itself passes the "no prior knowledge" test â€” real file
+     conversation is only safe to launch if the plan itself passes the "no prior knowledge" test — real file
      paths, explicit out-of-scope, a concrete validation strategy. Clear context on a weak plan and you've just
      handed a blank-slate agent a set of vague instructions. Clear context on a one-pass-ready plan, and you've
      handed it everything it needs.</p>
@@ -72,7 +75,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="3" data-why="Context rot describes a model getting measurably worse well before its hard token limit, typically somewhere around 200,000 to 300,000 tokens of accumulated conversation.">
+  <div class="quiz" data-answer="2" data-why="Context rot describes a model getting measurably worse well before its hard token limit, typically somewhere around 200,000 to 300,000 tokens of accumulated conversation.">
     <p class="q">What is "context rot"?</p>
     <button>A bug that only affects certain coding agents</button>
     <button>The hard technical limit where a model stops responding entirely</button>
@@ -80,7 +83,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="1" data-why="A comprehensive, one-pass-ready plan is exactly what licenses clearing context â€” without it, a fresh session has nothing solid to build from.">
+  <div class="quiz" data-answer="0" data-why="A comprehensive, one-pass-ready plan is exactly what licenses clearing context — without it, a fresh session has nothing solid to build from.">
     <p class="q">What makes it safe to clear context and start implementation in a fresh session?</p>
     <button>Having a plan that passes the "no prior knowledge" test</button>
     <button>Making sure the planning conversation was as long as possible</button>
@@ -90,20 +93,20 @@
 
   <h2>The one thing to remember</h2>
   <p><strong>Save the plan, clear the conversation, implement in a fresh session.</strong> A model degrades long
-     before its official limit, and a fresh session is unbiased eyes that build exactly what the plan says â€” but
+     before its official limit, and a fresh session is unbiased eyes that build exactly what the plan says — but
      only a plan that already passes the "no prior knowledge" test makes that reset safe.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Have you ever kept building in the same
      long conversation instead of starting fresh? Did you notice the agent getting confused or contradicting
      itself later on? Share what happened in the
-     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” it's a great way to spot the dumb zone in your own work before it costs you real time.</p>
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> — it's a great way to spot the dumb zone in your own work before it costs you real time.</p>
 
   <nav class="prevnext">
-    <a class="l" href="11-the-plan.html"><span class="lbl">Prev</span>â† 11 Â· The Plan That Ships in One Pass</a>
-    <a class="r" href="13-validate-and-gates.html"><span class="lbl">Next</span>13 Â· Validate &amp; Gates â†’</a>
+    <a class="l" href="11-the-plan.html"><span class="lbl">Prev</span>← 11 · The Plan That Ships in One Pass</a>
+    <a class="r" href="13-validate-and-gates.html"><span class="lbl">Next</span>13 · Validate &amp; Gates →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 3 Â· The Core Loop Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 3 · The Core Loop · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>7 Â· Modeling Your Data</title>
+<title>7 · Modeling Your Data</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="07-modeling-your-data">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,23 +19,23 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#0ea5e9">Module 2 Â· Where Data Lives</span>
-    <span>Lesson 7 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#0ea5e9">Module 2 · Where Data Lives</span>
+    <span>Lesson 7 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">The decision everything else is built on</p>
   <h1>Modeling Your Data</h1>
   <p class="dek">Before an app can show anything on screen, someone has to decide what pieces of information it
-     stores, and how those pieces connect to each other. That decision is called data modeling â€” and it's the
+     stores, and how those pieces connect to each other. That decision is called data modeling — and it's the
      most expensive thing in the whole app to get wrong.</p>
 
   <h2>Data modeling is deciding what you store and how it relates</h2>
   <p><strong>Data modeling</strong> means answering two questions before a single table gets built: what pieces
      of information does this app need to remember, and how are those pieces connected? A simple online store
-     needs to know about users, and about orders, and â€” crucially â€” that <em>each order belongs to a user</em>,
+     needs to know about users, and about orders, and — crucially — that <em>each order belongs to a user</em>,
      and <em>each order contains one or more items</em>. That web of "this belongs to that" is the model.</p>
   <p>It sounds obvious once it's said out loud. In practice, it's where most of the important thinking in
-     building an app actually happens â€” including with AI. An AI can generate the tables and the code around
+     building an app actually happens — including with AI. An AI can generate the tables and the code around
      them in seconds. It's much slower, and much more valuable, to get someone to think hard about whether
      "an order belongs to exactly one user" is even true for this business (what about gift orders? shared
      accounts?).</p>
@@ -43,7 +46,7 @@
      discovering the plumbing was routed wrong, means tearing into everything built on top of it.</p>
   <blockquote>Screens and buttons are the paint. The data model is the foundation.</blockquote>
   <p>Every screen, every feature, every report the app will ever produce is built assuming the data is shaped a
-     certain way. Change the shape later, and all of it may need to be touched â€” the tables, the code that reads
+     certain way. Change the shape later, and all of it may need to be touched — the tables, the code that reads
      them, and any data already saved in the old shape.</p>
 
   <div class="note"><span class="label">Why this matters for you</span> When an AI offers to "just start building"
@@ -55,27 +58,27 @@
   <div class="cards two">
     <div class="card"><h3>Good: separated and connected</h3><p>A <strong>Users</strong> table, an
        <strong>Orders</strong> table linked to a user, and an <strong>Order Items</strong> table linked to an
-       order â€” each item naming one book and a quantity. Adding a second book to an order just adds another
+       order — each item naming one book and a quantity. Adding a second book to an order just adds another
        row. Nothing else changes.</p></div>
     <div class="card"><h3>Messy: crammed into one place</h3><p>One giant "Orders" table with columns like
        <code>book_1</code>, <code>book_2</code>, <code>book_3</code> for up to three books per order. Someone
        orders a fourth book, and now there's nowhere for it to go without changing every row that came before.</p></div>
   </div>
-  <p>The messy version isn't "wrong" in a demo â€” it can work for a first test. The problem shows up later,
+  <p>The messy version isn't "wrong" in a demo — it can work for a first test. The problem shows up later,
      exactly when it's most expensive: real customers have already placed orders, and now the shape itself needs
      surgery while protecting data that's already there.</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
       <li>Nobody can describe, in one sentence, how two of the app's main things (like users and orders) relate.</li>
-      <li>The model has a fixed number of "slots" for something that's naturally unlimited (book_1, book_2, book_3â€¦).</li>
+      <li>The model has a fixed number of "slots" for something that's naturally unlimited (book_1, book_2, book_3…).</li>
       <li>A small new feature request ("let a user save multiple addresses") suddenly requires reshaping existing tables.</li>
     </ul>
   </div>
 
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
-      <li>"Explain the data model for this app in plain English â€” what are the main things, and how do they connect?"</li>
+      <li>"Explain the data model for this app in plain English — what are the main things, and how do they connect?"</li>
       <li>"What happens to this model if a user needs to have more than one of [X]?"</li>
       <li>"Is any of this shape hard-coded in a way that will break if the business rules change?"</li>
     </ul>
@@ -83,7 +86,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Data modeling is naming what you store and how it relates â€” like users having orders, and orders having items.">
+  <div class="quiz" data-answer="1" data-why="Data modeling is naming what you store and how it relates — like users having orders, and orders having items.">
     <p class="q">What does "data modeling" mean?</p>
     <button>Choosing the colors and fonts for the app's screens</button>
     <button>Deciding what information the app stores and how the pieces relate to each other</button>
@@ -91,7 +94,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="2" data-why="Everything the app does gets built on top of the model, so reshaping it later means touching all of that â€” plus data already saved in the old shape.">
+  <div class="quiz" data-answer="2" data-why="Everything the app does gets built on top of the model, so reshaping it later means touching all of that — plus data already saved in the old shape.">
     <p class="q">Why is the data model the most expensive thing to change later?</p>
     <button>Because databases charge money per table</button>
     <button>Because it requires learning a new programming language</button>
@@ -100,21 +103,21 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Data modeling is deciding what the app remembers and how those pieces connect â€” and because
+  <p><strong>Data modeling is deciding what the app remembers and how those pieces connect — and because
      everything else is built on top of it, it's the one part worth slowing down for.</strong> Get the shape
      roughly right early, and the rest gets easier. Get it wrong, and every later change gets harder.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Think of an app with a "one slot" limit that
-     annoyed you â€” one phone number, one address, one payment method â€” when you clearly needed more than one.
+     annoyed you — one phone number, one address, one payment method — when you clearly needed more than one.
      That's usually a data model that didn't plan for it. Share your example in the
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="06-what-is-a-database.html"><span class="lbl">Prev</span>6 Â· What Is a Database</a>
-    <a class="r" href="08-state-and-storage.html"><span class="lbl">Next</span>8 Â· State &amp; Storage â†’</a>
+    <a href="06-what-is-a-database.html"><span class="lbl">Prev</span>6 · What Is a Database</a>
+    <a class="r" href="08-state-and-storage.html"><span class="lbl">Next</span>8 · State &amp; Storage →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 2 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 2 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

@@ -3,21 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Curriculum Â· Software Sense</title>
+<title>Curriculum · Software Sense</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
 <nav class="topnav">
+  <a class="home" href="../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="index.html"><b>Software Sense</b></a>
   <a href="index.html">Map</a>
-  <a href="curriculum.html">Curriculum</a>
+  <a href="curriculum.html" aria-current="page">Curriculum</a>
   <a href="resources.html">Resources</a>
 </nav>
 
 <div class="wrap">
   <p class="kicker">The full path</p>
   <h1>Curriculum</h1>
-  <p class="dek">30 lessons Â· 7 modules Â· start at the top. A âœ“ marks lessons you've opened on this device.</p>
+  <p class="dek">30 lessons · 7 modules · start at the top. A ✓ marks lessons you've opened on this device.</p>
   <div id="mods"></div>
   <p class="foot">Tip: the <a href="index.html">knowledge map</a> shows how every topic connects.</p>
 </div>
@@ -30,7 +33,7 @@
     block.className = "modblock";
     var h = document.createElement("h2");
     h.style.borderLeftColor = m.color;
-    h.textContent = "Module " + m.n + " â€” " + m.title;
+    h.textContent = "Module " + m.n + " — " + m.title;
     block.appendChild(h);
     var grid = document.createElement("div"); grid.className = "lessongrid";
     C.lessons.filter(function (l) { return l.module === m.id; }).forEach(function (l) {

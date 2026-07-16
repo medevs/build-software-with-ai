@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>21 Â· Running Loops in Parallel</title>
+<title>21 · Running Loops in Parallel</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="21-parallel-loops">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ec4899">Module 5 Â· From Idea to Shipped</span>
-    <span>Lesson 21 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ec4899">Module 5 · From Idea to Shipped</span>
+    <span>Lesson 21 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">One loop at a time was the training wheels</p>
@@ -27,14 +30,14 @@
   <h2>What you're actually scaling</h2>
   <p>Your <a href="19-slicing-tickets.html">slicing pass</a> already produced a dependency map: some tickets must
      land before others, but plenty of them don't depend on each other at all. Those independent tickets don't
-     have to be built one after another â€” they can be built by separate agent sessions running at the same time.</p>
+     have to be built one after another — they can be built by separate agent sessions running at the same time.</p>
   <p>Be precise about what that buys you. It's <strong>throughput, not cost</strong>: the same total amount of
      work gets done in less wall-clock time. It isn't free extra output, and it isn't several agents fighting
-     over the same task â€” it's independent tickets, independently built.</p>
+     over the same task — it's independent tickets, independently built.</p>
 
   <h2>The problem parallel sessions create</h2>
   <p>Two agent sessions working in the very same folder is asking for trouble. One session edits a file; the
-     other, still holding an older version of that file in its head, edits it too â€” and now one of them is
+     other, still holding an older version of that file in its head, edits it too — and now one of them is
      working from information that's already gone stale, or the two edits collide outright. This is the same
      context-hygiene problem from <a href="12-clean-context.html">Clean Context</a>, just crossing from a single
      session into several sessions sharing one workspace.</p>
@@ -44,44 +47,44 @@
   <h2>The fix: a git worktree</h2>
   <p>A <strong>git worktree</strong> is a second, full working copy of your repository, checked out on its own
      branch, that still shares the single underlying git history. Run <code>git worktree add &lt;branch&gt;</code>
-     and you get a sibling folder holding the entire project â€” your code, your configuration, everything a
-     coding agent needs â€” on a brand-new branch created for it automatically.
+     and you get a sibling folder holding the entire project — your code, your configuration, everything a
+     coding agent needs — on a brand-new branch created for it automatically.
      <a href="https://git-scm.com/docs/git-worktree" target="_blank" rel="noopener">(git-scm docs)</a></p>
   <p>That gives you <strong>two levels of isolation</strong>, and both matter for a different reason:</p>
   <div class="cards two">
     <div class="card"><h3>A separate file copy</h3><p>Stops the file-collision problem outright. Each agent reads
-       and writes its own copy of the code â€” nothing mutates underneath it, and nothing it edits can collide
+       and writes its own copy of the code — nothing mutates underneath it, and nothing it edits can collide
        with what another session is doing.</p></div>
     <div class="card"><h3>A separate branch</h3><p>Keeps each stream of work as its own clean slice of git history,
        so one ticket's change can be reviewed, revised, or abandoned without touching any other ticket's
        progress.</p></div>
   </div>
   <p>In practice, you open an agent inside each worktree folder and prompt it on its own ticket. While one agent
-     grinds through its task â€” often somewhere around twenty minutes for a well-sized ticket â€” you switch over
+     grinds through its task — often somewhere around twenty minutes for a well-sized ticket — you switch over
      and prompt the next one. Nothing about the loop itself changes: each worktree is simply running its own
      full loop, exactly as covered in <a href="20-full-loop-end-to-end.html">the last lesson</a>.</p>
 
   <h2>When it helps, and when it's just overhead</h2>
   <p>Parallel loops shine when you have several independent, well-sliced tickets ready to go and the patience to
-     keep more than one thread of context organized in your own head. They add nothing â€” and can actively hurt â€”
+     keep more than one thread of context organized in your own head. They add nothing — and can actively hurt —
      when tickets aren't actually independent, when a ticket isn't sliced cleanly enough to hand off with a solid
      plan, or when you're still building trust in the loop itself. Running five shaky loops at once just gets
      you five shaky results, faster.</p>
-  <div class="tip"><span class="label">The real bottleneck</span> It isn't compute or tooling â€” it's how many
+  <div class="tip"><span class="label">The real bottleneck</span> It isn't compute or tooling — it's how many
      parallel threads a human can actually hold in their head without losing track of any of them. Start with
      two. Grow the muscle toward three, four, or five as it gets comfortable, rather than jumping straight to
      the max.</div>
   <p>You rarely need to type the raw git commands yourself. Standing up several worktrees involves setup a bare
-     worktree skips â€” copying local configuration, installing dependencies, confirming everything actually
-     runs â€” and merging finished work back cleanly, including resolving conflicts when two branches touched the
+     worktree skips — copying local configuration, installing dependencies, confirming everything actually
+     runs — and merging finished work back cleanly, including resolving conflicts when two branches touched the
      same file. Both of those chores are exactly the kind of repeatable workflow this course later shows you how
      to package once and reuse.</p>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="0" data-why="Parallel loops let independent tickets build simultaneously, so the same total work finishes sooner â€” it's not free output and not several agents on one task.">
+  <div class="quiz" data-answer="0" data-why="Parallel loops let independent tickets build simultaneously, so the same total work finishes sooner — it's not free output and not several agents on one task.">
     <p class="q">What does running core loops in parallel actually buy you?</p>
-    <button>Throughput â€” the same work finishes in less wall-clock time</button>
+    <button>Throughput — the same work finishes in less wall-clock time</button>
     <button>Lower total cost for the same amount of work</button>
     <button>The ability to skip planning and validation entirely</button>
     <p class="fb"></p>
@@ -96,7 +99,7 @@
   </div>
 
   <div class="quiz" data-answer="1" data-why="Clean Context is about keeping one session's context free of stale clutter before implementing; worktrees apply that same discipline across several sessions sharing a workspace at once.">
-    <p class="q">Spaced recall â€” back in Clean Context, why did a fresh session get only the saved plan as input, with the earlier back-and-forth cleared out?</p>
+    <p class="q">Spaced recall — back in Clean Context, why did a fresh session get only the saved plan as input, with the earlier back-and-forth cleared out?</p>
     <button>To save on storage space</button>
     <button>So implementation starts from a clean, uncluttered context instead of a chat full of exploratory back-and-forth</button>
     <button>Because agents cannot read long conversations at all</button>
@@ -105,7 +108,7 @@
 
   <h2>The one thing to remember</h2>
   <p><strong>A worktree gives each parallel loop its own isolated copy of the repo and its own branch.</strong>
-     Parallelism buys you throughput on independent, well-sliced tickets â€” and the bottleneck it runs into first
+     Parallelism buys you throughput on independent, well-sliced tickets — and the bottleneck it runs into first
      is never the tooling, it's how many threads you can hold in your own head.</p>
 
   <hr>
@@ -116,10 +119,10 @@
      comparing notes with other learners is where a lot of the real learning happens.</p>
 
   <nav class="prevnext">
-    <a href="20-full-loop-end-to-end.html"><span class="lbl">Previous</span>â† 20 Â· The Full Loop, End to End</a>
-    <a class="r" href="22-rules.html"><span class="lbl">Next</span>22 Â· Rules â†’</a>
+    <a href="20-full-loop-end-to-end.html"><span class="lbl">Previous</span>← 20 · The Full Loop, End to End</a>
+    <a class="r" href="22-rules.html"><span class="lbl">Next</span>22 · Rules →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 5 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 5 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

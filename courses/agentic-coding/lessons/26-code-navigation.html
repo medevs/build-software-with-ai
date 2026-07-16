@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>26 Â· Code Navigation & Search</title>
+<title>26 · Code Navigation & Search</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="26-code-navigation">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,24 +19,24 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#8b5cf6">Module 6 Â· The Building Blocks</span>
-    <span>Lesson 26 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#8b5cf6">Module 6 · The Building Blocks</span>
+    <span>Lesson 26 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Building block #5, in depth</p>
   <h1>Code Navigation &amp; Search</h1>
-  <p class="dek">In a small project, blind text search is good enough. In a large one, finding the wrong code costs you time, tokens, and trust â€” and better navigation is the fix.</p>
+  <p class="dek">In a small project, blind text search is good enough. In a large one, finding the wrong code costs you time, tokens, and trust — and better navigation is the fix.</p>
 
   <h2>Two very different ways to "find" code</h2>
   <p>Imagine you need to see everywhere a particular function is used before you change its signature. There
      are two very different ways an agent can go about that:</p>
   <div class="cards two">
     <div class="card"><h3>Blind text search</h3><p>Search for the function's name as plain text across every
-       file. It's fast to set up, but it has no idea what it's actually looking at â€” it will match a comment
+       file. It's fast to set up, but it has no idea what it's actually looking at — it will match a comment
        that mentions the name, a different function that happens to share it, and a string that isn't code at
        all.</p></div>
     <div class="card"><h3>Symbol-level navigation</h3><p>Jump straight to where a symbol is defined, and list
-       every real reference to it â€” the same way "go to definition" and "find references" work in a modern code
+       every real reference to it — the same way "go to definition" and "find references" work in a modern code
        editor. It understands the code's actual structure, not just its text.</p></div>
   </div>
   <p>The second approach is what this building block is about: giving the agent the same precise, structural way
@@ -41,12 +44,12 @@
      plain text matches.</p>
 
   <h2>Why blind search quietly breaks down</h2>
-  <p>On a small project, the difference barely matters â€” there's so little code that even a clumsy search
+  <p>On a small project, the difference barely matters — there's so little code that even a clumsy search
      usually turns up the right answer eventually. The trouble shows up as a codebase grows: common names get
      reused in dozens of unrelated places, similar-looking functions live in different modules, and a plain-text
      match starts returning far more noise than signal.</p>
   <p>When that happens, two costs stack up. The agent burns time and context sifting through irrelevant matches
-     before finding the real one â€” context that could have gone toward actually solving your problem. And worse,
+     before finding the real one — context that could have gone toward actually solving your problem. And worse,
      it sometimes edits the <em>wrong</em> match entirely, confidently changing a function that merely looked
      right instead of the one you meant.</p>
 
@@ -59,8 +62,8 @@
   <table>
     <tr><th>Benefit</th><th>Why it matters</th></tr>
     <tr><td>Reliability</td><td>The agent finds the actual definition and actual call sites, not a
-       lookalike â€” so the change it makes is the change you meant.</td></tr>
-    <tr><td>Token cost</td><td>Less time spent sifting irrelevant search results means less wasted context â€” more
+       lookalike — so the change it makes is the change you meant.</td></tr>
+    <tr><td>Token cost</td><td>Less time spent sifting irrelevant search results means less wasted context — more
        of the agent's attention goes toward your actual problem.</td></tr>
   </table>
   <p>Neither of these is dramatic on a small project. Both become the difference between a smooth session and a
@@ -68,7 +71,7 @@
      signal.</p>
 
   <h2>You don't need to build this yourself</h2>
-  <p>Better code search usually isn't something you write from scratch â€” it's a capability you enable, often
+  <p>Better code search usually isn't something you write from scratch — it's a capability you enable, often
      through the same tool connections covered in <a href="25-tools-and-mcp.html">Lesson 25</a>. The practical
      move is simply knowing this building block exists and reaching for it once your project is big enough that
      you start noticing the agent finding the wrong thing, or spending visibly long stretches searching before it
@@ -76,10 +79,10 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Symbol-level navigation understands code structure â€” it finds the real definition and real references, the way go-to-definition and find-references work in an editor.">
+  <div class="quiz" data-answer="1" data-why="Symbol-level navigation understands code structure — it finds the real definition and real references, the way go-to-definition and find-references work in an editor.">
     <p class="q">What does symbol-level navigation give an agent that blind text search doesn't?</p>
     <button>Faster typing speed</button>
-    <button>An understanding of code structure â€” the real definition and real references</button>
+    <button>An understanding of code structure — the real definition and real references</button>
     <button>The ability to run tests automatically</button>
     <p class="fb"></p>
   </div>
@@ -93,21 +96,21 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>In a large codebase, precise symbol-level navigation beats blind text search â€” it finds the right
+  <p><strong>In a large codebase, precise symbol-level navigation beats blind text search — it finds the right
      code instead of a lookalike, saving both reliability and tokens.</strong> Reach for it once your project is
      big enough that plain search starts missing.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Has your agent ever edited the wrong
      function because a search turned up a similarly-named lookalike? Bring your story to the
-     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” comparing war stories is often
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> — comparing war stories is often
      the fastest way to spot the pattern in your own work.</div>
 
   <nav class="prevnext">
-    <a href="25-tools-and-mcp.html"><span class="lbl">Prev</span>25 Â· Tools & Connections (MCP)</a>
-    <a class="r" href="27-hooks.html"><span class="lbl">Next</span>27 Â· Hooks (Guardrails) â†’</a>
+    <a href="25-tools-and-mcp.html"><span class="lbl">Prev</span>25 · Tools & Connections (MCP)</a>
+    <a class="r" href="27-hooks.html"><span class="lbl">Next</span>27 · Hooks (Guardrails) →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 6 Â· The Building Blocks Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 6 · The Building Blocks · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

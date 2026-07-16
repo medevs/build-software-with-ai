@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>5 Â· The Context Layer</title>
+<title>5 · The Context Layer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="05-the-context-layer">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#0ea5e9">Module 2 Â· The Context Layer</span>
-    <span>Lesson 5 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#0ea5e9">Module 2 · The Context Layer</span>
+    <span>Lesson 5 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Naming the thing you're actually going to build</p>
@@ -27,12 +30,12 @@
   <h2>What the context layer actually is</h2>
   <p>Picture handing a new contractor the keys to your codebase with zero onboarding. No conventions, no
      workflow docs, no idea which systems talk to which. They'd guess, and some of those guesses would be
-     wrong in expensive ways. A raw coding agent starts every session exactly like that contractor â€” capable,
+     wrong in expensive ways. A raw coding agent starts every session exactly like that contractor — capable,
      but blank.</p>
   <p>The <strong>context layer</strong> is everything you build on top of the agent to fix that: the knowledge
      about your project, the workflows you want it to follow, and the connections to the other systems it needs
-     to reach. Concretely, it's a set of files that live right alongside your code â€” conventions, reusable
-     workflows, specialist helpers, connections to outside tools â€” checked into the same repository as
+     to reach. Concretely, it's a set of files that live right alongside your code — conventions, reusable
+     workflows, specialist helpers, connections to outside tools — checked into the same repository as
      everything else you ship.</p>
   <p>Because it's checked in, it isn't personal to you. Open a new session tomorrow, or hand the project to a
      teammate next week, and the context layer is already there. Nobody re-explains the codebase from scratch,
@@ -42,16 +45,16 @@
   <p>It helps to see where the context layer sits relative to everything else in play when you're working with
      an agent. Think of it as three layers, stacked bottom to top:</p>
   <div class="cards two">
-    <div class="card"><h3>1 Â· The agent you pick</h3><p>The coding tool itself â€” Claude Code, Codex, Cursor, or
+    <div class="card"><h3>1 · The agent you pick</h3><p>The coding tool itself — Claude Code, Codex, Cursor, or
        whatever you reach for. This is the foundation. You don't build it, you choose it, and it's the first
        thing that turns a raw model into something that can read and write code.</p></div>
-    <div class="card"><h3>2 Â· The context layer you build</h3><p>Everything this lesson is about: the reusable
+    <div class="card"><h3>2 · The context layer you build</h3><p>Everything this lesson is about: the reusable
        knowledge, workflows, and connections you add on top of the agent. You build this once per project and
        keep improving it. This is the layer under your control.</p></div>
   </div>
   <div class="cards two">
-    <div class="card"><h3>3 Â· The plan for one task</h3><p>Inside a single work session, you produce a
-       focused, per-task plan â€” what to build, right now, for this one piece of work. It's temporary: useful
+    <div class="card"><h3>3 · The plan for one task</h3><p>Inside a single work session, you produce a
+       focused, per-task plan — what to build, right now, for this one piece of work. It's temporary: useful
        for this loop, then done.</p></div>
     <div class="card"><h3>Why the order matters</h3><p>Each layer leans on the one below it. A good per-task
        plan is easy to write when the context layer already carries the conventions and workflows. A reliable
@@ -60,7 +63,7 @@
   <figure>
     <svg viewBox="0 0 520 190" width="100%" style="max-width:520px" role="img" aria-label="Three stacked layers: the agent you pick, the context layer you build, the per-task plan you produce">
       <rect x="10" y="130" width="500" height="45" rx="6" fill="#6366f122" stroke="#6366f1"/>
-      <text x="260" y="157" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">The agent you pick (Claude Code, Codex, Cursorâ€¦)</text>
+      <text x="260" y="157" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">The agent you pick (Claude Code, Codex, Cursor…)</text>
       <rect x="10" y="70" width="500" height="45" rx="6" fill="#0ea5e922" stroke="#0ea5e9"/>
       <text x="260" y="97" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">The context layer you build (rules, workflows, connections)</text>
       <rect x="10" y="10" width="500" height="45" rx="6" fill="#10b98122" stroke="#10b981"/>
@@ -70,7 +73,7 @@
   </figure>
 
   <h2>Moldable, not a framework</h2>
-  <p>It's tempting to picture the context layer as a rigid process you install once and follow forever â€” a set
+  <p>It's tempting to picture the context layer as a rigid process you install once and follow forever — a set
      of steps you're locked into. Resist that. Some off-the-shelf approaches do work that way, forcing every
      project through the same fixed pipeline whether it fits or not. That's the opposite of what you want here.</p>
   <div class="note"><span class="label">The key move</span> The context layer is <em>yours</em> to shape. Start
@@ -81,7 +84,7 @@
      conventions and grows only when reality demands it stays something you can actually keep up with.</p>
 
   <h2>Why this lives in your repo, not your head</h2>
-  <p>The alternative to a context layer isn't "no structure" â€” it's structure that lives in one person's head,
+  <p>The alternative to a context layer isn't "no structure" — it's structure that lives in one person's head,
      re-explained verbally every time someone new joins or a new session starts. That doesn't scale past one
      person, and it doesn't survive you being on vacation.</p>
   <table>
@@ -90,7 +93,7 @@
     <tr><td>Lost when you're unavailable</td><td>Available to any teammate, any time</td></tr>
     <tr><td>Drifts silently as the project changes</td><td>Reviewed and versioned like the rest of your code</td></tr>
   </table>
-  <p>Put it in the repo, and the context layer becomes a shared asset that compounds â€” every session, every
+  <p>Put it in the repo, and the context layer becomes a shared asset that compounds — every session, every
      teammate, every future you gets the benefit of what you already figured out.</p>
 
   <h2>Check yourself</h2>
@@ -113,7 +116,7 @@
 
   <h2>The one thing to remember</h2>
   <p><strong>The context layer is what you build on top of your agent, kept in your repo so every session and
-     every teammate reuses it â€” and it's yours to shape, not a framework to obey.</strong> The next lesson
+     every teammate reuses it — and it's yours to shape, not a framework to obey.</strong> The next lesson
      breaks it into the six concrete pieces you'll actually build.</p>
 
   <hr>
@@ -122,10 +125,10 @@
      layer have saved that re-explanation? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="04-three-ways-in.html"><span class="lbl">Prev</span>4 Â· Three Ways In</a>
-    <a class="r" href="06-six-building-blocks.html"><span class="lbl">Next</span>6 Â· The Six Building Blocks â†’</a>
+    <a href="04-three-ways-in.html"><span class="lbl">Prev</span>4 · Three Ways In</a>
+    <a class="r" href="06-six-building-blocks.html"><span class="lbl">Next</span>6 · The Six Building Blocks →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 2 Â· The Context Layer Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 2 · The Context Layer · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

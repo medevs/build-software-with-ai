@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>6 Â· The Six Building Blocks</title>
+<title>6 · The Six Building Blocks</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="06-six-building-blocks">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,40 +19,40 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#0ea5e9">Module 2 Â· The Context Layer</span>
-    <span>Lesson 6 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#0ea5e9">Module 2 · The Context Layer</span>
+    <span>Lesson 6 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Six pieces, two that matter most on day one</p>
   <h1>The Six Building Blocks</h1>
-  <p class="dek">The context layer isn't one big file. It's six distinct pieces, each solving a different problem â€” and you don't need all six to get started.</p>
+  <p class="dek">The context layer isn't one big file. It's six distinct pieces, each solving a different problem — and you don't need all six to get started.</p>
 
   <h2>Breaking the layer into pieces</h2>
   <p>The last lesson named the context layer as a whole. In practice, that layer is made of six separate kinds
      of building blocks. Each one answers a different question about how the agent should behave, and each
      lives as its own kind of file or connection in your project. You'll get a full lesson on each of these
-     later â€” for now, the goal is just to recognize the shape of all six and know which ones to reach for first.</p>
+     later — for now, the goal is just to recognize the shape of all six and know which ones to reach for first.</p>
 
   <h2>The six blocks</h2>
   <table>
     <tr><th>#</th><th>Block</th><th>What it solves</th></tr>
-    <tr><td>1</td><td><strong>Rules</strong></td><td>Always-on conventions and constraints â€” the things the
+    <tr><td>1</td><td><strong>Rules</strong></td><td>Always-on conventions and constraints — the things the
        agent should just <em>know</em> every single session, without being reminded.</td></tr>
     <tr><td>2</td><td><strong>Skills</strong></td><td>Reusable workflows you name once and reuse forever, instead
        of re-explaining a multi-step process every time you need it.</td></tr>
     <tr><td>3</td><td><strong>Subagents</strong></td><td>Specialists with their own separate context, handed a
-       narrow job â€” heavy research, a focused review â€” so their digging doesn't clutter your main conversation.</td></tr>
-    <tr><td>4</td><td><strong>Tools / connections</strong></td><td>Links out to external systems â€” a ticket
-       tracker, a database, a docs page â€” so the agent can reach real systems instead of guessing about them.</td></tr>
+       narrow job — heavy research, a focused review — so their digging doesn't clutter your main conversation.</td></tr>
+    <tr><td>4</td><td><strong>Tools / connections</strong></td><td>Links out to external systems — a ticket
+       tracker, a database, a docs page — so the agent can reach real systems instead of guessing about them.</td></tr>
     <tr><td>5</td><td><strong>Code search / navigation</strong></td><td>Better ways for the agent to find the
        right code in a large project, instead of skimming file by file.</td></tr>
-    <tr><td>6</td><td><strong>Hooks</strong></td><td>Deterministic, automatic guardrails â€” plain scripts that run
+    <tr><td>6</td><td><strong>Hooks</strong></td><td>Deterministic, automatic guardrails — plain scripts that run
        at fixed points, no matter what the agent decides, so some things are simply guaranteed.</td></tr>
   </table>
 
   <div class="tip"><span class="label">Where the connections come from</span> Block 4, connecting the agent to
      outside tools, is often implemented through a shared open protocol for agent-to-tool connections, commonly
-     abbreviated MCP. You don't need the acronym today â€” just the idea that the agent can be wired up to real,
+     abbreviated MCP. You don't need the acronym today — just the idea that the agent can be wired up to real,
      external systems rather than only working inside your codebase.</div>
 
   <h2>Start with rules and skills</h2>
@@ -57,20 +60,20 @@
      value:</p>
   <div class="cards two">
     <div class="card"><h3>Rules</h3><p>These are the biggest lever because they're the most specific to
-       <em>your</em> codebase â€” its conventions, its constraints, the things every teammate already knows by
+       <em>your</em> codebase — its conventions, its constraints, the things every teammate already knows by
        feel but nobody wrote down. Get these right and the agent stops making the same avoidable mistakes.</p></div>
-    <div class="card"><h3>Skills</h3><p>Almost any workflow you find yourself repeating â€” a planning routine,
-       a review pass, a setup checklist â€” can become a skill. This is usually the highest-leverage thing you
+    <div class="card"><h3>Skills</h3><p>Almost any workflow you find yourself repeating — a planning routine,
+       a review pass, a setup checklist — can become a skill. This is usually the highest-leverage thing you
        can invest in, because one skill saves you from re-explaining the same process forever.</p></div>
   </div>
-  <p>The remaining four â€” subagents, external connections, code search, and hooks â€” matter too, and you'll build
+  <p>The remaining four — subagents, external connections, code search, and hooks — matter too, and you'll build
      each of them out later. But they tend to get added as you actually feel the need for them, often while
      you're deep in a work session and notice a repeated pain point. Rules and skills are the two you reach for
      first because they pay off immediately, on almost every project.</p>
 
   <h2>One more thing they share</h2>
   <p>None of these six blocks are tied to a specific coding tool. Whether you're working in one agent or
-     another, the same six ideas apply â€” rules are still rules, a skill is still a reusable workflow, a hook is
+     another, the same six ideas apply — rules are still rules, a skill is still a reusable workflow, a hook is
      still a guaranteed script. That's what makes the context layer portable: you're not learning a tool's
      quirks, you're learning six ideas that outlive any single tool.</p>
 
@@ -101,18 +104,18 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>The context layer breaks into six blocks â€” rules, skills, subagents, connections, code search, and
-     hooks â€” but rules and skills are where you start.</strong> The rest get added as you feel the need for them.</p>
+  <p><strong>The context layer breaks into six blocks — rules, skills, subagents, connections, code search, and
+     hooks — but rules and skills are where you start.</strong> The rest get added as you feel the need for them.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Of the six blocks, which one do you think
-     your current project needs first â€” and why? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
+     your current project needs first — and why? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="05-the-context-layer.html"><span class="lbl">Prev</span>5 Â· The Context Layer</a>
-    <a class="r" href="07-progressive-disclosure.html"><span class="lbl">Next</span>7 Â· Progressive Disclosure â†’</a>
+    <a href="05-the-context-layer.html"><span class="lbl">Prev</span>5 · The Context Layer</a>
+    <a class="r" href="07-progressive-disclosure.html"><span class="lbl">Next</span>7 · Progressive Disclosure →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 2 Â· The Context Layer Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 2 · The Context Layer · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

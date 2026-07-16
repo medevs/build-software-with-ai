@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>24 Â· Scale: When Usage Grows</title>
+<title>24 · Scale: When Usage Grows</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="24-scale">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,18 +19,18 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#8b5cf6">Module 6 Â· Fast, Big &amp; Affordable</span>
-    <span>Lesson 24 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#8b5cf6">Module 6 · Fast, Big &amp; Affordable</span>
+    <span>Lesson 24 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">What works for 10 people can collapse under 10,000</p>
   <h1>Scale: When Usage Grows</h1>
   <p class="dek">Software that runs perfectly for you and your five test users can fall over completely once real
-     numbers show up. Scale is the difference between those two worlds â€” and planning for it is a judgment call,
+     numbers show up. Scale is the difference between those two worlds — and planning for it is a judgment call,
      not a guess.</p>
 
   <h2>What "scale" means</h2>
-  <p><strong>Scale</strong> is how well software keeps working as the number of people using it grows â€” 10 users,
+  <p><strong>Scale</strong> is how well software keeps working as the number of people using it grows — 10 users,
      versus 10,000, versus a million. A restaurant that serves one table beautifully might completely fall apart
      serving a hundred tables at once with the same kitchen and the same one chef. Software has the same problem.
      Things that are completely fine at a small size can break down entirely at a large one.</p>
@@ -40,7 +43,7 @@
   <div class="cards two">
     <div class="card"><h3>The database gets overwhelmed</h3><p>Every user action might mean a question to the
        database (the software's filing cabinet). At 10 users that's 10 questions a second. At 10,000 users, it's
-       thousands â€” and the filing cabinet can only answer so fast before people start waiting, or the whole system
+       thousands — and the filing cabinet can only answer so fast before people start waiting, or the whole system
        jams up.</p></div>
     <div class="card"><h3>One server maxes out</h3><p>A "server" is just a computer running the software and
        answering requests. One computer can only juggle so many requests before it runs out of memory or
@@ -52,16 +55,16 @@
   <table>
     <tr><th>Approach</th><th>What it means</th><th>Everyday analogy</th></tr>
     <tr><td><strong>Scaling up</strong></td><td>Get a bigger, more powerful machine to replace the current one.</td>
-        <td>Trading your bicycle for a car â€” one vehicle, more capacity.</td></tr>
+        <td>Trading your bicycle for a car — one vehicle, more capacity.</td></tr>
     <tr><td><strong>Scaling out</strong></td><td>Add more machines running the same software side by side, sharing
         the load.</td><td>Opening more checkout lanes instead of getting one superhuman cashier.</td></tr>
   </table>
-  <p>This is a simplified picture â€” real systems often mix both â€” but the core idea holds: when demand grows, you
+  <p>This is a simplified picture — real systems often mix both — but the core idea holds: when demand grows, you
      either make the existing thing stronger, or you add more copies of it and split the work between them.</p>
 
   <h2>The judgment call: don't over-build, don't under-build</h2>
   <p>It's tempting to swing to one extreme. Some people try to design for a million users on day one, adding
-     complicated machinery for a problem they don't have yet â€” that's wasted effort and wasted money for a
+     complicated machinery for a problem they don't have yet — that's wasted effort and wasted money for a
      product that might only ever have 200 users. Others ignore scale completely and paint themselves into a
      corner: a database structure or a piece of software that <em>can't</em> be grown later without rebuilding it
      from scratch.</p>
@@ -69,7 +72,7 @@
      decisions that are expensive or impossible to undo later. You don't need a fleet of servers for a five-person
      internal tool. But you also don't want your one and only database table designed in a way that makes it
      painful to ever add more users, more data, or more features.</p>
-  <blockquote>Build for the users you have, not the users you're daydreaming about â€” but don't nail the doors shut
+  <blockquote>Build for the users you have, not the users you're daydreaming about — but don't nail the doors shut
      behind you either.</blockquote>
 
   <div class="warn"><span class="label">Red flags to catch</span>
@@ -82,15 +85,15 @@
 
   <div class="tip"><span class="label">Ask your AI</span>
     <ul style="margin:.3rem 0 0;">
-      <li>â€œWhat would break first if this had a thousand users instead of ten?â€</li>
-      <li>â€œAre we over-building for scale we don't need yet?â€</li>
-      <li>â€œIs there a decision here that would be hard to undo later if we grow?â€</li>
+      <li>“What would break first if this had a thousand users instead of ten?”</li>
+      <li>“Are we over-building for scale we don't need yet?”</li>
+      <li>“Is there a decision here that would be hard to undo later if we grow?”</li>
     </ul>
   </div>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Scale is specifically about how usage growth affects the software â€” small-scale success doesn't predict large-scale success.">
+  <div class="quiz" data-answer="1" data-why="Scale is specifically about how usage growth affects the software — small-scale success doesn't predict large-scale success.">
     <p class="q">What does "scale" describe?</p>
     <button>How many features an app has</button>
     <button>How well the software keeps working as the number of users grows</button>
@@ -106,7 +109,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="0" data-why="The sensible middle ground is building for actual current size plus headroom, while avoiding choices that are hard to undo â€” not swinging to either extreme.">
+  <div class="quiz" data-answer="0" data-why="The sensible middle ground is building for actual current size plus headroom, while avoiding choices that are hard to undo — not swinging to either extreme.">
     <p class="q">What's the smart approach to planning for scale on a new product?</p>
     <button>Build for what you actually need now, but avoid choices that would be painful to undo later</button>
     <button>Always design for a million users from day one, no matter the product's size</button>
@@ -115,21 +118,21 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>What works fine at a small scale can fail completely at a large one â€” plan for the size you actually
+  <p><strong>What works fine at a small scale can fail completely at a large one — plan for the size you actually
      have, add headroom, and avoid decisions that would be painful to undo, rather than guessing at either
      extreme.</strong></p>
 
   <hr>
-  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of an app you use that's grown huge â€”
+  <div class="note"><span class="label">Reflect &amp; discuss</span> Think of an app you use that's grown huge —
      a shopping site, a social network. Can you imagine what its very first version, built for a handful of
      users, must have looked like compared to now? Share your guess in the
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="23-performance.html"><span class="lbl">Previous</span>â† 23 Â· Performance</a>
-    <a class="r" href="25-caching-and-optimizing.html"><span class="lbl">Next</span>25 Â· Caching &amp; Optimizing â†’</a>
+    <a href="23-performance.html"><span class="lbl">Previous</span>← 23 · Performance</a>
+    <a class="r" href="25-caching-and-optimizing.html"><span class="lbl">Next</span>25 · Caching &amp; Optimizing →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 6 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 6 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

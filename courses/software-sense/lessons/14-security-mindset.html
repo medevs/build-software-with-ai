@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>14 Â· The Security Mindset</title>
+<title>14 · The Security Mindset</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="14-security-mindset">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#f59e0b">Module 4 Â· Keeping It Safe</span>
-    <span>Lesson 14 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#f59e0b">Module 4 · Keeping It Safe</span>
+    <span>Lesson 14 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">A change of attitude, not a checklist</p>
@@ -26,13 +29,13 @@
      misuse this?" while you're still building. Once you have the habit, most of the rest is just following through.</p>
 
   <h2>Someone will try to misuse it</h2>
-  <p>Here's the assumption to start from: if your app is reachable on the internet, someone â€” or more likely
-     some automated program, a <strong>bot</strong> â€” will poke at it. Not because they hate you personally.
+  <p>Here's the assumption to start from: if your app is reachable on the internet, someone — or more likely
+     some automated program, a <strong>bot</strong> — will poke at it. Not because they hate you personally.
      Bots scan millions of websites a day looking for easy openings, the same way someone might jiggle car
      door handles down a whole street just to see which ones are unlocked. Add in bored people, scammers
      looking for a quick trick, and competitors who'd love your data, and the picture is clear: assume misuse
      will be attempted, and build accordingly.</p>
-  <p>This isn't paranoia, it's just planning for a predictable event â€” the same way you plan for rain even
+  <p>This isn't paranoia, it's just planning for a predictable event — the same way you plan for rain even
      though you can't say exactly which day it'll fall.</p>
 
   <div class="note"><span class="label">What security actually means</span> Security is not "make it impossible
@@ -44,8 +47,8 @@
   <p>You don't need to memorize a hundred rules. Almost every security lesson in this module traces back to
      three ideas.</p>
   <div class="cards two">
-    <div class="card"><h3>Never trust user input</h3><p>Anything a user types, uploads, or sends â€” a form
-       field, a file, a web address â€” should be treated as potentially hostile until it's checked. Not because
+    <div class="card"><h3>Never trust user input</h3><p>Anything a user types, uploads, or sends — a form
+       field, a file, a web address — should be treated as potentially hostile until it's checked. Not because
        users are bad people, but because your app can't tell the difference between a real customer and
        someone deliberately typing something dangerous into the same box.</p></div>
     <div class="card"><h3>Least access</h3><p>Give every person and every part of the system the <em>smallest</em>
@@ -53,7 +56,7 @@
        status shouldn't also be able to delete accounts. Less access means less to go wrong.</p></div>
   </div>
   <p>The third idea is <strong>defense in depth</strong>: use several layers of protection instead of one.
-     Think of a house â€” a lock on the front door, a lock on the bedroom door, and a safe inside for the
+     Think of a house — a lock on the front door, a lock on the bedroom door, and a safe inside for the
      valuables. If someone gets past the front door, they still don't get everything. Software should work
      the same way: if one layer fails, the next one still limits the damage.</p>
 
@@ -61,11 +64,11 @@
      total loss.</blockquote>
 
   <h2>Where the next lessons come from</h2>
-  <p>You don't have to invent your own list of things that go wrong â€” the software industry has already
+  <p>You don't have to invent your own list of things that go wrong — the software industry has already
      catalogued the common ones. The best-known list is the <a href="https://owasp.org" target="_blank"
      rel="noopener">OWASP Top Ten</a>, maintained by a nonprofit that tracks the most frequent, most damaging
-     security mistakes found in real software. The rest of this module â€” logins and permissions, secrets, and
-     common vulnerabilities â€” walks through the ideas on that list in plain English, one at a time.</p>
+     security mistakes found in real software. The rest of this module — logins and permissions, secrets, and
+     common vulnerabilities — walks through the ideas on that list in plain English, one at a time.</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
@@ -85,7 +88,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Security assumes attempts at misuse will happen and focuses on making the valuable stuff hard to reach and limiting damage â€” not on being unbreakable.">
+  <div class="quiz" data-answer="1" data-why="Security assumes attempts at misuse will happen and focuses on making the valuable stuff hard to reach and limiting damage — not on being unbreakable.">
     <p class="q">What does "good security" actually mean for an everyday app?</p>
     <button>The app can never be broken into, under any circumstances</button>
     <button>Valuable stuff is hard to reach, and damage is limited if something slips through</button>
@@ -93,7 +96,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="0" data-why="Defense in depth means using several layers so that one failure doesn't expose everything â€” like a locked front door plus a safe inside.">
+  <div class="quiz" data-answer="0" data-why="Defense in depth means using several layers so that one failure doesn't expose everything — like a locked front door plus a safe inside.">
     <p class="q">What is "defense in depth"?</p>
     <button>Using several layers of protection, so one failure doesn't mean total loss</button>
     <button>Writing one very strong password</button>
@@ -111,19 +114,19 @@
 
   <h2>The one thing to remember</h2>
   <p><strong>Assume someone will try to misuse your app, then make the valuable stuff hard to reach and limit
-     the damage if something slips through â€” that's security, and it's about reducing risk, not perfection.</strong></p>
+     the damage if something slips through — that's security, and it's about reducing risk, not perfection.</strong></p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Pick an app you use often. What's the single
-     most valuable thing in it â€” your money, your photos, your messages? Now guess: how many layers of
+     most valuable thing in it — your money, your photos, your messages? Now guess: how many layers of
      protection do you think stand between a stranger and that thing? Share your guess in the
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="13-reviewing-code.html"><span class="lbl">Previous</span>â† 13 Â· Reviewing Code</a>
-    <a class="r" href="15-login-and-permissions.html"><span class="lbl">Next</span>15 Â· Login &amp; Permissions â†’</a>
+    <a href="13-reviewing-code.html"><span class="lbl">Previous</span>← 13 · Reviewing Code</a>
+    <a class="r" href="15-login-and-permissions.html"><span class="lbl">Next</span>15 · Login &amp; Permissions →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 4 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

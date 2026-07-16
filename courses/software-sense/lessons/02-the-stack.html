@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2 Â· The Stack</title>
+<title>2 · The Stack</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="02-the-stack">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#6366f1">Module 1 Â· How Software Works</span>
-    <span>Lesson 2 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#6366f1">Module 1 · How Software Works</span>
+    <span>Lesson 2 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Three rooms, one restaurant</p>
@@ -25,12 +28,12 @@
   <p class="dek">Almost every piece of software you'll ever direct an AI to build is made of the same three parts. Learn to spot them and you'll always know where a problem actually lives.</p>
 
   <h2>Three parts, every time</h2>
-  <p>Open any app â€” a banking app, a to-do list, a food delivery site â€” and underneath, it's built from the same
+  <p>Open any app — a banking app, a to-do list, a food delivery site — and underneath, it's built from the same
      three parts. Software people call this collection "the stack," because the parts sit on top of each other,
      each one depending on the one below it.</p>
   <p>The easiest way to hold this in your head is a restaurant:</p>
   <div class="cards two">
-    <div class="card"><h3>The dining room</h3><p>What the customer sees and touches â€” the menu, the tables, the
+    <div class="card"><h3>The dining room</h3><p>What the customer sees and touches — the menu, the tables, the
        waiter taking your order. In software, this is the <strong>frontend</strong>: the screens, buttons, and text
        you see and click.</p></div>
     <div class="card"><h3>The kitchen</h3><p>Where the actual work happens, out of sight. Orders come in, the cooks
@@ -38,7 +41,7 @@
        server, that does the work and enforces the rules ("you can't order a dish we're out of").</p></div>
   </div>
   <div class="cards two">
-    <div class="card"><h3>The pantry</h3><p>Where the ingredients are stored between uses â€” flour, eggs, the last
+    <div class="card"><h3>The pantry</h3><p>Where the ingredients are stored between uses — flour, eggs, the last
        delivery of vegetables. In software, this is the <strong>database</strong>: the long-term memory that holds
        your data even after you close the app.</p></div>
     <div class="card"><h3>How they connect</h3><p>The waiter (frontend) carries your order to the kitchen (backend).
@@ -49,16 +52,16 @@
   <div class="note"><span class="label">Why this matters for you</span> When something breaks or looks wrong, one
      of your most useful questions becomes: "which part is this?" A button that doesn't look right is a frontend
      problem. Money reaching the wrong account is a backend or database problem. Naming the room narrows down what
-     to fix â€” and what to ask your AI to look at.</div>
+     to fix — and what to ask your AI to look at.</div>
 
   <h2>What "full-stack" means</h2>
   <p>You'll hear developers describe themselves, or an AI's output, as "full-stack." That just means all three
-     parts â€” frontend, backend, database â€” working together as one app, the way a restaurant needs a dining room,
+     parts — frontend, backend, database — working together as one app, the way a restaurant needs a dining room,
      a kitchen, and a pantry to actually serve dinner. A "frontend-only" prototype is a dining room with no kitchen:
      it looks real, but nothing happens when you place an order.</p>
   <blockquote>A pretty screen with no backend is a stage set, not a restaurant.</blockquote>
   <p>This is one of the most common ways a demo fools people: an AI can generate a beautiful frontend in minutes.
-     Whether there's a real kitchen and pantry behind it â€” real rules, real saved data â€” is a separate question,
+     Whether there's a real kitchen and pantry behind it — real rules, real saved data — is a separate question,
      and it's usually the harder half of the work.</p>
 
   <h2>Spotting the parts in something real</h2>
@@ -74,8 +77,8 @@
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
-      <li>Someone shows you a slick screen and calls the feature "done" â€” but nothing was actually saved anywhere.</li>
-      <li>You can't say whether a rule ("only admins can do this") lives in the frontend or the backend â€” if it's only in the frontend, it's not really enforced.</li>
+      <li>Someone shows you a slick screen and calls the feature "done" — but nothing was actually saved anywhere.</li>
+      <li>You can't say whether a rule ("only admins can do this") lives in the frontend or the backend — if it's only in the frontend, it's not really enforced.</li>
       <li>"It works on my machine" with no mention of where the data is actually stored.</li>
     </ul>
   </div>
@@ -84,21 +87,21 @@
     <ul style="margin:.3rem 0 0;">
       <li>"Which parts of this feature are frontend, backend, and database?"</li>
       <li>"Is this rule enforced in the backend, or only checked in the frontend?"</li>
-      <li>"If I close the app and reopen it, what happens to this data â€” where is it actually stored?"</li>
+      <li>"If I close the app and reopen it, what happens to this data — where is it actually stored?"</li>
     </ul>
   </div>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="The backend is the kitchen â€” the brain that does the work and enforces the rules, out of the customer's sight." >
-    <p class="q">In the restaurant analogy, which part is the "kitchen" â€” the brain that does the work?</p>
+  <div class="quiz" data-answer="1" data-why="The backend is the kitchen — the brain that does the work and enforces the rules, out of the customer's sight." >
+    <p class="q">In the restaurant analogy, which part is the "kitchen" — the brain that does the work?</p>
     <button>The frontend</button>
     <button>The backend</button>
     <button>The database</button>
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="2" data-why="A pretty frontend with no backend or database behind it is a stage set â€” it looks real but nothing actually happens or gets saved.">
+  <div class="quiz" data-answer="2" data-why="A pretty frontend with no backend or database behind it is a stage set — it looks real but nothing actually happens or gets saved.">
     <p class="q">An AI shows you a beautiful screen, but nothing you type is saved once you close the app. What's most likely missing?</p>
     <button>Just better colors</button>
     <button>A faster internet connection</button>
@@ -107,7 +110,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Every app is a dining room, a kitchen, and a pantry â€” frontend, backend, and database â€” and knowing which one a problem lives in tells you what to fix.</strong></p>
+  <p><strong>Every app is a dining room, a kitchen, and a pantry — frontend, backend, and database — and knowing which one a problem lives in tells you what to fix.</strong></p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Pick an app you use daily. Can you name one
@@ -116,10 +119,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="01-what-is-software.html"><span class="lbl">Prev</span>â† 1 Â· What Software Really Is</a>
-    <a class="r" href="03-client-and-server.html"><span class="lbl">Next</span>3 Â· Client &amp; Server â†’</a>
+    <a href="01-what-is-software.html"><span class="lbl">Prev</span>← 1 · What Software Really Is</a>
+    <a class="r" href="03-client-and-server.html"><span class="lbl">Next</span>3 · Client &amp; Server →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 1 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 1 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

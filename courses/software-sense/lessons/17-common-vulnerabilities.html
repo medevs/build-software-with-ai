@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>17 Â· Common Vulnerabilities</title>
+<title>17 · Common Vulnerabilities</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="17-common-vulnerabilities">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,42 +19,42 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#f59e0b">Module 4 Â· Keeping It Safe</span>
-    <span>Lesson 17 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#f59e0b">Module 4 · Keeping It Safe</span>
+    <span>Lesson 17 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">The greatest hits, in plain English</p>
   <h1>Common Vulnerabilities</h1>
   <p class="dek">You don't need to become a security researcher. You just need to recognize the shape of the
-     three mistakes that show up in breach after breach â€” because they all trace back to the same root cause.</p>
+     three mistakes that show up in breach after breach — because they all trace back to the same root cause.</p>
 
   <h2>The common thread: trusting input it shouldn't</h2>
   <p>Every vulnerability in this lesson comes from the same place: the app trusted something a user typed,
      uploaded, or sent, and treated it as safe instructions or safe data without checking it first. Lesson 14
-     called this "never trust user input" â€” here's what it looks like when that rule gets broken.</p>
+     called this "never trust user input" — here's what it looks like when that rule gets broken.</p>
 
   <h2>Injection: tricking the app into running your instructions</h2>
-  <p><strong>Injection</strong> happens when an attacker types something into an ordinary-looking box â€” a
-     search bar, a login field, a web address â€” that isn't just data, but is crafted to be understood as a
+  <p><strong>Injection</strong> happens when an attacker types something into an ordinary-looking box — a
+     search bar, a login field, a web address — that isn't just data, but is crafted to be understood as a
      <em>command</em> by the system underneath. If the app doesn't check the input carefully, it ends up
      following the attacker's instructions instead of just treating the text as, say, someone's name.</p>
   <p>A simple mental picture: imagine a form letter that says "Dear [Name], your balance is [Amount]." If
      "Name" is supposed to be filled in with plain text but someone instead writes a new instruction in that
-     blank â€” and the system that assembles the letter can't tell the difference â€” the new instruction gets
+     blank — and the system that assembles the letter can't tell the difference — the new instruction gets
      carried out. That's injection: input pretending to be data, but actually acting as a command.</p>
 
   <h2>Exposed data: reachable by changing a number</h2>
   <p><strong>Exposed data</strong> is private information that turns out to be reachable simply by editing part
      of a web address or a request the app makes, without the app double-checking who's allowed to see it. This
-     is the same disaster described in Lesson 15 â€” an order, profile, or file that should be private, but is
+     is the same disaster described in Lesson 15 — an order, profile, or file that should be private, but is
      actually shown to anyone who guesses or changes an ID number, because the app never rechecked ownership.</p>
 
   <h2>Cross-site scripting: content that attacks other users</h2>
-  <p><strong>Cross-site scripting (XSS)</strong> happens when an app lets someone submit content â€” a comment,
-     a profile bio, a review â€” that isn't properly checked, and that content later gets shown to <em>other</em>
+  <p><strong>Cross-site scripting (XSS)</strong> happens when an app lets someone submit content — a comment,
+     a profile bio, a review — that isn't properly checked, and that content later gets shown to <em>other</em>
      users in a way that lets it act instead of just display. Imagine a comment section where, instead of
      leaving a normal comment, someone leaves something designed to run as an active instruction the moment
-     another visitor loads the page â€” quietly acting on that visitor's behalf, in their browser, without them
+     another visitor loads the page — quietly acting on that visitor's behalf, in their browser, without them
      doing anything except viewing the page.</p>
 
   <div class="cards two">
@@ -65,7 +68,7 @@
 
   <div class="note"><span class="label">Where this comes from</span> These three are part of the
      <a href="https://owasp.org" target="_blank" rel="noopener">OWASP Top Ten</a>, the industry's list of the
-     most common, most damaging security mistakes in real software â€” a good name to recognize if you ever
+     most common, most damaging security mistakes in real software — a good name to recognize if you ever
      see it mentioned in a security tool or a developer's notes.</div>
 
   <div class="warn"><span class="label">Red flags to catch</span>
@@ -111,8 +114,8 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Injection, exposed data, and cross-site scripting all come from the same root cause â€” the app
-     trusted input it shouldn't have â€” so checking every input before it's used is the single habit that
+  <p><strong>Injection, exposed data, and cross-site scripting all come from the same root cause — the app
+     trusted input it shouldn't have — so checking every input before it's used is the single habit that
      prevents most of this module's worst-case scenarios.</strong></p>
 
   <hr>
@@ -122,10 +125,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="16-secrets-and-keys.html"><span class="lbl">Previous</span>â† 16 Â· Secrets &amp; Keys</a>
-    <a class="r" href="18-privacy-and-user-data.html"><span class="lbl">Next</span>18 Â· Privacy &amp; User Data â†’</a>
+    <a href="16-secrets-and-keys.html"><span class="lbl">Previous</span>← 16 · Secrets &amp; Keys</a>
+    <a class="r" href="18-privacy-and-user-data.html"><span class="lbl">Next</span>18 · Privacy &amp; User Data →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 4 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

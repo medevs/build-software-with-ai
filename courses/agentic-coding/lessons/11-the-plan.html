@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>11 Â· The Plan That Ships in One Pass</title>
+<title>11 · The Plan That Ships in One Pass</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="11-the-plan">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,22 +19,22 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#10b981">Module 3 Â· The Core Loop</span>
-    <span>Lesson 11 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#10b981">Module 3 · The Core Loop</span>
+    <span>Lesson 11 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Turn a conversation into an artifact</p>
   <h1>The Plan That Ships in One Pass</h1>
-  <p class="dek">A great plan isn't a summary of a chat â€” it's a self-contained document detailed enough that an agent who never saw the conversation could build the task correctly from it alone.</p>
+  <p class="dek">A great plan isn't a summary of a chat — it's a self-contained document detailed enough that an agent who never saw the conversation could build the task correctly from it alone.</p>
 
   <h2>Two very different kinds of planning</h2>
   <p>The Plan step of the core loop actually happens in two distinct moves, and mixing them up is where a lot of
      people go wrong.</p>
-  <p>The first move is loose and conversational â€” think of it as a brain-dump. You describe the task in your own
+  <p>The first move is loose and conversational — think of it as a brain-dump. You describe the task in your own
      words, half-formed thoughts and all, and let the agent research the relevant area, propose a couple of
-     approaches, and â€” importantly â€” ask <em>you</em> clarifying questions back. This is deliberate, messy
+     approaches, and — importantly — ask <em>you</em> clarifying questions back. This is deliberate, messy
      exploration that you stay in control of the whole time, not "type a vague request and hope."</p>
-  <p>The second move is where that loose conversation gets converted into a structured, written plan â€” a real
+  <p>The second move is where that loose conversation gets converted into a structured, written plan — a real
      document, not a chat transcript. That document is what actually goes on to be implemented.</p>
 
   <div class="note"><span class="label">Not the same thing</span> A rambling chat where you eventually agree on
@@ -40,14 +43,14 @@
 
   <h2>The bar: the "no prior knowledge" test</h2>
   <p>Here's the single best way to judge whether a plan is actually good enough: imagine handing it to a
-     completely fresh agent â€” one that never saw your planning conversation, has no memory of your brain-dump,
+     completely fresh agent — one that never saw your planning conversation, has no memory of your brain-dump,
      and knows nothing except what's written on the page. Could that agent implement the task correctly from the
      plan alone?</p>
   <p>If the answer is "well, it would need to ask a few things first," the plan isn't done yet. If the answer is
      "yes, everything it needs is right there," you're ready to implement.</p>
 
   <div class="warn"><span class="label">Why this bar matters so much</span> Passing this test is exactly what
-     lets you clear the conversation and start implementation in a brand-new session â€” a move you'll learn about
+     lets you clear the conversation and start implementation in a brand-new session — a move you'll learn about
      next lesson. A weak plan makes that reset unsafe.</div>
 
   <h2>What a one-pass-ready plan actually contains</h2>
@@ -55,14 +58,14 @@
      same ground every time:</p>
   <div class="steps">
     <li><strong>Goal and what success looks like.</strong> What this task is for, in plain terms, and what "done" means.</li>
-    <li><strong>Real file paths.</strong> Not "update the user settings area" but the actual files and locations involved â€” specific enough that there's no guessing.</li>
+    <li><strong>Real file paths.</strong> Not "update the user settings area" but the actual files and locations involved — specific enough that there's no guessing.</li>
     <li><strong>Task-by-task steps.</strong> The concrete list of changes, in an order that makes sense to build in.</li>
     <li><strong>Explicit out-of-scope.</strong> What this task deliberately does <em>not</em> touch, so the agent doesn't wander into adjacent work.</li>
     <li><strong>A validation strategy.</strong> Exactly how the agent will prove, on its own, that the work is correct.</li>
   </div>
 
   <p>Of all of these, the validation strategy is the most important. It's the section worth iterating on the most,
-     because it's what turns "I hope this works" into "here's how we'll know it works" â€” the difference the next
+     because it's what turns "I hope this works" into "here's how we'll know it works" — the difference the next
      two lessons build directly on.</p>
 
   <table>
@@ -79,7 +82,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="2" data-why="The bar is whether a fresh agent with zero conversation context could implement it correctly from the document alone â€” real file paths, explicit scope, and a validation strategy are what get it there.">
+  <div class="quiz" data-answer="1" data-why="The bar is whether a fresh agent with zero conversation context could implement it correctly from the document alone — real file paths, explicit scope, and a validation strategy are what get it there.">
     <p class="q">What's the real test for whether a plan is "one-pass-ready"?</p>
     <button>Whether it's at least one page long</button>
     <button>Whether a fresh agent with no prior context could implement it correctly from the plan alone</button>
@@ -87,7 +90,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="1" data-why="The validation strategy â€” how the agent will prove its own work â€” is the single highest-leverage section of the plan.">
+  <div class="quiz" data-answer="0" data-why="The validation strategy — how the agent will prove its own work — is the single highest-leverage section of the plan.">
     <p class="q">Which section of a one-pass-ready plan is worth the most iteration?</p>
     <button>The validation strategy</button>
     <button>The title of the document</button>
@@ -97,20 +100,20 @@
 
   <h2>The one thing to remember</h2>
   <p><strong>A plan only counts once it passes the "no prior knowledge" test.</strong> Real file paths, explicit
-     out-of-scope boundaries, and a concrete validation strategy are what get it there â€” and what make the next
+     out-of-scope boundaries, and a concrete validation strategy are what get it there — and what make the next
      step, working from a completely fresh session, safe to do.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Pull up the last plan (or task description)
      you wrote for an agent. Would it survive the "no prior knowledge" test? Where would a fresh agent get
      stuck? Post what you find in the
-     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” seeing real plans get stress-tested is one of the fastest ways to sharpen your own.</p>
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> — seeing real plans get stress-tested is one of the fastest ways to sharpen your own.</p>
 
   <nav class="prevnext">
-    <a class="l" href="10-research-first.html"><span class="lbl">Prev</span>â† 10 Â· Research First</a>
-    <a class="r" href="12-clean-context.html"><span class="lbl">Next</span>12 Â· Clean Context â†’</a>
+    <a class="l" href="10-research-first.html"><span class="lbl">Prev</span>← 10 · Research First</a>
+    <a class="r" href="12-clean-context.html"><span class="lbl">Next</span>12 · Clean Context →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 3 Â· The Core Loop Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 3 · The Core Loop · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

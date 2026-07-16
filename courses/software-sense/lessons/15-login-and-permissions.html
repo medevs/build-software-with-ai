@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>15 Â· Login &amp; Permissions</title>
+<title>15 · Login &amp; Permissions</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="15-login-and-permissions">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,13 +19,13 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#f59e0b">Module 4 Â· Keeping It Safe</span>
-    <span>Lesson 15 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#f59e0b">Module 4 · Keeping It Safe</span>
+    <span>Lesson 15 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Two questions your app must never confuse</p>
   <h1>Login &amp; Permissions</h1>
-  <p class="dek">"Who are you?" and "what are you allowed to do?" sound like the same question. They aren't â€”
+  <p class="dek">"Who are you?" and "what are you allowed to do?" sound like the same question. They aren't —
      and mixing them up is one of the most common, most damaging mistakes in software.</p>
 
   <h2>Authentication: proving who you are</h2>
@@ -31,9 +34,9 @@
      It's the digital version of showing ID at the door.</p>
   <p>Two things make authentication stronger. "Sign in with Google" (or Apple, or similar) lets you reuse a
      login that a large company already secures carefully, instead of creating yet another password for the
-     app to protect â€” one less password for you to forget, and one less password database for the app to
-     guard. <strong>Two-factor authentication (2FA)</strong> adds a second proof on top of the password â€” usually
-     a code sent to your phone â€” so that even if someone steals your password, they still can't get in without
+     app to protect — one less password for you to forget, and one less password database for the app to
+     guard. <strong>Two-factor authentication (2FA)</strong> adds a second proof on top of the password — usually
+     a code sent to your phone — so that even if someone steals your password, they still can't get in without
      also having your phone.</p>
 
   <div class="note"><span class="label">Why this matters for you</span> Authentication answers exactly one
@@ -43,10 +46,10 @@
   <h2>Authorization: what you're allowed to do</h2>
   <p><strong>Authorization</strong> is the process of checking what a logged-in person is actually allowed to
      do. Being logged in doesn't mean being allowed to do everything. A normal customer being logged in should
-     not mean they can open the admin panel, see other customers' orders, or change someone else's account â€”
+     not mean they can open the admin panel, see other customers' orders, or change someone else's account —
      even though the app already knows who they are.</p>
   <p>Think of a hotel key card. Showing your ID at the front desk (authentication) gets you a key card. But
-     that key card should only open <em>your</em> room â€” not the room next door, not the manager's office.
+     that key card should only open <em>your</em> room — not the room next door, not the manager's office.
      Authorization is the part of the system that checks the key card against the door, every single time
      someone tries to open one.</p>
 
@@ -63,14 +66,14 @@
      address like <code>orders.example.com/view?id=1042</code>. If the app only confirms "yes, this is a
      logged-in user" and never checks "does order 1042 actually belong to this user," then any logged-in
      customer can simply change the number in the address and read someone else's order. They didn't hack
-     anything clever â€” the app just never asked the second question.</p>
+     anything clever — the app just never asked the second question.</p>
   <p>This is why authorization has to be checked on <em>every</em> action that touches someone's data, not
      just once at the login screen.</p>
 
   <h2>Passwords must be stored scrambled</h2>
   <p>A well-built app never stores your password as plain, readable text. Instead it runs your password through
      a one-way scrambling process called <strong>hashing</strong>, and stores only the scrambled result. When
-     you log in later, the app scrambles what you typed and compares the two scrambled versions â€” it never
+     you log in later, the app scrambles what you typed and compares the two scrambled versions — it never
      needs to see or store your real password at all.</p>
   <p>This matters because if a company's database is ever stolen (and sometimes they are), hashed passwords are
      close to useless to the thief, while plain-text passwords hand over everyone's login instantly, often for
@@ -102,7 +105,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="2" data-why="The classic disaster is checking WHO someone is but never checking WHAT they're allowed to reach â€” letting any logged-in user view others' data by changing an ID.">
+  <div class="quiz" data-answer="2" data-why="The classic disaster is checking WHO someone is but never checking WHAT they're allowed to reach — letting any logged-in user view others' data by changing an ID.">
     <p class="q">A user changes the number in a web address and sees someone else's order. What most likely went wrong?</p>
     <button>The password wasn't hashed</button>
     <button>The user wasn't logged in at all</button>
@@ -110,7 +113,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="0" data-why="Hashing is one-way scrambling â€” the app compares scrambled versions and never needs to store the real password, so a stolen database doesn't hand over plain passwords.">
+  <div class="quiz" data-answer="0" data-why="Hashing is one-way scrambling — the app compares scrambled versions and never needs to store the real password, so a stolen database doesn't hand over plain passwords.">
     <p class="q">Why should passwords be stored "hashed" instead of as plain text?</p>
     <button>So a stolen database doesn't hand attackers everyone's real password</button>
     <button>So the app loads pages faster</button>
@@ -119,7 +122,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Proving who you are and checking what you're allowed to do are two separate jobs â€” and every
+  <p><strong>Proving who you are and checking what you're allowed to do are two separate jobs — and every
      single action that touches someone's data needs the second check, not just the first.</strong></p>
 
   <hr>
@@ -129,10 +132,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="14-security-mindset.html"><span class="lbl">Previous</span>â† 14 Â· The Security Mindset</a>
-    <a class="r" href="16-secrets-and-keys.html"><span class="lbl">Next</span>16 Â· Secrets &amp; Keys â†’</a>
+    <a href="14-security-mindset.html"><span class="lbl">Previous</span>← 14 · The Security Mindset</a>
+    <a class="r" href="16-secrets-and-keys.html"><span class="lbl">Next</span>16 · Secrets &amp; Keys →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 4 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 4 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

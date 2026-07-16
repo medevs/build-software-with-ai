@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>9 Â· The Core Loop</title>
+<title>9 · The Core Loop</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="09-the-core-loop">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,8 +19,8 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#10b981">Module 3 Â· The Core Loop</span>
-    <span>Lesson 9 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#10b981">Module 3 · The Core Loop</span>
+    <span>Lesson 9 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">The one rhythm you'll run hundreds of times</p>
@@ -28,25 +31,25 @@
   <p>Every reliable build with a coding agent, no matter how small or how big the codebase, comes down to the same
      four-step rhythm repeated over and over:</p>
   <div class="steps">
-    <li><strong>Research.</strong> Build the understanding a task needs before you plan it â€” the relevant code, the domain, the constraints.</li>
+    <li><strong>Research.</strong> Build the understanding a task needs before you plan it — the relevant code, the domain, the constraints.</li>
     <li><strong>Plan.</strong> Turn a loose conversation about the task into a written, structured plan the agent can follow.</li>
     <li><strong>Implement.</strong> Hand that plan to a fresh session and let the agent write the code.</li>
-    <li><strong>Validate.</strong> Prove the work is correct â€” and separately, that it's well built â€” before anything ships.</li>
+    <li><strong>Validate.</strong> Prove the work is correct — and separately, that it's well built — before anything ships.</li>
   </div>
   <p>We'll call this <strong>the core loop</strong>. You'll see it abbreviated all over this course, and you'll run
      it on nearly every single task you hand to an agent from here on.</p>
 
   <div class="note"><span class="label">Why it's called that</span> It's the most stable idea in this entire
-     course â€” the piece that changes least as tools and models evolve. Learn this rhythm well and you can adapt
+     course — the piece that changes least as tools and models evolve. Learn this rhythm well and you can adapt
      to any new agent, any new project, any new model.</div>
 
   <h2>Why one small task, never a whole project</h2>
   <p>The single most important rule attached to the core loop is scale: you run it on <strong>one granular
-     task at a time</strong> â€” a single well-defined piece of work, not a sprawling feature, not a whole
+     task at a time</strong> — a single well-defined piece of work, not a sprawling feature, not a whole
      project, not a stack of unrelated changes bundled together.</p>
   <p>Throwing an entire project at an agent in one go is one of the most reliable ways to get the worst possible
      results. The agent loses track of what actually matters, makes conflicting decisions across the file tree,
-     and you end up with something that "sort of" works but that nobody â€” including the agent â€” can explain.
+     and you end up with something that "sort of" works but that nobody — including the agent — can explain.
      Break the work down first (we'll cover how, later in the course), then run the loop on each piece.</p>
 
   <div class="warn"><span class="label">Common mistake</span> "Build me the whole feature" is a passenger move.
@@ -58,9 +61,9 @@
   <table>
     <tr><th>Step</th><th>Question it answers</th><th>When it's essential</th></tr>
     <tr><td>Research</td><td>What do I need to understand first?</td><td>New or vague work; skippable when the task is already well understood</td></tr>
-    <tr><td>Plan</td><td>What exactly will be built, and how will we know it works?</td><td>Always â€” this is the step that makes everything downstream safe</td></tr>
-    <tr><td>Implement</td><td>Who writes the code, and from what?</td><td>Always â€” runs from the plan, not from memory of the conversation</td></tr>
-    <tr><td>Validate</td><td>Does it work, and is it built well?</td><td>Always â€” the last gate before anything merges</td></tr>
+    <tr><td>Plan</td><td>What exactly will be built, and how will we know it works?</td><td>Always — this is the step that makes everything downstream safe</td></tr>
+    <tr><td>Implement</td><td>Who writes the code, and from what?</td><td>Always — runs from the plan, not from memory of the conversation</td></tr>
+    <tr><td>Validate</td><td>Does it work, and is it built well?</td><td>Always — the last gate before anything merges</td></tr>
   </table>
 
   <div class="tip"><span class="label">A useful analogy</span> Think of a contractor building a room addition.
@@ -73,12 +76,12 @@
      that's hard to reproduce, hard to hand off, and hard to trust. The core loop turns that same effort into
      something repeatable: a written plan you can reread, a fresh implementation session that isn't biased by a
      long meandering conversation, and an explicit check for whether the result is actually correct.</p>
-  <p>That repeatability is what lets you scale from one task to many â€” and eventually, run several of these
+  <p>That repeatability is what lets you scale from one task to many — and eventually, run several of these
      loops side by side without losing your grip on any of them.</p>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="2" data-why="Small, granular scope is the rule that makes the rest of the loop work. A whole project overwhelms the agent and produces the worst results." >
+  <div class="quiz" data-answer="1" data-why="Small, granular scope is the rule that makes the rest of the loop work. A whole project overwhelms the agent and produces the worst results." >
     <p class="q">What's the biggest mistake you can make when applying the core loop?</p>
     <button>Skipping the research step on a simple task</button>
     <button>Handing the agent an entire project or feature at once</button>
@@ -86,7 +89,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="1" data-why="Research, Plan, Implement, Validate â€” in that order, repeated per task." >
+  <div class="quiz" data-answer="0" data-why="Research, Plan, Implement, Validate — in that order, repeated per task." >
     <p class="q">What are the four steps of the core loop, in order?</p>
     <button>Research, Plan, Implement, Validate</button>
     <button>Plan, Research, Validate, Implement</button>
@@ -94,7 +97,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="3" data-why="The core loop is deliberately the most stable, least-changed idea in the course â€” it's designed to outlast any specific tool or model." >
+  <div class="quiz" data-answer="2" data-why="The core loop is deliberately the most stable, least-changed idea in the course — it's designed to outlast any specific tool or model." >
     <p class="q">Why does this course call the four-step rhythm "the most stable idea" in the whole system?</p>
     <button>Because it only works with one specific coding agent</button>
     <button>Because it was the first thing ever written about AI coding</button>
@@ -103,20 +106,20 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Research, Plan, Implement, Validate â€” run on one small task at a time.</strong> Master this rhythm
+  <p><strong>Research, Plan, Implement, Validate — run on one small task at a time.</strong> Master this rhythm
      and every tool change, every model upgrade, every new project becomes something you can adapt to instead of
      something that throws you off.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Think about the last time you asked an agent
      for something and it went sideways. Was the task too big? Was there no plan? Bring your answer to the
-     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” seeing how others diagnose their own "it went sideways" moments sharpens your own instincts fast.</p>
+     <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> — seeing how others diagnose their own "it went sideways" moments sharpens your own instincts fast.</p>
 
   <nav class="prevnext">
-    <a class="l" href="08-evolving-the-system.html"><span class="lbl">Prev</span>â† 8 Â· Evolving the System</a>
-    <a class="r" href="10-research-first.html"><span class="lbl">Next</span>10 Â· Research First â†’</a>
+    <a class="l" href="08-evolving-the-system.html"><span class="lbl">Prev</span>← 8 · Evolving the System</a>
+    <a class="r" href="10-research-first.html"><span class="lbl">Next</span>10 · Research First →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 3 Â· The Core Loop Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 3 · The Core Loop · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

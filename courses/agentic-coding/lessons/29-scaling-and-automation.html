@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>29 Â· Scaling &amp; Automation</title>
+<title>29 · Scaling &amp; Automation</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="29-scaling-and-automation">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,17 +19,17 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ef4444">Module 7 Â· Putting It To Work</span>
-    <span>Lesson 29 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ef4444">Module 7 · Putting It To Work</span>
+    <span>Lesson 29 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Move the loop off your screen</p>
   <h1>Scaling &amp; Automation</h1>
-  <p class="dek">Once you trust a loop to run reliably, the next step isn't running it faster by hand â€” it's running it without your hands at all.</p>
+  <p class="dek">Once you trust a loop to run reliably, the next step isn't running it faster by hand — it's running it without your hands at all.</p>
 
   <h2>From "I run the loop" to "the loop runs"</h2>
   <p>Earlier in the course you learned to run one core loop at a time, then to run several loops in parallel using
-     isolated copies of your codebase. That's already a big jump in throughput â€” but it still requires you, at a
+     isolated copies of your codebase. That's already a big jump in throughput — but it still requires you, at a
      keyboard, starting and watching each one. The next stage of scaling asks a different question: which of these
      loops could run <strong>without you present at all</strong>?</p>
   <p>A surprising number can. If a piece of work is well-scoped, has clear rules to follow, and has a way to check
@@ -36,13 +39,13 @@
   <h2>Three ways to move loops off your screen</h2>
   <div class="cards two">
     <div class="card"><h3>Background agents</h3><p>Kick off a loop and let it keep working while you do something
-       else â€” write another ticket, review a different piece of code, or step away entirely. You come back to
+       else — write another ticket, review a different piece of code, or step away entirely. You come back to
        finished work instead of babysitting a progress bar.</p></div>
     <div class="card"><h3>Remote or cloud agents</h3><p>Run the loop on a machine that isn't your laptop. This
        frees you from keeping your own machine on and open, and lets several loops run in parallel without
        competing for your local resources.</p></div>
-    <div class="card"><h3>Automated loops in CI</h3><p>Trigger a full Research â†’ Plan â†’ Implement â†’ Validate pass
-       automatically as part of your normal development pipeline â€” for example, on every pull request, using a
+    <div class="card"><h3>Automated loops in CI</h3><p>Trigger a full Research → Plan → Implement → Validate pass
+       automatically as part of your normal development pipeline — for example, on every pull request, using a
        continuous-integration platform such as GitHub Actions.</p></div>
   </div>
   <p>Notice what doesn't change: it's still the same core loop, following the same rules your context layer
@@ -63,11 +66,11 @@
 
   <div class="note"><span class="label">Why this matters</span> This is the payoff of everything earlier in the
      course. A loop that only works when you personally drive it is a personal habit. A loop reliable enough to
-     run unattended, on a schedule or a trigger, is a system â€” one that scales beyond one person at one keyboard.</div>
+     run unattended, on a schedule or a trigger, is a system — one that scales beyond one person at one keyboard.</div>
 
   <div class="tip"><span class="label">Start small</span> You don't need a fully automated pipeline on day one.
-     Automate the smallest, safest loop first â€” say, running your test suite and a rules check on every pull
-     request â€” and only widen the scope once you trust what comes back.</div>
+     Automate the smallest, safest loop first — say, running your test suite and a rules check on every pull
+     request — and only widen the scope once you trust what comes back.</div>
 
   <div class="warn"><span class="label">A caution</span> Automation multiplies whatever you feed it, same as
      everything else in this course. A loop with weak rules or no real validation step will now produce weak
@@ -75,7 +78,7 @@
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="Scaling here means moving a loop you already trust off your screen â€” background, remote, or CI-triggered â€” not changing what the loop does.">
+  <div class="quiz" data-answer="1" data-why="Scaling here means moving a loop you already trust off your screen — background, remote, or CI-triggered — not changing what the loop does.">
     <p class="q">What actually changes when you move a core loop into a background or CI-triggered agent?</p>
     <button>The four steps of the loop are replaced with new ones</button>
     <button>Where and when the loop runs, and whether a human watches it</button>
@@ -83,7 +86,7 @@
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="2" data-why="Automation amplifies whatever process feeds it. A weak, unvalidated loop just produces weak results faster and at greater scale â€” so trust the loop by hand before wiring it to run unattended.">
+  <div class="quiz" data-answer="2" data-why="Automation amplifies whatever process feeds it. A weak, unvalidated loop just produces weak results faster and at greater scale — so trust the loop by hand before wiring it to run unattended.">
     <p class="q">Why should you get a loop working reliably by hand before automating it in CI?</p>
     <button>Automation only works on greenfield projects</button>
     <button>CI platforms cannot run coding agents</button>
@@ -92,7 +95,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Scaling isn't running the loop faster â€” it's running the loop without you.</strong> A reliable loop
+  <p><strong>Scaling isn't running the loop faster — it's running the loop without you.</strong> A reliable loop
      can move from your keyboard to the background, to a remote machine, to an automatic trigger in your
      pipeline, and still do the same trustworthy work.</p>
 
@@ -103,10 +106,10 @@
      <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a>.</p>
 
   <nav class="prevnext">
-    <a href="28-choosing-your-agent.html"><span class="lbl">Prev</span>â† 28 Â· Choosing Your Coding Agent</a>
-    <a class="r" href="30-your-first-week.html"><span class="lbl">Next</span>30 Â· Your First Week â†’</a>
+    <a href="28-choosing-your-agent.html"><span class="lbl">Prev</span>← 28 · Choosing Your Coding Agent</a>
+    <a class="r" href="30-your-first-week.html"><span class="lbl">Next</span>30 · Your First Week →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 7 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 7 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

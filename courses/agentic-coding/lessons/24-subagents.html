@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>24 Â· Subagents</title>
+<title>24 · Subagents</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="24-subagents">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,26 +19,26 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#8b5cf6">Module 6 Â· The Building Blocks</span>
-    <span>Lesson 24 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#8b5cf6">Module 6 · The Building Blocks</span>
+    <span>Lesson 24 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Building block #3, in depth</p>
   <h1>Subagents</h1>
-  <p class="dek">A subagent is a specialist you can hand a heavy job to â€” with its own separate context â€” so its digging doesn't clutter the conversation you're actually trying to get work done in.</p>
+  <p class="dek">A subagent is a specialist you can hand a heavy job to — with its own separate context — so its digging doesn't clutter the conversation you're actually trying to get work done in.</p>
 
   <h2>A worker with its own workspace</h2>
   <p>Your main agent has one context window: everything you've told it, everything it's read, everything it's
      tried so far, all sitting in the same working memory. That's fine for a normal task. It gets crowded fast
-     when the job is heavy â€” exploring a large unfamiliar area of the codebase, digging through many files
+     when the job is heavy — exploring a large unfamiliar area of the codebase, digging through many files
      looking for one answer, or critically reviewing a finished change.</p>
   <p>A subagent solves this by being a separate specialist with its own context and its own tools. You delegate
      it one focused job. It goes off, does the heavy digging entirely in its own workspace, and hands back only
-     a tight summary â€” the answer, not the messy trail of files and dead ends it took to get there. Your main
+     a tight summary — the answer, not the messy trail of files and dead ends it took to get there. Your main
      conversation stays clean, exactly as it was before you delegated.</p>
 
   <div class="note"><span class="label">The core payoff</span> A subagent's isolated context is what makes it
-     useful. All the noise of a big search or a deep review happens somewhere else â€” you only ever see the
+     useful. All the noise of a big search or a deep review happens somewhere else — you only ever see the
      conclusion.</div>
 
   <h2>Where subagents pay off first</h2>
@@ -45,17 +48,17 @@
        trying to understand everything at once runs out of room. Fan the exploration out across several
        subagents, each covering a different slice, and have them report back short summaries you can act on.</p></div>
     <div class="card"><h3>A fresh set of eyes for review</h3><p>The agent that wrote a change is a bad judge of
-       that same change â€” it's primed to think its own work is fine. A subagent with no memory of writing the
+       that same change — it's primed to think its own work is fine. A subagent with no memory of writing the
        code has no such bias, so it makes a far more honest reviewer.</p></div>
   </div>
 
   <h2>The classic example: a code-reviewer subagent</h2>
   <p>The clearest instance of this pattern is a subagent whose only job is to be critical. After a change is
      implemented, instead of asking the same agent that wrote the code "was that good?", you hand it to a
-     separate reviewer subagent â€” one with a fresh context and instructions to look hard for problems.</p>
+     separate reviewer subagent — one with a fresh context and instructions to look hard for problems.</p>
   <p>This connects directly to the review step covered back in <a href="13-validate-and-gates.html">Lesson 13</a>:
      the agent proving its own code <em>runs</em> is one kind of check. Having a separate, unbiased reviewer
-     judge whether the code is <em>well built</em> is a different, harder-to-fake kind of check â€” and it only
+     judge whether the code is <em>well built</em> is a different, harder-to-fake kind of check — and it only
      works because the reviewer isn't the same mind that wrote the code in the first place. You wouldn't want a
      student grading their own homework; the same logic applies here.</p>
 
@@ -69,13 +72,13 @@
        instead of overloading one.</td></tr>
     <tr><td>Reviewing a change someone (or something) just wrote</td><td>A fresh context has no bias toward
        defending the work.</td></tr>
-    <tr><td>A small, quick task you'll do once</td><td>Not worth delegating â€” just do it directly in the main
+    <tr><td>A small, quick task you'll do once</td><td>Not worth delegating — just do it directly in the main
        conversation.</td></tr>
   </table>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="A subagent's separate context is what lets it do heavy digging without cluttering the main conversation â€” it hands back only a tight summary.">
+  <div class="quiz" data-answer="1" data-why="A subagent's separate context is what lets it do heavy digging without cluttering the main conversation — it hands back only a tight summary.">
     <p class="q">What's the core payoff of a subagent's isolated context?</p>
     <button>It can run faster than the main agent</button>
     <button>Heavy digging happens elsewhere, and only a tight summary comes back</button>
@@ -92,21 +95,21 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Hand heavy, isolated, or bias-sensitive jobs to a subagent â€” a fresh-eyes code reviewer is the
-     clearest example â€” and your main conversation stays clean.</strong> The rest is just recognizing when a job
+  <p><strong>Hand heavy, isolated, or bias-sensitive jobs to a subagent — a fresh-eyes code reviewer is the
+     clearest example — and your main conversation stays clean.</strong> The rest is just recognizing when a job
      is big enough to deserve its own workspace.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a recent task where your main
      conversation got cluttered with exploration you didn't really need to see. Would a subagent have kept that
-     out of the way? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> â€” and take a look at a
+     out of the way? Bring your answer to the <a href="https://github.com/your-org/agentic-coding-course/discussions" target="_blank" rel="noopener">course discussions</a> — and take a look at a
      <a href="https://github.com/your-org/agentic-coding-course/tree/main/examples/subagents" target="_blank" rel="noopener">few example subagents</a> in the course repo.</div>
 
   <nav class="prevnext">
-    <a href="23-skills.html"><span class="lbl">Prev</span>23 Â· Skills (Reusable Workflows)</a>
-    <a class="r" href="25-tools-and-mcp.html"><span class="lbl">Next</span>25 Â· Tools & Connections (MCP) â†’</a>
+    <a href="23-skills.html"><span class="lbl">Prev</span>23 · Skills (Reusable Workflows)</a>
+    <a class="r" href="25-tools-and-mcp.html"><span class="lbl">Next</span>25 · Tools & Connections (MCP) →</a>
   </nav>
-  <p class="foot">The Agentic Coding Course Â· Module 6 Â· The Building Blocks Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">The Agentic Coding Course · Module 6 · The Building Blocks · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>

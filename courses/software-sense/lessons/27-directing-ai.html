@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>27 Â· Directing Your AI</title>
+<title>27 · Directing Your AI</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body data-lesson="27-directing-ai">
 <nav class="topnav">
+  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
+  <span class="navsep"></span>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
@@ -16,64 +19,64 @@
 
 <div class="wrap">
   <div class="lesson-meta">
-    <span class="pill" style="background:#ef4444">Module 7 Â· Doing It With AI</span>
-    <span>Lesson 27 of 30</span><span>Â·</span><span>~5 min</span>
+    <span class="pill" style="background:#ef4444">Module 7 · Doing It With AI</span>
+    <span>Lesson 27 of 30</span><span>·</span><span>~5 min</span>
   </div>
 
   <p class="kicker">Everything you've learned, turned into a brief</p>
   <h1>Directing Your AI</h1>
-  <p class="dek">You now know what software is made of and what can go wrong with it. This lesson is about using that knowledge <em>before</em> the AI writes a line of code â€” so it builds the right thing the first time.</p>
+  <p class="dek">You now know what software is made of and what can go wrong with it. This lesson is about using that knowledge <em>before</em> the AI writes a line of code — so it builds the right thing the first time.</p>
 
   <h2>Remember the cook with zero common sense</h2>
   <p>Back in <a href="01-what-is-software.html">Lesson 1</a> we said a computer is an incredibly fast, perfectly
      obedient cook with zero common sense. An AI coding agent is that same cook, just faster and more
-     capable â€” it still does exactly what you tell it, not what you meant. The entire skill of "directing AI"
+     capable — it still does exactly what you tell it, not what you meant. The entire skill of "directing AI"
      is the skill of giving that cook instructions precise enough that "exactly what you said" and "what you
      wanted" are the same thing.</p>
   <p>That's not a technical skill. It's a communication skill. And you've spent 26 lessons building the
-     vocabulary for it â€” requirements, edge cases, data, security, environments, cost, performance. Now you
+     vocabulary for it — requirements, edge cases, data, security, environments, cost, performance. Now you
      use that vocabulary in the brief itself.</p>
 
   <div class="note"><span class="label">Why this matters for you</span> A vague request forces the AI to guess,
      and it will guess confidently and silently. A precise request gives it a target to check its own work
-     against â€” and gives <em>you</em> something to check its work against too.</div>
+     against — and gives <em>you</em> something to check its work against too.</div>
 
   <h2>Say what "done" means, every time</h2>
   <p>In <a href="10-what-done-means.html">Lesson 10</a> you learned that a definition of done has three parts: the
      requirement, the edge cases you care about, and what "handled" looks like. That's the single most useful
      thing you can paste into any request to an AI coding agent. Instead of "build me a signup form," try:</p>
   <blockquote>"Build a signup form: a visitor enters an email and password and gets an account. Handle an empty
-     field, a duplicate email, and an invalid email address by showing a clear message â€” don't just fail silently."</blockquote>
+     field, a duplicate email, and an invalid email address by showing a clear message — don't just fail silently."</blockquote>
   <p>Same request, same AI, wildly different odds of getting something you'd actually ship.</p>
 
   <h2>Name the constraints you care about</h2>
   <p>An AI can't read your risk tolerance off your face. If data safety, security, how many people will use
-     this, or what it costs to run matter to you â€” and by now you know they always matter somewhat â€” say so
+     this, or what it costs to run matter to you — and by now you know they always matter somewhat — say so
      out loud, in the request:</p>
   <div class="cards two">
     <div class="card"><h3>Instead of silence</h3><p>"Add a comments feature."</p></div>
     <div class="card"><h3>Name the constraint</h3><p>"Add a comments feature. Only logged-in users can post.
        Store who posted and when. Assume a few hundred users, not a million."</p></div>
   </div>
-  <p>You're not writing engineering specs â€” you're pointing at the modules of this course that apply:
+  <p>You're not writing engineering specs — you're pointing at the modules of this course that apply:
      <a href="14-security-mindset.html">security</a>, <a href="08-state-and-storage.html">data</a>,
      <a href="23-performance.html">scale</a>. One clause per concern is usually enough.</p>
 
   <h2>Ask for the plan before the code</h2>
-  <p>One habit changes everything: before the AI writes anything, ask it to explain its plan in plain English â€”
+  <p>One habit changes everything: before the AI writes anything, ask it to explain its plan in plain English —
      what it's going to build, what it's assuming, and what it's not handling. This costs you thirty seconds
      and catches misunderstandings while they're still just sentences, not code you have to unwind.</p>
   <div class="steps">
-    <li><strong>State the request</strong> â€” the definition of done, plus any constraints that matter.</li>
+    <li><strong>State the request</strong> — the definition of done, plus any constraints that matter.</li>
     <li><strong>Ask for the plan first.</strong> "Before you build this, explain your plan and any assumptions
        you're making." Read it. Does it match what you meant?</li>
-    <li><strong>Let it build â€” one piece at a time</strong>, not the whole app at once (see below).</li>
-    <li><strong>Review the result</strong> against the definition of done you started with â€” the subject of the
+    <li><strong>Let it build — one piece at a time</strong>, not the whole app at once (see below).</li>
+    <li><strong>Review the result</strong> against the definition of done you started with — the subject of the
        next lesson.</li>
   </div>
 
   <h2>Work in small steps, not "build me the whole app"</h2>
-  <p>A single giant request â€” "build me a whole booking system" â€” gives the AI enormous room to guess, and gives
+  <p>A single giant request — "build me a whole booking system" — gives the AI enormous room to guess, and gives
      you a mountain of code to check all at once. Small steps do the opposite: one feature, reviewed, then the
      next. Each step is small enough that when something's off, you know almost exactly where to look, and the
      AI has a much narrower thing to get right.</p>
@@ -90,24 +93,24 @@
     <ul style="margin:.3rem 0 0;">
       <li>"Before you write any code, explain your plan and the assumptions you're making."</li>
       <li>"Here's my definition of done: [requirement + edge cases + handling]. Build to that, one piece at a time."</li>
-      <li>"What constraints should I be telling you about that I haven't mentioned â€” security, data, scale, or cost?"</li>
+      <li>"What constraints should I be telling you about that I haven't mentioned — security, data, scale, or cost?"</li>
     </ul>
   </div>
 
   <h2>Check yourself</h2>
 
-  <div class="quiz" data-answer="1" data-why="An AI does exactly what it's told, not what you meant â€” so a precise brief (requirement + edge cases + constraints) is what closes that gap.">
+  <div class="quiz" data-answer="1" data-why="An AI does exactly what it's told, not what you meant — so a precise brief (requirement + edge cases + constraints) is what closes that gap.">
     <p class="q">Why does a precise brief matter so much when directing an AI coding agent?</p>
     <button>AI agents are slower with vague requests</button>
-    <button>The AI does exactly what it's told, not what you meant â€” vague in means vague out</button>
+    <button>The AI does exactly what it's told, not what you meant — vague in means vague out</button>
     <button>Precise briefs are required by law for AI tools</button>
     <p class="fb"></p>
   </div>
 
-  <div class="quiz" data-answer="2" data-why="Asking for the plan first surfaces misunderstandings while they're still sentences you can correct â€” not code you have to unwind after the fact.">
+  <div class="quiz" data-answer="2" data-why="Asking for the plan first surfaces misunderstandings while they're still sentences you can correct — not code you have to unwind after the fact.">
     <p class="q">What's the benefit of asking an AI to explain its plan before writing code?</p>
     <button>It makes the AI write faster</button>
-    <button>It's required â€” AI can't write code without a plan</button>
+    <button>It's required — AI can't write code without a plan</button>
     <button>It catches misunderstandings early, while they're cheap to fix</button>
     <p class="fb"></p>
   </div>
@@ -121,7 +124,7 @@
   </div>
 
   <h2>The one thing to remember</h2>
-  <p><strong>Good instructions in, better software out â€” say what "done" means, name your constraints, ask for
+  <p><strong>Good instructions in, better software out — say what "done" means, name your constraints, ask for
      the plan first, and build in small steps.</strong> Everything you've learned in this course is exactly the
      vocabulary you need to do that well.</p>
 
@@ -131,10 +134,10 @@
      <a href="https://github.com/your-name/software-sense/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
   <nav class="prevnext">
-    <a href="26-cost.html"><span class="lbl">Prev</span>26 Â· The Cost of Running It</a>
-    <a class="r" href="28-reviewing-ai-output.html"><span class="lbl">Next</span>28 Â· Reviewing AI's Work â†’</a>
+    <a href="26-cost.html"><span class="lbl">Prev</span>26 · The Cost of Running It</a>
+    <a class="r" href="28-reviewing-ai-output.html"><span class="lbl">Next</span>28 · Reviewing AI's Work →</a>
   </nav>
-  <p class="foot">Software Sense Â· Module 7 Â· <a href="../curriculum.html">All lessons</a></p>
+  <p class="foot">Software Sense · Module 7 · <a href="../curriculum.html">All lessons</a></p>
 </div>
 
 <script src="../../../assets/progress.js"></script>
