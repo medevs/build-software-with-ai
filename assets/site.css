@@ -172,7 +172,33 @@ tbody tr:hover{background:var(--paper-2);}
   opacity:.85;border:1px solid #2e2b3a;border-radius:999px;padding:.28rem .75rem;
   transition:opacity .15s, border-color .15s;}
 .legend span:hover{opacity:1;border-color:#565064;}
+.legend span.on{opacity:1;border-color:#8f8a80;background:#232030;}
+.legend em{font-style:normal;color:#3ecf9a;font-weight:700;font-size:.68rem;}
 .legend i{width:.62rem;height:.62rem;border-radius:50%;display:inline-block;flex:none;}
+/* map wrapper: hosts the zoom controls + tooltip overlays */
+.graph-wrap{position:relative;background:var(--canvas);}
+.graph-controls{position:absolute;top:.85rem;right:.85rem;display:flex;flex-direction:column;
+  gap:.4rem;z-index:5;}
+.graph-controls button{width:44px;height:44px;border-radius:10px;border:1px solid #3a3648;
+  background:#1b1a26;color:#e9e5dd;font-family:var(--sans);font-size:1.15rem;font-weight:700;
+  cursor:pointer;line-height:1;display:grid;place-items:center;
+  transition:border-color .15s, background .15s;}
+.graph-controls button:hover{border-color:#8f8a80;background:#232030;}
+.gtip{position:absolute;z-index:6;max-width:16.5rem;background:#1b1a26;color:#e9e5dd;
+  border:1px solid #3a3648;border-radius:10px;padding:.7rem .85rem .75rem;
+  font-family:var(--sans);font-size:.8rem;line-height:1.45;
+  box-shadow:0 10px 30px -10px rgb(0 0 0 / .65);pointer-events:none;}
+.gtip.touch{pointer-events:auto;}
+.gtip-mod{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+  padding:.16rem .5rem;border-radius:999px;color:#0c0b10;display:inline-block;}
+.gtip-done{font-size:.68rem;font-weight:700;color:#3ecf9a;margin-left:.4rem;}
+.gtip-t{font-weight:700;font-size:.9rem;margin:.45rem 0 .2rem;color:#fff;}
+.gtip-b{margin:0;color:#b7b2a7;}
+.gtip-open{display:inline-block;margin-top:.55rem;color:#e69c85;border:none;font-weight:700;}
+.gpulse{fill:none;stroke-width:1.75;pointer-events:none;transform-box:fill-box;
+  transform-origin:center;animation:gpulse 2.2s ease-out infinite;}
+@keyframes gpulse{0%{transform:scale(.55);opacity:.9;}70%{transform:scale(1.3);opacity:0;}100%{transform:scale(1.3);opacity:0;}}
+.gnode.sel circle{stroke:#fff;stroke-width:2.5;}
 .gnode{cursor:pointer;}
 .gnode text{font-family:var(--sans);font-size:11px;fill:#e9e5dd;pointer-events:none;
   paint-order:stroke;stroke:#12111a;stroke-width:3px;stroke-linejoin:round;}
@@ -242,7 +268,7 @@ tbody tr:hover{background:var(--paper-2);}
 
 /* ---------- print (lessons read well on paper) ---------- */
 @media print{
-  .topnav,.prevnext,.quiz,.foot,.graph-help,#graph,.legend,.cc-actions{display:none !important;}
+  .topnav,.prevnext,.quiz,.foot,.graph-help,#graph,.graph-wrap,.legend,.cc-actions{display:none !important;}
   body{background:#fff;color:#000;font-size:11pt;}
   .wrap{max-width:100%;padding:0;}
   a{color:#000;border-bottom:none;}
