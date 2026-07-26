@@ -1,0 +1,302 @@
+/* ============================================================================
+   diagram.css — the figure vocabulary for AI Builder Academy.
+
+   One drawn language, reused by every lesson in every course: flat ink fields,
+   hairline rules, tight caps labels, numbered plates. Pure HTML + CSS — no JS,
+   no SVG dependency, no build step. Inherits every colour from site.css, so it
+   is correct in light, dark, and print without a second definition.
+
+   Every figure is wrapped in a plate:
+
+     <figure class="fig">
+       <figcaption><b>What the reader should see</b></figcaption>
+       <div class="fig-b"> ...one diagram from the vocabulary... </div>
+       <p class="fig-n">Optional note under the rule.</p>
+     </figure>
+
+   The vocabulary:
+     .dgm-stack    layers sitting on each other      (the stack, the context layer)
+     .dgm-flow     a chain of steps, left to right   (a request, a pipeline)
+     .dgm-flow.loop  ...that returns to the start    (the core loop)
+     .dgm-vs       two options, one heavy rule       (before/after, good/bad)
+     .dgm-matrix   2x2 with named axes               (trade-offs, two-way doors)
+     .dgm-bars     labelled proportion bars          (cost, effort, where time goes)
+     .dgm-scale    a range with a marker on it       (how much, how far, how risky)
+     .dgm-tree     a question and its branches       (which one is it?)
+     .dgm-seq      numbered stops on a line          (order of operations)
+     .dgm-anat     a subject with numbered callouts  (anatomy of a thing)
+     .dgm-checks   a comparison matrix               (does X do Y?)
+
+   Any diagram takes --f to set its ink; it defaults to the page's module field.
+   ============================================================================ */
+
+/* --------------------------------------------------------------- the plate --- */
+body{counter-reset:fig;}
+.fig{margin:2.4rem 0;padding:0;border:var(--hair) solid var(--rule);
+  border-top:var(--heavy) solid var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));background:var(--paper);}
+.fig>figcaption{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;
+  padding:.5rem .85rem .55rem;border-bottom:var(--hair) solid var(--rule-soft);
+  font-family:var(--grot);}
+.fig>figcaption::before{counter-increment:fig;content:"Fig. " counter(fig);
+  font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;
+  color:var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));flex:none;}
+.fig>figcaption b{font-size:.79rem;font-weight:700;letter-spacing:-.012em;color:var(--ink);}
+.fig-b{padding:1.05rem .85rem 1.1rem;}
+.fig-n{margin:0;padding:.5rem .85rem .6rem;border-top:var(--hair) solid var(--rule-soft);
+  font-family:var(--grot);font-size:.735rem;line-height:1.4;color:var(--ink-2);}
+.fig-n b{font-weight:700;color:var(--ink);}
+
+/* shared atoms ------------------------------------------------------------- */
+.fig-b [class^="dgm-"],.fig-b [class*=" dgm-"]{font-family:var(--grot);}
+
+/* ------------------------------------------------------------- 1. stack ---- */
+/* layers sitting on each other, top to bottom, each with a key and a body.
+   set --f per layer to tint its key column. */
+.dgm-stack{display:grid;gap:var(--hair);background:var(--rule);
+  border:var(--hair) solid var(--rule);}
+.dgm-stack>.lyr{display:grid;grid-template-columns:minmax(6.5rem,20%) minmax(0,1fr);
+  background:var(--paper);}
+.dgm-stack>.lyr>b{background:var(--f,var(--field,var(--ink)));color:#fff;
+  padding:.6rem .7rem;font-size:.68rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;line-height:1.25;display:flex;align-items:center;}
+.dgm-stack>.lyr>span{padding:.6rem .8rem;font-size:.815rem;line-height:1.4;color:var(--ink);}
+.dgm-stack>.lyr>span em{font-style:normal;color:var(--ink-2);}
+/* an arrow between two layers, showing which way the traffic goes */
+.dgm-stack>.thru{background:var(--paper-2);padding:.28rem .7rem;font-size:.6rem;
+  font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-3);
+  text-align:center;}
+@media (max-width:560px){
+  .dgm-stack>.lyr{grid-template-columns:1fr;}
+  .dgm-stack>.lyr>b{padding:.4rem .7rem;}
+}
+
+/* -------------------------------------------------------------- 2. flow ---- */
+/* a chain of steps. one row on desktop, one column on phones, arrows follow. */
+.dgm-flow{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;
+  align-items:stretch;gap:1.5rem;position:relative;}
+.dgm-flow>.stp{position:relative;border:var(--hair) solid var(--rule);
+  border-top:var(--heavy) solid var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));
+  padding:.55rem .7rem .65rem;background:var(--paper);min-width:0;}
+.dgm-flow>.stp>b{display:block;font-size:.72rem;font-weight:700;letter-spacing:-.01em;
+  line-height:1.2;margin-bottom:.2rem;}
+.dgm-flow>.stp>span{display:block;font-size:.735rem;line-height:1.35;color:var(--ink-2);}
+.dgm-flow>.stp:not(:last-child)::after{content:"";position:absolute;
+  top:50%;right:-1.5rem;width:1.5rem;height:0;
+  border-top:var(--hair) solid var(--ink-3);}
+.dgm-flow>.stp:not(:last-child)::before{content:"";position:absolute;
+  top:50%;right:-.62rem;transform:translateY(-50%);
+  border:.3rem solid transparent;border-left-color:var(--ink-3);border-right:0;}
+/* .loop: a return rail under the chain, labelled with data-return. The rail is the
+   container's own bottom border; the label sits on it with a paper backing, so the
+   rule passes behind the words instead of striking through them. */
+.dgm-flow.loop{margin-bottom:2.4rem;padding-bottom:1.3rem;
+  border-bottom:var(--hair) dashed var(--ink-3);}
+.dgm-flow.loop::after{content:attr(data-return);position:absolute;
+  left:50%;bottom:0;transform:translate(-50%,50%);
+  background:var(--paper);padding:0 .6rem;max-width:90%;text-align:center;
+  font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;
+  color:var(--ink-3);line-height:1.2;}
+.dgm-flow.loop::before{content:"";position:absolute;left:0;bottom:0;
+  transform:translateY(50%);border:.3rem solid transparent;
+  border-right-color:var(--ink-3);border-left:0;}
+@media (max-width:680px){
+  .dgm-flow{grid-auto-flow:row;grid-auto-columns:auto;gap:1.4rem;}
+  .dgm-flow>.stp:not(:last-child)::after{top:auto;bottom:-1.4rem;right:auto;left:1.2rem;
+    width:0;height:1.4rem;border-top:none;border-left:var(--hair) solid var(--ink-3);}
+  .dgm-flow>.stp:not(:last-child)::before{top:auto;bottom:-.62rem;right:auto;left:1.2rem;
+    transform:translateX(-50%);border-left-color:transparent;border-right:.3rem solid transparent;
+    border-top-color:var(--ink-3);border-bottom:0;}
+  .dgm-flow.loop::after{left:0;right:0;}
+  .dgm-flow.loop::before{left:0;}
+}
+
+/* ---------------------------------------------------------------- 3. vs ---- */
+/* two options divided by one heavy rule. .good / .bad tint the label. */
+.dgm-vs{display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:var(--hair) solid var(--rule);}
+.dgm-vs>div{padding:.7rem .85rem .8rem;min-width:0;}
+.dgm-vs>div+div{border-left:var(--heavy) solid var(--rule);}
+.dgm-vs>div>b{display:block;font-size:.61rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;margin-bottom:.45rem;color:var(--ink-3);}
+.dgm-vs>.good>b{color:var(--ok);}
+.dgm-vs>.bad>b{color:var(--bad);}
+.dgm-vs ul{margin:0;padding-left:1.05rem;}
+.dgm-vs li{font-size:.79rem;line-height:1.4;margin:.2rem 0;}
+.dgm-vs p{margin:0;font-size:.815rem;line-height:1.4;}
+.dgm-vs .big{font-size:1.5rem;font-weight:700;letter-spacing:-.035em;line-height:1.05;
+  display:block;margin:.1rem 0 .3rem;}
+@media (max-width:560px){
+  .dgm-vs{grid-template-columns:1fr;}
+  .dgm-vs>div+div{border-left:none;border-top:var(--heavy) solid var(--rule);}
+}
+
+/* ------------------------------------------------------------ 4. matrix ---- */
+/* A 2x2 with a row header column, laid out in pure document order — no nth-of-type
+   placement, so the markup reads exactly as the grid renders:
+     .hd  (blank) · column head · column head
+     .rh  row head · .q · .q
+     .rh  row head · .q · .q                       add .hot to the loaded quadrant. */
+.dgm-matrix{display:grid;grid-template-columns:minmax(4.5rem,auto) 1fr 1fr;
+  align-items:stretch;}
+.dgm-matrix>.hd,.dgm-matrix>.rh{font-size:.585rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.13em;color:var(--ink-3);}
+.dgm-matrix>.hd{padding:0 .6rem .35rem;align-self:end;}
+.dgm-matrix>.rh{display:flex;align-items:center;padding:.6rem .7rem .6rem 0;
+  line-height:1.3;text-align:right;justify-content:flex-end;}
+/* an outline rather than borders: adjacent cells overlap exactly, so every seam
+   stays one hairline wide without any per-cell border arithmetic */
+.dgm-matrix>.q{box-shadow:0 0 0 var(--hair) var(--rule);padding:.6rem .75rem .7rem;min-width:0;}
+.dgm-matrix>.q>b{display:block;font-size:.73rem;font-weight:700;letter-spacing:-.01em;
+  margin-bottom:.18rem;color:var(--ink);}
+.dgm-matrix>.q>span{display:block;font-size:.735rem;line-height:1.35;color:var(--ink-2);}
+.dgm-matrix>.q.hot{background:color-mix(in srgb,var(--f,var(--field,var(--ink))) 10%,var(--paper));
+  box-shadow:0 0 0 var(--heavy) var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));position:relative;z-index:1;}
+.dgm-matrix>.ax-x{grid-column:2 / -1;font-size:.585rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.13em;color:var(--ink-3);padding:.4rem .6rem 0;}
+@media (max-width:620px){
+  /* stacks to a labelled list; each row header still names that row's coordinate */
+  .dgm-matrix{grid-template-columns:1fr;gap:var(--hair);}
+  .dgm-matrix>.hd{display:none;}
+  .dgm-matrix>.rh{justify-content:flex-start;text-align:left;padding:.8rem 0 .35rem;}
+  .dgm-matrix>.ax-x{grid-column:1;}
+}
+
+/* -------------------------------------------------------------- 5. bars ---- */
+/* labelled proportion bars. set --p (0-100) per row; --f tints the fill. */
+.dgm-bars{list-style:none;margin:0;padding:0;display:grid;gap:.5rem;}
+/* the track is capped: on a wide index page an uncapped 1fr bar becomes a hairline
+   ribbon two feet long, which reads as a rule rather than as a measurement */
+.dgm-bars>li{display:grid;grid-template-columns:minmax(5.5rem,26%) minmax(0,34rem) auto;
+  justify-content:start;align-items:center;gap:.7rem;margin:0;font-size:.755rem;}
+.dgm-bars .bl{font-weight:600;line-height:1.25;color:var(--ink);}
+.dgm-bars .bt{height:.85rem;border:var(--hair) solid var(--rule);background:var(--paper);
+  position:relative;overflow:hidden;}
+.dgm-bars .bt::before{content:"";position:absolute;inset:0 auto 0 0;
+  width:calc(var(--p,0) * 1%);background:var(--f,var(--field,var(--ink)));}
+.dgm-bars>li.mute .bt::before{background:var(--rule-soft);}
+.dgm-bars .bn{font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.015em;
+  font-size:.79rem;white-space:nowrap;}
+@media (max-width:520px){
+  .dgm-bars>li{grid-template-columns:minmax(0,1fr) auto;gap:.35rem .6rem;}
+  .dgm-bars .bl{grid-column:1 / -1;}
+}
+
+/* ------------------------------------------------------------- 6. scale ---- */
+/* a range with ticks and a marker. --at (0-100) places the marker;
+   --from/--to (0-100) optionally shade a band. */
+.dgm-scale{padding:1.4rem 0 0;}
+.dgm-scale .st{position:relative;height:.65rem;border:var(--hair) solid var(--rule);
+  background:var(--paper);}
+.dgm-scale .st::before{content:"";position:absolute;inset:0 auto 0 calc(var(--from,0) * 1%);
+  width:calc((var(--to,0) - var(--from,0)) * 1%);
+  background:color-mix(in srgb,var(--f,var(--field,var(--ink))) 22%,var(--paper));}
+.dgm-scale .mk{position:absolute;top:-1.35rem;left:calc(var(--at,50) * 1%);
+  transform:translateX(-50%);white-space:nowrap;
+  font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;
+  color:var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));}
+.dgm-scale .mk::after{content:"";position:absolute;left:50%;top:1.05rem;
+  transform:translateX(-50%);width:0;height:.95rem;
+  border-left:var(--heavy) solid var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));}
+.dgm-scale .sl{display:flex;justify-content:space-between;margin-top:.4rem;
+  font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--ink-3);gap:.5rem;}
+.dgm-scale .sl span{flex:0 1 auto;}
+.dgm-scale .sl span:nth-child(2){text-align:center;}
+.dgm-scale .sl span:last-child{text-align:right;}
+
+/* -------------------------------------------------------------- 7. tree ---- */
+/* a question and its branches. data-e labels each branch's edge.
+   nest another .dgm-tree inside a .tbr for a second level. */
+.dgm-tree>.tq{border:var(--hair) solid var(--rule);
+  border-top:var(--heavy) solid var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));
+  padding:.55rem .8rem .65rem;font-size:.79rem;font-weight:700;line-height:1.3;
+  letter-spacing:-.01em;background:var(--paper-2);}
+.dgm-tree>.tb{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));
+  gap:1rem;margin-top:1.5rem;position:relative;}
+.dgm-tree>.tb>.tbr{position:relative;border:var(--hair) solid var(--rule);
+  padding:.55rem .75rem .65rem;background:var(--paper);min-width:0;}
+.dgm-tree>.tb>.tbr::before{content:"";position:absolute;left:1.1rem;top:-1.5rem;
+  height:1.5rem;border-left:var(--hair) solid var(--ink-3);}
+.dgm-tree>.tb>.tbr::after{content:attr(data-e);position:absolute;left:1.5rem;top:-1.35rem;
+  font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--ink-3);background:var(--paper);padding:0 .25rem;}
+.dgm-tree .tbr>b{display:block;font-size:.75rem;font-weight:700;letter-spacing:-.01em;
+  margin-bottom:.18rem;}
+.dgm-tree .tbr>span{display:block;font-size:.74rem;line-height:1.35;color:var(--ink-2);}
+.dgm-tree .tbr .dgm-tree{margin-top:.7rem;}
+.dgm-tree .tbr .dgm-tree>.tq{font-size:.72rem;padding:.4rem .6rem .5rem;}
+
+/* --------------------------------------------------------------- 8. seq ---- */
+/* numbered stops on one line. */
+.dgm-seq{list-style:none;margin:0;padding:0;counter-reset:seq;
+  border-top:var(--hair) solid var(--rule);}
+.dgm-seq>li{counter-increment:seq;position:relative;margin:0;
+  padding:.6rem 0 .65rem 2.9rem;border-bottom:var(--hair) solid var(--rule-soft);}
+.dgm-seq>li:last-child{border-bottom:var(--hair) solid var(--rule);}
+.dgm-seq>li::before{content:counter(seq,decimal-leading-zero);position:absolute;left:0;top:.62rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.04em;
+  color:var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));}
+.dgm-seq>li::after{content:"";position:absolute;left:1.05rem;top:1.65rem;bottom:-.2rem;
+  border-left:var(--hair) solid var(--rule-soft);}
+.dgm-seq>li:last-child::after{display:none;}
+.dgm-seq>li>b{display:block;font-size:.775rem;font-weight:700;letter-spacing:-.01em;
+  margin-bottom:.12rem;}
+.dgm-seq>li>span{display:block;font-size:.775rem;line-height:1.4;color:var(--ink-2);}
+.dgm-seq>li.stop{background:color-mix(in srgb,var(--bad) 7%,var(--paper));}
+.dgm-seq>li.stop::before{color:var(--bad);}
+
+/* -------------------------------------------------------------- 9. anat ---- */
+/* a subject block with numbered leader callouts listed beside it. */
+.dgm-anat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:1.1rem;}
+.dgm-anat>.sub{border:var(--hair) solid var(--rule);background:var(--paper-2);
+  padding:.7rem .8rem .8rem;display:grid;gap:var(--hair);align-content:start;}
+.dgm-anat>.sub>.pt{display:grid;grid-template-columns:minmax(1.3rem,max-content) minmax(0,1fr);
+  gap:.55rem;background:var(--paper);border:var(--hair) solid var(--rule-soft);
+  padding:.4rem .5rem;font-size:.755rem;line-height:1.3;align-items:baseline;}
+.dgm-anat>.sub>.pt>b{font-size:.68rem;font-weight:700;white-space:nowrap;
+  color:var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));}
+.dgm-anat>.cal{list-style:none;margin:0;padding:0;display:grid;gap:.45rem;align-content:start;}
+.dgm-anat>.cal>li{display:grid;grid-template-columns:1.35rem 1fr;gap:.4rem;margin:0;
+  font-size:.755rem;line-height:1.35;color:var(--ink-2);}
+.dgm-anat>.cal>li>b{font-weight:700;color:var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));font-size:.7rem;}
+.dgm-anat>.cal>li i{font-style:normal;color:var(--ink);font-weight:600;}
+@media (max-width:620px){ .dgm-anat{grid-template-columns:1fr;} }
+
+/* ----------------------------------------------------------- 10. checks ---- */
+/* a comparison matrix. .y = yes, .n = no, .p = partly. */
+.dgm-checks{width:100%;border-collapse:collapse;margin:0;font-family:var(--grot);
+  font-size:.775rem;}
+.dgm-checks th{font-size:.585rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.13em;color:var(--ink-3);padding:.35rem .55rem;text-align:center;
+  border-bottom:var(--hair) solid var(--rule);vertical-align:bottom;}
+.dgm-checks th:first-child{text-align:left;}
+.dgm-checks thead th{border-top:none;}
+.dgm-checks td{padding:.45rem .55rem;text-align:center;
+  border-bottom:var(--hair) solid var(--rule-soft);}
+.dgm-checks td:first-child{text-align:left;font-weight:600;color:var(--ink);
+  font-size:.755rem;line-height:1.3;}
+.dgm-checks tbody tr:last-child td{border-bottom:var(--hair) solid var(--rule);}
+.dgm-checks tbody tr:hover{background:var(--paper-2);}
+.dgm-checks .y,.dgm-checks .n,.dgm-checks .p{font-weight:700;font-size:.85rem;}
+.dgm-checks .y{color:var(--ok);}
+.dgm-checks .n{color:var(--bad);}
+.dgm-checks .p{color:var(--ink-3);}
+
+/* ------------------------------------------------------------------ misc ---- */
+/* a lone big number with its caption — for one hard fact in the flow of prose */
+.dgm-fact{display:flex;align-items:baseline;gap:.85rem;flex-wrap:wrap;}
+.dgm-fact>b{font-family:var(--grot);font-size:clamp(2.4rem,7vw,3.6rem);font-weight:700;
+  line-height:.85;letter-spacing:-.055em;color:var(--f-t,var(--field-t,var(--f,var(--field,var(--ink)))));}
+.dgm-fact>span{font-family:var(--grot);font-size:.815rem;line-height:1.4;color:var(--ink-2);
+  flex:1 1 12rem;min-width:0;}
+
+/* a figure the reader can widen past the text measure */
+.fig.wide{max-width:none;}
+
+@media print{
+  .fig{border-color:#000 !important;break-inside:avoid;}
+  .fig>figcaption::before{color:#000;}
+  .dgm-stack>.lyr>b,.dgm-flow>.stp{color:#000 !important;}
+  .dgm-stack>.lyr>b{background:#fff !important;border-bottom:1px solid #000;}
+  .dgm-bars .bt::before{background:#000 !important;}
+}
