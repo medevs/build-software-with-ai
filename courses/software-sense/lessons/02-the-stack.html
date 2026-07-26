@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2 · The Stack</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="Frontend, backend, database — the three parts of almost every app. — lesson 2 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/02-the-stack.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/02-the-stack.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Stack","description":"Frontend, backend, database — the three parts of almost every app.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="02-the-stack">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="02-the-stack" style="--field:var(--m1);--field-t:var(--m1t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#818cf8">Module 1 · How Software Works</span>
-    <span>Lesson 2 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">01</span>
+      <span class="rail-mt">How Software Works</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 1</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">1 · How Software Works</span></dd></div>
+      <div><dt>Lesson</dt><dd>2 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">Three rooms, one restaurant</p>
   <h1>The Stack</h1>
@@ -65,6 +84,25 @@
        dining room ever goes into the pantry directly.</p></div>
   </div>
 
+  <figure class="fig">
+    <figcaption><b>The three parts, and which way the traffic runs</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-stack">
+        <div class="lyr"><b>Frontend</b><span>The screens, buttons, and text you see and click.
+          <em>The dining room.</em></span></div>
+        <div class="thru">↕ sends requests, receives answers</div>
+        <div class="lyr"><b>Backend</b><span>Does the work and enforces the rules, out of sight.
+          <em>The kitchen.</em></span></div>
+        <div class="thru">↕ reads and writes data</div>
+        <div class="lyr"><b>Database</b><span>Remembers everything after the app closes.
+          <em>The pantry.</em></span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>The rule that matters:</b> the frontend never reaches the database directly.
+      Every request goes through the backend, which is the only part that can be trusted to enforce
+      a rule.</p>
+  </figure>
+
   <div class="note"><span class="label">Why this matters for you</span> When something breaks or looks wrong, one
      of your most useful questions becomes: "which part is this?" A button that doesn't look right is a frontend
      problem. Money reaching the wrong account is a backend or database problem. Naming the room narrows down what
@@ -81,12 +119,30 @@
      and it's usually the harder half of the work.</p>
 
   <h2>Spotting the parts in something real</h2>
-  <table>
-    <tr><th>You see...</th><th>It's probably...</th></tr>
-    <tr><td>A screen, a form, a button that changes color when clicked</td><td>Frontend</td></tr>
-    <tr><td>"Checking if this email is already taken," "calculating your total"</td><td>Backend</td></tr>
-    <tr><td>Anything that's still there after you close the app and reopen it</td><td>Database</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>Which part is this? — one question per row</b></figcaption>
+    <div class="fig-b">
+      <table class="dgm-checks">
+        <thead><tr><th>What you notice</th><th>Frontend</th><th>Backend</th><th>Database</th></tr></thead>
+        <tbody>
+          <tr><td>A screen, a form, a button that changes colour when clicked</td>
+              <td class="y">✓</td><td class="n">·</td><td class="n">·</td></tr>
+          <tr><td>“Checking if this email is already taken”</td>
+              <td class="n">·</td><td class="y">✓</td><td class="p">◐</td></tr>
+          <tr><td>“Calculating your total”</td>
+              <td class="n">·</td><td class="y">✓</td><td class="n">·</td></tr>
+          <tr><td>Still there after you close the app and reopen it</td>
+              <td class="n">·</td><td class="n">·</td><td class="y">✓</td></tr>
+          <tr><td>Gone the moment you refresh the page</td>
+              <td class="y">✓</td><td class="n">·</td><td class="n">·</td></tr>
+          <tr><td>“Only admins can do this” — and it's actually true</td>
+              <td class="n">·</td><td class="y">✓</td><td class="n">·</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-n">✓ where it lives · ◐ involved · · not this part. The last row is the one people
+      get wrong: a rule that only exists in the frontend isn't a rule, it's a suggestion.</p>
+  </figure>
   <p>We'll go much deeper on how the frontend and backend actually talk to each other in the
      <a href="03-client-and-server.html">next lesson</a>, and spend a whole lesson on
      <a href="06-what-is-a-database.html">what a database really is</a> soon after.</p>
@@ -134,13 +190,15 @@
      (something that must be checked or remembered)? Share yours in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="01-what-is-software.html"><span class="lbl">Prev</span>← 1 · What Software Really Is</a>
     <a class="r" href="03-client-and-server.html"><span class="lbl">Next</span>3 · Client &amp; Server →</a>
   </nav>
   <p class="foot">Software Sense · Module 1 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

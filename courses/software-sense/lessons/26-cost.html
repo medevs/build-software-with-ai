@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>26 · The Cost of Running It</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="What actually runs up the bill, and how to build cost-aware. — lesson 26 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/26-cost.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/26-cost.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Cost of Running It","description":"What actually runs up the bill, and how to build cost-aware.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="26-cost">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="26-cost" style="--field:var(--m6);--field-t:var(--m6t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#a78bfa">Module 6 · Fast, Big &amp; Affordable</span>
-    <span>Lesson 26 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">06</span>
+      <span class="rail-mt">Fast, Big &amp; Affordable</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 6</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">6 · Fast, Big &amp; Affordable</span></dd></div>
+      <div><dt>Lesson</dt><dd>26 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">Software doesn't run for free, even when it feels invisible</p>
   <h1>The Cost of Running It</h1>
@@ -58,9 +77,31 @@
        processing, maps, email sending, and — increasingly — AI itself. Each of those is usually billed by usage,
        not a flat one-time fee.</p></div>
   </div>
+  <figure class="fig">
+    <figcaption><b>What each cost is actually billed by</b></figcaption>
+    <div class="fig-b">
+      <table class="dgm-checks">
+        <thead><tr><th>Cost</th><th>Billed by time</th><th>By volume</th><th>By request</th>
+          <th>Goes down if you do nothing</th></tr></thead>
+        <tbody>
+          <tr><td>Servers</td><td class="y">✓</td><td class="n">·</td><td class="p">◐</td><td class="p">◐</td></tr>
+          <tr><td>Storage</td><td class="y">✓</td><td class="y">✓</td><td class="n">·</td><td class="n">✗ never</td></tr>
+          <tr><td>Data transfer</td><td class="n">·</td><td class="y">✓</td><td class="n">·</td><td class="y">✓</td></tr>
+          <tr><td>Paid services &amp; APIs</td><td class="n">·</td><td class="p">◐</td><td class="y">✓</td><td class="y">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-n"><b>Look at the last column.</b> Storage is the one cost that only ever climbs
+      unless somebody decides to delete something. Everything else falls when usage falls.</p>
+  </figure>
+
   <p>The pattern across all of these: you're almost never charged a single flat price. You're charged for
      <em>usage</em> — how much you stored, how much moved, how many requests you made. That's convenient when
      usage is low, and dangerous when usage spikes and nobody's watching.</p>
+
+  <aside class="mn"><b>The one habit</b>Set a billing alert before you set anything else up. Most
+    providers let you say “email me if spending crosses this in a day.” It costs nothing and it is the
+    difference between noticing in an hour and noticing on the statement.</aside>
 
   <h2>What runs up unexpected bills</h2>
   <p>Because billing follows usage, anything that quietly multiplies usage multiplies the bill right along with
@@ -144,13 +185,15 @@
      your story in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="25-caching-and-optimizing.html"><span class="lbl">Previous</span>← 25 · Caching &amp; Optimizing</a>
     <a class="r" href="27-directing-ai.html"><span class="lbl">Next</span>27 · Directing the AI →</a>
   </nav>
   <p class="foot">Software Sense · Module 6 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

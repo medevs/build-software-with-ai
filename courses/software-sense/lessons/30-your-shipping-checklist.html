@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>30 · Your Shipping Checklist</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="The pre-ship checklist that pulls the whole course together. — lesson 30 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/30-your-shipping-checklist.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/30-your-shipping-checklist.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Your Shipping Checklist","description":"The pre-ship checklist that pulls the whole course together.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="30-your-shipping-checklist">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="30-your-shipping-checklist" style="--field:var(--m7);--field-t:var(--m7t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#ef4444">Module 7 · Doing It With AI</span>
-    <span>Lesson 30 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">07</span>
+      <span class="rail-mt">Doing It With AI</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 7</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">7 · Doing It With AI</span></dd></div>
+      <div><dt>Lesson</dt><dd>30 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">Everything you've learned, in one page</p>
   <h1>Your Shipping Checklist</h1>
@@ -51,7 +70,7 @@
   <p>Here's the checklist that ties it together — one line from each module. Walk it before you put anything in
      front of real users.</p>
 
-  <div class="steps">
+  <ol class="steps">
     <li><strong>Does it work — including the edge cases?</strong> Not just the happy path once, in a demo.
        Empty fields, duplicates, invalid input — checked, not assumed.</li>
     <li><strong>Is it tested?</strong> Something automated actually re-checks this behavior, so you're not
@@ -66,10 +85,33 @@
        realistic traffic and a realistic budget, not just "fine for one person testing it."</li>
     <li><strong>Is it maintainable?</strong> Readable, consistent, not copy-pasted everywhere — safe for you or
        an AI to change again next month.</li>
-  </div>
+  </ol>
 
-  <p>This same list, plus the full "Ask your AI" prompt pack from every lesson, lives on the
-     <a href="../resources.html">resources page</a> — worth keeping open in a tab, not just read once here.</p>
+  <figure class="fig wide">
+    <figcaption><b>The whole course as one gate, module by module</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-stack">
+        <div class="lyr" style="--f:var(--m3)"><b>M3 · Correct</b><span>Does it work, <em>including</em>
+          the edge cases? Is something automated re-checking it?</span></div>
+        <div class="lyr" style="--f:var(--m2)"><b>M2 · Data</b><span>Is the data modelled sensibly —
+          and would losing the running copy mean losing everything?</span></div>
+        <div class="lyr" style="--f:var(--m4)"><b>M4 · Safe</b><span>Are secrets out of the code, and
+          does every sensitive action check <em>who's asking</em>?</span></div>
+        <div class="lyr" style="--f:var(--m5)"><b>M5 · Running</b><span>Deployed somewhere real, with
+          some way to notice when it breaks?</span></div>
+        <div class="lyr" style="--f:var(--m6)"><b>M6 · Affordable</b><span>Fast and cheap enough for
+          how it will <em>actually</em> be used, not for one person testing?</span></div>
+        <div class="lyr" style="--f:var(--m7)"><b>M7 · Changeable</b><span>Safe for you or an AI to
+          change again next month?</span></div>
+        <div class="thru">↓ all six clear</div>
+        <div class="lyr" style="--f:var(--ink)"><b>Ship it</b><span>Any line you can't answer with
+          evidence is your next question — not a reason to guess.</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>One line per module, and none of them needs you to read code.</b> This same list,
+      plus the full “Ask your AI” prompt pack from every lesson, lives on the
+      <a href="../resources.html">resources page</a> — worth keeping open in a tab, not read once here.</p>
+  </figure>
 
   <div class="note"><span class="label">Why this matters for you</span> Every line above is a question you're
      now equipped to ask out loud, to an AI or to a person, and to actually judge the answer to. That's the
@@ -134,13 +176,15 @@
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.
      Seeing what stuck for other people is often the best way to make it stick for you, too.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <span></span>
     <a class="r" href="../curriculum.html"><span class="lbl">Finish</span>Back to all lessons →</a>
   </nav>
   <p class="foot">Software Sense · Module 7 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

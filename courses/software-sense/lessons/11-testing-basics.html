@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>11 · Testing, Explained</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="How software proves it works — and why AI code needs it most. — lesson 11 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/11-testing-basics.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/11-testing-basics.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Testing, Explained","description":"How software proves it works — and why AI code needs it most.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="11-testing-basics">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="11-testing-basics" style="--field:var(--m3);--field-t:var(--m3t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#10b981">Module 3 · Making It Correct</span>
-    <span>Lesson 11 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">03</span>
+      <span class="rail-mt">Making It Correct</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 3</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">3 · Making It Correct</span></dd></div>
+      <div><dt>Lesson</dt><dd>11 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">Proof that keeps working, not just a good first impression</p>
   <h1>Testing, Explained</h1>
@@ -52,19 +71,33 @@
 
   <h2>Three sizes of test, in plain English</h2>
   <p>Tests come in a few common shapes, mostly differing in how much of the software they check at once:</p>
-  <div class="cards two">
-    <div class="card"><h3>Unit test</h3><p>Checks one small piece in isolation — like "does this function correctly calculate a discount?" Fast, narrow, and the first line of defense.</p></div>
-    <div class="card"><h3>Integration test</h3><p>Checks that several pieces work correctly <em>together</em> — like "when the order is saved, does the confirmation email actually get sent?" Catches problems that show up only when parts connect.</p></div>
-  </div>
-  <p>There's a third, broader kind:</p>
-  <div class="card"><h3>End-to-end test</h3><p>Acts like a real user clicking through the actual product — open the site, add an item to the cart, check out, see the confirmation. Slowest to run, but closest to what a real person actually experiences.</p></div>
-
-  <table>
-    <tr><th>Type</th><th>Checks</th><th>Speed</th><th>Catches</th></tr>
-    <tr><td>Unit</td><td>One small piece</td><td>Very fast</td><td>Logic mistakes in a single function</td></tr>
-    <tr><td>Integration</td><td>Pieces working together</td><td>Medium</td><td>Broken connections between parts</td></tr>
-    <tr><td>End-to-end</td><td>The whole user journey</td><td>Slower</td><td>What a real user would actually hit</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>Three sizes of test — how much each one looks at, and what it costs</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-stack">
+        <div class="lyr" style="--f:var(--m3)"><b>Unit<br>Very fast</b><span>Checks one small piece in
+          isolation — “does this function calculate the discount correctly?”
+          <em>Catches logic mistakes inside a single function.</em></span></div>
+        <div class="lyr" style="--f:var(--m2)"><b>Integration<br>Medium</b><span>Checks that several
+          pieces work <em>together</em> — “when the order is saved, does the confirmation email
+          actually get sent?” <em>Catches broken connections between parts.</em></span></div>
+        <div class="lyr" style="--f:var(--m4)"><b>End-to-end<br>Slower</b><span>Acts like a real user:
+          open the site, add to cart, check out, see the confirmation.
+          <em>Catches what a real person would actually hit.</em></span></div>
+      </div>
+      <ul class="dgm-bars" style="margin-top:1.7rem">
+        <li style="--p:14;--f:var(--m3)"><span class="bl">Unit — how much it covers</span>
+          <span class="bt"></span><span class="bn">narrow</span></li>
+        <li style="--p:52;--f:var(--m2)"><span class="bl">Integration</span>
+          <span class="bt"></span><span class="bn">wider</span></li>
+        <li style="--p:100;--f:var(--m4)"><span class="bl">End-to-end</span>
+          <span class="bt"></span><span class="bn">the whole journey</span></li>
+      </ul>
+    </div>
+    <p class="fig-n"><b>The wider the coverage, the slower and more fragile the test</b> — which is why
+      real setups use lots of the first kind and few of the last. Simplified here to keep the picture
+      clear; real testing has more nuance than three tidy boxes.</p>
+  </figure>
   <p>You don't need to memorize the taxonomy. What matters is the idea underneath all three: each one is a small, repeatable proof that something still works, simplified here to keep the picture clear — real testing setups have more nuance than three tidy boxes.</p>
 
   <h2>Why AI-written code needs tests <em>more</em>, not less</h2>
@@ -124,13 +157,15 @@
   <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a time an app update broke something that used to work fine. A test covering that old behavior would have caught it before it shipped. Share the story in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="10-what-done-means.html"><span class="lbl">Prev</span>10 · What "Done" Means</a>
     <a class="r" href="12-bugs-and-debugging.html"><span class="lbl">Next</span>12 · Bugs &amp; Debugging →</a>
   </nav>
   <p class="foot">Software Sense · Module 3 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

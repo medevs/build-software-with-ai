@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>10 · What "Done" Means</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="Requirements and edge cases: the gap between 'works' and 'done'. — lesson 10 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/10-what-done-means.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/10-what-done-means.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What 'Done' Really Means","description":"Requirements and edge cases: the gap between 'works' and 'done'.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="10-what-done-means">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="10-what-done-means" style="--field:var(--m3);--field-t:var(--m3t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#10b981">Module 3 · Making It Correct</span>
-    <span>Lesson 10 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">03</span>
+      <span class="rail-mt">Making It Correct</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 3</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">3 · Making It Correct</span></dd></div>
+      <div><dt>Lesson</dt><dd>10 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">Define the finish line before you run the race</p>
   <h1>What "Done" Means</h1>
@@ -56,24 +75,37 @@
 
   <h2>Edge cases: the weird inputs that reveal reality</h2>
   <p>An <strong>edge case</strong> is an input at the boundary of what's expected — unusual, extreme, or invalid, but entirely realistic. A short list to picture, using that same signup form:</p>
-  <table>
-    <tr><th>Edge case</th><th>What actually happens if you never asked</th></tr>
-    <tr><td>Empty — no email typed</td><td>Might crash, might silently create a broken account</td></tr>
-    <tr><td>Huge — a 5,000-character name</td><td>Might break the page layout or overflow storage</td></tr>
-    <tr><td>Wrong — "not-an-email" as the email</td><td>Might get accepted and never receive a confirmation</td></tr>
-    <tr><td>Zero / negative — age field set to 0 or -5</td><td>Might pass validation that only checks "is it a number"</td></tr>
-    <tr><td>Duplicate — signing up twice with the same email</td><td>Might create two accounts, or silently overwrite one</td></tr>
-    <tr><td>Malicious — someone pastes code into the name field</td><td>Might get stored and later run as instructions — a real security risk</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>Six edge cases on one signup form — and what a demo never showed you</b></figcaption>
+    <div class="fig-b">
+      <table>
+        <thead><tr><th>Kind</th><th>The input</th><th>What happens if nobody asked</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Empty</strong></td><td>No email typed</td><td>Might crash, might silently create a broken account</td></tr>
+          <tr><td><strong>Huge</strong></td><td>A 5,000-character name</td><td>Might break the page layout or overflow storage</td></tr>
+          <tr><td><strong>Wrong</strong></td><td>“not-an-email” as the email</td><td>Might get accepted and never receive a confirmation</td></tr>
+          <tr><td><strong>Zero / negative</strong></td><td>Age set to 0 or −5</td><td>Might pass a check that only asks “is it a number”</td></tr>
+          <tr><td><strong>Duplicate</strong></td><td>Signing up twice, same email</td><td>Might create two accounts, or silently overwrite one</td></tr>
+          <tr><td><strong>Malicious</strong></td><td>Code pasted into the name field</td><td>Might be stored and later run as instructions — a real security risk</td></tr>
+        </tbody>
+      </table>
+      <div class="dgm-scale" style="margin-top:1.7rem;--f:var(--m4)">
+        <div class="st" style="--from:0;--to:20"><span class="mk" style="--at:10">what a demo shows</span></div>
+        <div class="sl"><span>The happy path</span><span></span><span>Everything real users actually do</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>None of these are exotic hacker tricks</b> — they're the first ordinary week your
+      software is live. The bar above is roughly how much of reality a working demo has covered.</p>
+  </figure>
   <p>None of these are exotic hacker tricks. They're what happens the first ordinary week your software is live. A demo that never tried them hasn't been tested — it's only been shown once, in ideal conditions.</p>
 
   <h2>Writing a tiny definition of done</h2>
   <p>You don't need engineering training to write one. A useful definition of done for a feature has three short parts:</p>
-  <div class="steps">
+  <ol class="steps">
     <li><strong>The requirement.</strong> One sentence: what must this do? "A visitor can create an account with an email and password."</li>
     <li><strong>The edge cases you care about.</strong> A short list: empty fields, duplicate email, obviously invalid email, a password that's too short.</li>
     <li><strong>What "handled" means.</strong> Not "crash" or "silently do the wrong thing" — instead, a clear message telling the person what went wrong.</li>
-  </div>
+  </ol>
   <p>Hand that whole thing to the AI along with your feature request. You're no longer asking it to guess what matters — you're asking it to build to a spec you defined, and you now know exactly what to test afterward.</p>
 
   <div class="warn"><span class="label">Red flags to catch</span>
@@ -125,13 +157,15 @@
   <div class="note"><span class="label">Reflect &amp; discuss</span> Pick a form you've filled out recently — a signup, a checkout, a booking. What's one weird input (empty, duplicate, huge) you bet it never really planned for? Share it in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="09-migrations-and-backups.html"><span class="lbl">Prev</span>9 · Migrations &amp; Backups</a>
     <a class="r" href="11-testing-basics.html"><span class="lbl">Next</span>11 · Testing, Explained →</a>
   </nav>
   <p class="foot">Software Sense · Module 3 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

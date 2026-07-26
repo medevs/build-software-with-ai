@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>18 · Two-Way vs. One-Way Doors</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23a8480c'/><rect x='5' y='5' width='22' height='6' fill='%23fff'/><rect x='5' y='14' width='14' height='6' fill='%23fff'/><rect x='5' y='23' width='18' height='4' fill='%23fff'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="Move fast on reversible calls; slow down on the ones you can't undo. — lesson 18 of 30 in The Agentic Coding Course, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/18-two-way-doors.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/18-two-way-doors.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/agentic-coding.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Two-Way vs. One-Way Doors","description":"Move fast on reversible calls; slow down on the ones you can't undo.","isPartOf":{"@type":"Course","name":"The Agentic Coding Course","url":"https://medevs.github.io/build-software-with-ai/courses/agentic-coding/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="18-two-way-doors">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
-  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+<body class="lesson" data-lesson="18-two-way-doors" style="--field:var(--m4);--field-t:var(--m4t);--accent:var(--course-b);--accent-t:var(--course-b-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
+  <a class="brand" href="../index.html">The&nbsp;<b>Agentic Coding</b>&nbsp;Course</a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#f59e0b">Module 4 · Planning at Altitude</span>
-    <span>Lesson 18 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">04</span>
+      <span class="rail-mt">Planning at Altitude</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 4</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">4 · Planning at Altitude</span></dd></div>
+      <div><dt>Lesson</dt><dd>18 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">Not every decision deserves the same amount of thought</p>
   <h1>Two-Way vs. One-Way Doors</h1>
@@ -47,14 +66,43 @@
   <p>Picture a decision as a door you walk through. A <strong>two-way door</strong> swings both ways: if it turns out to be the wrong room, you just walk back and try another. A <strong>one-way door</strong> locks behind you: once you're through, undoing it is expensive, slow, or sometimes impossible. This framing — popularized at Amazon by Jeff Bezos — is a lens for calibrating how much deliberation any given decision actually deserves.</p>
   <div class="note"><span class="label">The key move</span> The mistake isn't making a bad call. It's applying the wrong amount of care to it — agonizing over something reversible, or rushing something that isn't.</div>
 
-  <table>
-    <thead><tr><th></th><th>Two-way door</th><th>One-way door</th></tr></thead>
-    <tbody>
-      <tr><td>Reversibility</td><td>Cheap to undo</td><td>Expensive or impossible to undo</td></tr>
-      <tr><td>Right pace</td><td>Decide fast, move on</td><td>Slow down, deliberate, maybe spike it</td></tr>
-      <tr><td>Example</td><td>Naming a function, choosing a library for one small utility</td><td>A schema change that ripples through the API and several downstream consumers</td></tr>
-    </tbody>
-  </table>
+  <figure class="fig">
+    <figcaption><b>How much care a decision actually deserves</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-matrix">
+        <span class="hd"></span>
+        <span class="hd">Touches one place</span>
+        <span class="hd">Touches many places</span>
+
+        <span class="rh">Cheap to undo</span>
+        <div class="q"><b>Decide in seconds</b><span>A variable name, the shape of one function.
+          Deliberating here is pure waste.</span></div>
+        <div class="q"><b>Decide fast, note it</b><span>A library for one small utility. Contained
+          enough that being wrong costs one afternoon.</span></div>
+
+        <span class="rh">Costly to undo</span>
+        <div class="q"><b>Decide, then watch</b><span>A convention you're introducing. Cheap to undo
+          now, painful to undo in a month.</span></div>
+        <div class="q hot" style="--f:var(--m7)"><b>Slow down. Spike it.</b><span>A shared schema
+          change that ripples through the API and every consumer downstream. The rare one-way
+          door.</span></div>
+
+        <span class="ax-x">← more contained &nbsp;·&nbsp; wider blast radius →</span>
+      </div>
+      <table class="dgm-checks" style="margin-top:1.7rem">
+        <thead><tr><th></th><th>Two-way door</th><th>One-way door</th></tr></thead>
+        <tbody>
+          <tr><td>Reversibility</td><td>Cheap to undo</td><td>Expensive or impossible</td></tr>
+          <tr><td>Right pace</td><td>Decide fast, move on</td><td>Deliberate, maybe spike it</td></tr>
+          <tr><td>Who decides</td><td>Let the agent propose and pick</td><td>Pull the human in</td></tr>
+          <tr><td>How common</td><td class="y">The overwhelming majority</td><td class="p">Rare</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-n"><b>Only the bottom-right cell earns real deliberation</b> — and almost nothing
+      lands there. The mistake is never the bad call; it's spending one-way-door care on a
+      two-way-door decision, or the reverse.</p>
+  </figure>
 
   <h2>Most coding decisions are two-way doors</h2>
   <p>Here's the part that surprises people: the overwhelming majority of decisions you make while building software are reversible. Which variable name to use, how to structure one function, which of two nearly-identical libraries to reach for — all of these are two-way doors. If you pick wrong, the fix is a small, contained change. Treating every one of these like a irreversible commitment is how planning grinds to a halt over decisions that genuinely don't matter that much.</p>
@@ -107,13 +155,15 @@
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a recent decision you agonized over that turned out to be a two-way door — or one you rushed that turned out to be one-way. What would you do differently next time? Bring your answer to the <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>; comparing notes with other learners is where a lot of the real learning happens.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="17-architecture-decisions.html"><span class="lbl">Previous</span>17 · Architecture Decisions</a>
     <a class="r" href="19-slicing-tickets.html"><span class="lbl">Next</span>19 · Slicing the Work →</a>
   </nav>
   <p class="foot">The Agentic Coding Course · Module 4 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

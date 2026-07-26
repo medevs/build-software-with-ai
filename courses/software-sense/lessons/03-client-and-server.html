@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>3 · Client &amp; Server</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="What happens between your click and the screen updating. — lesson 3 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/03-client-and-server.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/03-client-and-server.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Client & Server","description":"What happens between your click and the screen updating.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="03-client-and-server">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="03-client-and-server" style="--field:var(--m1);--field-t:var(--m1t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#818cf8">Module 1 · How Software Works</span>
-    <span>Lesson 3 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">01</span>
+      <span class="rail-mt">How Software Works</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 1</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">1 · How Software Works</span></dd></div>
+      <div><dt>Lesson</dt><dd>3 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">Sending mail, and waiting for the reply</p>
   <h1>Client &amp; Server</h1>
@@ -48,13 +67,32 @@
      one asking for things. Somewhere else — often in a data center you'll never see — sits the
      <strong>server</strong>: an always-on computer running the backend, waiting to answer.</p>
   <p>The whole exchange works like ordering something by mail:</p>
-  <div class="steps">
+  <ol class="steps">
     <li>You write an order and send it off. In software, this is a <strong>request</strong> — the client asking the server for something ("show me my messages," "save this photo").</li>
     <li>Your letter travels over a delivery network. In software, that's the internet — cables, towers, and routers carrying the request to the right server.</li>
     <li>The server reads the request, does the work, and mails something back. That's the <strong>response</strong> — the answer the client receives and shows you.</li>
-  </div>
+  </ol>
   <p>Every single thing an app does — loading a page, posting a comment, checking your balance — is one or more of
      these request-and-response round trips happening, usually in well under a second.</p>
+
+  <figure class="fig">
+    <figcaption><b>One round trip — what happens between your tap and the screen changing</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-flow loop" data-return="…and the response travels the same road back">
+        <div class="stp"><b>1 · You tap</b><span>The client — your phone or laptop — decides it needs
+          something it doesn't have.</span></div>
+        <div class="stp"><b>2 · Request</b><span>It writes a specific ask: “show me my messages.”</span></div>
+        <div class="stp"><b>3 · The network</b><span>Cables, towers, routers. This leg is the one you
+          can't control.</span></div>
+        <div class="stp"><b>4 · The server</b><span>Reads the request, checks the rules, asks the
+          database, builds an answer.</span></div>
+        <div class="stp"><b>5 · Response</b><span>The answer comes back and the screen updates.</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Three places this can go wrong,</b> and they feel identical to the user: the
+      request never left, the network lost it, or the server couldn't answer. Naming which one is
+      most of debugging.</p>
+  </figure>
 
   <div class="note"><span class="label">Why this matters for you</span> Nothing your app does is instant or free.
      Every tap sends a letter out and waits for a reply. That round trip is where slowness, errors, and "why did
@@ -65,18 +103,46 @@
      server understands and is willing to answer. That agreed set is called an <strong>API</strong> (application
      programming interface). Think of it as the menu a waiter hands you: you can't order anything you like, you order
      from the list of dishes the kitchen has agreed to make.</p>
+  <aside class="mn"><b>Jargon, once</b>API stands for “application programming interface.” Nobody says
+    the long version out loud. You will hear people say “call the API” and “the API is down” — both just
+    mean the menu of requests the server accepts.</aside>
+
   <blockquote>The API is the waiter: it only accepts requests the kitchen has agreed to handle, phrased the way the kitchen expects.</blockquote>
   <p>When an AI "builds an API" for your app, it's writing down that menu — which requests the server will accept
      ("get my order history," "add an item to my cart") and exactly what it needs from you to do it. Anything not on
      the menu, the server refuses.</p>
 
   <h2>"It's slow" or "it's down" — where to look</h2>
-  <table>
-    <tr><th>Symptom</th><th>Where to look first</th></tr>
-    <tr><td>Whole app won't load, for everyone</td><td>The server is probably down or overloaded</td></tr>
-    <tr><td>Just your device is stuck spinning</td><td>Your connection to the internet</td></tr>
-    <tr><td>App loads but one action never finishes</td><td>That one request — likely a slow or broken part of the backend</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>Narrowing it down with one question</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-tree">
+        <div class="tq">Is it broken for everyone, or only for you?</div>
+        <div class="tb">
+          <div class="tbr" data-e="Everyone">
+            <b>Look at the server</b>
+            <span>Probably down, overloaded, or a bad deploy just went out.</span>
+            <div class="dgm-tree">
+              <div class="tq">Everything, or one action?</div>
+              <div class="tb">
+                <div class="tbr" data-e="All"><b>The server or its deploy</b><span>Check whether it's
+                  running at all.</span></div>
+                <div class="tbr" data-e="One"><b>That one request</b><span>A slow or broken piece of
+                  the backend, or the database behind it.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tbr" data-e="Only you">
+            <b>Look at your side of the road</b>
+            <span>Your connection, your device, or something cached in your browser. The server is
+              answering everyone else fine.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fig-n">You can ask this before you understand a single line of the code — and it
+      eliminates most of the search space in one step.</p>
+  </figure>
   <p>Because the client and server are separate machines, either one can be the problem — and so can the delivery
      network between them. That's also why an app can feel instant for you and unusably slow for someone with a
      weak connection, even though the server is doing exactly the same work both times.</p>
@@ -123,13 +189,15 @@
      part is the bottleneck: your connection, the server, or one specific request. Share what you noticed in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="02-the-stack.html"><span class="lbl">Prev</span>← 2 · The Stack</a>
     <a class="r" href="04-languages-and-dependencies.html"><span class="lbl">Next</span>4 · Languages &amp; Dependencies →</a>
   </nav>
   <p class="foot">Software Sense · Module 1 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>3 · The Two Loops</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23a8480c'/><rect x='5' y='5' width='22' height='6' fill='%23fff'/><rect x='5' y='14' width='14' height='6' fill='%23fff'/><rect x='5' y='23' width='18' height='4' fill='%23fff'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="Build the work; improve the builder. Everything decomposes into these. — lesson 3 of 30 in The Agentic Coding Course, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/03-the-two-loops.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/03-the-two-loops.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/agentic-coding.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Two Loops","description":"Build the work; improve the builder. Everything decomposes into these.","isPartOf":{"@type":"Course","name":"The Agentic Coding Course","url":"https://medevs.github.io/build-software-with-ai/courses/agentic-coding/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="03-the-two-loops">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
-  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+<body class="lesson" data-lesson="03-the-two-loops" style="--field:var(--m1);--field-t:var(--m1t);--accent:var(--course-b);--accent-t:var(--course-b-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
+  <a class="brand" href="../index.html">The&nbsp;<b>Agentic Coding</b>&nbsp;Course</a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#818cf8">Module 1 · Foundations</span>
-    <span>Lesson 3 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">01</span>
+      <span class="rail-mt">Foundations</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 1</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">1 · Foundations</span></dd></div>
+      <div><dt>Lesson</dt><dd>3 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">The map for everything you'll do</p>
   <h1>The Two Loops</h1>
@@ -47,17 +66,36 @@
   <p>It's tempting to think agentic coding requires a different workflow for every situation — one for bug fixes,
      another for new features, another for refactors. It doesn't. Nearly everything decomposes into two loops that
      you'll recognize instantly once you see them named.</p>
-  <div class="cards two">
-    <div class="card"><h3>The inner loop</h3><p>Where you do the actual work. You take one small, well-defined
-       piece of a project and run it through a simple four-step rhythm.</p></div>
-    <div class="card"><h3>The outer loop</h3><p>Where you improve the system itself. You step back and adjust how
-       you work so the same kind of mistake is less likely to happen again.</p></div>
-  </div>
+  <figure class="fig">
+    <figcaption><b>The two loops, and how often you run each</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-vs">
+        <div><b>Inner loop — build the work</b>
+          <span class="big">Many times a day</span>
+          <p>One small, well-defined piece of a project, run through a four-step rhythm. This is where
+            almost all of your time goes.</p></div>
+        <div><b>Outer loop — improve the builder</b>
+          <span class="big">Now and then</span>
+          <p>You step back and change how you work, so a whole <em>class</em> of mistake becomes less
+            likely. Triggered by a repeat, not by a task.</p></div>
+      </div>
+      <div class="dgm-flow loop" data-return="the outer loop: change the setup so this stops recurring"
+           style="margin-top:1.9rem">
+        <div class="stp"><b>Research</b><span>Get oriented.</span></div>
+        <div class="stp"><b>Plan</b><span>Decide on paper.</span></div>
+        <div class="stp"><b>Implement</b><span>The agent writes it.</span></div>
+        <div class="stp"><b>Validate</b><span>Check it for real.</span></div>
+      </div>
+    </div>
+    <p class="fig-n">The four boxes are the inner loop. The dashed rail beneath them is the outer one —
+      you only drop onto it when you notice the <em>same</em> problem coming back.
+      <b>Driving to work every day; tuning the car occasionally.</b></p>
+  </figure>
 
   <h2>The inner loop: the core loop</h2>
   <p>The inner loop is a four-step rhythm you'll run over and over, on one small unit of work at a time — a single
      feature, a single fix, a single improvement. We'll call it <strong>the core loop</strong>, and it goes:</p>
-  <div class="steps">
+  <ol class="steps">
     <li><strong>Research.</strong> Get oriented — understand what already exists and what this piece of work
        actually needs before deciding anything.</li>
     <li><strong>Plan.</strong> Decide the approach and the shape of "done," on paper, before any code gets
@@ -65,7 +103,7 @@
     <li><strong>Implement.</strong> Let the agent write the code, following the plan you set.</li>
     <li><strong>Validate.</strong> Check the result against a real standard — run it, test it, read it — before you
        call it finished.</li>
-  </div>
+  </ol>
   <p>Notice the shape from the last lesson hiding in here: Research and Plan are the thinking that comes before the
      agent types anything; Validate is the checking that comes after. Implement — the part you fully hand off — is
      sandwiched in the middle. That's the driver's seat, formalized into four repeatable steps.</p>
@@ -138,13 +176,15 @@
      more than once. Was it ever worth a trip to the outer loop to fix the root cause, or did you just re-explain it
      every time? Share it in the <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a> — recurring-mistake stories are some of the most useful ones to compare.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="02-driver-or-passenger.html"><span class="lbl">Previous</span>← Driver's Seat vs. Passenger</a>
     <a class="r" href="04-three-ways-in.html"><span class="lbl">Next</span>4 · Three Ways In →</a>
   </nav>
   <p class="foot">The Agentic Coding Course · Module 1 · Foundations · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

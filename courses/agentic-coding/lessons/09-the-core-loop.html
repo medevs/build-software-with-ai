@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>9 · The Core Loop</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23a8480c'/><rect x='5' y='5' width='22' height='6' fill='%23fff'/><rect x='5' y='14' width='14' height='6' fill='%23fff'/><rect x='5' y='23' width='18' height='4' fill='%23fff'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="Research → Plan → Implement → Validate, one small task at a time. — lesson 9 of 30 in The Agentic Coding Course, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/09-the-core-loop.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/09-the-core-loop.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/agentic-coding.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Core Loop","description":"Research → Plan → Implement → Validate, one small task at a time.","isPartOf":{"@type":"Course","name":"The Agentic Coding Course","url":"https://medevs.github.io/build-software-with-ai/courses/agentic-coding/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="09-the-core-loop">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
-  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+<body class="lesson" data-lesson="09-the-core-loop" style="--field:var(--m3);--field-t:var(--m3t);--accent:var(--course-b);--accent-t:var(--course-b-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
+  <a class="brand" href="../index.html">The&nbsp;<b>Agentic Coding</b>&nbsp;Course</a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#10b981">Module 3 · The Core Loop</span>
-    <span>Lesson 9 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">03</span>
+      <span class="rail-mt">The Core Loop</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 3</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">3 · The Core Loop</span></dd></div>
+      <div><dt>Lesson</dt><dd>9 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">The one rhythm you'll run hundreds of times</p>
   <h1>The Core Loop</h1>
@@ -46,12 +65,41 @@
   <h2>Meet the loop</h2>
   <p>Every reliable build with a coding agent, no matter how small or how big the codebase, comes down to the same
      four-step rhythm repeated over and over:</p>
-  <div class="steps">
+  <ol class="steps">
     <li><strong>Research.</strong> Build the understanding a task needs before you plan it — the relevant code, the domain, the constraints.</li>
     <li><strong>Plan.</strong> Turn a loose conversation about the task into a written, structured plan the agent can follow.</li>
     <li><strong>Implement.</strong> Hand that plan to a fresh session and let the agent write the code.</li>
     <li><strong>Validate.</strong> Prove the work is correct — and separately, that it's well built — before anything ships.</li>
-  </div>
+  </ol>
+  <figure class="fig">
+    <figcaption><b>The core loop — one small task at a time</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-flow loop" data-return="next task · or the same task, one step back">
+        <div class="stp"><b>Research</b><span>What do I need to understand before I can plan this?</span></div>
+        <div class="stp"><b>Plan</b><span>What exactly gets built, and how will we know it works?</span></div>
+        <div class="stp"><b>Implement</b><span>A fresh session writes the code — from the plan, not
+          from the conversation.</span></div>
+        <div class="stp"><b>Validate</b><span>Prove it's correct, and separately that it's well
+          built.</span></div>
+      </div>
+      <div class="dgm-anat" style="margin-top:1.8rem">
+        <div class="sub">
+          <div class="pt"><b>1</b><span><strong>You</strong> — Research, Plan</span></div>
+          <div class="pt"><b>2</b><span><strong>The agent</strong> — Implement</span></div>
+          <div class="pt"><b>3</b><span><strong>You</strong> — Validate</span></div>
+        </div>
+        <ul class="cal">
+          <li><b>1</b><span>The thinking that comes <i>before</i> the agent types anything.</span></li>
+          <li><b>2</b><span>The one step you fully hand off — sandwiched in the middle.</span></li>
+          <li><b>3</b><span>The checking that comes <i>after</i>. The driver's seat, formalised.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fig-n"><b>Scale is the rule that makes it work:</b> the loop runs on one granular task,
+      never a whole feature and never a project. Everything else in this course is detail hanging off
+      these four boxes.</p>
+  </figure>
+
   <p>We'll call this <strong>the core loop</strong>. You'll see it abbreviated all over this course, and you'll run
      it on nearly every single task you hand to an agent from here on.</p>
 
@@ -75,11 +123,13 @@
   <h2>A quick preview of each step</h2>
   <p>Each of the four steps gets its own lesson right after this one, but here's the shape of what's coming:</p>
   <table>
-    <tr><th>Step</th><th>Question it answers</th><th>When it's essential</th></tr>
-    <tr><td>Research</td><td>What do I need to understand first?</td><td>New or vague work; skippable when the task is already well understood</td></tr>
-    <tr><td>Plan</td><td>What exactly will be built, and how will we know it works?</td><td>Always — this is the step that makes everything downstream safe</td></tr>
-    <tr><td>Implement</td><td>Who writes the code, and from what?</td><td>Always — runs from the plan, not from memory of the conversation</td></tr>
-    <tr><td>Validate</td><td>Does it work, and is it built well?</td><td>Always — the last gate before anything merges</td></tr>
+    <thead><tr><th>Step</th><th>Question it answers</th><th>When it's essential</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Research</strong></td><td>What do I need to understand first?</td><td>New or vague work; skippable when the task is already well understood</td></tr>
+      <tr><td><strong>Plan</strong></td><td>What exactly will be built, and how will we know it works?</td><td>Always — this is the step that makes everything downstream safe</td></tr>
+      <tr><td><strong>Implement</strong></td><td>Who writes the code, and from what?</td><td>Always — runs from the plan, not from memory of the conversation</td></tr>
+      <tr><td><strong>Validate</strong></td><td>Does it work, and is it built well?</td><td>Always — the last gate before anything merges</td></tr>
+    </tbody>
   </table>
 
   <div class="tip"><span class="label">A useful analogy</span> Think of a contractor building a room addition.
@@ -131,13 +181,15 @@
      for something and it went sideways. Was the task too big? Was there no plan? Bring your answer to the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a> — seeing how others diagnose their own "it went sideways" moments sharpens your own instincts fast.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a class="l" href="08-evolving-the-system.html"><span class="lbl">Prev</span>← 8 · Evolving the System</a>
     <a class="r" href="10-research-first.html"><span class="lbl">Next</span>10 · Research First →</a>
   </nav>
   <p class="foot">The Agentic Coding Course · Module 3 · The Core Loop · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

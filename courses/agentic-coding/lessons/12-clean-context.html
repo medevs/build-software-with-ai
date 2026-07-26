@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>12 · Clean Context</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23a8480c'/><rect x='5' y='5' width='22' height='6' fill='%23fff'/><rect x='5' y='14' width='14' height='6' fill='%23fff'/><rect x='5' y='23' width='18' height='4' fill='%23fff'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="Commit the plan, clear the chat, implement fresh. Dodge context rot. — lesson 12 of 30 in The Agentic Coding Course, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/12-clean-context.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/12-clean-context.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/agentic-coding.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Clean Context","description":"Commit the plan, clear the chat, implement fresh. Dodge context rot.","isPartOf":{"@type":"Course","name":"The Agentic Coding Course","url":"https://medevs.github.io/build-software-with-ai/courses/agentic-coding/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="12-clean-context">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
-  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+<body class="lesson" data-lesson="12-clean-context" style="--field:var(--m3);--field-t:var(--m3t);--accent:var(--course-b);--accent-t:var(--course-b-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
+  <a class="brand" href="../index.html">The&nbsp;<b>Agentic Coding</b>&nbsp;Course</a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#10b981">Module 3 · The Core Loop</span>
-    <span>Lesson 12 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">03</span>
+      <span class="rail-mt">The Core Loop</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 3</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">3 · The Core Loop</span></dd></div>
+      <div><dt>Lesson</dt><dd>12 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">The signature move between planning and building</p>
   <h1>Clean Context</h1>
@@ -50,11 +69,11 @@
   <p>Not "keep chatting in the same window and just tell it to start building." A genuinely new session — one
      that never saw your brain-dump, your back-and-forth, or any of the dead ends you explored along the way.</p>
 
-  <div class="steps">
+  <ol class="steps">
     <li><strong>Save.</strong> Commit or otherwise store the finished plan somewhere durable — it's your rollback point if anything goes wrong.</li>
     <li><strong>Clear.</strong> Close out the planning conversation. It already did its job; treat it as disposable from here on.</li>
     <li><strong>Start fresh.</strong> Open a new session and hand it nothing but the plan.</li>
-  </div>
+  </ol>
 
   <h2>Why not just keep going in the same conversation?</h2>
   <p>It seems more efficient to stay in one long conversation — why re-explain anything? But context is the
@@ -64,6 +83,29 @@
      where it visibly gets worse at reasoning. It starts losing track of details, contradicting earlier
      decisions, and drifting from what you actually asked for. This effect is sometimes called
      <strong>context rot</strong>: not a hard wall, but a steady decline in quality as the conversation piles up.</p>
+
+  <figure class="fig">
+    <figcaption><b>Where quality starts sliding, long before the hard limit</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-scale" style="--f:var(--m7)">
+        <div class="st" style="--from:55;--to:82"><span class="mk" style="--at:68">the “dumb zone”</span></div>
+        <div class="sl"><span>0 tokens</span><span>≈ 200k</span><span>≈ 300k +</span></div>
+      </div>
+      <div class="dgm-vs" style="margin-top:1.7rem">
+        <div class="bad"><b>Same conversation</b>
+          <span class="big">Plan + dead ends + tangents</span>
+          <p>Everything you explored and rejected rides along into implementation. That isn't more
+            context, it's more noise — and it has opinions baked in.</p></div>
+        <div class="good"><b>Fresh session</b>
+          <span class="big">The plan. Nothing else.</span>
+          <p>Its only reality is the document in front of it, so it builds exactly what the plan says
+            — nothing coloured by an argument it never heard.</p></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Context rot isn't a wall you hit, it's a slope you slide down.</b> The shaded
+      band is roughly where reasoning visibly degrades — well before any hard technical limit. Clearing
+      is how you stay left of it.</p>
+  </figure>
 
   <div class="warn"><span class="label">The trap</span> A long planning conversation full of dead ends,
      rejected approaches, and back-and-forth is exactly the kind of history that pushes a session toward the dumb
@@ -118,13 +160,15 @@
      itself later on? Share what happened in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a> — it's a great way to spot the dumb zone in your own work before it costs you real time.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a class="l" href="11-the-plan.html"><span class="lbl">Prev</span>← 11 · The Plan That Ships in One Pass</a>
     <a class="r" href="13-validate-and-gates.html"><span class="lbl">Next</span>13 · Validate &amp; Gates →</a>
   </nav>
   <p class="foot">The Agentic Coding Course · Module 3 · The Core Loop · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

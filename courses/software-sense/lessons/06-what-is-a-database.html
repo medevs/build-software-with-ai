@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>6 · What Is a Database</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="Where your app remembers everything — and why not a spreadsheet. — lesson 6 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/06-what-is-a-database.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/06-what-is-a-database.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What a Database Is","description":"Where your app remembers everything — and why not a spreadsheet.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="06-what-is-a-database">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="06-what-is-a-database" style="--field:var(--m2);--field-t:var(--m2t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#0ea5e9">Module 2 · Where Data Lives</span>
-    <span>Lesson 6 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">02</span>
+      <span class="rail-mt">Where Data Lives</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 2</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">2 · Where Data Lives</span></dd></div>
+      <div><dt>Lesson</dt><dd>6 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">The app's memory</p>
   <h1>What Is a Database</h1>
@@ -67,11 +86,38 @@
     <div class="card"><h3>Columns = fields</h3><p>Each column is one piece of information every row has — name,
        email, signup date. Every row in the table fills in the same columns.</p></div>
   </div>
-  <table>
-    <tr><th>id</th><th>name</th><th>email</th><th>signed_up</th></tr>
-    <tr><td>1</td><td>Priya Shah</td><td>priya@example.com</td><td>2024-03-02</td></tr>
-    <tr><td>2</td><td>Marco Ruiz</td><td>marco@example.com</td><td>2024-05-19</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>A “Users” table, with the parts named</b></figcaption>
+    <div class="fig-b">
+      <table class="plain">
+        <caption>Illustrative data — these people are made up</caption>
+        <thead><tr><th>id</th><th>name</th><th>email</th><th>signed_up</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Priya Shah</td><td>priya@example.com</td><td>2024-03-02</td></tr>
+          <tr><td>2</td><td>Marco Ruiz</td><td>marco@example.com</td><td>2024-05-19</td></tr>
+          <tr><td>3</td><td>Aya Fujimoto</td><td>aya@example.com</td><td>2024-11-08</td></tr>
+        </tbody>
+      </table>
+      <div class="dgm-anat" style="margin-top:1.1rem">
+        <div class="sub">
+          <div class="pt"><b>1</b><span>The whole thing is one <strong>table</strong> — “Users”</span></div>
+          <div class="pt"><b>2</b><span>Each line is one <strong>row</strong>: one real person</span></div>
+          <div class="pt"><b>3</b><span>Each heading is one <strong>column</strong>: a field every row has</span></div>
+          <div class="pt"><b>4</b><span><code>id</code> is the <strong>key</strong>: this row's permanent name</span></div>
+        </div>
+        <ul class="cal">
+          <li><b>1</b><span>One table per kind of thing. Users here; Orders and Products get their
+            own.</span></li>
+          <li><b>2</b><span>4,000 customers means 4,000 rows. Rows come and go constantly.</span></li>
+          <li><b>3</b><span>Columns rarely change — changing them is a <i>migration</i> (lesson 9).</span></li>
+          <li><b>4</b><span>Other tables point at this <code>id</code> to say “that user.” It's how
+            tables connect, and it's the whole subject of the next lesson.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fig-n">If someone can't tell you which table a piece of information lives in, nobody
+      knows where that data actually is.</p>
+  </figure>
   <p>That's a "Users" table with two rows. A real app usually has several tables that connect to each other —
      an "Orders" table that says <em>which</em> user placed <em>which</em> order. We'll build that connective
      tissue in the next lesson.</p>
@@ -79,17 +125,31 @@
   <h2>Why not just use a spreadsheet?</h2>
   <p>A spreadsheet can store rows and columns too, so it's a fair question. It falls apart the moment an app
      needs any of these:</p>
-  <div class="cards two">
-    <div class="card"><h3>Many people at once</h3><p>A spreadsheet gets confused — or corrupted — when two people
-       try to change it at the same second. A database is built for thousands of people reading and writing at
-       the same time without stepping on each other.</p></div>
-    <div class="card"><h3>Speed at scale</h3><p>Searching a spreadsheet with ten million rows for "orders from
-       last Tuesday" is slow. A database is built to answer that in a fraction of a second, even at huge size.</p></div>
-    <div class="card"><h3>Rules it enforces</h3><p>A database can refuse to save an order with no customer
-       attached, or two users with the same email. A spreadsheet will happily save nonsense.</p></div>
-    <div class="card"><h3>Reliability</h3><p>If the power cuts mid-save, a database is designed to not leave data
-       half-written. A spreadsheet offers no such promise.</p></div>
-  </div>
+  <figure class="fig">
+    <figcaption><b>Where a spreadsheet stops being enough</b></figcaption>
+    <div class="fig-b">
+      <table class="dgm-checks">
+        <thead><tr><th>What an app needs</th><th>Spreadsheet</th><th>Database</th></tr></thead>
+        <tbody>
+          <tr><td>Thousands of people reading and writing at the same second</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>“Orders from last Tuesday” out of ten million rows, instantly</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>Refusing to save an order with no customer attached</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>Refusing two users with the same email</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>Not leaving data half-written when the power cuts mid-save</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>One person exploring some numbers on a Sunday</td>
+              <td class="y">✓</td><td class="p">◐</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-n">A spreadsheet is a great tool for one person exploring numbers. A database is the
+      tool for an app that many people depend on to be correct, every time. Note the last row: the
+      spreadsheet wins something too.</p>
+  </figure>
   <p>A spreadsheet is a great tool for one person exploring numbers. A database is the tool for an app that many
      people depend on to be correct, every time.</p>
 
@@ -153,13 +213,15 @@
      That's living in a database somewhere. Share what you found in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="05-how-apps-get-built.html"><span class="lbl">Prev</span>5 · How Apps Get Built</a>
     <a class="r" href="07-modeling-your-data.html"><span class="lbl">Next</span>7 · Modeling Your Data →</a>
   </nav>
   <p class="foot">Software Sense · Module 2 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

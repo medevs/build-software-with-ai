@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>30 · Your First Week</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23a8480c'/><rect x='5' y='5' width='22' height='6' fill='%23fff'/><rect x='5' y='14' width='14' height='6' fill='%23fff'/><rect x='5' y='23' width='18' height='4' fill='%23fff'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="A concrete plan to put the whole system to work on real code. — lesson 30 of 30 in The Agentic Coding Course, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/30-your-first-week.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/30-your-first-week.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/agentic-coding.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Your First Week","description":"A concrete plan to put the whole system to work on real code.","isPartOf":{"@type":"Course","name":"The Agentic Coding Course","url":"https://medevs.github.io/build-software-with-ai/courses/agentic-coding/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="30-your-first-week">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
-  <a class="brand" href="../index.html">The <b>Agentic Coding</b> Course</a>
+<body class="lesson" data-lesson="30-your-first-week" style="--field:var(--m7);--field-t:var(--m7t);--accent:var(--course-b);--accent-t:var(--course-b-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
+  <a class="brand" href="../index.html">The&nbsp;<b>Agentic Coding</b>&nbsp;Course</a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#ef4444">Module 7 · Putting It To Work</span>
-    <span>Lesson 30 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">07</span>
+      <span class="rail-mt">Putting It To Work</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 7</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">7 · Putting It To Work</span></dd></div>
+      <div><dt>Lesson</dt><dd>30 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">The last lesson is a plan, not a concept</p>
   <h1>Your First Week</h1>
@@ -46,7 +65,7 @@
   <h2>The arc you just walked</h2>
   <p>Stand back for a second. This course moved you through four stages, and it's worth naming them because
      they're also the order you should keep growing in after today:</p>
-  <ul class="steps">
+  <ol class="steps">
     <li><strong>Use.</strong> Get a working loop running before optimizing anything — feel the difference between
        firing off a prompt and running a real process.</li>
     <li><strong>Understand.</strong> Learn each building block on its own — rules, skills, connections, sub-tasks,
@@ -55,7 +74,7 @@
        running each one by hand every time.</li>
     <li><strong>Scale.</strong> Move reliable loops off your screen — parallel, remote, or automated — so the
        system works beyond one person at one keyboard.</li>
-  </ul>
+  </ol>
   <p>You'll keep cycling through these four stages on every new project, every new tool, every new part of your
      codebase. That's not a flaw — it's the design. The plan below is one lap through <em>Use</em>, on a project
      you actually care about.</p>
@@ -63,27 +82,34 @@
   <h2>Seven days, one real project</h2>
   <p>Pick a project — new or existing, doesn't matter which — and work through this. Don't rush it into one
      sitting; let each day's habit settle before adding the next.</p>
-  <div class="cards two">
-    <div class="card"><h3>Day 1 — Pick a tool, write lean rules</h3><p>Choose a coding agent you'll commit to for
-       the week. Write a short rules file: a few sentences about what the project is, how it's structured, and
-       two or three things the agent should always or never do. Keep it under a page.</p></div>
-    <div class="card"><h3>Day 2 — Run one full loop</h3><p>Pick the smallest real task you can find. Run it
-       through all four steps by hand: Research the relevant code, write a short Plan, let the agent Implement
-       it, then Validate the result yourself before trusting it.</p></div>
-    <div class="card"><h3>Day 3 — Add your first skill</h3><p>Notice a step you repeated on Day 2 — priming
-       context, writing a plan, running validation — and turn it into a reusable skill or saved workflow so you
-       don't retype it next time.</p></div>
-    <div class="card"><h3>Day 4 — Add one guardrail</h3><p>Pick one mistake you don't want repeated — an
-       accidental destructive command, a skipped test run — and add a simple check that catches it automatically
-       instead of relying on your memory.</p></div>
-    <div class="card"><h3>Day 5 — Run a second loop, faster</h3><p>Take on a slightly bigger task. Notice how much
-       less you have to explain this time, because your rules file and skill already carry the context.</p></div>
-    <div class="card"><h3>Day 6 — Try parallel or remote</h3><p>If you have two independent small tasks, run them
-       as two separate loops at once instead of one after another. Feel the difference between doing the typing
-       and directing the work.</p></div>
-    <div class="card"><h3>Day 7 — Review and refine</h3><p>Look back at what you wrote. Cut anything in your
-       rules file that turned out to be unnecessary. Write down the one rule you wish you'd had on Day 1.</p></div>
-  </div>
+  <figure class="fig wide">
+    <figcaption><b>Seven days, one real project</b></figcaption>
+    <div class="fig-b">
+      <ol class="dgm-seq">
+        <li><b>Day 1 — Pick a tool, write lean rules</b><span>Choose a coding agent you'll commit to for
+          the week. Write a short rules file: a few sentences on what the project is, how it's
+          structured, and two or three things the agent should always or never do. Under a page.</span></li>
+        <li><b>Day 2 — Run one full loop</b><span>Smallest real task you can find. All four steps by
+          hand: Research the relevant code, write a short Plan, let the agent Implement, then Validate
+          the result yourself before trusting it.</span></li>
+        <li><b>Day 3 — Add your first skill</b><span>Notice a step you repeated on Day 2 — priming
+          context, writing a plan, running validation — and turn it into a reusable skill so you never
+          retype it.</span></li>
+        <li><b>Day 4 — Add one guardrail</b><span>Pick one mistake you don't want repeated, and add a
+          simple check that catches it automatically instead of relying on your memory.</span></li>
+        <li><b>Day 5 — Run a second loop, faster</b><span>A slightly bigger task. Notice how much less
+          you have to explain, because your rules file and your skill already carry it.</span></li>
+        <li><b>Day 6 — Try parallel or remote</b><span>Two independent small tasks, run as two loops at
+          once instead of one after another. Feel the difference between typing and directing.</span></li>
+        <li><b>Day 7 — Review and refine</b><span>Cut anything in your rules file that turned out
+          unnecessary. Write down the one rule you wish you'd had on Day 1 — that's your first turn of
+          the outer loop.</span></li>
+      </ol>
+    </div>
+    <p class="fig-n"><b>Every day leans on the one before it</b> — the skill on Day 3 only exists
+      because Day 2 revealed the repetition, and Day 7 only has something to cut because Days 1–6
+      wrote it.</p>
+  </figure>
 
   <div class="tip"><span class="label">If a day slips</span> Repeat it rather than skip ahead. The habit matters
      more than the calendar — a slower first week that actually sticks beats a fast one you abandon.</div>
@@ -134,13 +160,15 @@
      the community is where this system keeps getting sharper, for you and for everyone else running the same
      seven days.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="29-scaling-and-automation.html"><span class="lbl">Prev</span>← 29 · Scaling &amp; Automation</a>
     <a class="r" href="../curriculum.html"><span class="lbl">Finish</span>Back to all lessons →</a>
   </nav>
   <p class="foot">The Agentic Coding Course · Module 7 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>

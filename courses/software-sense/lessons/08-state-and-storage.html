@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>8 · State &amp; Storage</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128161;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3a8f'/><rect x='5' y='5' width='22' height='7' fill='%23fff'/><rect x='5' y='15' width='22' height='5' fill='%23fff' opacity='.65'/><rect x='5' y='23' width='22' height='4' fill='%23fff' opacity='.4'/></svg>">
 <link rel="stylesheet" href="../../../assets/site.css">
+<link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
 <meta name="description" content="What the app remembers, for how long, and where it keeps it. — lesson 8 of 30 in Software Sense, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/08-state-and-storage.html">
@@ -16,28 +17,46 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/software-sense/lessons/08-state-and-storage.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/software-sense.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"State & Storage","description":"What the app remembers, for how long, and where it keeps it.","isPartOf":{"@type":"Course","name":"Software Sense","url":"https://medevs.github.io/build-software-with-ai/courses/software-sense/"}}</script>
 <!-- seo:end -->
 </head>
-<body data-lesson="08-state-and-storage">
-<nav class="topnav">
-  <a class="home" href="../../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
+<body class="lesson" data-lesson="08-state-and-storage" style="--field:var(--m2);--field-t:var(--m2t);--accent:var(--course-a);--accent-t:var(--course-a-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
   <a class="brand" href="../index.html"><b>Software Sense</b></a>
+  <span class="spacer"></span>
   <a href="../index.html">Map</a>
   <a href="../curriculum.html">Curriculum</a>
   <a href="../resources.html">Resources</a>
 </nav>
 
-<div class="wrap">
-  <div class="lesson-meta">
-    <span class="pill" style="background:#0ea5e9">Module 2 · Where Data Lives</span>
-    <span>Lesson 8 of 30</span><span>·</span><span>~5 min</span>
-  </div>
+<div class="sheet">
+  <aside class="rail" aria-label="Lesson navigation">
+    <div class="rail-field">
+      <span class="rail-mn">02</span>
+      <span class="rail-mt">Where Data Lives</span>
+    </div>
+    <p class="rail-sec">On this page</p>
+    <ul class="rail-toc" id="railtoc"></ul>
+    <div class="rail-foot">
+      <p class="rail-prog" id="railprog">Module 2</p>
+      <div class="rail-bar"><i id="railbar"></i></div>
+      <a class="rail-jump" href="../curriculum.html">All 30 lessons →</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+  <dl class="spec">
+      <div><dt>Module</dt><dd><span class="pill">2 · Where Data Lives</span></dd></div>
+      <div><dt>Lesson</dt><dd>8 of 30</dd></div>
+      <div><dt>Reading time</dt><dd id="rtime">~5 min</dd></div>
+      <div><dt>Status</dt><dd class="v" id="lstatus">Not complete</dd></div>
+    </dl>
 
   <p class="kicker">What the app knows right now</p>
   <h1>State &amp; Storage</h1>
@@ -52,35 +71,57 @@
      because different somewheres behave very differently.</p>
 
   <h2>Four places state can live</h2>
-  <div class="cards two">
-    <div class="card"><h3>The database</h3><p>Permanent. Survives closing the app, restarting the device, months
-       passing. This is where anything the user would be upset to lose belongs — orders, saved posts, account
-       details.</p></div>
-    <div class="card"><h3>A session</h3><p>Lasts only until you log out or leave — a temporary "you are logged in
-       as Priya" note the app keeps for as long as you're actively using it, then discards.</p></div>
-    <div class="card"><h3>Files</h3><p>Storage for things like uploaded photos or documents — not tucked inside a
-       database table, but saved as their own files, with the database usually just keeping a note of where to
-       find them.</p></div>
-    <div class="card"><h3>Memory (in-process)</h3><p>The most temporary of all: information held only while a
-       specific screen or feature is actively running, gone the instant it closes — like text you've typed but
-       not yet submitted.</p></div>
-  </div>
-  <p>Each one trades permanence for speed. Memory is instant but vanishes almost immediately. The database is
-     slower to read from but practically permanent. Sessions and files sit in between.</p>
+  <figure class="fig">
+    <figcaption><b>The four places, ordered by how long they remember</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-stack">
+        <div class="lyr"><b>Database<br>Permanent</b><span>Survives closing the app, restarting the
+          device, months passing. <em>Anything the user would be upset to lose: orders, saved posts,
+          account details.</em></span></div>
+        <div class="lyr"><b>Files<br>Permanent</b><span>Uploaded photos and documents, saved as their
+          own files rather than inside a table. <em>The database usually just keeps a note of where
+          to find them.</em></span></div>
+        <div class="lyr"><b>Session<br>This visit</b><span>A temporary “you are logged in as Priya”
+          note, kept while you're actively using the app and then discarded.
+          <em>Gone when you log out.</em></span></div>
+        <div class="lyr"><b>Memory<br>This screen</b><span>Held only while one screen or feature is
+          running. <em>Text you've typed but not yet submitted. Gone the instant it closes.</em></span></div>
+      </div>
+      <div class="dgm-scale" style="margin-top:1.6rem" aria-hidden="true">
+        <div class="st" style="--from:0;--to:52"><span class="mk" style="--at:52">a shopping cart
+          belongs here</span></div>
+        <div class="sl"><span>Milliseconds</span><span>One visit</span><span>Forever</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Each place trades permanence for speed.</b> Memory is instant and vanishes;
+      the database is slower to read and practically permanent. “It forgot my cart” is almost always
+      a cart that was stored two rows too far down this list.</p>
+  </figure>
 
   <h2>Why mixing these up causes real bugs</h2>
   <p>"It forgot my cart" is usually one specific mistake: the cart was kept only in memory or a session, when the
      user expected database-level permanence. Add an item, close the app before checking out, come back tomorrow —
      and if the cart lived only in short-term state, it's gone, even though nothing "went wrong" from the
      computer's point of view. It did exactly what it was told; it just wasn't told to remember that far.</p>
-  <div class="cards two">
-    <div class="card"><h3>Too permanent</h3><p>Saving something to the database that should have been temporary —
-       like every keystroke of an unsent message — wastes space and can even leak information the user never
-       meant to keep.</p></div>
-    <div class="card"><h3>Too temporary</h3><p>Keeping something only in a session or memory that the user
-       clearly expects to survive — like a shopping cart, or a half-finished order — causes exactly the "it
-       forgot" complaint.</p></div>
-  </div>
+  <figure class="fig">
+    <figcaption><b>The two ways to get it wrong</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-vs">
+        <div class="bad"><b>Too temporary</b>
+          <span class="big">“It forgot my cart”</span>
+          <p>Kept in a session or in memory when the user clearly expects it to survive — a cart, a
+            half-finished order, a draft. Nothing “went wrong”; the app was simply never told to
+            remember that far.</p></div>
+        <div class="bad"><b>Too permanent</b>
+          <span class="big">“Why do you still have that?”</span>
+          <p>Written to the database when it should have evaporated — every keystroke of an unsent
+            message, every abandoned search. Wastes space and quietly keeps information the user
+            never meant to give you.</p></div>
+      </div>
+    </div>
+    <p class="fig-n">Both are judgment calls about user expectations, not technical decisions — which
+      is exactly why you can weigh in on them without reading a line of code.</p>
+  </figure>
   <p>Getting this right isn't a technical detail — it's a judgment call about user expectations, which is
      something you can absolutely weigh in on without writing a line of code.</p>
 
@@ -140,13 +181,15 @@
      that information wrong. Share your guess in the
      <a href="https://github.com/medevs/build-software-with-ai/discussions" target="_blank" rel="noopener">course discussions</a>.</div>
 
-  <nav class="prevnext">
+  <nav class="prevnext" aria-label="Lesson navigation">
     <a href="07-modeling-your-data.html"><span class="lbl">Prev</span>7 · Modeling Your Data</a>
     <a class="r" href="09-migrations-and-backups.html"><span class="lbl">Next</span>9 · Migrations &amp; Backups →</a>
   </nav>
   <p class="foot">Software Sense · Module 2 · <a href="../curriculum.html">All lessons</a></p>
+</main>
 </div>
 
+<script src="../course.js"></script>
 <script src="../../../assets/progress.js"></script>
 <script src="../../../assets/quiz.js"></script>
 </body>
