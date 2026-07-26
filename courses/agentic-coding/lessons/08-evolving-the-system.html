@@ -83,11 +83,45 @@
      keep moving. Reach for a system fix specifically when something goes wrong <em>more than once</em>, or when
      it's clearly a big deal even the first time.</div>
 
+  <h2>Don't wait for the mistake</h2>
+  <p>Waiting for a mistake to repeat works, but it's reactive — it only ever fixes what has already cost you
+     something. As your system grows, two more deliberate motions take over.</p>
+  <div class="cards two">
+    <div class="card"><h3>Find the gap</h3><p>Read how you <em>actually</em> work — the corrections you keep
+       typing, the checks you keep running by hand — and let that tell you what to encode next. If your agent
+       keeps a readable history of your sessions, "read my last month of sessions and tell me what I repeat"
+       is a genuinely useful prompt.</p></div>
+    <div class="card"><h3>Guard the gap</h3><p>Check that the piece you added is actually good — and
+       <em>stays</em> good after you edit it, or after the model underneath it changes. An improvement you
+       never check is an improvement you're taking on faith.</p></div>
+  </div>
+  <p>The first half has one trap worth naming: it surfaces patterns, it doesn't decide for you. Noticing that
+     you retype the same three sentences every session is easy; deciding whether that becomes a rule, a skill,
+     or a guardrail is your call, and <a href="06-six-building-blocks.html">the six building blocks</a> are the
+     menu you pick from.</p>
+  <p>For the second half, "did it work?" is the obvious question. Two less obvious ones are worth asking
+     every time you change your setup:</p>
+  <div class="cards two">
+    <div class="card"><h3>What did it cost?</h3><p>Time and tokens. A workflow that gets there through twenty
+       tool calls when five would do is a workflow worth trimming.</p></div>
+    <div class="card"><h3>What did it improvise?</h3><p>What did the agent invent on the fly because your rule
+       or skill didn't cover it? Today's improvisation is tomorrow's permanent step.</p></div>
+  </div>
+  <div class="warn"><span class="label">Additions aren't automatically wins</span> It's tempting to assume
+     every rule and skill you add makes the agent better. It doesn't work that way — an addition that helps on
+     most tasks can still make a handful of them worse, by pulling the agent toward a workflow that didn't fit
+     them. That's the argument for checking instead of assuming.</div>
+  <p>Checking doesn't have to be elaborate. Keep three or four tasks you care about — a commit message, a
+     small refactor, a review — and re-run them by hand after any meaningful edit to your rules or skills.
+     Left alone, a context layer quietly stops matching how you want to work: you edit it, the code moves, the
+     model under it changes. You won't notice that by feel. You notice it because something you decided
+     mattered is getting checked.</p>
+
   <h2>Two loops, one habit</h2>
   <p>This is the same "outer loop" idea from earlier in the course, now made concrete: most of your time is
-     spent in the inner loop, actually building. But every so often, a recurring problem is your cue to step
-     out of that loop briefly, patch the context layer, and step back in with a slightly better system than you
-     had before.</p>
+     spent in the inner loop, actually building. But every so often — a recurring problem, or a pattern you
+     spotted in your own history — is your cue to step out of that loop briefly, patch the context layer, and
+     step back in with a slightly better system than you had before.</p>
 
   <h2>Check yourself</h2>
 
@@ -115,9 +149,17 @@
     <p class="fb"></p>
   </div>
 
+  <div class="quiz" data-answer="1" data-why="Reading your own history tells you what to encode next; re-running a few tasks you care about tells you whether what you encoded actually helped. Finding the gap and guarding it are two different moves." >
+    <p class="q">Beyond waiting for a mistake to repeat, what are the two more deliberate ways to evolve your system?</p>
+    <button>Switching agents regularly, and reading release notes</button>
+    <button>Reading how you actually work to find what to encode, and checking that what you encoded holds up</button>
+    <button>Writing more rules, and writing longer rules</button>
+    <p class="fb"></p>
+  </div>
+
   <h2>The one thing to remember</h2>
-  <p><strong>When a mistake recurs, fix the context layer, not just the code.</strong> That's the move that
-     makes every future session start from a better place than the last one.</p>
+  <p><strong>When a mistake recurs, fix the context layer, not just the code</strong> — and check the changes
+     you make to it instead of assuming they helped.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Think of a mistake your agent has made more
