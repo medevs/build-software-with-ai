@@ -1,0 +1,637 @@
+commit 21cc5701a9b2f9be27ad08d0bef08e15d88b2657
+Author: medevs <44034059+medevs@users.noreply.github.com>
+Date:   Sun Jul 26 18:01:58 2026 +0200
+
+    content: 17 figures across Software Sense
+    
+    A plate wherever the visual carries the idea better than the paragraph does:
+    the demo/product checklist (01), the dependency stack (04), the four places a
+    change can sit (05), the two data models (07), the migration order (09), the
+    reproduce-it tree (12), defense in depth (14), secrets in code vs environment
+    (16), three attacks one habit (17), the collect-or-cut matrix (18), the deploy
+    pipeline (20), logs/monitoring/alerts in time (21), the incident order (22),
+    the 1,000x fact (24), the cache decision tree (25), the anatomy of a brief
+    (27), and deliberate vs accidental debt (29).
+    
+    Four plain tables and two card pairs are replaced rather than duplicated.
+    Lessons 13 and 28 get nothing: both already carry a checklist that is the
+    diagram, and a second one would be decoration.
+    
+    Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
+
+diff --git a/courses/software-sense/lessons/01-what-is-software.html b/courses/software-sense/lessons/01-what-is-software.html
+index 8f9a26f..adec782 100644
+--- a/courses/software-sense/lessons/01-what-is-software.html
++++ b/courses/software-sense/lessons/01-what-is-software.html
+@@ -102,6 +102,24 @@
+      people using it at once, or can be changed next month without breaking — those are separate questions the demo
+      never answered. The rest of this course is those questions.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>What a demo has actually answered</b></figcaption>
++    <div class="fig-b">
++      <table class="dgm-checks">
++        <thead><tr><th>The question</th><th>A demo answers</th><th>A product must answer</th></tr></thead>
++        <tbody>
++          <tr><td>Does it run once, for one person, on a good day?</td><td class="y">✓</td><td class="y">✓</td></tr>
++          <tr><td>Does it hold up when the input is empty, odd, or hostile?</td><td class="n">✗</td><td class="y">✓</td></tr>
++          <tr><td>Is other people's data safe inside it?</td><td class="n">✗</td><td class="y">✓</td></tr>
++          <tr><td>Does it still work with a thousand people using it at once?</td><td class="n">✗</td><td class="y">✓</td></tr>
++          <tr><td>Can it be changed next month without breaking?</td><td class="n">✗</td><td class="y">✓</td></tr>
++        </tbody>
++      </table>
++    </div>
++    <p class="fig-n"><b>A demo answers the top row and nothing else.</b> Every other row is a question somebody
++      still has to ask out loud — and those four rows are, roughly, the rest of this course.</p>
++  </figure>
++
+   <div class="warn"><span class="label">Red flags to catch</span>
+     <ul style="margin:.3rem 0 0;">
+       <li>You (or the AI) call it “done” before anyone ever said what “done” should mean.</li>
+diff --git a/courses/software-sense/lessons/04-languages-and-dependencies.html b/courses/software-sense/lessons/04-languages-and-dependencies.html
+index 48940df..a7dafc2 100644
+--- a/courses/software-sense/lessons/04-languages-and-dependencies.html
++++ b/courses/software-sense/lessons/04-languages-and-dependencies.html
+@@ -84,6 +84,25 @@
+      unit — that you bolt on where you need it. An AI building your app is, most of the time, wiring together dozens
+      or hundreds of these pre-made pieces, plus a smaller amount of code written just for you.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>How much of your app you actually wrote</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-stack">
++        <div class="lyr"><b>Your code</b><span>The part written just for this app — your rules, your screens,
++          your particular business. <em>Usually the thinnest of the four layers.</em></span></div>
++        <div class="thru">↑ inherits everything below it — the features and the flaws</div>
++        <div class="lyr"><b>Libraries</b><span>Pre-made parts bolted on where needed: a date picker, a payment
++          client, a PDF writer. <em>Dozens or hundreds of them is ordinary.</em></span></div>
++        <div class="lyr"><b>Framework</b><span>The structural kit that decides how everything above it is
++          arranged. <em>The hardest layer to swap out later.</em></span></div>
++        <div class="lyr"><b>Language &amp; runtime</b><span>The vocabulary the instructions are written in, and
++          the thing that runs them. <em>Chosen once, early, often by your AI.</em></span></div>
++      </div>
++    </div>
++    <p class="fig-n"><b>You answer for all four layers and you wrote only the top one.</b> That is the trade
++      dependencies make: months of work saved, and a flaw anywhere below it inherited without you ever seeing it.</p>
++  </figure>
++
+   <div class="cards two">
+     <div class="card"><h3>The upside: speed</h3><p>Using a well-built pre-made window is faster and usually safer
+        than forging glass yourself. Dependencies let an AI assemble in hours what would take months to build from
+diff --git a/courses/software-sense/lessons/05-how-apps-get-built.html b/courses/software-sense/lessons/05-how-apps-get-built.html
+index 18a88ba..41caae0 100644
+--- a/courses/software-sense/lessons/05-how-apps-get-built.html
++++ b/courses/software-sense/lessons/05-how-apps-get-built.html
+@@ -102,6 +102,24 @@
+      Something can look completely finished on the test copy and still not be on the real menu yet. We'll spend a
+      whole lesson later on these different "environments" and what has to happen to move safely between them.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>Four places a finished change can be sitting</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-flow">
++        <div class="stp"><b>Edited</b><span>Changed on one machine and nowhere else. No history yet — there is
++          no “before” to go back to.</span></div>
++        <div class="stp"><b>Committed</b><span>Recorded in the history as a labelled snapshot, with a note
++          saying what changed and why.</span></div>
++        <div class="stp"><b>Pushed</b><span>Uploaded to the shared copy, so other people and other machines can
++          see it. Still running for nobody.</span></div>
++        <div class="stp"><b>Live</b><span>Deployed to the copy real users reach. Only at this step has anything
++          changed for them.</span></div>
++      </div>
++    </div>
++    <p class="fig-n"><b>“I already fixed it” can mean any of these four.</b> Three of them are invisible to your
++      users, which is why the useful follow-up question is always “fixed where?”</p>
++  </figure>
++
+   <div class="warn"><span class="label">Red flags to catch</span>
+     <ul style="margin:.3rem 0 0;">
+       <li>Changes are being made with no version control at all — no history, no undo.</li>
+diff --git a/courses/software-sense/lessons/07-modeling-your-data.html b/courses/software-sense/lessons/07-modeling-your-data.html
+index a4adf88..e5ddae7 100644
+--- a/courses/software-sense/lessons/07-modeling-your-data.html
++++ b/courses/software-sense/lessons/07-modeling-your-data.html
+@@ -99,6 +99,29 @@
+        <code>book_1</code>, <code>book_2</code>, <code>book_3</code> for up to three books per order. Someone
+        orders a fourth book, and now there's nowhere for it to go without changing every row that came before.</p></div>
+   </div>
++  <figure class="fig">
++    <figcaption><b>The same bookstore order, modelled two ways</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-vs">
++        <div class="good"><b>Separated and connected</b>
++          <span class="big">Users → Orders → Order Items</span>
++          <ul>
++            <li>A fourth book on an order is one more row.</li>
++            <li>“How many copies of this title sold?” is one question, to one table.</li>
++            <li>Letting an order hold fifty books changes nothing.</li>
++          </ul></div>
++        <div class="bad"><b>Crammed into fixed slots</b>
++          <span class="big">book_1 · book_2 · book_3</span>
++          <ul>
++            <li>A fourth book has nowhere to go.</li>
++            <li>Counting sales means checking three columns — and hoping there is never a fourth.</li>
++            <li>Adding a slot reshapes every order ever placed.</li>
++          </ul></div>
++      </div>
++    </div>
++    <p class="fig-n"><b>Both of these work perfectly in a demo.</b> They stop being equivalent on the day a real
++      customer orders four books, which is also the day the repair is at its most expensive.</p>
++  </figure>
+   <p>The messy version isn't "wrong" in a demo — it can work for a first test. The problem shows up later,
+      exactly when it's most expensive: real customers have already placed orders, and now the shape itself needs
+      surgery while protecting data that's already there.</p>
+diff --git a/courses/software-sense/lessons/09-migrations-and-backups.html b/courses/software-sense/lessons/09-migrations-and-backups.html
+index 5a2fe46..9a332a7 100644
+--- a/courses/software-sense/lessons/09-migrations-and-backups.html
++++ b/courses/software-sense/lessons/09-migrations-and-backups.html
+@@ -104,6 +104,28 @@
+        out of it.</li>
+   </ol>
+ 
++  <figure class="fig">
++    <figcaption><b>The order that makes a migration survivable</b></figcaption>
++    <div class="fig-b">
++      <ol class="dgm-seq">
++        <li><b>Take a fresh backup</b><span>Before anything is touched. A migration is the moment the data is
++          most at risk, so the copy has to be newer than the change.</span></li>
++        <li><b>Write the change down as steps</b><span>A recorded, repeatable script — not someone clicking
++          around inside the live database by hand.</span></li>
++        <li><b>Run it against a copy</b><span>Same shape, and as much real-looking data as you can manage. This
++          is where a migration that quietly drops a column shows itself.</span></li>
++        <li><b>Check the result, not just the exit</b><span>Did every existing row survive the reshape with the
++          right values in it? “It ran without an error” answers a different question.</span></li>
++        <li><b>Apply it for real</b><span>Only now — and with the backup from step 1 still sitting there
++          untouched.</span></li>
++        <li><b>Prove you could go back</b><span>Restore that backup somewhere safe, once. A backup nobody has
++          ever restored is an assumption, not a safety net.</span></li>
++      </ol>
++    </div>
++    <p class="fig-n"><b>Steps 1 and 6 are the two that get skipped</b>, and they are the only two that help you
++      when a migration goes wrong. The middle four only help when it goes right.</p>
++  </figure>
++
+   <div class="warn"><span class="label">Red flags to catch</span>
+     <ul style="margin:.3rem 0 0;">
+       <li>A change to the database's shape gets run directly on real user data with no test first.</li>
+diff --git a/courses/software-sense/lessons/12-bugs-and-debugging.html b/courses/software-sense/lessons/12-bugs-and-debugging.html
+index 9679f7f..baae813 100644
+--- a/courses/software-sense/lessons/12-bugs-and-debugging.html
++++ b/courses/software-sense/lessons/12-bugs-and-debugging.html
+@@ -77,6 +77,44 @@
+   </ol>
+   <p>Skipping step one is the most common mistake. It's tempting to guess at a fix for something you never actually reproduced. That's not debugging — that's hoping.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>One question decides what you're allowed to do next</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-tree">
++        <div class="tq">Can you make it happen again, on purpose, following exact steps?</div>
++        <div class="tb">
++          <div class="tbr" data-e="Every time">
++            <b>Debug it</b>
++            <span>Trace backward from the wrong behaviour to the instruction that caused it. A fix from
++              here can be proven, because you can trigger the bug before and after.</span>
++            <div class="dgm-tree">
++              <div class="tq">Did the fix come with a test?</div>
++              <div class="tb">
++                <div class="tbr" data-e="Yes"><b>Done</b><span>This exact mistake can't come back
++                  unnoticed.</span></div>
++                <div class="tbr" data-e="No"><b>Done for now</b><span>It stays fixed only as long as
++                  nobody touches that part again.</span></div>
++              </div>
++            </div>
++          </div>
++          <div class="tbr" data-e="Only sometimes">
++            <b>Narrow the conditions first</b>
++            <span>Which account, which browser, which order of clicks, how much data? Something differs
++              between the times it happens and the times it doesn't. Find that, and you're in the left
++              branch.</span>
++          </div>
++          <div class="tbr" data-e="Never">
++            <b>You have a rumour, not a bug</b>
++            <span>Any fix from here is a guess, and “it seems fine now” can't disprove it. Collect steps,
++              expected, and actual before spending anything on a repair.</span>
++          </div>
++        </div>
++      </div>
++    </div>
++    <p class="fig-n"><b>Reproducing isn't the first step of debugging — it's the permission slip.</b> Two of
++      these three branches are instructions to go back and get one.</p>
++  </figure>
++
+   <h2>"I can't reproduce it" is a real problem, not an excuse</h2>
+   <p>If a bug can't be reliably triggered, it can't be reliably confirmed as fixed either. "It seems fine now" after a guessed-at fix is not the same as "we found the actual cause and corrected it." The bug may simply be waiting for the same rare conditions to line up again.</p>
+   <p>This is exactly why <a href="11-testing-basics.html">tests</a> matter: a bug that gets a test written for it can never silently come back unnoticed. The test becomes a permanent, automatic check that this specific mistake stays fixed.</p>
+diff --git a/courses/software-sense/lessons/14-security-mindset.html b/courses/software-sense/lessons/14-security-mindset.html
+index 9078808..881cdc0 100644
+--- a/courses/software-sense/lessons/14-security-mindset.html
++++ b/courses/software-sense/lessons/14-security-mindset.html
+@@ -98,6 +98,29 @@
+   <blockquote>Security isn't one strong wall. It's several ordinary walls, arranged so one failure doesn't mean
+      total loss.</blockquote>
+ 
++  <figure class="fig">
++    <figcaption><b>Defense in depth, on an ordinary app</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-stack">
++        <div class="lyr"><b>The open door</b><span>Anyone on the internet can reach the app at all. Limits on
++          how often one visitor can try something slow the door-handle jigglers down.
++          <em>Assume this layer is always being tested.</em></span></div>
++        <div class="thru">↓ each layer below assumes the one above it has already failed</div>
++        <div class="lyr"><b>Input checks</b><span>Nothing a user typed, uploaded, or sent is treated as safe
++          until it has been checked. <em>Idea one, applied.</em></span></div>
++        <div class="lyr"><b>Who are you</b><span>Logging in proves identity — and only identity. It says
++          nothing yet about what this person may touch.</span></div>
++        <div class="lyr"><b>What may you touch</b><span>Permission checked on every single request, against
++          this record, not once at login. <em>Idea two, applied.</em></span></div>
++        <div class="lyr"><b>The valuables</b><span>Secrets kept outside the code, sensitive fields protected,
++          backups stored somewhere separate. <em>The last wall.</em></span></div>
++      </div>
++    </div>
++    <p class="fig-n"><b>Not one of these layers is strong enough alone, and that is the design.</b> The
++      question a security mindset asks is never “can this be broken into?” — it's “how far does one break
++      get before something else stops it?”</p>
++  </figure>
++
+   <h2>Where the next lessons come from</h2>
+   <p>You don't have to invent your own list of things that go wrong — the software industry has already
+      catalogued the common ones. The best-known list is the <a href="https://owasp.org" target="_blank"
+diff --git a/courses/software-sense/lessons/16-secrets-and-keys.html b/courses/software-sense/lessons/16-secrets-and-keys.html
+index f0854d3..40be7d3 100644
+--- a/courses/software-sense/lessons/16-secrets-and-keys.html
++++ b/courses/software-sense/lessons/16-secrets-and-keys.html
+@@ -102,6 +102,32 @@
+      the computer running the app, not to the recipe (the code) itself. The code just says "look up the sticky
+      note named API_KEY and use whatever's on it" — it never contains the actual value. That means the code can
+      be shared, viewed, or pushed publicly without ever exposing what's on the sticky notes.</p>
++
++  <figure class="fig">
++    <figcaption><b>Where the same key sits, and what that costs</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-vs">
++        <div class="bad"><b>Written into the code</b>
++          <span class="big">key = "the real value"</span>
++          <ul>
++            <li>Every copy of the code is now a copy of the secret.</li>
++            <li>Anyone who can read the repository can spend your money.</li>
++            <li>Deleting the line later doesn't undo who already saw it — the history keeps it.</li>
++            <li>Using a different key for testing means editing code.</li>
++          </ul></div>
++        <div class="good"><b>Looked up from the environment</b>
++          <span class="big">key = look up API_KEY</span>
++          <ul>
++            <li>The code can be read by anyone and still reveals nothing.</li>
++            <li>Test and live can hold different values with no code change at all.</li>
++            <li>Revoking a key is a settings change, not a commit.</li>
++            <li>The file holding the values is excluded from what gets pushed.</li>
++          </ul></div>
++      </div>
++    </div>
++    <p class="fig-n"><b>The code and the secret have to travel separately.</b> Once they're in one file they
++      can never be separated again — which is why a leaked key is revoked, never just deleted.</p>
++  </figure>
+   <ol class="steps">
+     <li>Store each secret as an environment variable, kept in a file or settings screen that's separate from
+         the code itself.</li>
+diff --git a/courses/software-sense/lessons/17-common-vulnerabilities.html b/courses/software-sense/lessons/17-common-vulnerabilities.html
+index 867200e..d6504c9 100644
+--- a/courses/software-sense/lessons/17-common-vulnerabilities.html
++++ b/courses/software-sense/lessons/17-common-vulnerabilities.html
+@@ -92,14 +92,26 @@
+      another visitor loads the page — quietly acting on that visitor's behalf, in their browser, without them
+      doing anything except viewing the page.</p>
+ 
+-  <div class="cards two">
+-    <div class="card"><h3>Injection</h3><p>Input tricks the app's own systems into running the attacker's
+-       instructions.</p></div>
+-    <div class="card"><h3>Exposed data</h3><p>Private info is reachable just by changing a number or address,
+-       with no ownership check.</p></div>
+-  </div>
+-  <p>Cross-site scripting rounds out the set: malicious content aimed not at the app itself, but at the other
+-     people who view it.</p>
++  <figure class="fig">
++    <figcaption><b>Three attacks, one missing habit</b></figcaption>
++    <div class="fig-b">
++      <table class="dgm-checks">
++        <thead><tr><th>The mistake</th><th>What gets sent in</th><th>What the app failed to do</th>
++          <th>Who it lands on</th></tr></thead>
++        <tbody>
++          <tr><td>Injection</td><td>Text written to read as a command</td>
++              <td>Keep data and instructions apart</td><td>You — your own systems carry it out</td></tr>
++          <tr><td>Exposed data</td><td>A different ID in the address</td>
++              <td>Recheck ownership on this request</td><td>The user whose record it was</td></tr>
++          <tr><td>Cross-site scripting</td><td>Content that acts instead of just displaying</td>
++              <td>Clean it before showing it to others</td><td>Every other visitor to the page</td></tr>
++        </tbody>
++      </table>
++    </div>
++    <p class="fig-n"><b>Read the third column downwards.</b> Three different attacks with three different
++      victims, and one habit missing from all of them: the app took something a stranger sent and treated it
++      as trustworthy.</p>
++  </figure>
+ 
+   <div class="note"><span class="label">Where this comes from</span> These three are part of the
+      <a href="https://owasp.org" target="_blank" rel="noopener">OWASP Top Ten</a>, the industry's list of the
+diff --git a/courses/software-sense/lessons/18-privacy-and-user-data.html b/courses/software-sense/lessons/18-privacy-and-user-data.html
+index 4a77fca..6b2e77d 100644
+--- a/courses/software-sense/lessons/18-privacy-and-user-data.html
++++ b/courses/software-sense/lessons/18-privacy-and-user-data.html
+@@ -99,12 +99,33 @@
+      The more sensitive the data, the smaller the group of people and systems that should ever be able to
+      touch it, and the more layers of protection (remember defense in depth) it deserves.</p>
+ 
+-  <div class="cards two">
+-    <div class="card"><h3>Ordinary PII</h3><p>Name, email, general location. Collect only what the feature
+-       needs; disclose it; allow deletion.</p></div>
+-    <div class="card"><h3>Sensitive data</h3><p>Health info, payment details. Same rules, plus extra layers
+-       of protection and an even smaller circle of access.</p></div>
+-  </div>
++  <figure class="fig">
++    <figcaption><b>Deciding, field by field, whether to collect it at all</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-matrix">
++        <span class="hd"></span>
++        <span class="hd">This feature needs it</span>
++        <span class="hd">Collected just in case</span>
++
++        <span class="rh">Ordinary PII<br>name, email, rough location</span>
++        <div class="q"><b>Collect it</b><span>Say plainly what you take and why, and give people a real way
++          to see, correct, or delete it.</span></div>
++        <div class="q"><b>Cut the field</b><span>A birthday nothing uses is a birthday that can only ever
++          leak. Restraint is the whole technique.</span></div>
++
++        <span class="rh">Sensitive<br>health, payments, anything that could harm someone</span>
++        <div class="q"><b>Collect it, then guard it</b><span>Same rules, plus more layers and the smallest
++          possible circle of people and systems that can touch it.</span></div>
++        <div class="q hot"><b>Don't</b><span>All of the risk, none of the feature. This is the quadrant that
++          turns a small mistake into somebody else's very bad year.</span></div>
++
++        <span class="ax-x">← needed to do the job &nbsp;·&nbsp; kept in case it's useful later →</span>
++      </div>
++    </div>
++    <p class="fig-n"><b>The right-hand column is risk you took on for nothing.</b> Every field in it can leak
++      and none of it can help — which is why “collect the least you need” outperforms any clever protection
++      you could put around it.</p>
++  </figure>
+ 
+   <div class="warn"><span class="label">Red flags to catch</span>
+     <ul style="margin:.3rem 0 0;">
+diff --git a/courses/software-sense/lessons/20-deployment.html b/courses/software-sense/lessons/20-deployment.html
+index 6ce57a5..e67c780 100644
+--- a/courses/software-sense/lessons/20-deployment.html
++++ b/courses/software-sense/lessons/20-deployment.html
+@@ -101,6 +101,30 @@
+      your workbench or in staging perfectly predicts it. A gradual rollout limits how many people a mistake can
+      reach before someone notices and reverses it.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>What actually happens between “it's ready” and “users see it”</b></figcaption>
++    <div class="fig-b">
++      <ol class="dgm-seq">
++        <li><b>The change is committed</b><span>Recorded in the history with a note. This is the last point
++          where it exists only on somebody's workbench.</span></li>
++        <li><b>The automatic checks run</b><span>Tests, and scans for the obvious problems. Same checks, same
++          order, whether the change is one word or one thousand lines.</span></li>
++        <li><b>It's packaged as one version</b><span>A single, named, publishable thing — so that later,
++          under pressure, somebody can say exactly which version to go back to.</span></li>
++        <li><b>It goes to the rehearsal copy</b><span>Staging: the same steps run against an environment
++          nobody's business depends on. Failures here cost nothing.</span></li>
++        <li><b>It's published to production</b><span>The live copy real users can reach. From this moment it
++          is real, and the address works.</span></li>
++        <li><b>A small slice of users sees it first</b><span>Watched, with monitoring on. Some problems only
++          exist where there is real traffic and real data.</span></li>
++        <li><b>Everyone else follows</b><span>Only once the slice looked healthy. If it didn't, the rollout
++          stops here and step 3 tells you what to go back to.</span></li>
++      </ol>
++    </div>
++    <p class="fig-n"><b>Nothing on this line depends on somebody remembering it at 11pm.</b> That is the whole
++      value of a pipeline — the same careful process runs whether the change is trivial or terrifying.</p>
++  </figure>
++
+   <h2>What this means when AI is doing the building</h2>
+   <p>An AI assistant can produce a working change in minutes — but "produced a change" and "deployed a change
+      safely" are two very different milestones. The pipeline, the gradual rollout, and the domain-and-hosting setup
+diff --git a/courses/software-sense/lessons/21-monitoring-and-logs.html b/courses/software-sense/lessons/21-monitoring-and-logs.html
+index 1345bbd..eab5ffb 100644
+--- a/courses/software-sense/lessons/21-monitoring-and-logs.html
++++ b/courses/software-sense/lessons/21-monitoring-and-logs.html
+@@ -98,12 +98,23 @@
+      That's a completely different experience for your users than "we found out something was broken when people
+      started emailing us."</p>
+ 
+-  <table>
+-    <tr><th>Tool</th><th>Answers</th><th>When you use it</th></tr>
+-    <tr><td>Logs</td><td>"What exactly happened, step by step?"</td><td>After something looks wrong, digging in</td></tr>
+-    <tr><td>Monitoring</td><td>"Is it healthy right now?"</td><td>Continuously, automatically</td></tr>
+-    <tr><td>Alerts</td><td>"Something's wrong — go look."</td><td>The moment a problem starts</td></tr>
+-  </table>
++  <figure class="fig">
++    <figcaption><b>Where each of the three sits, in time</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-flow">
++        <div class="stp"><b>Something starts going wrong</b><span>Errors climb, or a page gets slow. No user
++          has complained. Nobody has been told anything.</span></div>
++        <div class="stp"><b>Monitoring notices</b><span>It was already watching the vital signs — up or down,
++          fast or slow, erroring or not — because it never stopped.</span></div>
++        <div class="stp"><b>An alert fires</b><span>A human is told, at the moment the problem started rather
++          than at the moment a customer got angry enough to write in.</span></div>
++        <div class="stp"><b>The logs explain it</b><span>The timestamped diary of what the software actually
++          did, in order. This is where the fix starts, not where the discovery does.</span></div>
++      </div>
++    </div>
++    <p class="fig-n"><b>Take away the middle two boxes and the chain starts at the customer's email instead.</b>
++      Logs tell you what happened; monitoring is the part that tells you to go and look.</p>
++  </figure>
+ 
+   <p>None of this requires you to personally read dashboards all day. It requires the software to have these
+      things set up at all — which is exactly the kind of unglamorous, easy-to-skip step that's worth asking about
+diff --git a/courses/software-sense/lessons/22-when-it-breaks.html b/courses/software-sense/lessons/22-when-it-breaks.html
+index 93966ac..c872ee2 100644
+--- a/courses/software-sense/lessons/22-when-it-breaks.html
++++ b/courses/software-sense/lessons/22-when-it-breaks.html
+@@ -104,6 +104,28 @@
+      rollback), then investigate the deeper cause once things are stable again. Speed matters, but speed without
+      a plan just creates a second problem.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>The order a calm response goes in</b></figcaption>
++    <div class="fig-b">
++      <ol class="dgm-seq">
++        <li><b>Notice</b><span>From monitoring or an alert — ideally before the first customer email, which is
++          the slowest and most expensive way to find out.</span></li>
++        <li><b>Say what changed</b><span>The most recent deploy is the first suspect, every time. “Nothing
++          changed” is almost never true; it usually means nobody looked.</span></li>
++        <li><b>Take the safest fast action</b><span>Usually a rollback to the last version known to work. Stop
++          the bleeding before you understand the wound.</span></li>
++        <li><b>Confirm it's actually stable</b><span>Errors back down, users able to finish the thing they
++          came to do. Not “it looks quiet now.”</span></li>
++        <li><b>Now investigate</b><span>With the logs, at normal speed, with nobody watching over your
++          shoulder. This is where the real cause gets found.</span></li>
++        <li><b>Change something so it's cheaper next time</b><span>A test, an alert, a contained failure
++          instead of a total one. Otherwise you have bought nothing with the outage.</span></li>
++      </ol>
++    </div>
++    <p class="fig-n"><b>Steps 3 and 5 are in this order on purpose.</b> Debugging live, under pressure, with
++      real users watching is how a five-minute incident turns into an hour-long one.</p>
++  </figure>
++
+   <h2>Failing safe vs. failing catastrophically</h2>
+   <p>The real design question behind all of this is: when something inevitably breaks, does it fail <em>safely</em>
+      (a contained hiccup, no lost data, a clear message) or <em>catastrophically</em> (data lost, everything down,
+diff --git a/courses/software-sense/lessons/24-scale.html b/courses/software-sense/lessons/24-scale.html
+index 3b940cc..844e883 100644
+--- a/courses/software-sense/lessons/24-scale.html
++++ b/courses/software-sense/lessons/24-scale.html
+@@ -69,6 +69,21 @@
+      versus 10,000, versus a million. A restaurant that serves one table beautifully might completely fall apart
+      serving a hundred tables at once with the same kitchen and the same one chef. Software has the same problem.
+      Things that are completely fine at a small size can break down entirely at a large one.</p>
++
++  <figure class="fig">
++    <figcaption><b>The same app, two user counts</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-fact">
++        <b>1,000×</b>
++        <span>Illustrative arithmetic: going from 10 users to 10,000 multiplies every request, every question
++          put to the database, every row written and every line of the bill by a thousand — while the code
++          itself stays exactly the same. Nothing in a ten-user test tells you which part gives out first.</span>
++      </div>
++    </div>
++    <p class="fig-n"><b>Scale is a separate question from “does it work”</b>, and it is the one a demo cannot
++      answer at all. The app that sailed through your testing and the app that buckles at a thousand users are
++      the same app.</p>
++  </figure>
+   <div class="note"><span class="label">Why this matters for you</span> An AI can build something that works
+      flawlessly in testing with just you clicking around. That tells you almost nothing about what happens when a
+      thousand people click around it at the same time. Scale is a separate question from "does it work."</div>
+diff --git a/courses/software-sense/lessons/25-caching-and-optimizing.html b/courses/software-sense/lessons/25-caching-and-optimizing.html
+index df7903c..aea2115 100644
+--- a/courses/software-sense/lessons/25-caching-and-optimizing.html
++++ b/courses/software-sense/lessons/25-caching-and-optimizing.html
+@@ -88,6 +88,43 @@
+      changes but the cached copy doesn't get refreshed, people might see old information. Good caching includes a
+      plan for when to refresh or throw away the stored copy, not just when to create it.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>Deciding whether a thing should be cached at all</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-tree">
++        <div class="tq">Would the same answer be correct for the next person who asks?</div>
++        <div class="tb">
++          <div class="tbr" data-e="Yes, for everyone">
++            <b>Cache it</b>
++            <span>A homepage, a product listing, a list of country names. Same for every visitor, changes
++              rarely, expensive to rebuild on every single visit.</span>
++            <div class="dgm-tree">
++              <div class="tq">Do you know what makes it wrong?</div>
++              <div class="tb">
++                <div class="tbr" data-e="Yes"><b>Throw it away then</b><span>Refresh on a timer, or when
++                  the thing underneath changes.</span></div>
++                <div class="tbr" data-e="No"><b>Not finished</b><span>You have built a fast way to show
++                  old information.</span></div>
++              </div>
++            </div>
++          </div>
++          <div class="tbr" data-e="Yes, for this one question">
++            <b>Cache it with an expiry</b>
++            <span>A report, a summary, a generated answer. Expensive to produce, and the same question
++              deserves the same answer — but decide up front how old it's allowed to get.</span>
++          </div>
++          <div class="tbr" data-e="No">
++            <b>Leave it live</b>
++            <span>A bank balance, an inventory count, anything personal to one user. Here a stale copy
++              isn't slow, it's wrong — and wrong is more expensive than slow.</span>
++          </div>
++        </div>
++      </div>
++    </div>
++    <p class="fig-n"><b>The hard part of caching is never the saving — it's the throwing away.</b> A cache with
++      no plan for going stale doesn't make an app fast; it makes it confidently out of date.</p>
++  </figure>
++
+   <h2>A light word on indexes</h2>
+   <p>A related idea lives inside databases: an <strong>index</strong>. A database is like a giant filing cabinet
+      full of records. Without an index, finding one specific record means checking every single page, one by
+diff --git a/courses/software-sense/lessons/27-directing-ai.html b/courses/software-sense/lessons/27-directing-ai.html
+index d2e03eb..a42dc1c 100644
+--- a/courses/software-sense/lessons/27-directing-ai.html
++++ b/courses/software-sense/lessons/27-directing-ai.html
+@@ -116,6 +116,39 @@
+      next. Each step is small enough that when something's off, you know almost exactly where to look, and the
+      AI has a much narrower thing to get right.</p>
+ 
++  <figure class="fig">
++    <figcaption><b>One brief, with its parts named</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-anat">
++        <div class="sub">
++          <div class="pt"><b>1</b><span>“Build a signup form.</span></div>
++          <div class="pt"><b>2</b><span>A visitor enters an email and a password and gets an account.</span></div>
++          <div class="pt"><b>3</b><span>Handle an empty field, a duplicate email, and an invalid address</span></div>
++          <div class="pt"><b>4</b><span>by showing a clear message — don't fail silently.</span></div>
++          <div class="pt"><b>5</b><span>Assume a few hundred users, not a million; store who signed up and
++            when.</span></div>
++          <div class="pt"><b>6</b><span>Explain your plan before you write anything.”</span></div>
++        </div>
++        <ul class="cal">
++          <li><b>1</b><span>One feature, not an app. Small enough that if it comes back wrong, you know
++            where to look.</span></li>
++          <li><b>2</b><span>The <i>requirement</i> from lesson 10 — one sentence, in the language of what
++            the user does.</span></li>
++          <li><b>3</b><span>The <i>edge cases</i>. The AI will not write this list for you, and it is the
++            part a demo never covers.</span></li>
++          <li><b>4</b><span>What <i>handled</i> looks like. Without it, “handled” can honestly mean
++            “caught the error and said nothing.”</span></li>
++          <li><b>5</b><span>The constraints you care about — scale, data, security, cost. One clause each;
++            unstated ones get guessed.</span></li>
++          <li><b>6</b><span>Thirty seconds that catches a misunderstanding while it is still a sentence
++            rather than code you have to unwind.</span></li>
++        </ul>
++      </div>
++    </div>
++    <p class="fig-n"><b>Nothing here is technical, and none of it is new.</b> Six clauses, each one a module of
++      this course pointed at a single request — which is the whole of what “directing AI” turns out to mean.</p>
++  </figure>
++
+   <div class="warn"><span class="label">Red flags to catch</span>
+     <ul style="margin:.3rem 0 0;">
+       <li>You asked for "a whole app" in one request and got a wall of code back with no plan explained first.</li>
+diff --git a/courses/software-sense/lessons/29-maintainability.html b/courses/software-sense/lessons/29-maintainability.html
+index 0158d9c..2332bd4 100644
+--- a/courses/software-sense/lessons/29-maintainability.html
++++ b/courses/software-sense/lessons/29-maintainability.html
+@@ -83,6 +83,33 @@
+      something else breaking.</p>
+   <blockquote>Debt isn't the shortcut itself — it's the shortcut nobody wrote down and nobody ever came back for.</blockquote>
+ 
++  <figure class="fig">
++    <figcaption><b>The same shortcut, taken two ways</b></figcaption>
++    <div class="fig-b">
++      <div class="dgm-vs">
++        <div class="good"><b>Borrowed on purpose</b>
++          <span class="big">Written down</span>
++          <ul>
++            <li>Somebody chose the simple version and said so out loud.</li>
++            <li>A note records what it costs and what would trigger revisiting it.</li>
++            <li>The next person meets a decision, not a mystery.</li>
++            <li>Paying it back is an afternoon, because the boundary is known.</li>
++          </ul></div>
++        <div class="bad"><b>Taken by accident</b>
++          <span class="big">Nowhere on record</span>
++          <ul>
++            <li>Nobody remembers it was ever a shortcut.</li>
++            <li>The next change works around it rather than through it.</li>
++            <li>The workaround gets copied, and becomes the house style.</li>
++            <li>A year on, small changes take a week and nobody can say why.</li>
++          </ul></div>
++      </div>
++    </div>
++    <p class="fig-n"><b>Both columns shipped exactly the same simple version this week.</b> The only difference
++      is whether one sentence got written down — and that sentence decides which of the two you are living in
++      a year from now.</p>
++  </figure>
++
+   <h2>What maintainable software actually looks like</h2>
+   <div class="cards two">
+     <div class="card"><h3>Readable</h3><p>Named clearly enough that "what does this do" has an obvious answer,

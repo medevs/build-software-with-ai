@@ -59,6 +59,11 @@ body{counter-reset:fig;}
 .dgm-stack>.lyr>b{background:var(--f,var(--field,var(--ink)));color:#fff;
   padding:.6rem .7rem;font-size:.68rem;font-weight:700;text-transform:uppercase;
   letter-spacing:.1em;line-height:1.25;display:flex;align-items:center;}
+/* .plain: a layer with no module identity — the plain ink field. It cannot use
+   --f, because --f feeds a background under hard-coded #fff type: the module inks
+   are the same value in both themes, but --ink inverts, so #fff on it is
+   white-on-near-white after dark. The type has to flip with the field. */
+.dgm-stack>.lyr.plain>b{background:var(--ink);color:var(--paper);}
 .dgm-stack>.lyr>span{padding:.6rem .8rem;font-size:.815rem;line-height:1.4;color:var(--ink);}
 .dgm-stack>.lyr>span em{font-style:normal;color:var(--ink-2);}
 /* an arrow between two layers, showing which way the traffic goes */

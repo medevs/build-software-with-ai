@@ -116,13 +116,13 @@
     <figcaption><b>The validation pyramid — cheapest and broadest first</b></figcaption>
     <div class="fig-b">
       <ul class="dgm-bars">
-        <li style="--p:100;--f:var(--m3)"><span class="bl">Lint &amp; type checks</span>
+        <li style="--p:100;--f:var(--m3t)"><span class="bl">Lint &amp; type checks</span>
           <span class="bt"></span><span class="bn">seconds</span></li>
-        <li style="--p:70;--f:var(--m2)"><span class="bl">Unit tests</span>
+        <li style="--p:70;--f:var(--m2t)"><span class="bl">Unit tests</span>
           <span class="bt"></span><span class="bn">seconds</span></li>
-        <li style="--p:42;--f:var(--m4)"><span class="bl">Integration checks</span>
+        <li style="--p:42;--f:var(--m4t)"><span class="bl">Integration checks</span>
           <span class="bt"></span><span class="bn">minutes</span></li>
-        <li style="--p:18;--f:var(--m7)"><span class="bl">End-to-end</span>
+        <li style="--p:18;--f:var(--m7t)"><span class="bl">End-to-end</span>
           <span class="bt"></span><span class="bn">slowest</span></li>
       </ul>
       <div class="dgm-stack" style="margin-top:1.7rem">
@@ -134,8 +134,8 @@
           together correctly.</span></div>
         <div class="lyr" style="--f:var(--m7)"><b>End-to-end</b><span>The agent drives the real running
           application the way a user would.</span></div>
-        <div class="thru">↓ and only then</div>
-        <div class="lyr" style="--f:var(--ink)"><b>Human gate</b><span>A person does their own check
+        <div class="thru"><span aria-hidden="true">↓</span> and only then</div>
+        <div class="lyr plain"><b>Human gate</b><span>A person does their own check
           and looks over the result. <em>This one is never optional.</em></span></div>
       </div>
     </div>

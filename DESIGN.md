@@ -703,6 +703,15 @@ bottom border, and the progress bar sits in a flex row.
 
 ### The Numbered Plate (signature)
 
+A plate is the framed object — every figure on the site is one. Plates carry two
+separate labelling series, and which one a plate gets is decided by where it
+sits, not by what it contains. A **lettered** plate is full-bleed and outside the
+reading column: only the knowledge map qualifies, one per course, labelled
+`Plate A` by hand. A **numbered** plate sits inside the text column and
+auto-numbers itself `Fig. 1`, `Fig. 2` … from a body-level counter that restarts
+on every page. Both course homes state this distinction in the plate's own help
+line, because the map is the only lettered plate a reader will ever meet.
+
 Every figure is a plate: a `figure` framed by a hairline and opened by a 3px rule
 in the figure's own ink, containing a caption row whose `::before` auto-numbers
 it "Fig. *n*" from a body-level counter, a padded body, and an optional note
@@ -747,6 +756,24 @@ ink (`--m1`…`--m7`). When it is used as *type* or as a thin stroke on the shee
 use the text variant (`--m1t`…`--m7t`), which is identical in light theme and
 re-tinted lighter in dark theme. A base ink used as type goes muddy on the dark
 sheet.
+
+*One carve-out: the measuring fill.* A `.dgm-bars` track fill takes the text
+variant, not the base ink, even though it is a fill. It carries no type, and it
+is a graphic that encodes a quantity — so it answers to the same standard as the
+map's `Edge` hairline, not to the field standard. The numbers decide it: against
+the dark sheet a base ink measures 1.90:1 (Ultramarine), 2.32:1 (Violet) and
+2.89:1 (Magenta), where every text variant measures 7.09:1 or better. In light
+theme the two are the same value, so this costs nothing and only shows up after
+the inversion. A field that carries `#ffffff` type still takes the base ink,
+always.
+
+**The Flipping-Field Rule.** `--f` feeds a background under hard-coded `#ffffff`
+type, so only a theme-*stable* ink may be passed to it. The seven module inks
+qualify; `--ink` does not, because it inverts to near-white and takes the white
+type with it. A layer that wants the plain ink field rather than a module
+identity uses `.dgm-stack > .lyr.plain`, which sets `background:var(--ink)` and
+`color:var(--paper)` so both halves flip together. Never route `--ink` through a
+`--f`, `--field` or `--course-accent` slot.
 
 **The One Authored Moment Rule.** Motion is one gesture: a colour field wipes
 down from `clip-path: inset(0 0 100% 0)` with `animation-fill-mode: backwards`,
