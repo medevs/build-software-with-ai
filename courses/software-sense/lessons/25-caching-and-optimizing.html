@@ -88,6 +88,43 @@
      changes but the cached copy doesn't get refreshed, people might see old information. Good caching includes a
      plan for when to refresh or throw away the stored copy, not just when to create it.</p>
 
+  <figure class="fig">
+    <figcaption><b>Deciding whether a thing should be cached at all</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-tree">
+        <div class="tq">Would the same answer be correct for the next person who asks?</div>
+        <div class="tb">
+          <div class="tbr" data-e="Yes, for everyone">
+            <b>Cache it</b>
+            <span>A homepage, a product listing, a list of country names. Same for every visitor, changes
+              rarely, expensive to rebuild on every single visit.</span>
+            <div class="dgm-tree">
+              <div class="tq">Do you know what makes it wrong?</div>
+              <div class="tb">
+                <div class="tbr" data-e="Yes"><b>Throw it away then</b><span>Refresh on a timer, or when
+                  the thing underneath changes.</span></div>
+                <div class="tbr" data-e="No"><b>Not finished</b><span>You have built a fast way to show
+                  old information.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tbr" data-e="Yes, for this one question">
+            <b>Cache it with an expiry</b>
+            <span>A report, a summary, a generated answer. Expensive to produce, and the same question
+              deserves the same answer — but decide up front how old it's allowed to get.</span>
+          </div>
+          <div class="tbr" data-e="No">
+            <b>Leave it live</b>
+            <span>A bank balance, an inventory count, anything personal to one user. Here a stale copy
+              isn't slow, it's wrong — and wrong is more expensive than slow.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fig-n"><b>The hard part of caching is never the saving — it's the throwing away.</b> A cache with
+      no plan for going stale doesn't make an app fast; it makes it confidently out of date.</p>
+  </figure>
+
   <h2>A light word on indexes</h2>
   <p>A related idea lives inside databases: an <strong>index</strong>. A database is like a giant filing cabinet
      full of records. Without an index, finding one specific record means checking every single page, one by

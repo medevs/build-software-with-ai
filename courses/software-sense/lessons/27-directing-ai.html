@@ -116,6 +116,39 @@
      next. Each step is small enough that when something's off, you know almost exactly where to look, and the
      AI has a much narrower thing to get right.</p>
 
+  <figure class="fig">
+    <figcaption><b>One brief, with its parts named</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-anat">
+        <div class="sub">
+          <div class="pt"><b>1</b><span>“Build a signup form.</span></div>
+          <div class="pt"><b>2</b><span>A visitor enters an email and a password and gets an account.</span></div>
+          <div class="pt"><b>3</b><span>Handle an empty field, a duplicate email, and an invalid address</span></div>
+          <div class="pt"><b>4</b><span>by showing a clear message — don't fail silently.</span></div>
+          <div class="pt"><b>5</b><span>Assume a few hundred users, not a million; store who signed up and
+            when.</span></div>
+          <div class="pt"><b>6</b><span>Explain your plan before you write anything.”</span></div>
+        </div>
+        <ul class="cal">
+          <li><b>1</b><span>One feature, not an app. Small enough that if it comes back wrong, you know
+            where to look.</span></li>
+          <li><b>2</b><span>The <i>requirement</i> from lesson 10 — one sentence, in the language of what
+            the user does.</span></li>
+          <li><b>3</b><span>The <i>edge cases</i>. The AI will not write this list for you, and it is the
+            part a demo never covers.</span></li>
+          <li><b>4</b><span>What <i>handled</i> looks like. Without it, “handled” can honestly mean
+            “caught the error and said nothing.”</span></li>
+          <li><b>5</b><span>The constraints you care about — scale, data, security, cost. One clause each;
+            unstated ones get guessed.</span></li>
+          <li><b>6</b><span>Thirty seconds that catches a misunderstanding while it is still a sentence
+            rather than code you have to unwind.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fig-n"><b>Nothing here is technical, and none of it is new.</b> Six clauses, each one a module of
+      this course pointed at a single request — which is the whole of what “directing AI” turns out to mean.</p>
+  </figure>
+
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
       <li>You asked for "a whole app" in one request and got a wall of code back with no plan explained first.</li>

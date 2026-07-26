@@ -101,6 +101,30 @@
      your workbench or in staging perfectly predicts it. A gradual rollout limits how many people a mistake can
      reach before someone notices and reverses it.</p>
 
+  <figure class="fig">
+    <figcaption><b>What actually happens between “it's ready” and “users see it”</b></figcaption>
+    <div class="fig-b">
+      <ol class="dgm-seq">
+        <li><b>The change is committed</b><span>Recorded in the history with a note. This is the last point
+          where it exists only on somebody's workbench.</span></li>
+        <li><b>The automatic checks run</b><span>Tests, and scans for the obvious problems. Same checks, same
+          order, whether the change is one word or one thousand lines.</span></li>
+        <li><b>It's packaged as one version</b><span>A single, named, publishable thing — so that later,
+          under pressure, somebody can say exactly which version to go back to.</span></li>
+        <li><b>It goes to the rehearsal copy</b><span>Staging: the same steps run against an environment
+          nobody's business depends on. Failures here cost nothing.</span></li>
+        <li><b>It's published to production</b><span>The live copy real users can reach. From this moment it
+          is real, and the address works.</span></li>
+        <li><b>A small slice of users sees it first</b><span>Watched, with monitoring on. Some problems only
+          exist where there is real traffic and real data.</span></li>
+        <li><b>Everyone else follows</b><span>Only once the slice looked healthy. If it didn't, the rollout
+          stops here and step 3 tells you what to go back to.</span></li>
+      </ol>
+    </div>
+    <p class="fig-n"><b>Nothing on this line depends on somebody remembering it at 11pm.</b> That is the whole
+      value of a pipeline — the same careful process runs whether the change is trivial or terrifying.</p>
+  </figure>
+
   <h2>What this means when AI is doing the building</h2>
   <p>An AI assistant can produce a working change in minutes — but "produced a change" and "deployed a change
      safely" are two very different milestones. The pipeline, the gradual rollout, and the domain-and-hosting setup

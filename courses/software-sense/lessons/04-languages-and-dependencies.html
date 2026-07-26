@@ -84,6 +84,25 @@
      unit — that you bolt on where you need it. An AI building your app is, most of the time, wiring together dozens
      or hundreds of these pre-made pieces, plus a smaller amount of code written just for you.</p>
 
+  <figure class="fig">
+    <figcaption><b>How much of your app you actually wrote</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-stack">
+        <div class="lyr"><b>Your code</b><span>The part written just for this app — your rules, your screens,
+          your particular business. <em>Usually the thinnest of the four layers.</em></span></div>
+        <div class="thru">↑ inherits everything below it — the features and the flaws</div>
+        <div class="lyr"><b>Libraries</b><span>Pre-made parts bolted on where needed: a date picker, a payment
+          client, a PDF writer. <em>Dozens or hundreds of them is ordinary.</em></span></div>
+        <div class="lyr"><b>Framework</b><span>The structural kit that decides how everything above it is
+          arranged. <em>The hardest layer to swap out later.</em></span></div>
+        <div class="lyr"><b>Language &amp; runtime</b><span>The vocabulary the instructions are written in, and
+          the thing that runs them. <em>Chosen once, early, often by your AI.</em></span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>You answer for all four layers and you wrote only the top one.</b> That is the trade
+      dependencies make: months of work saved, and a flaw anywhere below it inherited without you ever seeing it.</p>
+  </figure>
+
   <div class="cards two">
     <div class="card"><h3>The upside: speed</h3><p>Using a well-built pre-made window is faster and usually safer
        than forging glass yourself. Dependencies let an AI assemble in hours what would take months to build from

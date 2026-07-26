@@ -98,6 +98,29 @@
   <blockquote>Security isn't one strong wall. It's several ordinary walls, arranged so one failure doesn't mean
      total loss.</blockquote>
 
+  <figure class="fig">
+    <figcaption><b>Defense in depth, on an ordinary app</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-stack">
+        <div class="lyr"><b>The open door</b><span>Anyone on the internet can reach the app at all. Limits on
+          how often one visitor can try something slow the door-handle jigglers down.
+          <em>Assume this layer is always being tested.</em></span></div>
+        <div class="thru">↓ each layer below assumes the one above it has already failed</div>
+        <div class="lyr"><b>Input checks</b><span>Nothing a user typed, uploaded, or sent is treated as safe
+          until it has been checked. <em>Idea one, applied.</em></span></div>
+        <div class="lyr"><b>Who are you</b><span>Logging in proves identity — and only identity. It says
+          nothing yet about what this person may touch.</span></div>
+        <div class="lyr"><b>What may you touch</b><span>Permission checked on every single request, against
+          this record, not once at login. <em>Idea two, applied.</em></span></div>
+        <div class="lyr"><b>The valuables</b><span>Secrets kept outside the code, sensitive fields protected,
+          backups stored somewhere separate. <em>The last wall.</em></span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Not one of these layers is strong enough alone, and that is the design.</b> The
+      question a security mindset asks is never “can this be broken into?” — it's “how far does one break
+      get before something else stops it?”</p>
+  </figure>
+
   <h2>Where the next lessons come from</h2>
   <p>You don't have to invent your own list of things that go wrong — the software industry has already
      catalogued the common ones. The best-known list is the <a href="https://owasp.org" target="_blank"

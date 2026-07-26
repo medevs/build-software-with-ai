@@ -92,14 +92,26 @@
      another visitor loads the page — quietly acting on that visitor's behalf, in their browser, without them
      doing anything except viewing the page.</p>
 
-  <div class="cards two">
-    <div class="card"><h3>Injection</h3><p>Input tricks the app's own systems into running the attacker's
-       instructions.</p></div>
-    <div class="card"><h3>Exposed data</h3><p>Private info is reachable just by changing a number or address,
-       with no ownership check.</p></div>
-  </div>
-  <p>Cross-site scripting rounds out the set: malicious content aimed not at the app itself, but at the other
-     people who view it.</p>
+  <figure class="fig">
+    <figcaption><b>Three attacks, one missing habit</b></figcaption>
+    <div class="fig-b">
+      <table class="dgm-checks">
+        <thead><tr><th>The mistake</th><th>What gets sent in</th><th>What the app failed to do</th>
+          <th>Who it lands on</th></tr></thead>
+        <tbody>
+          <tr><td>Injection</td><td>Text written to read as a command</td>
+              <td>Keep data and instructions apart</td><td>You — your own systems carry it out</td></tr>
+          <tr><td>Exposed data</td><td>A different ID in the address</td>
+              <td>Recheck ownership on this request</td><td>The user whose record it was</td></tr>
+          <tr><td>Cross-site scripting</td><td>Content that acts instead of just displaying</td>
+              <td>Clean it before showing it to others</td><td>Every other visitor to the page</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-n"><b>Read the third column downwards.</b> Three different attacks with three different
+      victims, and one habit missing from all of them: the app took something a stranger sent and treated it
+      as trustworthy.</p>
+  </figure>
 
   <div class="note"><span class="label">Where this comes from</span> These three are part of the
      <a href="https://owasp.org" target="_blank" rel="noopener">OWASP Top Ten</a>, the industry's list of the

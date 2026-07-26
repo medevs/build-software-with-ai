@@ -104,6 +104,28 @@
        out of it.</li>
   </ol>
 
+  <figure class="fig">
+    <figcaption><b>The order that makes a migration survivable</b></figcaption>
+    <div class="fig-b">
+      <ol class="dgm-seq">
+        <li><b>Take a fresh backup</b><span>Before anything is touched. A migration is the moment the data is
+          most at risk, so the copy has to be newer than the change.</span></li>
+        <li><b>Write the change down as steps</b><span>A recorded, repeatable script — not someone clicking
+          around inside the live database by hand.</span></li>
+        <li><b>Run it against a copy</b><span>Same shape, and as much real-looking data as you can manage. This
+          is where a migration that quietly drops a column shows itself.</span></li>
+        <li><b>Check the result, not just the exit</b><span>Did every existing row survive the reshape with the
+          right values in it? “It ran without an error” answers a different question.</span></li>
+        <li><b>Apply it for real</b><span>Only now — and with the backup from step 1 still sitting there
+          untouched.</span></li>
+        <li><b>Prove you could go back</b><span>Restore that backup somewhere safe, once. A backup nobody has
+          ever restored is an assumption, not a safety net.</span></li>
+      </ol>
+    </div>
+    <p class="fig-n"><b>Steps 1 and 6 are the two that get skipped</b>, and they are the only two that help you
+      when a migration goes wrong. The middle four only help when it goes right.</p>
+  </figure>
+
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
       <li>A change to the database's shape gets run directly on real user data with no test first.</li>

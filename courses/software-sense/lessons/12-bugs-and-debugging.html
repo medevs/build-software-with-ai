@@ -77,6 +77,44 @@
   </ol>
   <p>Skipping step one is the most common mistake. It's tempting to guess at a fix for something you never actually reproduced. That's not debugging — that's hoping.</p>
 
+  <figure class="fig">
+    <figcaption><b>One question decides what you're allowed to do next</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-tree">
+        <div class="tq">Can you make it happen again, on purpose, following exact steps?</div>
+        <div class="tb">
+          <div class="tbr" data-e="Every time">
+            <b>Debug it</b>
+            <span>Trace backward from the wrong behaviour to the instruction that caused it. A fix from
+              here can be proven, because you can trigger the bug before and after.</span>
+            <div class="dgm-tree">
+              <div class="tq">Did the fix come with a test?</div>
+              <div class="tb">
+                <div class="tbr" data-e="Yes"><b>Done</b><span>This exact mistake can't come back
+                  unnoticed.</span></div>
+                <div class="tbr" data-e="No"><b>Done for now</b><span>It stays fixed only as long as
+                  nobody touches that part again.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tbr" data-e="Only sometimes">
+            <b>Narrow the conditions first</b>
+            <span>Which account, which browser, which order of clicks, how much data? Something differs
+              between the times it happens and the times it doesn't. Find that, and you're in the left
+              branch.</span>
+          </div>
+          <div class="tbr" data-e="Never">
+            <b>You have a rumour, not a bug</b>
+            <span>Any fix from here is a guess, and “it seems fine now” can't disprove it. Collect steps,
+              expected, and actual before spending anything on a repair.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Reproducing isn't the first step of debugging — it's the permission slip.</b> Two of
+      these three branches are instructions to go back and get one.</p>
+  </figure>
+
   <h2>"I can't reproduce it" is a real problem, not an excuse</h2>
   <p>If a bug can't be reliably triggered, it can't be reliably confirmed as fixed either. "It seems fine now" after a guessed-at fix is not the same as "we found the actual cause and corrected it." The bug may simply be waiting for the same rare conditions to line up again.</p>
   <p>This is exactly why <a href="11-testing-basics.html">tests</a> matter: a bug that gets a test written for it can never silently come back unnoticed. The test becomes a permanent, automatic check that this specific mistake stays fixed.</p>

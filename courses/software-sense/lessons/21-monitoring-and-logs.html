@@ -98,12 +98,23 @@
      That's a completely different experience for your users than "we found out something was broken when people
      started emailing us."</p>
 
-  <table>
-    <tr><th>Tool</th><th>Answers</th><th>When you use it</th></tr>
-    <tr><td>Logs</td><td>"What exactly happened, step by step?"</td><td>After something looks wrong, digging in</td></tr>
-    <tr><td>Monitoring</td><td>"Is it healthy right now?"</td><td>Continuously, automatically</td></tr>
-    <tr><td>Alerts</td><td>"Something's wrong — go look."</td><td>The moment a problem starts</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>Where each of the three sits, in time</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-flow">
+        <div class="stp"><b>Something starts going wrong</b><span>Errors climb, or a page gets slow. No user
+          has complained. Nobody has been told anything.</span></div>
+        <div class="stp"><b>Monitoring notices</b><span>It was already watching the vital signs — up or down,
+          fast or slow, erroring or not — because it never stopped.</span></div>
+        <div class="stp"><b>An alert fires</b><span>A human is told, at the moment the problem started rather
+          than at the moment a customer got angry enough to write in.</span></div>
+        <div class="stp"><b>The logs explain it</b><span>The timestamped diary of what the software actually
+          did, in order. This is where the fix starts, not where the discovery does.</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Take away the middle two boxes and the chain starts at the customer's email instead.</b>
+      Logs tell you what happened; monitoring is the part that tells you to go and look.</p>
+  </figure>
 
   <p>None of this requires you to personally read dashboards all day. It requires the software to have these
      things set up at all — which is exactly the kind of unglamorous, easy-to-skip step that's worth asking about

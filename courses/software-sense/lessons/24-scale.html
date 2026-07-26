@@ -69,6 +69,21 @@
      versus 10,000, versus a million. A restaurant that serves one table beautifully might completely fall apart
      serving a hundred tables at once with the same kitchen and the same one chef. Software has the same problem.
      Things that are completely fine at a small size can break down entirely at a large one.</p>
+
+  <figure class="fig">
+    <figcaption><b>The same app, two user counts</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-fact">
+        <b>1,000×</b>
+        <span>Illustrative arithmetic: going from 10 users to 10,000 multiplies every request, every question
+          put to the database, every row written and every line of the bill by a thousand — while the code
+          itself stays exactly the same. Nothing in a ten-user test tells you which part gives out first.</span>
+      </div>
+    </div>
+    <p class="fig-n"><b>Scale is a separate question from “does it work”</b>, and it is the one a demo cannot
+      answer at all. The app that sailed through your testing and the app that buckles at a thousand users are
+      the same app.</p>
+  </figure>
   <div class="note"><span class="label">Why this matters for you</span> An AI can build something that works
      flawlessly in testing with just you clicking around. That tells you almost nothing about what happens when a
      thousand people click around it at the same time. Scale is a separate question from "does it work."</div>

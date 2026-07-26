@@ -99,6 +99,29 @@
        <code>book_1</code>, <code>book_2</code>, <code>book_3</code> for up to three books per order. Someone
        orders a fourth book, and now there's nowhere for it to go without changing every row that came before.</p></div>
   </div>
+  <figure class="fig">
+    <figcaption><b>The same bookstore order, modelled two ways</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-vs">
+        <div class="good"><b>Separated and connected</b>
+          <span class="big">Users → Orders → Order Items</span>
+          <ul>
+            <li>A fourth book on an order is one more row.</li>
+            <li>“How many copies of this title sold?” is one question, to one table.</li>
+            <li>Letting an order hold fifty books changes nothing.</li>
+          </ul></div>
+        <div class="bad"><b>Crammed into fixed slots</b>
+          <span class="big">book_1 · book_2 · book_3</span>
+          <ul>
+            <li>A fourth book has nowhere to go.</li>
+            <li>Counting sales means checking three columns — and hoping there is never a fourth.</li>
+            <li>Adding a slot reshapes every order ever placed.</li>
+          </ul></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Both of these work perfectly in a demo.</b> They stop being equivalent on the day a real
+      customer orders four books, which is also the day the repair is at its most expensive.</p>
+  </figure>
   <p>The messy version isn't "wrong" in a demo — it can work for a first test. The problem shows up later,
      exactly when it's most expensive: real customers have already placed orders, and now the shape itself needs
      surgery while protecting data that's already there.</p>

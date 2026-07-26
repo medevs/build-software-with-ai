@@ -102,6 +102,24 @@
      Something can look completely finished on the test copy and still not be on the real menu yet. We'll spend a
      whole lesson later on these different "environments" and what has to happen to move safely between them.</p>
 
+  <figure class="fig">
+    <figcaption><b>Four places a finished change can be sitting</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-flow">
+        <div class="stp"><b>Edited</b><span>Changed on one machine and nowhere else. No history yet — there is
+          no “before” to go back to.</span></div>
+        <div class="stp"><b>Committed</b><span>Recorded in the history as a labelled snapshot, with a note
+          saying what changed and why.</span></div>
+        <div class="stp"><b>Pushed</b><span>Uploaded to the shared copy, so other people and other machines can
+          see it. Still running for nobody.</span></div>
+        <div class="stp"><b>Live</b><span>Deployed to the copy real users reach. Only at this step has anything
+          changed for them.</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>“I already fixed it” can mean any of these four.</b> Three of them are invisible to your
+      users, which is why the useful follow-up question is always “fixed where?”</p>
+  </figure>
+
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
       <li>Changes are being made with no version control at all — no history, no undo.</li>

@@ -104,6 +104,28 @@
      rollback), then investigate the deeper cause once things are stable again. Speed matters, but speed without
      a plan just creates a second problem.</p>
 
+  <figure class="fig">
+    <figcaption><b>The order a calm response goes in</b></figcaption>
+    <div class="fig-b">
+      <ol class="dgm-seq">
+        <li><b>Notice</b><span>From monitoring or an alert — ideally before the first customer email, which is
+          the slowest and most expensive way to find out.</span></li>
+        <li><b>Say what changed</b><span>The most recent deploy is the first suspect, every time. “Nothing
+          changed” is almost never true; it usually means nobody looked.</span></li>
+        <li><b>Take the safest fast action</b><span>Usually a rollback to the last version known to work. Stop
+          the bleeding before you understand the wound.</span></li>
+        <li><b>Confirm it's actually stable</b><span>Errors back down, users able to finish the thing they
+          came to do. Not “it looks quiet now.”</span></li>
+        <li><b>Now investigate</b><span>With the logs, at normal speed, with nobody watching over your
+          shoulder. This is where the real cause gets found.</span></li>
+        <li><b>Change something so it's cheaper next time</b><span>A test, an alert, a contained failure
+          instead of a total one. Otherwise you have bought nothing with the outage.</span></li>
+      </ol>
+    </div>
+    <p class="fig-n"><b>Steps 3 and 5 are in this order on purpose.</b> Debugging live, under pressure, with
+      real users watching is how a five-minute incident turns into an hour-long one.</p>
+  </figure>
+
   <h2>Failing safe vs. failing catastrophically</h2>
   <p>The real design question behind all of this is: when something inevitably breaks, does it fail <em>safely</em>
      (a contained hiccup, no lost data, a clear message) or <em>catastrophically</em> (data lost, everything down,

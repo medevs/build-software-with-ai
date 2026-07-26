@@ -99,12 +99,33 @@
      The more sensitive the data, the smaller the group of people and systems that should ever be able to
      touch it, and the more layers of protection (remember defense in depth) it deserves.</p>
 
-  <div class="cards two">
-    <div class="card"><h3>Ordinary PII</h3><p>Name, email, general location. Collect only what the feature
-       needs; disclose it; allow deletion.</p></div>
-    <div class="card"><h3>Sensitive data</h3><p>Health info, payment details. Same rules, plus extra layers
-       of protection and an even smaller circle of access.</p></div>
-  </div>
+  <figure class="fig">
+    <figcaption><b>Deciding, field by field, whether to collect it at all</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-matrix">
+        <span class="hd"></span>
+        <span class="hd">This feature needs it</span>
+        <span class="hd">Collected just in case</span>
+
+        <span class="rh">Ordinary PII<br>name, email, rough location</span>
+        <div class="q"><b>Collect it</b><span>Say plainly what you take and why, and give people a real way
+          to see, correct, or delete it.</span></div>
+        <div class="q"><b>Cut the field</b><span>A birthday nothing uses is a birthday that can only ever
+          leak. Restraint is the whole technique.</span></div>
+
+        <span class="rh">Sensitive<br>health, payments, anything that could harm someone</span>
+        <div class="q"><b>Collect it, then guard it</b><span>Same rules, plus more layers and the smallest
+          possible circle of people and systems that can touch it.</span></div>
+        <div class="q hot"><b>Don't</b><span>All of the risk, none of the feature. This is the quadrant that
+          turns a small mistake into somebody else's very bad year.</span></div>
+
+        <span class="ax-x">← needed to do the job &nbsp;·&nbsp; kept in case it's useful later →</span>
+      </div>
+    </div>
+    <p class="fig-n"><b>The right-hand column is risk you took on for nothing.</b> Every field in it can leak
+      and none of it can help — which is why “collect the least you need” outperforms any clever protection
+      you could put around it.</p>
+  </figure>
 
   <div class="warn"><span class="label">Red flags to catch</span>
     <ul style="margin:.3rem 0 0;">
