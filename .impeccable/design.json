@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-26T00:00:00Z",
+  "title": "Design System: AI Builder Academy",
+  "extensions": {
+    "colorMeta": {
+      "sheet-white": {
+        "role": "neutral",
+        "displayName": "Sheet White",
+        "canonical": "oklch(100% 0 90)",
+        "cssVar": "--paper",
+        "darkValue": "#0f1017",
+        "tonalRamp": ["oklch(15% 0 90)", "oklch(25% 0 90)", "oklch(35% 0 90)", "oklch(45% 0 90)", "oklch(55% 0 90)", "oklch(68% 0 90)", "oklch(80% 0 90)", "oklch(92% 0 90)"]
+      },
+      "sheet-tint": {
+        "role": "neutral",
+        "displayName": "Sheet Tint",
+        "canonical": "oklch(95.8% 0.007 97.4)",
+        "cssVar": "--paper-2",
+        "darkValue": "#181a24",
+        "tonalRamp": ["oklch(15% 0.007 97.4)", "oklch(25% 0.007 97.4)", "oklch(35% 0.007 97.4)", "oklch(45% 0.007 97.4)", "oklch(55% 0.007 97.4)", "oklch(68% 0.007 97.4)", "oklch(80% 0.007 97.4)", "oklch(92% 0.007 97.4)"]
+      },
+      "sheet-tint-deep": {
+        "role": "neutral",
+        "displayName": "Sheet Tint Deep",
+        "canonical": "oklch(92.1% 0.012 96.4)",
+        "cssVar": "--paper-3",
+        "darkValue": "#222532",
+        "tonalRamp": ["oklch(15% 0.012 96.4)", "oklch(25% 0.012 96.4)", "oklch(35% 0.012 96.4)", "oklch(45% 0.012 96.4)", "oklch(55% 0.012 96.4)", "oklch(68% 0.012 96.4)", "oklch(80% 0.012 96.4)", "oklch(92% 0.012 96.4)"]
+      },
+      "printing-ink": {
+        "role": "primary",
+        "displayName": "Printing Ink",
+        "canonical": "oklch(19.5% 0.016 284.8)",
+        "cssVar": "--ink / --rule",
+        "darkValue": "#ecebf3",
+        "contrastOnSheet": "18.32:1",
+        "tonalRamp": ["oklch(15% 0.016 284.8)", "oklch(25% 0.016 284.8)", "oklch(35% 0.016 284.8)", "oklch(45% 0.016 284.8)", "oklch(55% 0.016 284.8)", "oklch(68% 0.016 284.8)", "oklch(80% 0.016 284.8)", "oklch(92% 0.016 284.8)"]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "oklch(42.2% 0.023 285.4)",
+        "cssVar": "--ink-2",
+        "darkValue": "#a3a4b6",
+        "contrastOnSheet": "8.44:1",
+        "tonalRamp": ["oklch(15% 0.023 285.4)", "oklch(25% 0.023 285.4)", "oklch(35% 0.023 285.4)", "oklch(45% 0.023 285.4)", "oklch(55% 0.023 285.4)", "oklch(68% 0.023 285.4)", "oklch(80% 0.023 285.4)", "oklch(92% 0.023 285.4)"]
+      },
+      "ink-furniture": {
+        "role": "neutral",
+        "displayName": "Ink Furniture",
+        "canonical": "oklch(54% 0.023 285.6)",
+        "cssVar": "--ink-3",
+        "darkValue": "#83849a",
+        "contrastOnSheet": "5.09:1",
+        "contrastOnSheetTint": "4.50:1 — the AA floor of the system; do not lighten",
+        "tonalRamp": ["oklch(15% 0.023 285.6)", "oklch(25% 0.023 285.6)", "oklch(35% 0.023 285.6)", "oklch(45% 0.023 285.6)", "oklch(55% 0.023 285.6)", "oklch(68% 0.023 285.6)", "oklch(80% 0.023 285.6)", "oklch(92% 0.023 285.6)"]
+      },
+      "rule-soft": {
+        "role": "neutral",
+        "displayName": "Rule Soft",
+        "canonical": "oklch(82.6% 0.013 96.5)",
+        "cssVar": "--rule-soft",
+        "darkValue": "#3a3d4e",
+        "note": "Interior hairline and resting link underline. Never carries type.",
+        "tonalRamp": ["oklch(15% 0.013 96.5)", "oklch(25% 0.013 96.5)", "oklch(35% 0.013 96.5)", "oklch(45% 0.013 96.5)", "oklch(55% 0.013 96.5)", "oklch(68% 0.013 96.5)", "oklch(80% 0.013 96.5)", "oklch(92% 0.013 96.5)"]
+      },
+      "field-type": {
+        "role": "neutral",
+        "displayName": "Field Type",
+        "canonical": "oklch(100% 0 90)",
+        "cssVar": "--field-ink",
+        "note": "Type colour on every colour field, in both themes. Never re-tinted.",
+        "tonalRamp": ["oklch(15% 0 90)", "oklch(25% 0 90)", "oklch(35% 0 90)", "oklch(45% 0 90)", "oklch(55% 0 90)", "oklch(68% 0 90)", "oklch(80% 0 90)", "oklch(92% 0 90)"]
+      },
+      "signal-red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "oklch(52.9% 0.189 25)",
+        "cssVar": "--accent",
+        "darkValue": "#ff6b5e",
+        "contrastOnSheet": "5.84:1",
+        "tonalRamp": ["oklch(15% 0.189 25)", "oklch(25% 0.189 25)", "oklch(35% 0.189 25)", "oklch(45% 0.189 25)", "oklch(55% 0.189 25)", "oklch(68% 0.189 25)", "oklch(80% 0.189 25)", "oklch(92% 0.189 25)"]
+      },
+      "pass-green": {
+        "role": "tertiary",
+        "displayName": "Pass Green",
+        "canonical": "oklch(49.2% 0.109 157)",
+        "cssVar": "--ok",
+        "darkValue": "#3ecf8e",
+        "contrastOnSheet": "5.87:1",
+        "note": "Same value as module ink 3. Always paired with a caps label.",
+        "tonalRamp": ["oklch(15% 0.109 157)", "oklch(25% 0.109 157)", "oklch(35% 0.109 157)", "oklch(45% 0.109 157)", "oklch(55% 0.109 157)", "oklch(68% 0.109 157)", "oklch(80% 0.109 157)", "oklch(92% 0.109 157)"]
+      },
+      "fail-red": {
+        "role": "tertiary",
+        "displayName": "Fail Red",
+        "canonical": "oklch(52.3% 0.171 28.4)",
+        "cssVar": "--bad",
+        "darkValue": "#ff6b5e",
+        "contrastOnSheet": "5.92:1",
+        "note": "Same value as module ink 7; equals the accent in dark theme.",
+        "tonalRamp": ["oklch(15% 0.171 28.4)", "oklch(25% 0.171 28.4)", "oklch(35% 0.171 28.4)", "oklch(45% 0.171 28.4)", "oklch(55% 0.171 28.4)", "oklch(68% 0.171 28.4)", "oklch(80% 0.171 28.4)", "oklch(92% 0.171 28.4)"]
+      },
+      "module-ultramarine": {
+        "role": "secondary",
+        "displayName": "Module 1 — Ultramarine",
+        "canonical": "oklch(39% 0.141 270.8)",
+        "cssVar": "--m1 (field) / --m1t (text)",
+        "darkValue": "#8b98f0",
+        "contrastOnSheet": "9.98:1",
+        "usedFor": "Module 1 in both courses; the Software Sense course accent; the landing specimen field.",
+        "tonalRamp": ["oklch(15% 0.141 270.8)", "oklch(25% 0.141 270.8)", "oklch(35% 0.141 270.8)", "oklch(45% 0.141 270.8)", "oklch(55% 0.141 270.8)", "oklch(68% 0.141 270.8)", "oklch(80% 0.141 270.8)", "oklch(92% 0.141 270.8)"]
+      },
+      "module-teal": {
+        "role": "secondary",
+        "displayName": "Module 2 — Teal",
+        "canonical": "oklch(50.2% 0.093 226)",
+        "cssVar": "--m2 (field) / --m2t (text)",
+        "darkValue": "#4fc0e0",
+        "contrastOnSheet": "5.79:1",
+        "usedFor": "Module 2; the tip and \"Ask your AI\" callout ink.",
+        "tonalRamp": ["oklch(15% 0.093 226)", "oklch(25% 0.093 226)", "oklch(35% 0.093 226)", "oklch(45% 0.093 226)", "oklch(55% 0.093 226)", "oklch(68% 0.093 226)", "oklch(80% 0.093 226)", "oklch(92% 0.093 226)"]
+      },
+      "module-forest": {
+        "role": "secondary",
+        "displayName": "Module 3 — Forest",
+        "canonical": "oklch(49.2% 0.109 157)",
+        "cssVar": "--m3 (field) / --m3t (text)",
+        "darkValue": "#4fd39a",
+        "contrastOnSheet": "5.87:1",
+        "usedFor": "Module 3; also the pass/complete ink.",
+        "tonalRamp": ["oklch(15% 0.109 157)", "oklch(25% 0.109 157)", "oklch(35% 0.109 157)", "oklch(45% 0.109 157)", "oklch(55% 0.109 157)", "oklch(68% 0.109 157)", "oklch(80% 0.109 157)", "oklch(92% 0.109 157)"]
+      },
+      "module-rust": {
+        "role": "secondary",
+        "displayName": "Module 4 — Rust",
+        "canonical": "oklch(52% 0.142 45.7)",
+        "cssVar": "--m4 (field) / --m4t (text)",
+        "darkValue": "#e59a4d",
+        "contrastOnSheet": "5.84:1",
+        "usedFor": "Module 4; The Agentic Coding Course accent.",
+        "tonalRamp": ["oklch(15% 0.142 45.7)", "oklch(25% 0.142 45.7)", "oklch(35% 0.142 45.7)", "oklch(45% 0.142 45.7)", "oklch(55% 0.142 45.7)", "oklch(68% 0.142 45.7)", "oklch(80% 0.142 45.7)", "oklch(92% 0.142 45.7)"]
+      },
+      "module-magenta": {
+        "role": "secondary",
+        "displayName": "Module 5 — Magenta",
+        "canonical": "oklch(50.1% 0.17 355.3)",
+        "cssVar": "--m5 (field) / --m5t (text)",
+        "darkValue": "#ef7fb0",
+        "contrastOnSheet": "6.57:1",
+        "tonalRamp": ["oklch(15% 0.17 355.3)", "oklch(25% 0.17 355.3)", "oklch(35% 0.17 355.3)", "oklch(45% 0.17 355.3)", "oklch(55% 0.17 355.3)", "oklch(68% 0.17 355.3)", "oklch(80% 0.17 355.3)", "oklch(92% 0.17 355.3)"]
+      },
+      "module-violet": {
+        "role": "secondary",
+        "displayName": "Module 6 — Violet",
+        "canonical": "oklch(44.5% 0.153 297.2)",
+        "cssVar": "--m6 (field) / --m6t (text)",
+        "darkValue": "#ab8ef0",
+        "contrastOnSheet": "8.17:1",
+        "tonalRamp": ["oklch(15% 0.153 297.2)", "oklch(25% 0.153 297.2)", "oklch(35% 0.153 297.2)", "oklch(45% 0.153 297.2)", "oklch(55% 0.153 297.2)", "oklch(68% 0.153 297.2)", "oklch(80% 0.153 297.2)", "oklch(92% 0.153 297.2)"]
+      },
+      "module-vermilion": {
+        "role": "secondary",
+        "displayName": "Module 7 — Vermilion",
+        "canonical": "oklch(52.3% 0.171 28.4)",
+        "cssVar": "--m7 (field) / --m7t (text)",
+        "darkValue": "#f5837a",
+        "contrastOnSheet": "5.92:1",
+        "usedFor": "Module 7; also the warn/fail ink.",
+        "tonalRamp": ["oklch(15% 0.171 28.4)", "oklch(25% 0.171 28.4)", "oklch(35% 0.171 28.4)", "oklch(45% 0.171 28.4)", "oklch(55% 0.171 28.4)", "oklch(68% 0.171 28.4)", "oklch(80% 0.171 28.4)", "oklch(92% 0.171 28.4)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "One enormous numeral in the landing specimen field. One per site." },
+      "display-sm": { "displayName": "Display SM", "purpose": "The same numeral device at course scale, in the monograph head's ink field." },
+      "headline": { "displayName": "Headline", "purpose": "The page h1. Balanced wrapping, capped at 24-26ch on head blocks." },
+      "title": { "displayName": "Title", "purpose": "Every h2. Always carries a 1px ink rule above it — the section break is a printed rule." },
+      "subhead": { "displayName": "Subhead", "purpose": "h3. Goes uppercase at 0.06-0.09em tracking inside a card or column." },
+      "dek": { "displayName": "Dek", "purpose": "The standfirst under an h1 — the only grotesque set at weight 400. Capped at 54ch." },
+      "body": { "displayName": "Body", "purpose": "Charter running text, held to a 64ch measure everywhere." },
+      "label": { "displayName": "Label", "purpose": "All furniture: spec keys, plate numbers, table headings, captions, callout labels, rail section heads." },
+      "kicker": { "displayName": "Kicker", "purpose": "Accent-coloured line above an h1 naming the angle. Loosest tracking in the system." },
+      "action": { "displayName": "Action", "purpose": "CTA and mark-complete buttons." },
+      "action-sm": { "displayName": "Action SM", "purpose": "Row buttons inside a ruled action strip." },
+      "data": { "displayName": "Data", "purpose": "A measured value sitting under its caps key — spec numbers, a figure's headline figure." },
+      "mono": { "displayName": "Mono", "purpose": "Code only, on Sheet Tint inside a hairline." }
+    },
+    "shadows": [
+      { "name": "inset-state-bar", "value": "inset 3px 0 0 var(--ok)", "purpose": "3px vertical bar inside a quiz option's left edge marking correct (or --bad for wrong), without changing the box size. Blur 0 — a drawn rule." },
+      { "name": "inset-current-underline", "value": "inset 0 -3px 0 var(--accent)", "purpose": "Active-page marker inside the sticky nav, where a border would shift the row. Blur 0." },
+      { "name": "inset-focus-fill", "value": "inset 0 0 0 3px var(--accent)", "purpose": "The search field's focus treatment, thickening inward instead of growing. Blur 0." },
+      { "name": "shared-cell-outline", "value": "0 0 0 1px var(--rule)", "purpose": "2x2 matrix cell seams; adjacent outlines overlap exactly so every seam stays one hairline wide. Heavy variant: 0 0 0 3px <ink> for the loaded quadrant. Blur 0." }
+    ],
+    "motion": [
+      { "name": "state", "value": "0.12s", "purpose": "Every hover/focus state change in the system — background, colour, border-colour." },
+      { "name": "dim", "value": "0.18s", "purpose": "Knowledge-map opacity dimming to 12% when a node or module is isolated." },
+      { "name": "ease-authored", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The one authored easing: the field wipe and the progress bar's scaleX." },
+      { "name": "wipe", "value": "0.5s-0.62s", "purpose": "clip-path: inset(0 0 100% 0) -> inset(0 0 0 0) with animation-fill-mode: backwards. Staggered 0.14s / 0.24s for the two course cards. Content is never animated." },
+      { "name": "progress", "value": "0.35s", "purpose": "transform: scaleX() on a progress fill — re-runs on every mark-complete click, so it must not animate width." }
+    ],
+    "breakpoints": [
+      { "name": "diagram-stack", "value": "560px" },
+      { "name": "furniture-stack", "value": "620px" },
+      { "name": "map-compact", "value": "640px" },
+      { "name": "flow-vertical", "value": "680px" },
+      { "name": "head-single-column", "value": "820px" },
+      { "name": "rail-horizontal", "value": "1080px" },
+      { "name": "figure-gutter", "value": "1180px" }
+    ],
+    "layout": [
+      { "name": "measure", "value": "64ch", "purpose": "The running-text line length. Never widened, whatever the container." },
+      { "name": "rail", "value": "16rem", "purpose": "The lesson route rail's track." },
+      { "name": "gut", "value": "17rem", "purpose": "The figure gutter to the right of the text column." },
+      { "name": "frame", "value": "96rem", "purpose": "The outer frame for full-bleed heads, the map plate, and the lesson sheet." },
+      { "name": "wide-container", "value": "78rem", "purpose": "Index pages that carry grids; their prose children are re-capped to the measure." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA",
+      "kind": "button",
+      "refersTo": "cta",
+      "description": "The page's ink field as an action. Brightens rather than recolouring on hover, so it keeps its module identity.",
+      "html": "<a class=\"ds-cta\" href=\"#\">Start with lesson 1</a>",
+      "css": ".ds-cta { display: inline-block; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); font-size: .79rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; padding: .75rem 1.3rem; border: none; border-radius: 0; text-decoration: none; background: var(--field, var(--accent, #2b3a8f)); color: #fff; transition: filter .12s; } .ds-cta:hover { filter: brightness(1.15); color: #fff; } .ds-cta:focus-visible { outline: 3px solid var(--accent, #c1272d); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary CTA",
+      "kind": "button",
+      "refersTo": "cta-secondary",
+      "description": "The white-sheet action. Inverts to a solid ink block on hover — the system's single interactive gesture.",
+      "html": "<a class=\"ds-cta-secondary\" href=\"#\">See the curriculum</a>",
+      "css": ".ds-cta-secondary { display: inline-block; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); font-size: .79rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; padding: .75rem 1.3rem; border: none; border-radius: 0; text-decoration: none; background: var(--paper, #fff); color: var(--ink, #14141c); transition: background .12s, color .12s; } .ds-cta-secondary:hover { background: var(--ink, #14141c); color: var(--paper, #fff); } .ds-cta-secondary:focus-visible { outline: 3px solid var(--accent, #c1272d); outline-offset: 2px; }"
+    },
+    {
+      "name": "Module Pill",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "The module tag: a stamped ink field with white caps. There is no outlined or tinted variant.",
+      "html": "<span class=\"ds-pill\">1 &middot; How Software Works</span>",
+      "css": ".ds-pill { display: inline-block; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); font-size: .635rem; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; padding: .28rem .55rem .26rem; border-radius: 0; background: var(--field, var(--ink, #2b3a8f)); color: #fff; }"
+    },
+    {
+      "name": "Specification Strip",
+      "kind": "custom",
+      "refersTo": "spec-cell",
+      "description": "Signature. Answers \"where am I\" for a reader arriving mid-course: a 4-column data table framed by a hairline and opened by a 3px rule. Present on all 60 lesson pages.",
+      "html": "<dl class=\"ds-spec\"><div><dt>Module</dt><dd><span class=\"ds-spec-pill\">1 &middot; How Software Works</span></dd></div><div><dt>Lesson</dt><dd>2 of 30</dd></div><div><dt>Reading time</dt><dd>~5 min</dd></div><div><dt>Status</dt><dd class=\"ds-spec-done\">&#10003; Complete</dd></div></dl>",
+      "css": ".ds-spec { display: grid; grid-template-columns: minmax(10rem, 1.7fr) repeat(3, minmax(5.5rem, 1fr)); border: 1px solid var(--rule, #14141c); border-top-width: 3px; border-radius: 0; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); margin: 0 0 2.4rem; align-items: start; } .ds-spec > div { padding: .5rem .7rem .55rem; border-right: 1px solid var(--rule-soft, #c8c6bd); min-width: 0; } .ds-spec > div:last-child { border-right: none; } .ds-spec dt { display: block; font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-3, #6d6d7c); margin: 0 0 .18rem; } .ds-spec dd { display: block; margin: 0; font-size: .83rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; } .ds-spec-done { color: var(--ok, #157347); } .ds-spec-pill { display: inline-block; font-size: .635rem; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; padding: .28rem .55rem .26rem; background: var(--field, var(--ink, #2b3a8f)); color: #fff; } @media (max-width: 620px) { .ds-spec { grid-template-columns: 1fr 1fr; } }"
+    },
+    {
+      "name": "Numbered Plate",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature. Every figure is a plate: hairline frame, 3px rule in the figure's ink, an auto-numbered caption, and an optional note under a soft hairline. Shown here carrying a layer-stack diagram — one of eleven pure-CSS diagram types.",
+      "html": "<figure class=\"ds-fig\"><figcaption><b>The three parts, and which way the traffic runs</b></figcaption><div class=\"ds-fig-b\"><div class=\"ds-stack\"><div class=\"ds-lyr\"><b>Frontend</b><span>The screens, buttons, and text you see and click. <em>The dining room.</em></span></div><div class=\"ds-thru\">&#8597; sends requests, receives answers</div><div class=\"ds-lyr\"><b>Backend</b><span>Does the work and enforces the rules, out of sight. <em>The kitchen.</em></span></div><div class=\"ds-thru\">&#8597; reads and writes data</div><div class=\"ds-lyr\"><b>Database</b><span>Remembers everything after the app closes. <em>The pantry.</em></span></div></div></div><p class=\"ds-fig-n\"><b>The rule that matters:</b> the frontend never reaches the database directly.</p></figure>",
+      "css": ".ds-fig { counter-reset: none; margin: 2.4rem 0; padding: 0; border: 1px solid var(--rule, #14141c); border-top: 3px solid var(--f, var(--field, var(--ink, #2b3a8f))); border-radius: 0; background: var(--paper, #fff); font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); } .ds-fig > figcaption { display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap; padding: .5rem .85rem .55rem; border-bottom: 1px solid var(--rule-soft, #c8c6bd); } .ds-fig > figcaption::before { content: \"Fig. 1\"; font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--f, var(--field, var(--accent, #2b3a8f))); flex: none; } .ds-fig > figcaption b { font-size: .79rem; font-weight: 700; letter-spacing: -.012em; color: var(--ink, #14141c); } .ds-fig-b { padding: 1.05rem .85rem 1.1rem; } .ds-fig-n { margin: 0; padding: .5rem .85rem .6rem; border-top: 1px solid var(--rule-soft, #c8c6bd); font-size: .735rem; line-height: 1.4; color: var(--ink-2, #4c4c5a); } .ds-fig-n b { font-weight: 700; color: var(--ink, #14141c); } .ds-stack { display: grid; gap: 1px; background: var(--rule, #14141c); border: 1px solid var(--rule, #14141c); } .ds-lyr { display: grid; grid-template-columns: minmax(6.5rem, 20%) minmax(0, 1fr); background: var(--paper, #fff); } .ds-lyr > b { background: var(--f, var(--field, var(--ink, #2b3a8f))); color: #fff; padding: .6rem .7rem; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; line-height: 1.25; display: flex; align-items: center; } .ds-lyr > span { padding: .6rem .8rem; font-size: .815rem; line-height: 1.4; color: var(--ink, #14141c); } .ds-lyr > span em { font-style: normal; color: var(--ink-2, #4c4c5a); } .ds-thru { background: var(--paper-2, #f2f1ec); padding: .28rem .7rem; font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; color: var(--ink-3, #6d6d7c); text-align: center; } @media (max-width: 560px) { .ds-lyr { grid-template-columns: 1fr; } }"
+    },
+    {
+      "name": "Callout",
+      "kind": "card",
+      "refersTo": "callout",
+      "description": "A stamped block: 3px rule on top whose colour names the kind, and a caps label repeating it in words. The label is required — the rule colour never carries the meaning alone.",
+      "html": "<div class=\"ds-callout ds-callout-warn\"><span class=\"ds-callout-label\">Red flags to catch</span><ul><li>Someone shows you a slick screen and calls the feature \"done\" — but nothing was actually saved anywhere.</li><li>\"It works on my machine\" with no mention of where the data is stored.</li></ul></div>",
+      "css": ".ds-callout { padding: .85rem 1.05rem 1rem; margin: 1.9rem 0; border: 1px solid var(--rule-soft, #c8c6bd); border-top: 3px solid var(--ink, #14141c); border-radius: 0; background: var(--paper-2, #f2f1ec); font-size: .95rem; color: var(--ink, #14141c); } .ds-callout-warn { border-top-color: var(--bad, #b8332a); background: var(--paper, #fff); } .ds-callout-label { display: block; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); font-size: .615rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; margin-bottom: .4rem; color: var(--bad, #b8332a); } .ds-callout ul { margin: .35rem 0 0; padding-left: 1.35rem; } .ds-callout li { margin: .3rem 0; }"
+    },
+    {
+      "name": "Lesson Card",
+      "kind": "card",
+      "refersTo": "lesson-card",
+      "description": "The curriculum grid cell. Hairlines live on the card rather than as a container background, because a background grid leaves grey voids wherever a module's lesson count doesn't fill the last row.",
+      "html": "<a class=\"ds-lcard ds-lcard-visited\" href=\"#\"><span class=\"ds-lcard-n\">Lesson 2</span><div class=\"ds-lcard-t\">The Stack</div><div class=\"ds-lcard-b\">Frontend, backend, database — the three parts of almost every app.</div></a>",
+      "css": ".ds-lcard { display: block; padding: .75rem .9rem .85rem; background: var(--paper, #fff); color: var(--ink, #14141c); border: none; border-right: 1px solid var(--rule-soft, #c8c6bd); border-bottom: 1px solid var(--rule-soft, #c8c6bd); border-radius: 0; text-decoration: none; transition: background .12s; max-width: 20rem; } .ds-lcard:hover { background: var(--paper-2, #f2f1ec); } .ds-lcard-visited { background: var(--paper-2, #f2f1ec); } .ds-lcard-n { display: block; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--field, var(--ink-3, #6d6d7c)); } .ds-lcard-t { font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); font-weight: 700; font-size: .9rem; line-height: 1.22; letter-spacing: -.014em; margin: .25rem 0 .3rem; } .ds-lcard-visited .ds-lcard-t::after { content: \" \\2713\"; color: var(--ok, #157347); } .ds-lcard-b { font-size: .8rem; color: var(--ink-2, #4c4c5a); font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); line-height: 1.35; } .ds-lcard:focus-visible { outline: 3px solid var(--accent, #c1272d); outline-offset: 2px; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "searchbox",
+      "description": "The in-course lesson search. Focus replaces the outline with a 3px inset fill, so the field thickens inward instead of growing.",
+      "html": "<input class=\"ds-search\" type=\"search\" placeholder=\"Search all 30 lessons\u2026\" aria-label=\"Search lessons\">",
+      "css": ".ds-search { width: 100%; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); font-size: .9rem; padding: .65rem .85rem; border: 1px solid var(--rule, #14141c); border-top-width: 3px; border-radius: 0; background: var(--paper, #fff); color: var(--ink, #14141c); } .ds-search::placeholder { color: var(--ink-3, #6d6d7c); } .ds-search:focus { outline: none; box-shadow: inset 0 0 0 3px var(--accent, #c1272d); }"
+    },
+    {
+      "name": "Route Rail Block",
+      "kind": "nav",
+      "refersTo": "rail-field",
+      "description": "Signature. The lesson rail's head and foot: the module's ink field carrying a 2.6rem module number, and a rectangular progress track filled in the same ink. Replaces the docs-site sidebar tree.",
+      "html": "<aside class=\"ds-rail\"><div class=\"ds-rail-field\"><span class=\"ds-rail-mn\">01</span><span class=\"ds-rail-mt\">How Software Actually Works</span></div><p class=\"ds-rail-sec\">On this page</p><ul class=\"ds-rail-toc\"><li><a href=\"#a\">Three parts, every time</a></li><li><a href=\"#b\" aria-current=\"true\">What \"full-stack\" means</a></li><li><a href=\"#c\">Check yourself</a></li></ul><div class=\"ds-rail-foot\"><p class=\"ds-rail-prog\">Module 1 &middot; 3/5 done</p><div class=\"ds-rail-bar\"><i style=\"--p:.6\"></i></div></div></aside>",
+      "css": ".ds-rail { width: 16rem; font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); background: var(--paper, #fff); border-right: 1px solid var(--rule, #14141c); } .ds-rail-field { background: var(--field, var(--ink, #2b3a8f)); color: #fff; padding: 1.15rem 1rem 1.1rem; } .ds-rail-mn { display: block; font-size: 2.6rem; font-weight: 700; line-height: .85; letter-spacing: -.05em; } .ds-rail-mt { display: block; font-size: .72rem; font-weight: 600; line-height: 1.25; margin-top: .5rem; opacity: .92; } .ds-rail-sec { padding: .9rem 1rem .3rem; margin: 0; font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-3, #6d6d7c); } .ds-rail-toc { list-style: none; margin: 0; padding: 0 0 .6rem; } .ds-rail-toc a { display: block; padding: .34rem 1rem .34rem .85rem; font-size: .755rem; line-height: 1.3; color: var(--ink-2, #4c4c5a); text-decoration: none; border-left: 3px solid transparent; transition: color .12s, border-color .12s, background .12s; } .ds-rail-toc a:hover { color: var(--ink, #14141c); background: var(--paper-2, #f2f1ec); } .ds-rail-toc a[aria-current=\"true\"] { color: var(--ink, #14141c); font-weight: 700; border-left-color: var(--field, var(--accent, #2b3a8f)); background: var(--paper-2, #f2f1ec); } .ds-rail-foot { border-top: 1px solid var(--rule-soft, #c8c6bd); padding: .85rem 1rem 1.2rem; } .ds-rail-prog { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; color: var(--ink-3, #6d6d7c); margin: 0 0 .4rem; } .ds-rail-bar { height: 6px; border: 1px solid var(--rule, #14141c); background: transparent; overflow: hidden; } .ds-rail-bar i { display: block; height: 100%; width: 100%; background: var(--field, var(--ok, #2b3a8f)); transform-origin: left center; transform: scaleX(var(--p, 0)); transition: transform .35s cubic-bezier(.16, 1, .3, 1); }"
+    },
+    {
+      "name": "Self-check Quiz Option",
+      "kind": "button",
+      "refersTo": "quiz-option",
+      "description": "Inline self-check. Hover inverts to solid ink; answered states are marked by a zero-blur 3px inset bar plus a struck-through label, so correctness never rests on hue alone.",
+      "html": "<div class=\"ds-quiz\"><p class=\"ds-quiz-q\">In the restaurant analogy, which part is the \"kitchen\"?</p><button class=\"ds-quiz-opt\">The frontend</button><button class=\"ds-quiz-opt ds-quiz-correct\" disabled>The backend</button><button class=\"ds-quiz-opt ds-quiz-wrong\" disabled>The database</button><p class=\"ds-quiz-fb\">The backend is the kitchen \u2014 the brain that does the work.</p></div>",
+      "css": ".ds-quiz { border: 1px solid var(--rule, #14141c); border-top: 3px solid var(--rule, #14141c); border-radius: 0; padding: 1.05rem 1.15rem 1.15rem; margin: 1.8rem 0; background: var(--paper-2, #f2f1ec); font-family: var(--grot, \"Helvetica Neue\", Helvetica, Arial, sans-serif); } .ds-quiz::before { content: \"Self-check\"; display: block; font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: var(--ink-3, #6d6d7c); margin-bottom: .5rem; } .ds-quiz-q { font-weight: 700; font-size: .94rem; line-height: 1.3; letter-spacing: -.012em; margin: 0 0 .8rem; color: var(--ink, #14141c); } .ds-quiz-opt { display: block; width: 100%; text-align: left; margin: 0; padding: .6rem .8rem; font-family: inherit; font-size: .87rem; background: var(--paper, #fff); color: var(--ink, #14141c); border: 1px solid var(--rule-soft, #c8c6bd); border-radius: 0; cursor: pointer; transition: background .12s, color .12s, border-color .12s; } .ds-quiz-opt + .ds-quiz-opt { border-top: none; } .ds-quiz-opt:hover:not(:disabled) { background: var(--ink, #14141c); color: var(--paper, #fff); border-color: var(--ink, #14141c); } .ds-quiz-opt:focus-visible { outline: 3px solid var(--accent, #c1272d); outline-offset: 2px; } .ds-quiz-correct { background: var(--paper, #fff); border-color: var(--ok, #157347); box-shadow: inset 3px 0 0 var(--ok, #157347); font-weight: 700; } .ds-quiz-wrong { background: var(--paper, #fff); border-color: var(--bad, #b8332a); box-shadow: inset 3px 0 0 var(--bad, #b8332a); text-decoration: line-through; text-decoration-color: var(--bad, #b8332a); } .ds-quiz-fb { font-size: .83rem; line-height: 1.4; color: var(--ink-2, #4c4c5a); margin: .7rem 0 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Data Sheet",
+    "overview": "This is a Geigy-Basel product monograph (1953-72) rendered as static HTML: white stock, printing-ink hairlines, tight Helvetica caps for every piece of furniture, and a serif — Charter — reserved for running text. It is aimed at a professional with four spare minutes, and the ambition is that the sheet is precise enough and well set enough that people keep it. Diagrams are not illustrations dropped into prose; they are the architecture, and every one is a numbered plate.\n\nThe world is deliberately flat. There is no radius anywhere in the two stylesheets and no blurred shadow anywhere in the two stylesheets. Depth is a ruled line: a 3px heavy rule opens a block, a 1px ink hairline separates the things inside it, a 1px soft hairline separates the rows within those. Colour arrives at page scale — a module's ink fills a whole panel and carries white type — never as a small tinted chip. The one authored moment of motion is a flat colour field wiping down the way a press lays ink; the text is on screen from the first frame regardless.\n\nTwo things are explicitly refused. The modern documentation site: no sidebar tree, no thin sans, no blue links. And the site's own former identity: no cream paper, no serif display, no terracotta essay column. Where the build and the direction contract diverge, the build is the record — the contract says diagrams are the architecture, and the vocabulary is complete (eleven diagram types), but only 24 numbered plates exist across the 60 lesson pages so far. The vocabulary is the system; the coverage is still growing.",
+    "keyCharacteristics": [
+      "White sheet, printing-ink hairlines, zero radius, zero blur.",
+      "Elevation is a ruled line — 3px heavy, 1px ink, 1px soft.",
+      "Seven module inks as page-scale fields carrying #ffffff type.",
+      "Furniture in 0.6rem Helvetica caps at 0.11-0.18em tracking; running text in Charter at 64ch.",
+      "Every figure is a numbered plate inside a ruled frame.",
+      "Interactive furniture inverts to solid ink on hover in 0.12s.",
+      "System font stacks only, no external request of any kind, works in print."
+    ],
+    "rules": [
+      { "name": "The Field Rule", "body": "A module ink appears one of two ways: as a page-scale field with #ffffff type on it, or as type on the white sheet through its t variant. It is never a small tinted chip behind dark text. The one licensed exception is a wash — color-mix(in srgb, <ink> 10-22%, var(--paper)) under body ink, used for the loaded quadrant of a 2x2 and the shaded band of a scale. A wash is a region; a chip is a badge. Badges are the rejected world.", "section": "colors" },
+      { "name": "The Two-Way AA Rule", "body": "An ink joins the palette only if it is legible in both directions against the sheet: white type on the field, and the ink itself as type on white. Every current module ink measures >=5.79:1 against #ffffff (min: Teal at 5.79, max: Ultramarine at 9.98), and every dark-theme t variant measures >=7.09:1 against #0f1017. This replaced a pastel-pill palette that failed; it is load-bearing, not taste.", "section": "colors" },
+      { "name": "The Furniture Floor Rule", "body": "Ink Furniture on Sheet Tint measures exactly 4.50:1 — the AA minimum for text under 18.66px, which is all of it. That pair is the floor of the system. Do not lighten Ink Furniture, do not darken Sheet Tint, and do not introduce a third grey between them.", "section": "colors" },
+      { "name": "The Borrowed Semantics Rule", "body": "Pass Green is module ink 3, Fail Red is module ink 7, and in dark theme the academy accent and the fail ink are the same value. Hue therefore never carries pass/fail on its own — the caps label (RED FLAGS TO CATCH, COMPLETE) is what says it. Never build a state that is distinguishable only by colour.", "section": "colors" },
+      { "name": "The Two Voices Rule", "body": "Charter sets running text. The grotesque sets everything that is furniture — labels, spec strips, plate numbers, tables, captions, deks, headings, buttons, the whole route rail, and all text inside a figure. There is no third voice except code. If you cannot say which of the two a new element is, it is furniture.", "section": "typography" },
+      { "name": "The Caps Furniture Rule", "body": "Furniture is 0.585-0.68rem, weight 700, uppercase, tracked 0.11-0.18em. At that size tighter tracking prints as a smudge and looser prints as a logo. Never set furniture in lowercase and never below 0.585rem.", "section": "typography" },
+      { "name": "The Tightening Rule", "body": "Negative tracking scales with size: -0.014em at dek, -0.028em at h1/h2, -0.035em at a data value, -0.06em at the specimen numeral. No grotesque display line is set at normal tracking.", "section": "typography" },
+      { "name": "The System Stack Rule", "body": "System font stacks only. No webfont, no @font-face, no external request — not now, not for one page. The fallback chains are the design.", "section": "typography" },
+      { "name": "The Measure Rule", "body": "Running text holds 64ch. A page may be as wide as it needs to be; a line may not. Widening a container is never a reason to widen prose.", "section": "layout" },
+      { "name": "The Local Breakpoint Rule", "body": "There is no global breakpoint ladder. Each component collapses at the width its own content actually breaks — 520/560/620px for diagrams and furniture, 640/680px for the map and step chains, 760/820px for the two head blocks, 1080px where the lesson rail becomes a horizontal strip, 1180px where the figure gutter opens. Do not invent a shared sm/md/lg scale to tidy this up; the numbers are content measurements.", "section": "layout" },
+      { "name": "The Ruled-Line Rule", "body": "Elevation is a ruled line. If something needs to read as raised, separate, or new, give it a heavier rule — never a shadow, never a gradient, never a lift on hover.", "section": "elevation" },
+      { "name": "The Zero-Blur Rule", "body": "box-shadow is permitted only with a blur radius of exactly 0, as a drawn rule that a border cannot produce. Any blur value, any filter: drop-shadow, any spread meant to read as glow belongs to the world this one refuses.", "section": "elevation" },
+      { "name": "The Print Fallback Rule", "body": "Every colour field must still read when its background is dropped. In print the whole token set re-declares to black on white and every field — pill, course card head, module header, specimen block, rail block — becomes a white box with a 1px black border. A new field-carrying component is not finished until it has a print rule.", "section": "elevation" },
+      { "name": "The Inversion Rule", "body": "Interactive furniture inverts on hover: background becomes Printing Ink, text becomes Sheet White, over 0.12s. That single gesture covers nav links, buttons, search results, prev/next cells, table-of-contents entries, quiz options, map controls, and legend items. Never a tint, never a lift, never a radius, never a colour change to something new.", "section": "components" },
+      { "name": "The Field-Follows-Page Rule", "body": "--field on the body element is the only per-page identity declaration, and every accented component reads it with a fallback (var(--field, var(--ink))). Setting it once recolours the rail block, the module pill, the plate rules, the progress fills, the step numerals, the diagram inks, and the current-section marker together. Figures may override with --f; landing course cards use --course-accent. Never hard-code a module hex into a component.", "section": "components" },
+      { "name": "The Text-Variant Rule", "body": "When a module ink is used as a field, use the base ink (--m1...--m7). When it is used as type or as a thin stroke on the sheet, use the text variant (--m1t...--m7t), which is identical in light theme and re-tinted lighter in dark theme. A base ink used as type goes muddy on the dark sheet.", "section": "components" },
+      { "name": "The One Authored Moment Rule", "body": "Motion is one gesture: a colour field wipes down from clip-path: inset(0 0 100% 0) with animation-fill-mode: backwards, 0.5-0.62s on cubic-bezier(.16, 1, .3, 1), staggered 0.14s and 0.24s for the two course cards. Content is never animated and is visible on the first frame, so nothing can be left invisible if the animation never runs. State changes are 0.12s. The progress bar animates transform: scaleX() rather than width, because it re-runs on every mark-complete click. Everything is disabled under prefers-reduced-motion: reduce.", "section": "components" }
+    ],
+    "dos": [
+      "Do put a module ink on screen as a page-scale field with #ffffff type, or as type through its --mNt variant. Nothing in between.",
+      "Do open every new block with a 3px rule and divide its interior with 1px hairlines: heavy rule -> ink hairline -> soft hairline.",
+      "Do read the page's identity from var(--field, var(--ink)) (or --f in a figure, --course-accent on a landing card) so one body declaration recolours the whole page.",
+      "Do set every label, key, caption, plate number, table heading, and button in the grotesque at 0.585-0.68rem, weight 700, uppercase, tracked 0.11-0.18em.",
+      "Do hold running text to 64ch, whatever the container width, and re-cap prose children individually on wide index pages.",
+      "Do invert interactive furniture to solid ink on hover in 0.12s.",
+      "Do wrap every figure in a .fig plate so it gets a number, a caption, and a rule in the page's ink.",
+      "Do check a new ink both ways against the sheet — >=4.5:1 for white type on it and for it as type on white — plus its dark-theme variant against #0f1017.",
+      "Do give every field-carrying component a print rule that drops the background to white and outlines the box in 1px black.",
+      "Do pair every status colour with a caps label that says the same thing."
+    ],
+    "donts": [
+      "Don't set border-radius anywhere. Not on a button, not on an input, not on a map node. The value is 0 and it is the world.",
+      "Don't use a blurred shadow, a drop-shadow filter, a gradient meant to read as depth, or a hover lift. box-shadow is allowed only at blur 0, as a drawn rule.",
+      "Don't render a module ink as a small pastel chip behind dark text. A 10-22% color-mix wash under body ink across a region is the only tinted use.",
+      "Don't add a webfont, an icon font, a CDN stylesheet, or any external asset request. System stacks and inline SVG only.",
+      "Don't set body copy in the grotesque, or furniture in the serif. There is no third family except monospace for code.",
+      "Don't lighten Ink Furniture or darken Sheet Tint — that pair already sits exactly at 4.50:1, the AA floor.",
+      "Don't hard-code a module hex inside a component's CSS; read --field/--f.",
+      "Don't distinguish any state by hue alone — Pass Green is also module ink 3, Fail Red is also module ink 7, and in dark theme the accent equals the fail ink.",
+      "Don't animate content in or out. Only a colour field moves, and the text under it is on screen from frame one.",
+      "Don't introduce a global sm/md/lg breakpoint scale. Breakpoints are per-component content measurements.",
+      "Don't build a sidebar tree, a thin-sans docs shell, or blue underlined links; and don't reintroduce cream paper, a serif display face, or terracotta."
+    ]
+  }
+}

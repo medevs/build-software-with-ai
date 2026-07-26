@@ -1,55 +1,71 @@
 <!doctype html>
-<!-- og-template.html — 1200×630 social-card template. Not deployed; open locally
-     with query params and screenshot at a 1200×630 viewport into assets/og/:
-       ?k=KICKER&t=TITLE&s=SUBTITLE&a=%23accent-hex
-     e.g. tools/og-template.html?k=Free%20course&t=The%20Agentic%20Coding%20Course -->
+<!-- og-template.html — 1200×630 social-card template, in the site's own Data Sheet
+     world: an ink field carrying the count, a white sheet carrying the title.
+     Not deployed. Open locally with query params and screenshot at 1200×630 into
+     assets/og/:
+       ?k=KICKER&t=TITLE&s=SUBTITLE&n=BIG-NUMBER&u=UNITS&a=%23ink-hex
+     e.g. tools/og-template.html?k=Course%20B&t=The%20Agentic%20Coding%20Course&n=30
+     `n` is a real count from the site — never invent one. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <style>
   * { margin: 0; box-sizing: border-box; }
   body {
-    width: 1200px; height: 630px; overflow: hidden; position: relative;
-    background: linear-gradient(160deg, #1b1a26, #12111a 70%);
-    color: #f3f0ea;
-    font-family: -apple-system, "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 0 90px;
+    width: 1200px; height: 630px; overflow: hidden;
+    background: #fff; color: #14141c;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+    display: grid; grid-template-columns: 400px 1fr;
+    border-bottom: 10px solid #14141c;
   }
-  svg.motif { position: absolute; right: -60px; top: -40px; width: 620px; height: 710px; opacity: .5; }
-  .kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 26px; font-weight: 800;
-    color: var(--a, #c96a52); margin-bottom: 28px; }
-  h1 { font-family: Georgia, "Iowan Old Style", serif; font-size: 76px; line-height: 1.08;
-    letter-spacing: -.02em; font-weight: 800; max-width: 17ch; margin-bottom: 30px; }
-  .sub { font-size: 30px; line-height: 1.4; color: #b7b2a7; max-width: 44ch; margin-bottom: 44px; }
-  .brand { display: flex; align-items: center; gap: 14px; font-size: 26px; font-weight: 700; color: #8f8a80; }
-  .brand b { color: #f3f0ea; }
-  .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--a, #c96a52); }
+  .field {
+    background: var(--a, #2b3a8f); color: #fff;
+    padding: 54px 48px 48px; display: flex; flex-direction: column;
+  }
+  .mark { font-size: 24px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .2em; line-height: 1.5; margin: 0 0 auto; }
+  .mark b { display: block; }
+  .num { font-size: 190px; font-weight: 700; line-height: .78; letter-spacing: -.06em; }
+  .units { font-size: 19px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .13em; line-height: 1.75; margin-top: 24px; }
+  .units span { display: block; }
+  .sheet { padding: 54px 66px 48px; display: flex; flex-direction: column;
+    border-left: 3px solid #14141c; }
+  .kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 23px;
+    font-weight: 700; color: var(--a, #2b3a8f); margin-bottom: 26px; }
+  h1 { font-size: 74px; line-height: 1.0; letter-spacing: -.035em; font-weight: 700;
+    max-width: 20ch; margin-bottom: 26px; }
+  .sub { font-family: Charter, "Bitstream Charter", "Sitka Text", Georgia, serif;
+    font-size: 29px; line-height: 1.45; color: #4c4c5a; max-width: 40ch; margin-bottom: auto; }
+  .foot { display: flex; align-items: baseline; gap: 16px; font-size: 19px; white-space: nowrap;
+    font-weight: 700; text-transform: uppercase; letter-spacing: .13em; color: #6d6d7c;
+    border-top: 3px solid #14141c; padding-top: 20px; }
+  .foot b { color: #14141c; }
 </style>
 </head>
 <body>
-<svg class="motif" viewBox="0 0 600 700" fill="none">
-  <g stroke="#403c4e" stroke-width="1.6">
-    <path d="M120 140 Q 260 90 400 170"/><path d="M400 170 Q 470 300 380 420"/>
-    <path d="M380 420 Q 240 500 150 400"/><path d="M150 400 Q 90 260 120 140"/>
-    <path d="M120 140 Q 300 300 380 420"/><path d="M400 170 Q 260 280 150 400"/>
-    <path d="M400 170 Q 500 120 560 200"/><path d="M380 420 Q 480 480 540 430"/>
-  </g>
-  <g>
-    <circle cx="120" cy="140" r="17" fill="#6366f1"/><circle cx="400" cy="170" r="17" fill="#0ea5e9"/>
-    <circle cx="380" cy="420" r="17" fill="#10b981"/><circle cx="150" cy="400" r="17" fill="#f59e0b"/>
-    <circle cx="560" cy="200" r="13" fill="#ec4899"/><circle cx="540" cy="430" r="13" fill="#8b5cf6"/>
-  </g>
-</svg>
-<div class="kicker" id="k">Free course</div>
-<h1 id="t">AI Builder Academy</h1>
-<div class="sub" id="s">Learn to ship real software with AI.</div>
-<div class="brand"><span class="dot"></span>AI <b>Builder</b> Academy · free &amp; open source</div>
+<div class="field">
+  <p class="mark">AI Builder<b>Academy</b></p>
+  <p class="num" id="n">60</p>
+  <p class="units" id="u"><span>Lessons</span><span>Free · self-paced</span></p>
+</div>
+<div class="sheet">
+  <div class="kicker" id="k">Two courses · one goal</div>
+  <h1 id="t">Ship real software with AI — and know it's good.</h1>
+  <div class="sub" id="s">Free, self-paced courses on what good software needs and the
+    system for building it reliably with an AI agent.</div>
+  <div class="foot"><b>medevs.github.io</b> · free · no accounts</div>
+</div>
 <script>
   var q = new URLSearchParams(location.search);
-  ["k", "t", "s"].forEach(function (id) {
+  ["k", "t", "s", "n"].forEach(function (id) {
     if (q.get(id)) document.getElementById(id).textContent = q.get(id);
   });
+  if (q.get("u"))
+    document.getElementById("u").innerHTML =
+      q.get("u").split("|").map(function (l) {
+        return "<span>" + l.replace(/[<>&]/g, "") + "</span>";
+      }).join("");
   if (q.get("a")) document.body.style.setProperty("--a", q.get("a"));
 </script>
 </body>

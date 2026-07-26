@@ -8,3 +8,9 @@ Thumbs.db
 # private planning docs - keep local only
 ROADMAP.md
 .claude/
+
+# local screenshot scratch (impeccable inspection rounds)
+.shots/
+
+# transient state from the design-decision page
+.impeccable/questions/
