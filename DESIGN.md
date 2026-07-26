@@ -314,11 +314,13 @@ first frame regardless.
 
 Two things are explicitly refused. The modern documentation site: no sidebar
 tree, no thin sans, no blue links. And the site's own former identity: no cream
-paper, no serif display, no terracotta essay column. Where the build and the
-direction contract diverge, the build is the record — the contract says diagrams
-are the architecture, and the vocabulary is complete (eleven diagram types), but
-only 24 numbered plates exist across the 60 lesson pages so far. The vocabulary
-is the system; the coverage is still growing.
+paper, no serif display, no terracotta essay column. The contract says diagrams
+are the architecture rather than guests in the prose, and the build now agrees:
+the vocabulary is complete at eleven diagram types and all eleven are in use,
+across 61 numbered plates on 54 of the 60 lesson pages. The six pages without one
+already carry a checklist or comparison table doing the same job; a plate is
+added where a visual carries the idea better than the paragraph, never to close a
+gap in a count.
 
 **Key Characteristics:**
 
