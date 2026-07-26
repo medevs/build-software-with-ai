@@ -86,12 +86,34 @@
 
   <h2>Three ways to cut a slice</h2>
   <p>There's no single correct way to split work — but three approaches cover almost every case.</p>
-  <table>
-    <tr><th>Approach</th><th>How it works</th><th>When to reach for it</th></tr>
-    <tr><td>By dependency</td><td>One piece has to exist before the next can be built on top of it.</td><td>Sequencing work, and pulling riskier pieces earlier so you learn fast if something won't work.</td></tr>
-    <tr><td>By concern</td><td>Group by the part of the codebase touched — the database schema, the API, the front-end.</td><td>The simplest and most common split; a good default when you're not sure.</td></tr>
-    <tr><td>Thin end-to-end slice</td><td>One narrow feature that cuts through every layer at once — database to UI.</td><td>Rarer, more technical; useful when you need to prove a whole path works before widening it.</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>Picking the cut that fits the work</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-tree">
+        <div class="tq">What makes these pieces separable in the first place?</div>
+        <div class="tb">
+          <div class="tbr" data-e="One must exist first">
+            <b>By dependency</b>
+            <span>Sequence them, and deliberately pull the riskiest piece earlier — so if something turns
+              out not to work, you learn it while the pile on top is still small.</span>
+          </div>
+          <div class="tbr" data-e="Different parts of the code">
+            <b>By concern</b>
+            <span>The database schema, then the API, then the front-end. The simplest and most common
+              split, and the right default whenever you're not sure.</span>
+          </div>
+          <div class="tbr" data-e="The whole path is the risk">
+            <b>A thin end-to-end slice</b>
+            <span>One narrow feature cutting through every layer at once. Rarer and more technical, and
+              worth it when what you need to prove is that the path connects at all.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fig-n"><b>All three cuts produce the same shape</b> — tickets, one testable concern each, with
+      the dependencies between them drawn. What the choice changes is the order you build in, never how big a
+      single piece is allowed to be.</p>
+  </figure>
   <p>Whichever way you cut, the output is the same shape: a set of tickets, each one testable concern, with the
      dependencies between them mapped out. Some of those tickets can run one after another; others, once you
      trust the process, can run <a href="21-parallel-loops.html">at the same time</a>. Where those tickets live

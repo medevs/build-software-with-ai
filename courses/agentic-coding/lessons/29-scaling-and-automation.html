@@ -90,6 +90,27 @@
   <p>Notice what doesn't change: it's still the same core loop, following the same rules your context layer
      defines. What changes is <em>where</em> and <em>when</em> it runs, and whether a person has to be watching.</p>
 
+  <figure class="fig">
+    <figcaption><b>The ladder a loop climbs, one rung at a time</b></figcaption>
+    <div class="fig-b">
+      <ol class="dgm-seq">
+        <li><b>You run it, watching every step</b><span>Where every loop starts. This isn't slowness — it's
+          how the evidence gets collected that any later rung is safe.</span></li>
+        <li><b>You run several at once</b><span>Same supervision, more throughput. Nothing has been granted
+          yet; you are still the one reading each result.</span></li>
+        <li><b>It runs in the background</b><span>You start it and go elsewhere. The first real grant: it is
+          allowed to finish without you in the room.</span></li>
+        <li><b>It runs somewhere that isn't your laptop</b><span>Several loops at once without competing for
+          your machine, and without you keeping anything open.</span></li>
+        <li><b>Something else starts it</b><span>A pull request opens and the loop fires on its own trigger.
+          You didn't type anything, and you find out when it reports back.</span></li>
+      </ol>
+    </div>
+    <p class="fig-n"><b>Every rung is granted, never assumed.</b> A loop moves down this list because it has
+      already proved, with you watching, that it does the right thing — automation multiplies what you feed
+      it, and it does not check first.</p>
+  </figure>
+
   <h2>A concrete example: the loop on every pull request</h2>
   <p>Imagine a rule that says every pull request gets an automatic pass: the agent reads the diff, checks it
      against your project's rules, runs your tests, and leaves a review comment before a human ever opens the PR.

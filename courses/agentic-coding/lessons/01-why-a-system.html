@@ -67,6 +67,21 @@
      <strong>84% of developers</strong> use or plan to use AI coding tools. Yet roughly
      <strong>46% actively distrust</strong> the accuracy of what those tools produce.
      <a href="https://survey.stackoverflow.co/2025/" target="_blank" rel="noopener">(2025 developer survey)</a></p>
+
+  <figure class="fig">
+    <figcaption><b>Two answers from the same survey, side by side</b></figcaption>
+    <div class="fig-b">
+      <ul class="dgm-bars">
+        <li style="--p:84;--f:var(--m1t)"><span class="bl">Use or plan to use AI coding tools</span>
+          <span class="bt"></span><span class="bn">84%</span></li>
+        <li style="--p:46;--f:var(--m7t)"><span class="bl">Actively distrust the accuracy of the output</span>
+          <span class="bt"></span><span class="bn">46%</span></li>
+      </ul>
+    </div>
+    <p class="fig-n">Both figures are from the 2025 Stack Overflow developer survey, answered by the same
+      population. <b>Nearly half of the people reaching for the tool every day don't believe what it hands
+      back</b> — and they keep reaching for it anyway.</p>
+  </figure>
   <p>So the tools are everywhere, and people still don't trust them. If you've used one, you know the feeling:
      the code comes back <em>almost</em> right — plausible, confident, and subtly wrong. You spend as long
      fixing it as you would have spent writing it.</p>
@@ -87,20 +102,31 @@
      <strong>amplifies</strong> whatever process is already there.
      <a href="https://dora.dev/" target="_blank" rel="noopener">(DORA research)</a>
      With a disciplined system, AI compounds your output. With no system, it just multiplies the mess — faster.</p>
-  <figure>
-    <svg viewBox="0 0 520 150" width="100%" style="max-width:520px" role="img" aria-label="AI amplifies your system, good or bad">
-      <rect x="10" y="30" width="120" height="40" rx="6" fill="#ef444422" stroke="#ef4444"/>
-      <text x="70" y="55" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">No system</text>
-      <rect x="10" y="90" width="120" height="40" rx="6" fill="#10b98122" stroke="#10b981"/>
-      <text x="70" y="115" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">Real system</text>
-      <polygon points="150,50 200,50 200,40 240,60 200,80 200,70 150,70" fill="#8a3a2e"/>
-      <text x="195" y="30" text-anchor="middle" font-family="sans-serif" font-size="11" fill="currentColor">AI amplifies →</text>
-      <rect x="260" y="20" width="250" height="50" rx="6" fill="#ef444422" stroke="#ef4444"/>
-      <text x="385" y="49" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">chaos, faster</text>
-      <rect x="260" y="90" width="250" height="50" rx="6" fill="#10b98122" stroke="#10b981"/>
-      <text x="385" y="119" text-anchor="middle" font-family="sans-serif" font-size="13" fill="currentColor">reliable, repeatable results</text>
-    </svg>
-    <figcaption>The multiplier is the same. What you feed it is up to you.</figcaption>
+  <figure class="fig">
+    <figcaption><b>The same model, on either side of the multiplier</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-vs">
+        <div class="bad"><b>No system around it</b>
+          <span class="big">The mess, faster</span>
+          <ul>
+            <li>Nothing written down before the first line appears.</li>
+            <li>The agent invents the assumptions you never stated.</li>
+            <li>You discover what it decided by reading the diff.</li>
+            <li>Fixing it costs about what writing it would have.</li>
+          </ul></div>
+        <div class="good"><b>A real system around it</b>
+          <span class="big">The same result, again</span>
+          <ul>
+            <li>Intent and “done” settled before any code is written.</li>
+            <li>The context it needs is already in front of it.</li>
+            <li>A check at the end that returns pass or fail, not a vibe.</li>
+            <li>Next week the same kind of task goes the same way.</li>
+          </ul></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Nothing on this figure is a property of the model — both columns are the same one.</b>
+      Everything that differs is something a person put around it, which is the only reason any of it is
+      learnable.</p>
   </figure>
 
   <h2>What “a system” actually means here</h2>

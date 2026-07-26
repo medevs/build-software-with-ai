@@ -73,6 +73,26 @@
      lean on — but every one of them is just a harness for the same underlying idea: an AI that can read your
      codebase, propose changes, and execute commands.</p>
 
+  <figure class="fig">
+    <figcaption><b>Which layers you build, and which one you pick</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-stack">
+        <div class="lyr"><b>The loop</b><span>Research → Plan → Implement → Validate, run on one slice at a
+          time. <em>Yours. Transfers whole, unchanged.</em></span></div>
+        <div class="lyr"><b>The context layer</b><span>Rules, skills, subagents, connections, navigation,
+          guardrails. <em>Yours. Transfers with small naming changes.</em></span></div>
+        <div class="thru">↑ everything above this line is what you built, and it moves with you</div>
+        <div class="lyr"><b>The coding agent</b><span>Reads files, writes diffs, runs commands. <em>The one
+          layer you choose rather than build.</em></span></div>
+        <div class="lyr"><b>The model</b><span>Improves, changes, and gets replaced under you every few
+          months. <em>Not a decision you make at all.</em></span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Switching tools swaps one box and leaves the two above it standing.</b> Which is why a
+      week spent comparing agents buys you less than an afternoon spent writing the rules file you'd carry
+      into any of them.</p>
+  </figure>
+
   <div class="note"><span class="label">Why this matters</span> Because the context layer and the core loop live
      <em>above</em> the tool, they transfer. Rules written for one agent translate to another with small naming
      changes. A repeatable Research → Plan → Implement → Validate rhythm doesn't care which product is typing the

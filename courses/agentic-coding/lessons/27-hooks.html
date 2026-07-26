@@ -96,6 +96,33 @@
      never a certainty. Hooks exist for the handful of things you're not willing to leave to chance at all: the
      tests really did run, that file really was never touched, the formatter really did apply. A hook can't
      forget, get talked out of it, or decide the rule doesn't apply this time.</p>
+
+  <figure class="fig">
+    <figcaption><b>Asked, versus guaranteed</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-vs">
+        <div><b>A rule — asked</b>
+          <span class="big">Probabilistic</span>
+          <ul>
+            <li>Read at the start of every task, and followed most of the time.</li>
+            <li>Followed by something that is genuinely trying to comply.</li>
+            <li>Can be missed halfway through a long, complicated task.</li>
+            <li>Can be reasoned around: “this case is a bit different.”</li>
+          </ul></div>
+        <div><b>A hook — guaranteed</b>
+          <span class="big">Deterministic</span>
+          <ul>
+            <li>A plain script wired to one moment in the workflow.</li>
+            <li>Fires whether the agent remembers, notices, or agrees.</li>
+            <li>Cannot be talked out of it, at any point in any task.</li>
+            <li>Reports what a real command returned, not a claim about one.</li>
+          </ul></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>This is a difference in kind, not in strength.</b> A better-written rule never becomes a
+      hook — so keep hooks for the short list of things you are not willing to leave to a probability at all,
+      and let rules carry everything else.</p>
+  </figure>
   <p>That also means hooks are cheap to reuse across projects. Like skills, a hook is behavior, not
      codebase-specific truth — "always run the formatter on save" is just as true on your next project as this
      one, so a well-written hook tends to travel with you.</p>

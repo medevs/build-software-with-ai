@@ -99,6 +99,32 @@
      and prompt the next one. Nothing about the loop itself changes: each worktree is simply running its own
      full loop, exactly as covered in <a href="20-full-loop-end-to-end.html">the last lesson</a>.</p>
 
+  <figure class="fig">
+    <figcaption><b>Two sessions, with and without isolation</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-vs">
+        <div class="bad"><b>One folder, two agents</b>
+          <span class="big">Shared file tree</span>
+          <ul>
+            <li>One session edits a file the other is still holding an older version of.</li>
+            <li>Edits collide — or worse, quietly overwrite each other and nothing errors.</li>
+            <li>Both tickets land as one tangled change in one branch.</li>
+            <li>Neither ticket can be reviewed, revised, or abandoned on its own.</li>
+          </ul></div>
+        <div class="good"><b>One worktree each</b>
+          <span class="big">One history, two copies</span>
+          <ul>
+            <li>Each agent reads and writes only its own copy of the code.</li>
+            <li>Nothing mutates underneath a session while it's working.</li>
+            <li>Each ticket is its own branch, and its own small reviewable diff.</li>
+            <li>The loop itself is unchanged — it is simply running twice.</li>
+          </ul></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>What this buys is throughput, not extra output</b> — the same total work in less
+      wall-clock time. Five shaky loops running at once still gets you five shaky results, just sooner.</p>
+  </figure>
+
   <h2>When it helps, and when it's just overhead</h2>
   <p>Parallel loops shine when you have several independent, well-sliced tickets ready to go and the patience to
      keep more than one thread of context organized in your own head. They add nothing — and can actively hurt —

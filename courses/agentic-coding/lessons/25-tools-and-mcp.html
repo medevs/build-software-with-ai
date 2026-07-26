@@ -82,6 +82,33 @@
      don't need to memorize the protocol's internals — the useful takeaway is simpler: MCP is why "connect my
      agent to my ticket tracker" is now a small, repeatable setup step instead of a custom project.</p>
 
+  <figure class="fig">
+    <figcaption><b>Why one shared protocol changes the arithmetic</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-vs">
+        <div class="bad"><b>Custom integration per pair</b>
+          <span class="big">Every agent × every tool</span>
+          <ul>
+            <li>Each combination is its own build, tested and maintained on its own.</li>
+            <li>A new tool means writing the same integration once per agent.</li>
+            <li>Switching agents throws away everything you wired up.</li>
+            <li>Connecting to anything is a project, so mostly nobody does.</li>
+          </ul></div>
+        <div class="good"><b>One shared protocol</b>
+          <span class="big">One connector, both sides</span>
+          <ul>
+            <li>A system exposes a server once, and it's done for every agent.</li>
+            <li>Any capable agent connects the same way, with the same setup step.</li>
+            <li>What you wired up survives changing your mind about the tool.</li>
+            <li>Connecting becomes cheap enough to do when the friction appears.</li>
+          </ul></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Nothing here makes the agent smarter — it makes reaching outside cheap.</b> That's the
+      whole reason connections went from a custom project to a setup step you do the afternoon you get tired
+      of pasting things in.</p>
+  </figure>
+
   <div class="note"><span class="label">Setting one up is usually simple</span> Most platforms that offer an MCP
      server publish straightforward setup docs. You typically don't need to hand-write the integration — you can
      often just point your agent at the docs and have it configure the connection and handle authentication for

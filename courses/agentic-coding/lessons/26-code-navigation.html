@@ -94,13 +94,29 @@
 
   <h2>Why this matters for reliability and cost</h2>
   <p>Precise navigation pays off in two ways that are easy to underrate until you feel them:</p>
-  <table>
-    <tr><th>Benefit</th><th>Why it matters</th></tr>
-    <tr><td>Reliability</td><td>The agent finds the actual definition and actual call sites, not a
-       lookalike — so the change it makes is the change you meant.</td></tr>
-    <tr><td>Token cost</td><td>Less time spent sifting irrelevant search results means less wasted context — more
-       of the agent's attention goes toward your actual problem.</td></tr>
-  </table>
+  <figure class="fig">
+    <figcaption><b>“Find everywhere this function is used” — what each way answers</b></figcaption>
+    <div class="fig-b">
+      <table class="dgm-checks">
+        <thead><tr><th>What you actually wanted</th><th>Text search</th><th>Symbol navigation</th></tr></thead>
+        <tbody>
+          <tr><td>Finds the real definition</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Finds every real call site, including ones reached through another name</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>Leaves out a comment that merely mentions the name</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>Leaves out an unrelated function that happens to share the name</td>
+              <td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>Stays useful as the codebase grows</td><td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><td>Works instantly, on any project, with nothing set up</td>
+              <td class="y">✓</td><td class="p">◐</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-n"><b>The last row is why blind search is still the default</b> — and the middle three are
+      why it stops being good enough. A wrong match doesn't announce itself; it comes back looking exactly
+      like a right one, and gets edited with exactly the same confidence.</p>
+  </figure>
   <p>Neither of these is dramatic on a small project. Both become the difference between a smooth session and a
      frustrating one once a codebase is large enough that plain-text search starts turning up more noise than
      signal.</p>

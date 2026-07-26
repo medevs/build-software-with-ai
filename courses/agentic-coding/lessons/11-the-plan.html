@@ -103,12 +103,29 @@
      because it's what turns "I hope this works" into "here's how we'll know it works" — the difference the next
      two lessons build directly on.</p>
 
-  <table>
-    <tr><th>Section</th><th>Bad version</th><th>One-pass-ready version</th></tr>
-    <tr><td>File paths</td><td>"the settings page"</td><td><code>src/routes/settings/profile.tsx</code></td></tr>
-    <tr><td>Scope</td><td>(unstated)</td><td>"Does not touch billing or notification preferences"</td></tr>
-    <tr><td>Validation</td><td>"make sure it works"</td><td>"Run the unit tests, then load the page and confirm the save button persists the new name"</td></tr>
-  </table>
+  <figure class="fig wide">
+    <figcaption><b>The same five sections, written twice</b></figcaption>
+    <div class="fig-b">
+      <table class="dgm-checks">
+        <thead><tr><th>Section</th><th>What a chat summary says</th><th>What passes the test</th></tr></thead>
+        <tbody>
+          <tr><td>Goal</td><td>“Improve the settings page”</td>
+              <td>“A user can change their display name and still see it after a reload”</td></tr>
+          <tr><td>File paths</td><td>“The settings page”</td>
+              <td><code>src/routes/settings/profile.tsx</code></td></tr>
+          <tr><td>Steps</td><td>“Update the form and save it”</td>
+              <td>Add the field · wire the save handler · update the stored shape · in that order</td></tr>
+          <tr><td>Scope</td><td>(unstated)</td>
+              <td>“Does not touch billing or notification preferences”</td></tr>
+          <tr><td>Validation</td><td>“Make sure it works”</td>
+              <td>“Run the unit tests, then load the page and confirm the save button persists the new name”</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-n"><b>Read the middle column as the fresh agent would.</b> Every cell in it is a question that
+      agent would have to stop and ask you — and a plan that passes the no-prior-knowledge test is exactly one
+      that never makes it ask.</p>
+  </figure>
 
   <div class="tip"><span class="label">Why the questions matter</span> During the brain-dump conversation, let
      the agent ask you multiple-choice-style clarifying questions rather than open-ended ones. It's much faster

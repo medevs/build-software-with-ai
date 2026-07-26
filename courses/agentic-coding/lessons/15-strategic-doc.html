@@ -78,6 +78,24 @@
 
   <h2>Why it's worth the extra step</h2>
   <p>It's tempting to skip straight from an idea to code, especially with an agent that will happily start typing the moment you describe something. But every plan that follows — the architecture, the tickets, the actual implementation — inherits its assumptions from this doc. One wrong guess about who the user is, or what "done" means, doesn't just cost you one bad line of code. It cascades: it becomes a wrong architectural boundary, which becomes a dozen wrong tickets, which becomes hundreds of lines built confidently in the wrong direction.</p>
+
+  <figure class="fig">
+    <figcaption><b>What one wrong sentence at the top turns into</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-flow">
+        <div class="stp"><b>One wrong line of intent</b><span>Who the user is, or what “done” means. A sentence
+          nobody argued with, because nobody was asked to.</span></div>
+        <div class="stp"><b>One wrong boundary</b><span>The architecture inherits the intent — faithfully,
+          including the part that was mistaken.</span></div>
+        <div class="stp"><b>A dozen wrong tickets</b><span>Each one correct against the architecture. The
+          architecture is what's wrong, and nothing at this level can see that.</span></div>
+        <div class="stp"><b>Hundreds of confident lines</b><span>Implemented well, validated against the plan,
+          and pointed in the wrong direction the whole way.</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Not one step in this chain is a coding error.</b> Every box is competent work, which is
+      precisely why nothing catches it until the end — and why the cheapest box to be wrong in is the first.</p>
+  </figure>
   <p>The strategic doc exists so that every later loop of work has something solid to "grab onto" — shared context that doesn't have to be re-explained or re-guessed each time you sit down with an agent. Write it once, well, and reference it from everywhere downstream.</p>
 
   <h2>A repeatable shape beats a clever one</h2>

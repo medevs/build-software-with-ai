@@ -115,14 +115,33 @@
      document. If you're staring at an existing project, keep that in mind too; you'll see how to read its
      conventions into your system. And if you just want to fix that one bug bugging you, you'll see how the loop
      handles that just as well.</p>
-  <table>
-    <thead><tr><th>Doorway</th><th>What you start with</th><th>First job</th></tr></thead>
-    <tbody>
-      <tr><td>Greenfield</td><td>An idea, no code</td><td>Write down what "done" means</td></tr>
-      <tr><td>Brownfield</td><td>Existing code, maybe no docs</td><td>Read the intent out of the code</td></tr>
-      <tr><td>Focused fix</td><td>One known problem</td><td>Get just enough context to fix it and prove it</td></tr>
-    </tbody>
-  </table>
+  <figure class="fig">
+    <figcaption><b>Three doorways, one question, one loop</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-tree">
+        <div class="tq">What's actually true here, and what am I trying to accomplish?</div>
+        <div class="tb">
+          <div class="tbr" data-e="An idea, no code">
+            <b>Greenfield</b>
+            <span>Write the truth down for the first time: what you're building, for whom, and what the
+              first working version has to include. Nothing to reverse-engineer.</span>
+          </div>
+          <div class="tbr" data-e="Code you didn't write">
+            <b>Brownfield</b>
+            <span>Read the truth out of the code, because the code is the only documentation. Structure,
+              naming, tests, deploys — the conventions the project already settled into.</span>
+          </div>
+          <div class="tbr" data-e="One known problem">
+            <b>Focused fix</b>
+            <span>Answer the same question in miniature: enough context to know what's broken and why,
+              and no more. The narrowest door and usually the fastest.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fig-n"><b>All three branches come out at the same four steps.</b> Research → Plan → Implement →
+      Validate doesn't change with the doorway — only how you get oriented before you walk through it does.</p>
+  </figure>
 
   <h2>Check yourself</h2>
 

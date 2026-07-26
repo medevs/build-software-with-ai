@@ -69,36 +69,37 @@
      the <a href="09-the-core-loop.html">core loop</a> is built to consume — and this is what running it looks
      like from open to merged.</p>
 
-  <ol class="steps">
-    <li><strong>Isolate the work.</strong> Before anything else, the work gets its own git feature branch, named
-        after the ticket. Nothing for this change ever gets written straight onto the main branch — the branch is
-        what keeps this one small change reviewable and revertable on its own.</li>
-    <li><strong>Research (optional).</strong> For a ticket this small and well-understood, research may add little —
-        skip it. On a vaguer ticket, or in an unfamiliar part of the codebase, this step primes the agent on
-        how the account settings page and the email system actually work today, before any plan gets written.</li>
-    <li><strong>Plan.</strong> A short back-and-forth turns the idea into a concrete plan: which file the button
-        goes in, which backend function it calls, which existing email template it reuses, and — critically —
-        exactly how you'll validate it (click it, confirm an email arrives, confirm a second click doesn't send
-        two). This becomes a plan a stranger could implement without asking you anything.</li>
-    <li><strong>Save the plan, clear the context.</strong> The plan is committed somewhere durable, and the
-        chat that produced it is closed. A fresh session opens with the plan as its only input — no leftover
-        back-and-forth, no accumulated clutter, just the plan.</li>
-    <li><strong>Implement, in that fresh session.</strong> The agent writes the button, wires it to the backend
-        action, and — as its own final step — runs the validation strategy the plan specified. This proves the
-        feature functions: the button appears, the click fires, the email sends.</li>
-    <li><strong>Validate again, with fresh eyes.</strong> A second, separate pass — often a different session or
-        even a different agent — reviews the actual change. This pass isn't asking "does it work?" anymore
-        (the previous step already showed that). It's asking a different question: is this <em>built well</em>?
-        Right naming, no leftover debug code, no obvious edge case missed, nothing that will bite the next
-        person who touches this file.</li>
-    <li><strong>Open the change for review.</strong> The branch becomes a pull request (or equivalent change
-        request), with a clear description of what changed and how it was validated.</li>
-    <li><strong>A human approves and merges.</strong> You read the small, focused diff — it's short enough to
-        actually read, because it was sliced that way from the start — and merge it into the main branch. The
-        ticket is done; you move to the next one.</li>
-  </ol>
+  <figure class="fig wide">
+    <figcaption><b>One small ticket, from open to merged</b></figcaption>
+    <div class="fig-b">
+      <ol class="dgm-seq">
+        <li><b>Isolate the work</b><span>The ticket gets its own git feature branch, named after it. Nothing
+          for this change is ever written straight onto the main branch — the branch is what keeps one small
+          change reviewable and revertable on its own.</span></li>
+        <li><b>Research — optional here</b><span>This ticket is small and well understood, so research adds
+          little. On a vaguer one, or in unfamiliar code, this is where the agent learns how the settings page
+          and the email system actually work today.</span></li>
+        <li><b>Plan</b><span>A short back-and-forth becomes a concrete plan: which file, which backend
+          function, which existing template — and exactly how it will be validated. Click it, confirm an email
+          arrives, confirm a second click doesn't send two.</span></li>
+        <li><b>Save the plan, clear the context</b><span>The plan is committed somewhere durable and the chat
+          that produced it is closed. A fresh session opens with the plan as its only input.</span></li>
+        <li><b>Implement, in that fresh session</b><span>The agent writes the button, wires it up, and runs the
+          plan's validation strategy as its own last step. <em>This proves the app works.</em></span></li>
+        <li><b>Validate again, with fresh eyes</b><span>A separate pass — often a different session — reads the
+          actual change and asks a different question: right naming, no leftover debug code, nothing that will
+          bite the next person here. <em>This proves the code is good.</em></span></li>
+        <li><b>Open the change for review</b><span>The branch becomes a pull request, described in terms of
+          what changed and how it was validated.</span></li>
+        <li><b>A human approves and merges</b><span>You read a small, focused diff — short enough to actually
+          read, because it was sliced that way from the start. The ticket is done.</span></li>
+      </ol>
+    </div>
+    <p class="fig-n"><b>The agent owns steps 5 and 6; you own every step that decides what “done” means.</b>
+      Steps 3 and 8 are the two slices of bread, and nothing in between is safe to delegate without them.</p>
+  </figure>
 
-  <div class="note"><span class="label">Why the split matters</span> Steps 6 and 7 look similar but ask different
+  <div class="note"><span class="label">Why the split matters</span> Steps 5 and 6 look similar but ask different
      questions on purpose. <strong>Implementing proves the app works.</strong> <strong>Reviewing proves the code
      is good.</strong> Folding them into one pass means one of the two questions quietly stops getting asked.</div>
 
