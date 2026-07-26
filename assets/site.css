@@ -321,6 +321,12 @@ li>input[type="checkbox"]{accent-color:var(--accent-t);margin-right:.35rem;}
 .cards{display:grid;gap:var(--hair);margin:1.8rem 0;background:var(--rule);
   border:var(--hair) solid var(--rule);}
 .cards.two{grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));}
+/* In the lesson column the grid is always two wide, so an odd last panel leaves
+   an empty track — and an empty track shows the container's rule ink, which is a
+   white block on the dark sheet. It spans instead, like a lone prev/next cell.
+   Scoped to .main because the wide index pages fit three columns and have no gap
+   to close. */
+.main .cards.two>.card:last-child:nth-child(odd){grid-column:1 / -1;}
 .card{padding:1rem 1.15rem 1.1rem;background:var(--paper);}
 .card h3{margin:0 0 .35rem;font-size:.9rem;text-transform:uppercase;letter-spacing:.06em;}
 .card p:last-child{margin-bottom:0;}

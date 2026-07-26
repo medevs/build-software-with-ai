@@ -9,6 +9,11 @@ Thumbs.db
 ROADMAP.md
 .claude/
 
+# local authoring tooling — vendored agent skills, not part of the site.
+# the site itself stays dependency-free; nothing here ships.
+.agents/
+skills-lock.json
+
 # local screenshot scratch (impeccable inspection rounds)
 .shots/
 
