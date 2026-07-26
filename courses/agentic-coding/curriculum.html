@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Curriculum · The Agentic Coding Course</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9881;&#65039;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23a8480c'/><rect x='5' y='5' width='22' height='6' fill='%23fff'/><rect x='5' y='14' width='14' height='6' fill='%23fff'/><rect x='5' y='23' width='18' height='4' fill='%23fff'/></svg>">
 <link rel="stylesheet" href="../../assets/site.css">
-
+<link rel="stylesheet" href="../../assets/diagram.css">
 
 <!-- seo:start -->
 <meta name="description" content="All 30 lessons of The Agentic Coding Course in 7 modules — from why AI coding needs a system to putting it to work on real code this week.">
@@ -18,74 +18,45 @@
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/curriculum.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/agentic-coding.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#191813" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <!-- seo:end -->
 </head>
-<body>
-<nav class="topnav">
-  <a class="home" href="../../index.html" title="AI Builder Academy - all courses">&#8962; <span>Academy</span></a>
-  <span class="navsep"></span>
-  <a class="brand" href="index.html">The <b>Agentic Coding</b> Course</a>
+<body style="--field:var(--course-b);--field-t:var(--course-b-t);--accent:var(--course-b);--accent-t:var(--course-b-t)">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Course">
+  <a class="home" href="../../index.html" title="AI Builder Academy — all courses">← <span>Academy</span></a>
+  <a class="brand" href="index.html">The&nbsp;<b>Agentic Coding</b>&nbsp;Course</a>
+  <span class="spacer"></span>
   <a href="index.html">Map</a>
   <a href="curriculum.html" aria-current="page">Curriculum</a>
   <a href="resources.html">Resources</a>
   <span class="navpct" id="navpct" hidden></span>
 </nav>
 
-<div class="wrap">
+<main class="wrap wide" id="main">
   <p class="kicker">The full path</p>
   <h1>Curriculum</h1>
-  <p class="dek">30 lessons · 7 modules · start at the top. A ✓ marks lessons you've completed on this device.</p>
+  <p class="dek">30 lessons in 7 modules, meant to be read top to bottom. A ✓ marks a lesson
+    you've completed on this device.</p>
+
+  <div id="progresschart"></div>
+
+  <h2>Find a lesson</h2>
   <div id="coursesearch"></div>
+
+  <h2>All modules</h2>
   <div id="mods"></div>
-  <p class="foot">Tip: the <a href="index.html">knowledge map</a> shows how every lesson connects.</p>
-</div>
+
+  <p class="foot">The <a href="index.html">knowledge map</a> shows how every idea connects.
+    Each module ends with a scored quiz.</p>
+</main>
 
 <script src="course.js"></script>
 <script src="search-index.js"></script>
 <script src="../../assets/search.js"></script>
-<script>
-  (function () {
-    var C = window.COURSE, np = document.getElementById("navpct"), done = 0;
-    if (!C || !np) return;
-    C.lessons.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) done++; } catch (e) {} });
-    if (done) { np.hidden = false; np.innerHTML = "<b>" + done + "</b>/" + C.lessons.length + " lessons completed"; }
-  })();</script>
-<script>
-  var C = window.COURSE, root = document.getElementById("mods");
-  C.modules.forEach(function (m) {
-    var block = document.createElement("section");
-    block.className = "modblock";
-    var h = document.createElement("h2");
-    h.style.borderLeftColor = m.color;
-    h.textContent = "Module " + m.n + " — " + m.title.replace(/^.*?—\s*/, "");
-    block.appendChild(h);
-    var mine = C.lessons.filter(function (l) { return l.module === m.id; }), done = 0;
-    mine.forEach(function (l) { try { if (localStorage.getItem("visited:" + l.slug)) done++; } catch (e) {} });
-    var meta = document.createElement("div");
-    meta.className = "modmeta";
-    var best = null; try { best = localStorage.getItem("quiz:agentic-coding:" + m.id); } catch (e) {}
-    meta.innerHTML = "<span>" + done + "/" + mine.length + " done</span>" +
-      '<span class="modbar"><i style="width:' + Math.round(done / mine.length * 100) + '%"></i></span>' +
-      '<a class="modquiz" href="quiz.html?m=' + m.id + '">Take the Module ' + m.n + ' quiz →</a>' +
-      (best ? '<span class="quizbest">Best ' + best + '</span>' : '');
-    block.appendChild(meta);
-    var grid = document.createElement("div"); grid.className = "lessongrid";
-    mine.forEach(function (l) {
-      var visited = false;
-      try { visited = !!localStorage.getItem("visited:" + l.slug); } catch (e) {}
-      var a = document.createElement("a");
-      a.className = "lcard" + (visited ? " visited" : "");
-      a.href = "lessons/" + l.slug + ".html";
-      a.style.borderLeftColor = m.color;
-      a.innerHTML = '<div class="n">Lesson ' + l.n + '</div><div class="t">' + l.title + '</div><div class="b">' + l.blurb + '</div>';
-      grid.appendChild(a);
-    });
-    block.appendChild(grid); root.appendChild(block);
-  });
-</script>
+<script src="../../assets/curriculum.js"></script>
 <script src="../../assets/theme.js"></script>
 </body>
 </html>
