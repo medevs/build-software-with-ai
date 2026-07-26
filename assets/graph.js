@@ -16,19 +16,21 @@
   var M = C.modules.length, hub = {};
   C.modules.forEach(function (m, i) {
     var a = (i / M) * Math.PI * 2 - Math.PI / 2;
-    hub[m.id] = { x: cx + Math.cos(a) * 300, y: cy + Math.sin(a) * 300, a: a };
+    hub[m.id] = { x: cx + Math.cos(a) * 340, y: cy + Math.sin(a) * 340, a: a };
   });
 
-  // place lessons around their module hub
+  // place lessons around their module hub. `above` alternates which side of the node
+  // its label sits on, so two neighbours in the same cluster can't print over each other.
   var pos = {}, byMod = {};
   C.lessons.forEach(function (l) { (byMod[l.module] = byMod[l.module] || []).push(l); });
   Object.keys(byMod).forEach(function (mid) {
     var arr = byMod[mid], h = hub[mid], k = arr.length;
     arr.forEach(function (l, j) {
-      var spread = 1.25, base = h.a;
+      var spread = 1.45, base = h.a;
       var a = base + (k === 1 ? 0 : (j / (k - 1) - 0.5) * spread);
-      var r = 118 + (j % 2) * 46;
-      pos[l.slug] = { x: h.x + Math.cos(a) * r, y: h.y + Math.sin(a) * r, mod: mid, l: l };
+      var r = 132 + (j % 2) * 58;
+      pos[l.slug] = { x: h.x + Math.cos(a) * r, y: h.y + Math.sin(a) * r,
+                     mod: mid, l: l, above: j % 2 === 0 };
     });
   });
 
@@ -57,28 +59,32 @@
     gRoot.appendChild(ln); edgeEls.push(ln);
   });
 
-  // module hubs: halo + completion ring + label
+  // module hubs: a small ink field carrying the number, the title, and a progress bar
+  var HUB = 15;                                     // hub field is a square, like the nodes
   C.modules.forEach(function (m) {
     var h = hub[m.id], total = (byMod[m.id] || []).length, done = doneByMod[m.id] || 0;
-    var halo = el("circle", { cx: h.x, cy: h.y, r: 6, fill: m.color, opacity: .5 });
-    gRoot.appendChild(halo);
-    if (done > 0 && total > 0) {
-      var r = 14, circ = 2 * Math.PI * r, arc = circ * done / total;
-      gRoot.appendChild(el("circle", { cx: h.x, cy: h.y, r: r, fill: "none",
-        stroke: "rgba(255,255,255,.14)", "stroke-width": 2.5 }));
-      gRoot.appendChild(el("circle", { cx: h.x, cy: h.y, r: r, fill: "none",
-        stroke: m.color, "stroke-width": 2.5, "stroke-linecap": "round",
-        "stroke-dasharray": arc + " " + circ,
-        transform: "rotate(-90 " + h.x + " " + h.y + ")" }));
-    }
-    var t = el("text", { class: "mod-title", x: h.x, y: h.y - 22, "text-anchor": "middle", "font-size": "13" });
+    gRoot.appendChild(el("rect", { x: h.x - HUB / 2, y: h.y - HUB / 2, width: HUB, height: HUB,
+      fill: m.color }));
+    var t = el("text", { class: "mod-title", x: h.x, y: h.y - 17, "text-anchor": "middle" });
     t.textContent = m.n + ". " + m.title.replace(/—.*/, "").trim();
     gRoot.appendChild(t);
+    // progress as a ruled bar under the hub — a sheet measures, it doesn't gauge
+    if (total > 0) {
+      var bw = 46, bx = h.x - bw / 2, by = h.y + 13;
+      gRoot.appendChild(el("rect", { x: bx, y: by, width: bw, height: 4, fill: "none",
+        stroke: "var(--rule-soft)", "stroke-width": 1 }));
+      if (done > 0)
+        gRoot.appendChild(el("rect", { x: bx, y: by, width: bw * done / total, height: 4,
+          fill: m.color }));
+      var bt = el("text", { class: "gbar-n", x: h.x, y: by + 15, "text-anchor": "middle" });
+      bt.textContent = done + "/" + total;
+      gRoot.appendChild(bt);
+    }
   });
   var lines = C.centerLines || ["The", "Course"];
-  var ctr = el("text", { x: cx, y: cy - 6, "text-anchor": "middle", "font-size": "22", fill: "#fff", "font-weight": "800", "font-family": "var(--sans)" });
+  var ctr = el("text", { class: "gctr", x: cx, y: cy - 4, "text-anchor": "middle", "font-size": "21" });
   ctr.textContent = lines[0];
-  var ctr2 = el("text", { x: cx, y: cy + 20, "text-anchor": "middle", "font-size": "22", fill: "#fff", "font-weight": "800", "font-family": "var(--sans)" });
+  var ctr2 = el("text", { class: "gctr", x: cx, y: cy + 20, "text-anchor": "middle", "font-size": "21" });
   ctr2.textContent = lines[1] || "";
   gRoot.appendChild(ctr); gRoot.appendChild(ctr2);
 
@@ -96,18 +102,24 @@
     link.setAttributeNS("http://www.w3.org/1999/xlink", "href", href);
     link.setAttribute("href", href);
     link.setAttribute("aria-label", "Lesson " + l.n + ": " + l.title + (visited[l.slug] ? " (completed)" : ""));
+    var S = 19;                                     // nodes are squares: ink fields, not dots
     if (nextUp && nextUp.slug === l.slug)
-      g.appendChild(el("circle", { class: "gpulse", cx: p.x, cy: p.y, r: 16, stroke: modColor[l.module] }));
-    var c = el("circle", { cx: p.x, cy: p.y, r: 10, fill: modColor[l.module], opacity: visited[l.slug] ? 1 : .82 });
-    var num = el("text", { class: "gnum", x: p.x, y: p.y + 3.5, "text-anchor": "middle", fill: "#0c0b10", "font-weight": "800" });
+      g.appendChild(el("rect", { class: "gpulse", x: p.x - 14, y: p.y - 14, width: 28, height: 28,
+        stroke: modColor[l.module] }));
+    var c = el("rect", { x: p.x - S / 2, y: p.y - S / 2, width: S, height: S,
+      fill: modColor[l.module], opacity: visited[l.slug] ? 1 : .88 });
+    var num = el("text", { class: "gnum", x: p.x, y: p.y + 3.3, "text-anchor": "middle" });
     num.textContent = l.n;
-    var lbl = el("text", { class: "glabel", x: p.x, y: p.y - 15, "text-anchor": "middle" });
-    lbl.textContent = l.title.length > 26 ? l.title.slice(0, 24) + "…" : l.title;
+    var lbl = el("text", { class: "glabel", x: p.x,
+      y: p.y + (p.above ? -15 : 22), "text-anchor": "middle" });
+    lbl.textContent = l.title.length > 23 ? l.title.slice(0, 21) + "…" : l.title;
     link.appendChild(c); link.appendChild(num); link.appendChild(lbl);
-    if (visited[l.slug]) { // completed badge: small ✓ at the node's shoulder
-      link.appendChild(el("circle", { cx: p.x + 8.5, cy: p.y - 8.5, r: 5.5, fill: "#10b981", stroke: "#0c0b10", "stroke-width": 1 }));
-      var ck = el("text", { x: p.x + 8.5, y: p.y - 5.8, "text-anchor": "middle", "font-size": "8", "font-weight": "900", fill: "#04140d" });
-      ck.textContent = "✓"; ck.setAttribute("class", "gnum");
+    if (visited[l.slug]) { // completed: a ✓ stamped on the node's corner
+      link.appendChild(el("rect", { x: p.x + S / 2 - 4, y: p.y - S / 2 - 6, width: 11, height: 11,
+        fill: "var(--ok)" }));
+      var ck = el("text", { class: "gnum", x: p.x + S / 2 + 1.5, y: p.y - S / 2 + 2.2,
+        "text-anchor": "middle", "font-size": "8.5" });
+      ck.textContent = "✓";
       link.appendChild(ck);
     }
     g.appendChild(link);
