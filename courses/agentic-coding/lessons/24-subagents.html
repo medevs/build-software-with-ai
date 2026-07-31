@@ -116,6 +116,35 @@
      works because the reviewer isn't the same mind that wrote the code in the first place. You wouldn't want a
      student grading their own homework; the same logic applies here.</p>
 
+  <h2>The isolation cuts both ways</h2>
+  <p>Nothing is shared. The prompt the main agent writes is literally everything the subagent knows, and the
+     summary it sends back is everything the main agent ever sees. You never talk to the subagent yourself —
+     the main agent is always in the middle. So every delegation has <strong>two lossy handoffs</strong>: an
+     under-specified task means the subagent misses something, and a finding left out of the summary is gone
+     for good, because there's no transcript for the main agent to go back to.</p>
+  <p>That's also why the standing advice is to use subagents for research rather than for writing code.
+     Parallel subagents can't talk to each other, so several of them editing the same codebase at once is a
+     recipe for collisions.</p>
+
+  <h2>What you actually tune: the four levers</h2>
+  <p>Writing a good subagent isn't mysterious once you know which knobs exist. There are four, and they exist
+     to fight exactly the information loss above.</p>
+  <div class="cards two">
+    <div class="card"><h3>Purpose</h3><p>What it's for, and when the main agent should reach for it. This is
+       the part that's always loaded, so getting it wrong means the subagent fires when it shouldn't — or
+       never fires at all.</p></div>
+    <div class="card"><h3>Dispatch</h3><p>How the main agent should prompt it. The most optional of the four;
+       agents have got good at this on their own. Reach for it when a subagent misbehaves.</p></div>
+    <div class="card"><h3>Process</h3><p>The step-by-step and the behaviour — conventions plus procedure,
+       scoped to one worker. It's rules and skills combined, for a single specialist.</p></div>
+    <div class="card"><h3>Output</h3><p>How it distils what it found. <strong>The king lever.</strong> Don't
+       leave the shape to chance — specify it.</p></div>
+  </div>
+  <div class="note"><span class="label">Why output is the one to labour over</span> The subagent has just done
+     an enormous amount of work and has to compress it into something small. Dumping its logs would defeat the
+     entire point of isolating it; deciding what actually matters is genuinely hard. A well-written reviewer
+     subagent can spend a third of its instructions on the output format alone.</div>
+
   <div class="tip"><span class="label">A simple way to decide</span> Ask yourself: is this job big enough, or
      sensitive enough to bias, that I'd want it done somewhere separate from my main conversation? If yes,
      that's a job for a subagent.</div>

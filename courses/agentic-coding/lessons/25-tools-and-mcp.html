@@ -129,6 +129,57 @@
        from wherever your team keeps it, instead of relying on someone's memory of what it said.</p></div>
   </div>
 
+  <h2>The context problem, and the fix</h2>
+  <p>Connections used to carry a real hidden cost. Attaching a server dumped the name <em>and the full
+     description</em> of every tool it exposes into the context window at the start of every session. Each
+     description is only a couple of hundred tokens — but a single ticket-tracker server can expose forty
+     tools, and some expose eighty. A handful of connections could cost tens of thousands of tokens before you
+     typed a word: an extremely bloated rules file you never wrote.</p>
+  <p>The fix, now standard in the major agents, is <strong>tool search</strong>. The agent keeps the cheap part
+     — which servers are connected, and the <em>names</em> of their tools — and defers the descriptions. When a
+     request actually needs a platform, it searches its tools by keyword, pulls the full descriptions for the
+     few that look relevant, and searches again if it guessed wrong. Forty tools now cost you effectively
+     nothing until one gets used.</p>
+  <div class="note"><span class="label">You've seen this shape twice already</span> A tiny always-on index, the
+     bulk deferred until something reaches for it. That's progressive disclosure for skills
+     (<a href="23-skills.html">Lesson 23</a>), on-demand context for rules
+     (<a href="22-rules.html">Lesson 22</a>), and tool search for connections. Three surfaces, one idea — worth
+     treating as a general principle rather than a feature of any one of them.</div>
+
+  <h2>What you're trusting when you connect one</h2>
+  <p>A connection hands your agent a set of tools written by someone else, and the tool descriptions are
+     instructions your agent reads. If it's the first-party server of a platform you already pay for, there's
+     little to think about. If you're being adventurous with a server whose author you don't know, three risks
+     are worth naming:</p>
+  <table>
+    <tr><th>Risk</th><th>What it looks like</th></tr>
+    <tr><td>Tool poisoning</td><td>Malicious instructions hidden in a tool's <em>description</em> — say, one
+       that tries to get the agent to send an API key somewhere.</td></tr>
+    <tr><td>The rug pull</td><td>A server that's benign when you audit it and turns hostile in a later
+       version. The capability you rely on can change underneath you.</td></tr>
+    <tr><td>Shadowing</td><td>A rogue tool that overrides or impersonates a trusted one, so what you see isn't
+       what actually ran.</td></tr>
+  </table>
+  <div class="tip"><span class="label">The mitigation is boring on purpose</span> Use the official first-party
+     server for platforms you already trust, and all three problems mostly go away. If you do run something
+     third-party: audit it, pin the version, narrow the authentication scopes, and give the agent read-only
+     tools where you can.</div>
+
+  <h2>The other way to give an agent arms</h2>
+  <p>MCP isn't the only route. Your agent can already run terminal commands, which means it can drive any
+     command-line tool you have installed — and a skill can teach it which commands exist and how you want them
+     used. <strong>The CLI is the arm; the skill is the instructions for the arm.</strong></p>
+  <div class="cards two">
+    <div class="card"><h3>A connection is simpler</h3><p>The tool <em>is</em> the arm, and it arrives with its
+       own description, authentication, and permissions — a curated set of interactions designed by the people
+       who know that platform best. No companion skill needed.</p></div>
+    <div class="card"><h3>A skill plus a CLI is more flexible</h3><p>You get every command the tool offers
+       rather than a curated subset, and the skill is tuned to your workflow rather than someone else's.</p></div>
+  </div>
+  <p>The working rule of thumb: <strong>connections for external platforms, a skill plus a CLI for things
+     running on your own machine</strong> — while accepting the line blurs. And you use more CLIs than you
+     probably realize: your package manager is one, and it could carry a skill.</p>
+
   <h2>Connections are optional, and added when they earn their place</h2>
   <p>You don't need every connection on day one. Add a tool connection when a real, recurring need shows up — you
      keep manually pasting ticket text in, or you keep wishing the agent could just check the data itself. That

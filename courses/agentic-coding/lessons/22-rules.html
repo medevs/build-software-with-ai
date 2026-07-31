@@ -105,6 +105,25 @@
      section — the handful of extension points where new work usually plugs in (a new endpoint, a new database
      column, a new integration). It turns "I have no idea where to put this" into a five-second lookup.</div>
 
+  <h2>Where the pruned material goes</h2>
+  <p>"Prune it" sounds like deletion, and it isn't. Content you cut out of the always-loaded file moves down a
+     tier — into a separate reference document holding the conventions for <em>one</em> part of the codebase or
+     <em>one</em> kind of task. Your authentication patterns matter enormously while you're touching auth, and
+     are pure waste the rest of the time. Out of the always-on file, into a document that gets opened when the
+     work is actually there.</p>
+  <p>One question decides it: <strong>would the agent need this no matter what it's working on?</strong> Yes,
+     it stays in the rules file. No, it becomes on-demand context.</p>
+  <div class="cards two">
+    <div class="card"><h3>Point at it from the rules</h3><p>Keep a short section in the rules file that says
+       which document to read for which kind of work — a table of contents rather than the contents.</p></div>
+    <div class="card"><h3>Or let a workflow pull it</h3><p>A skill that only ever runs on frontend work can load
+       the frontend reference itself. Invoking the skill has already established where you are.</p></div>
+  </div>
+  <div class="tip"><span class="label">Not the same thing as progressive disclosure</span> They share a
+     mechanism — load it only when it's needed — but not a purpose. On-demand context is an extension of your
+     <em>rules</em>: constraints and conventions. Progressive disclosure, which you'll meet in
+     <a href="23-skills.html">Lesson 23</a>, is about <em>process</em>. Same loading trick, different cargo.</div>
+
   <h2>Write it once, recheck it occasionally</h2>
   <p>A rules file isn't a living diary you update daily. You write it once, up front, and it stays mostly stable.
      The one exception is a periodic drift check: every so often — a natural point is after a chunk of new work

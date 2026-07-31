@@ -77,6 +77,16 @@
      checking. One skill, written once, can save you from re-explaining the same steps for the rest of the
      project's life. Few investments pay back that fast.</div>
 
+  <h2>When something earns a skill: the rule of three</h2>
+  <p>The first time you walk an agent through a process, just walk it through. The second time, notice. By the
+     third time you've typed roughly the same thing, stop and write it down. What you're paying until then is a
+     <strong>re-prompting tax</strong> — minutes lost every single run to explaining a workflow you already
+     know, in enough detail that the agent does a good job. Half an hour spent writing the skill usually pays
+     itself back within the next few uses.</p>
+  <p>The obvious objection — "but no two runs are the same" — is exactly what arguments are for. The workflow
+     stays fixed; the input varies. Plan <em>this</em> ticket, review <em>this</em> change. That's what makes a
+     packaged process reusable instead of brittle.</p>
+
   <h2>How skills stay lean: progressive disclosure</h2>
   <p>Here's the part that makes skills practical instead of bloating your agent's context: the agent does not
      read a skill's full instructions until it actually decides to use it. Up front, all it sees is the skill's
@@ -94,6 +104,36 @@
     <div class="card"><h3>Loaded on demand</h3><p>The full step-by-step instructions, examples, and detail — only
        read once the agent (or you) actually triggers that specific skill.</p></div>
   </div>
+
+  <h2>What goes inside one: input, process, output</h2>
+  <p>Staring at an empty file wondering how to write a skill is a solved problem. Three questions cover it.</p>
+
+  <figure class="fig">
+    <figcaption><b>The anatomy of a skill</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-flow">
+        <div class="stp"><b>Input</b><span>What the skill needs to run — usually the argument that makes an
+          otherwise fixed workflow dynamic. The plan to implement. The ticket to read.</span></div>
+        <div class="stp"><b>Process</b><span>The step-by-step the agent walks, normally a numbered list, and
+          normally the bulk of the document. This is the workflow itself.</span></div>
+        <div class="stp"><b>Output</b><span>What it must produce, and in what shape. The part people skip —
+          and the part that decides whether the run was any use.</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Output is the section to fight for.</b> Leave it out and the agent finishes the work,
+      emits some summary of its own choosing, and stops. Specify it and you get something you can hold against
+      the original plan afterwards — which is what makes improving the system later possible at all.</p>
+  </figure>
+
+  <h2>Chaining skills together</h2>
+  <p>Small workflows often run in sequence: prime the context, plan, implement, commit. You can merge them into
+     one larger skill that simply invokes the smaller ones in order. Mechanically it's that simple.</p>
+  <p>The discipline is the hard part. <strong>Chain only what you already trust.</strong> Chaining removes you
+     from the loop, so automating a sequence you don't yet believe in just produces failures faster and with
+     less visibility. There's a second limit too: running plan and implement inside one conversation drags all
+     the planning exploration into the implementation, which is exactly the problem clean context
+     (<a href="12-clean-context.html">Lesson 12</a>) exists to solve. Keep single-conversation chains to
+     smaller pieces of work.</p>
 
   <h2>Where a skill's value comes from</h2>
   <p>The payoff isn't just saving typing. A skill written once and used repeatedly means the workflow gets done
