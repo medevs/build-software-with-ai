@@ -820,6 +820,32 @@ window.QUIZ = {
    "title": "Scaling & Automation"
   },
   {
+   "q": "A step in your chain works 95% of the time. What happens when you chain ten of them?",
+   "opts": [
+    "Roughly 95% — good steps stay good",
+    "Roughly 85%, because errors mostly cancel out",
+    "Roughly 60%, because the failure rates multiply"
+   ],
+   "a": 2,
+   "why": "It's arithmetic: 0.95 multiplied by itself ten times is about 0.60, and twenty-five times about 0.28. Every individual step is good; the chain is what fails. The response is to run a short chain many times rather than one long one.",
+   "lesson": "29-scaling-and-automation",
+   "n": 29,
+   "title": "Scaling & Automation"
+  },
+  {
+   "q": "What are the three things an unattended run takes away from you?",
+   "opts": [
+    "The permission prompt, your auto-loaded context layer, and your eyes",
+    "Your rules, your tests, and your git history",
+    "Speed, cost visibility, and the ability to use a plan"
+   ],
+   "a": 0,
+   "why": "An unattended run takes away the permission prompt, your auto-loaded context layer, and your ability to watch — so permissions get decided up front, the layer gets named explicitly, and the run has to report back in something a script can read.",
+   "lesson": "29-scaling-and-automation",
+   "n": 29,
+   "title": "Scaling & Automation"
+  },
+  {
    "q": "Quick recall: what are the four steps of the core loop, in order?",
    "opts": [
     "Plan, Research, Validate, Implement",

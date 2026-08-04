@@ -48,7 +48,7 @@ window.COURSE = {
     { n:27, slug:"27-hooks",                module:"m6", title:"Hooks (Guardrails)",           blurb:"Deterministic guarantees that fire at lifecycle points." },
     // Module 7
     { n:28, slug:"28-choosing-your-agent",  module:"m7", title:"Choosing Your Coding Agent",   blurb:"The tool is the base of your harness. How to pick and switch." },
-    { n:29, slug:"29-scaling-and-automation",module:"m7",title:"Scaling & Automation",         blurb:"Move loops off your screen: background, remote, and CI agents." },
+    { n:29, slug:"29-scaling-and-automation",module:"m7",title:"Scaling & Automation",         blurb:"Chain your steps, run the loop without you, and know where automation should stop." },
     { n:30, slug:"30-your-first-week",      module:"m7", title:"Your First Week",              blurb:"A concrete plan to put the whole system to work on real code." },
   ],
   // conceptual links drawn on the mindmap (slug -> slug)

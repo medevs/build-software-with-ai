@@ -127,7 +127,10 @@
      that it catches everything. Coverage depends on code you wrote: a hook that blocks edits to a protected
      file only blocks the paths its matcher actually matches, and a near-miss sails straight through. A hook is
      only as strong as its matcher, which makes testing it part of building it. Write the hook, then try to get
-     the agent to do the thing you just forbade, and watch what happens.</div>
+     the agent to do the thing you just forbade, and watch what happens. Test it the way you'll eventually run it,
+     too: unattended runs commonly load none of your context layer unless you name each piece explicitly,
+     guardrails included — so a hook you never checked there is a guarantee that quietly isn't one. More on that
+     when the loop moves <a href="29-scaling-and-automation.html">off your screen</a>.</div>
   <p>That also means hooks are cheap to reuse across projects. Like skills, a hook is behavior, not
      codebase-specific truth — "always run the formatter on save" is just as true on your next project as this
      one, so a well-written hook tends to travel with you.</p>

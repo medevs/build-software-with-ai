@@ -162,6 +162,15 @@
      looks over the result before anything actually merges. Every task ends at a human gate. That gate has to
      clear before any work that depends on this task moves forward.</p>
 
+  <div class="note"><span class="label">What the agent may fix on its own</span> The agent fixes what the pyramid
+     finds before handing anything back — but there's a boundary worth drawing precisely. Left to check its own
+     work with no outside signal, a model misses a large share of its own errors; hand it the same errors from
+     somewhere else and it catches them. It isn't incapable of the judgment, it's incapable of being its own
+     referee. So: <strong>let it fix against machine signals — tests, types, lint, a failing reproduction. Never
+     let it fix against its own opinion.</strong> If there's an objective check, that loop can run unattended.
+     If the only judge is the agent, the call is yours. And bound the loop either way: three cycles, then stop
+     and report. An unbounded fix loop is a way to spend money on a wall.</div>
+
   <h2>Check yourself</h2>
 
   <div class="quiz" data-answer="1" data-why="Validation ('does it work?') and review ('is it built well?') are deliberately kept separate — mixing them produces a shallow version of both.">

@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="../../../assets/site.css">
 <link rel="stylesheet" href="../../../assets/diagram.css">
 <!-- seo:start -->
-<meta name="description" content="Move loops off your screen: background, remote, and CI agents. — lesson 29 of 30 in The Agentic Coding Course, free and self-paced.">
+<meta name="description" content="Chain your steps, run the loop without you, and know where automation should stop. — lesson 29 of 30 in The Agentic Coding Course, free and self-paced.">
 <link rel="canonical" href="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/29-scaling-and-automation.html">
 <meta property="og:site_name" content="AI Builder Academy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="29 · Scaling &amp;amp; Automation">
-<meta property="og:description" content="Move loops off your screen: background, remote, and CI agents. — lesson 29 of 30 in The Agentic Coding Course, free and self-paced.">
+<meta property="og:description" content="Chain your steps, run the loop without you, and know where automation should stop. — lesson 29 of 30 in The Agentic Coding Course, free and self-paced.">
 <meta property="og:url" content="https://medevs.github.io/build-software-with-ai/courses/agentic-coding/lessons/29-scaling-and-automation.html">
 <meta property="og:image" content="https://medevs.github.io/build-software-with-ai/assets/og/agentic-coding.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
 <meta name="theme-color" content="#0f1017" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script src="../../../assets/theme.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Scaling & Automation","description":"Move loops off your screen: background, remote, and CI agents.","isPartOf":{"@type":"Course","name":"The Agentic Coding Course","url":"https://medevs.github.io/build-software-with-ai/courses/agentic-coding/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Scaling & Automation","description":"Chain your steps, run the loop without you, and know where automation should stop.","isPartOf":{"@type":"Course","name":"The Agentic Coding Course","url":"https://medevs.github.io/build-software-with-ai/courses/agentic-coding/"}}</script>
 <!-- seo:end -->
 </head>
 <body class="lesson" data-lesson="29-scaling-and-automation" style="--field:var(--m7);--field-t:var(--m7t);--accent:var(--course-b);--accent-t:var(--course-b-t)">
@@ -60,7 +60,7 @@
 
   <p class="kicker">Move the loop off your screen</p>
   <h1>Scaling &amp; Automation</h1>
-  <p class="dek">Once you trust a loop to run reliably, the next step isn't running it faster by hand — it's running it without your hands at all.</p>
+  <p class="dek">Chain the steps, move the loop off your screen — and find the point where more automation stops making things better.</p>
 
   <h2>From "I run the loop" to "the loop runs"</h2>
   <p>Earlier in the course you learned to run one core loop at a time, then to run several loops in parallel using
@@ -75,6 +75,109 @@
      already proven, with you watching, that it does the right thing. Every scaling decision in this lesson is
      really the same question asked about a different loop: has this one earned it yet?</div>
 
+  <h2>First, chaining: steps that hand each other work</h2>
+  <p>Before a loop can run without you, its steps have to hand off to each other without you. That's all a chain
+     is — no clever construct. One step writes something down; the next step reads it and does the next piece of
+     work. Investigate writes what it found; the fix step reads that and changes the code; the review step reads
+     the change and writes findings.</p>
+  <p>Which gives you a precise definition of the thing you've been doing by hand all course: <strong>a gate is
+     simply a place where you read the hand-off before passing it on.</strong> Nothing about automating a chain
+     removes your ability to stand in the middle of it. You decide which hand-offs you read.</p>
+
+  <figure class="fig">
+    <figcaption><b>A chain is hand-offs; a gate is a hand-off you read</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-flow">
+        <div class="stp"><b>Investigate</b><span>Writes down what's actually wrong, and the options.</span></div>
+        <div class="stp" style="--f:var(--m3t)"><b>You read it</b><span>The gate. You pick an option — or send
+          it back.</span></div>
+        <div class="stp"><b>Fix</b><span>Reads the chosen option. Changes the code. Writes what it did.</span></div>
+        <div class="stp"><b>Review</b><span>Reads the change with fresh eyes. Writes findings, sorted by who
+          handles them.</span></div>
+      </div>
+    </div>
+    <p class="fig-n"><b>Every arrow is a written hand-off, and that's what makes the chain inspectable.</b>
+      Remove the second box and the chain still runs — it just runs without you having seen the plan. That
+      is the entire decision you're making when you automate a step.</p>
+  </figure>
+
+  <h2>Five ways to chain — and none of them is the standard yet</h2>
+  <p>Here's something worth noticing about the state of the field. Nearly everything else in your context layer
+     has settled on a shape: rules became plain text files, reusable workflows became a named folder with
+     instructions in it, guardrails became small scripts wired to lifecycle events. <strong>Composition
+     didn't.</strong> There is no standard way to chain steps together, and several competing shapes each have
+     tens of thousands of users.</p>
+  <table>
+    <tr><th>How the hand-off happens</th><th>What it looks like</th></tr>
+    <tr><td><strong>Through a file</strong></td><td>Each step writes an artifact; the next step reads it. You
+      already own this one — it needs nothing new.</td></tr>
+    <tr><td><strong>A non-interactive call</strong></td><td>Your agent run as a one-shot command that takes a
+      prompt and returns a result, driven by a script.</td></tr>
+    <tr><td><strong>An agent library</strong></td><td>The same agent as a library inside your own program, so
+      you get real objects and callbacks instead of parsing output.</td></tr>
+    <tr><td><strong>Guardrails that intercept</strong></td><td>A hook chains by interception rather than
+      sequence: the next step fires because something <em>happened</em>, not because something called it.</td></tr>
+    <tr><td><strong>A pipeline trigger</strong></td><td>The same non-interactive call, started by a repository
+      event instead of by you.</td></tr>
+  </table>
+  <p>A workflow engine is the sixth answer: the hand-offs described as a graph, with the plumbing taken out of
+     your hands. Which of the six you pick matters far less than you'd think — so don't learn one syntax.
+     <strong>Learn the properties</strong> that any of them can give you: gates you can add and remove,
+     artifacts that carry state across every boundary, one job per context, loops with a hard stop and an
+     objective signal, and a written record of what got decided. If a mechanism gives you those five, it's fine.</p>
+  <div class="tip"><span class="label">You're not going to write this by hand</span> Nobody hand-writes chain
+     scripts or guardrails any more — you describe the chain to your agent and let it build it. So the skill
+     worth practising isn't syntax, it's <strong>the briefing</strong>: which steps, in what order, what each one
+     hands the next, and where you want to be asked. Get that clear and the mechanism becomes an implementation
+     detail you can swap later.</div>
+
+  <h2>Long chains decay, and you won't feel it coming</h2>
+  <p>Now the number that governs every automation decision you'll make. It's just multiplication.</p>
+  <figure class="fig">
+    <figcaption><b>A good step, chained</b></figcaption>
+    <div class="fig-b">
+      <div class="dgm-fact">
+        <b>28%</b>
+        <span>A step that works <b>95% of the time</b> — a genuinely good step — run <b>ten times in a row</b>
+          finishes about <b>60%</b> of the time. Run <b>twenty-five</b> times: <b>28%</b>. Nothing in that
+          arithmetic is about the model being weak. Every step is fine. The <em>chain</em> is the problem.</span>
+      </div>
+    </div>
+    <p class="fig-n"><b>And the real curve is steeper than the arithmetic.</b> Per-step accuracy itself drops as
+      a run gets longer, and once a mistake is in the agent's context it reads its own output as established
+      fact and builds on it. One wrong step doesn't just fail — it poisons the ground for every step after it.</p>
+  </figure>
+  <p>The failure also isn't gradual. Push agents to longer and longer runs and you don't get a gentle slope; you
+     get something that holds up fine and then falls off a cliff. Practically, that means <strong>you will not
+     feel it coming</strong> — which is an argument for gates rather than vigilance.</p>
+  <p>So the structural answer is not a longer chain with more care in it. <strong>Don't run one long chain — run
+     a short one, many times.</strong> Break the plan into tasks and loop plan → implement → review over each
+     one, so every task is checked before the next is built on top of it. In practice most people hand over
+     somewhat more than one task at a time and accept slightly worse accuracy for a lot less overhead. That's a
+     preference, and knowing <em>why</em> the short loop is better is what lets you choose your own number
+     instead of guessing.</p>
+
+  <h2>So where do you belong in your own loop?</h2>
+  <p>If you can't chain forever, the question becomes where you stand. The honest answer from people whose
+     systems drive most of their day-to-day development is remarkably consistent: <strong>a lot of time planning,
+     some time reviewing, and everything in between automated.</strong> The two ends stay human; the middle
+     doesn't.</p>
+  <p>That should sound familiar — it's the division of labour this course started with, and it holds up under
+     the pressure of people who are free to automate anything they like. It also flips the question you've
+     probably been asking. If you run each stage by hand, then <em>every boundary is already a gate</em>. So the
+     real question isn't "where do I add gates?" It's <strong>which boundaries have earned being
+     removed?</strong></p>
+  <div class="note"><span class="label">Make gate removal a decision, not a mood</span> Keep a
+     <strong>standing-decisions log</strong>: the calls you've already made, each with a scope. When the chain
+     reaches a gate, that list is what it checks. Covered by a standing decision? Act, and record that it acted
+     automatically. Not covered? Stop and ask — and your answer becomes the next standing decision. Without the
+     log, gates quietly disappear because you got bored of them. With it, every removal is something you can
+     read, argue with, and hand to somebody else.</div>
+  <p>And be clear about what success looks like here, because it isn't "the whole thing ran without me."
+     <strong>Success is knowing where you belong in your own loop and being able to say why.</strong> If you
+     finish this course and your time still goes into planning and reviewing — that's not your automation
+     failing. That's your automation working.</p>
+
   <h2>Three ways to move loops off your screen</h2>
   <div class="cards two">
     <div class="card"><h3>Background agents</h3><p>Kick off a loop and let it keep working while you do something
@@ -85,7 +188,8 @@
        competing for your local resources.</p></div>
     <div class="card"><h3>Automated loops in CI</h3><p>Trigger a full Research → Plan → Implement → Validate pass
        automatically as part of your normal development pipeline — for example, on every pull request, using a
-       continuous-integration platform such as GitHub Actions.</p></div>
+       continuous-integration platform. It isn't a new mechanism, either — it's the same unattended run, started
+       by a repository event instead of by you.</p></div>
   </div>
   <p>Notice what doesn't change: it's still the same core loop, following the same rules your context layer
      defines. What changes is <em>where</em> and <em>when</em> it runs, and whether a person has to be watching.</p>
@@ -128,13 +232,39 @@
      course. A loop that only works when you personally drive it is a personal habit. A loop reliable enough to
      run unattended, on a schedule or a trigger, is a system — one that scales beyond one person at one keyboard.</div>
 
-  <div class="tip"><span class="label">Start small</span> You don't need a fully automated pipeline on day one.
-     Automate the smallest, safest loop first — say, running your test suite and a rules check on every pull
-     request — and only widen the scope once you trust what comes back.</div>
-
   <div class="warn"><span class="label">A caution</span> Automation multiplies whatever you feed it, same as
      everything else in this course. A loop with weak rules or no real validation step will now produce weak
      results automatically and at scale. Get the loop right by hand first; automate it second.</div>
+
+  <h2>What you lose when nobody is watching</h2>
+  <p>Running unattended isn't your loop with the window closed. It's a different contract, and it takes away
+     exactly three things. Each one has to be replaced by something you decide in advance, or something the run
+     reports back.</p>
+  <table>
+    <tr><th>What you lose</th><th>What has to replace it</th></tr>
+    <tr><td><strong>The prompt.</strong> Nobody is there to approve anything, so a step that wants permission
+      just stops.</td><td>Every permission decision made <em>before</em> the run — which is exactly what your
+      standing-decisions log is, written as rules instead of judgment calls.</td></tr>
+    <tr><td><strong>Your ambient context layer.</strong> Unattended modes commonly load none of it by default —
+      not your rules, your workflows, your specialists, your guardrails.</td><td>You name what the run needs,
+      one piece at a time. Nothing comes in unless you asked for it.</td></tr>
+    <tr><td><strong>Your eyes.</strong> You can't see it work, and prose output is no use to a script.</td>
+      <td>A machine-readable result the next step can branch on, plus a report of what actually loaded and what
+      it cost.</td></tr>
+  </table>
+  <p>Loss two is the one nobody expects, and it's also the most useful thing in this lesson. Because if your loop
+     only works with your whole context layer auto-loaded, you don't actually know which parts of it were doing
+     the work. <strong>Run it with nothing loaded, and whatever breaks is what was load-bearing.</strong>
+     Everything that doesn't break was decoration you'd been paying for. That's the most honest audit your system
+     will ever get, and the deliverable from it isn't the config — it's the list of things you turned out not to
+     need.</p>
+  <div class="warn"><span class="label">A guarantee that skips the unattended run was never a guarantee</span>
+     Guardrails are usually on that not-loaded-by-default list. If you wrote one as the check that always runs —
+     the non-negotiable one — it is very likely <em>not running</em> in an unattended run, and failing silently.
+     Worse, a run that lost half your system typically still reports success: same green tick, same exit status
+     as a run that worked. So check what loaded and fail the run yourself when your own layer isn't there. An
+     agent saying "done" is a claim; a green pipeline is a fact — and a green <em>exit code</em> is a claim
+     again.</div>
 
   <h2>Check yourself</h2>
 
@@ -154,10 +284,26 @@
     <p class="fb"></p>
   </div>
 
+  <div class="quiz" data-answer="2" data-why="It's arithmetic: 0.95 multiplied by itself ten times is about 0.60, and twenty-five times about 0.28. Every individual step is good; the chain is what fails. The response is to run a short chain many times rather than one long one.">
+    <p class="q">A step in your chain works 95% of the time. What happens when you chain ten of them?</p>
+    <button>Roughly 95% — good steps stay good</button>
+    <button>Roughly 85%, because errors mostly cancel out</button>
+    <button>Roughly 60%, because the failure rates multiply</button>
+    <p class="fb"></p>
+  </div>
+
+  <div class="quiz" data-answer="0" data-why="An unattended run takes away the permission prompt, your auto-loaded context layer, and your ability to watch — so permissions get decided up front, the layer gets named explicitly, and the run has to report back in something a script can read.">
+    <p class="q">What are the three things an unattended run takes away from you?</p>
+    <button>The permission prompt, your auto-loaded context layer, and your eyes</button>
+    <button>Your rules, your tests, and your git history</button>
+    <button>Speed, cost visibility, and the ability to use a plan</button>
+    <p class="fb"></p>
+  </div>
+
   <h2>The one thing to remember</h2>
-  <p><strong>Scaling isn't running the loop faster — it's running the loop without you.</strong> A reliable loop
-     can move from your keyboard to the background, to a remote machine, to an automatic trigger in your
-     pipeline, and still do the same trustworthy work.</p>
+  <p><strong>Chains decay without warning, so keep the two ends and automate hard in between.</strong> Scaling
+     isn't running the loop faster — it's running a loop you have checked, without you, while keeping the gates
+     you deliberately decided to keep and writing down every one you remove.</p>
 
   <hr>
   <div class="note"><span class="label">Reflect &amp; discuss</span> Think of one loop you now run by hand often
