@@ -105,14 +105,40 @@
      section — the handful of extension points where new work usually plugs in (a new endpoint, a new database
      column, a new integration). It turns "I have no idea where to put this" into a five-second lookup.</div>
 
+  <h2>What earns a place in the always-on file</h2>
+  <p>Three kinds of thing pay for the space they take, and it's worth checking your file against them directly:</p>
+  <div class="cards two">
+    <div class="card"><h3>A map of the codebase</h3><p>Where things live and how the pieces fit — enough that the
+       agent doesn't have to rediscover the shape of your project on every task.</p></div>
+    <div class="card"><h3>The choices that are specific to here</h3><p>Ground rules a competent stranger couldn't
+       guess, because they're decisions rather than conventions. State the choice, not the category.</p></div>
+    <div class="card"><h3>The commands that actually run</h3><p>How to lint, typecheck, test, and build
+       <em>this</em> project. The most-skipped section and one of the most useful: without it the agent guesses
+       at your commands, and a guessed test command is a validation step that silently never ran.</p></div>
+  </div>
+  <p>And one test decides what comes out: <strong>would the agent do this anyway?</strong> If yes, cut it —
+     restating what the model already knows costs you attention and buys nothing. If it's a choice specific to
+     this project, keep it, and write down the choice rather than the principle behind it.</p>
+
   <h2>Where the pruned material goes</h2>
   <p>"Prune it" sounds like deletion, and it isn't. Content you cut out of the always-loaded file moves down a
      tier — into a separate reference document holding the conventions for <em>one</em> part of the codebase or
      <em>one</em> kind of task. Your authentication patterns matter enormously while you're touching auth, and
      are pure waste the rest of the time. Out of the always-on file, into a document that gets opened when the
      work is actually there.</p>
-  <p>One question decides it: <strong>would the agent need this no matter what it's working on?</strong> Yes,
-     it stays in the rules file. No, it becomes on-demand context.</p>
+  <p>Two questions sort every line, and between them they produce four destinations — only one of which is
+     deletion:</p>
+  <table>
+    <tr><th>Is it constant, and needed every session?</th><th>Where it goes</th></tr>
+    <tr><td>Constant truth, needed every session</td><td><strong>Stays in the rules file.</strong></td></tr>
+    <tr><td>Constant truth, needed only for one kind of task</td><td><strong>An on-demand reference document</strong>
+      — still your standing conventions, just loaded when the work calls for them.</td></tr>
+    <tr><td>Specific to the thing you're building right now</td><td><strong>Into the plan.</strong> It isn't a
+      convention at all; it's a requirement for this piece of work, and it expires when the work ships.</td></tr>
+    <tr><td>The agent would do it anyway, or it's no longer true</td><td><strong>Delete it.</strong></td></tr>
+  </table>
+  <p>That third row is the one people miss. Plenty of what accumulates in a rules file was never a rule — it was
+     a detail about whatever was being built the week it got written, and it's been loading on every task since.</p>
   <div class="cards two">
     <div class="card"><h3>Point at it from the rules</h3><p>Keep a short section in the rules file that says
        which document to read for which kind of work — a table of contents rather than the contents.</p></div>

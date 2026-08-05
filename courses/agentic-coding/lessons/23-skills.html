@@ -105,6 +105,17 @@
        read once the agent (or you) actually triggers that specific skill.</p></div>
   </div>
 
+  <p>There's usually a third tier under those two. Anything bulky a skill occasionally needs — a long reference,
+     a template, a script it runs — sits in files <em>beside</em> the skill rather than inside it, and gets
+     opened only if that particular run calls for it. So the cost of a skill scales with what a task actually
+     touches, not with how thorough you were when you wrote it.</p>
+  <div class="tip"><span class="label">Write the description for the moment of choosing</span> That one line is
+     the only part the agent sees when deciding whether to reach for the skill, so it has to say <em>what</em>
+     the skill does and <em>when</em> to use it. "Reviews a pull request" is half a description; "reviews a pull
+     request against the project's conventions — use before requesting human review" tells the agent when it
+     applies. Write it about the skill rather than to the reader — it's being read by something choosing
+     between options, not by someone browsing a menu.</div>
+
   <h2>What goes inside one: input, process, output</h2>
   <p>Staring at an empty file wondering how to write a skill is a solved problem. Three questions cover it.</p>
 

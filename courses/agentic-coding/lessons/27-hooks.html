@@ -91,6 +91,22 @@
        you have a plain factual trail, independent of any summary the agent gives you.</p></div>
   </div>
 
+  <h2>Two kinds of moment: gates and observers</h2>
+  <p>Hooks fire at named moments in the agent's lifecycle, and those moments fall into two groups. Some run
+     <em>before</em> something happens — before a tool is used, before your prompt reaches the agent, before the
+     agent is allowed to stop. Those can <strong>block</strong>, and that's where a guarantee lives. Others run
+     <em>after</em> — a tool has been used, a session has started, a notification went out. Those can only watch
+     and react. The shorthand: <strong>before is a gate, after is a log.</strong></p>
+  <p>Blocking isn't a silent refusal, either, and this is the part that makes hooks feel less blunt than they
+     sound. When a hook blocks, it hands back a reason, and the agent reads that reason and adapts. Refuse an
+     attempt to read a real secrets file and the agent doesn't stall — it goes and reads the example file
+     instead. You didn't have to anticipate the workaround. You stated the boundary, and the agent found its own
+     way to stay inside it.</p>
+  <div class="tip"><span class="label">The audit trail is the underrated half</span> The observing hooks look
+     boring next to the blocking ones, and they're the ones you'll be grateful for. A hook that records every
+     command run during a session gives you a plain factual account of what the agent actually did — which is a
+     different thing from what it said it did, and the only version worth reading when something went wrong.</div>
+
   <h2>Why "deterministic" is the whole point</h2>
   <p>Everything else in your system leans on the agent being smart and cooperative — usually a safe bet, but
      never a certainty. Hooks exist for the handful of things you're not willing to leave to chance at all: the
@@ -131,6 +147,21 @@
      too: unattended runs commonly load none of your context layer unless you name each piece explicitly,
      guardrails included — so a hook you never checked there is a guarantee that quietly isn't one. More on that
      when the loop moves <a href="29-scaling-and-automation.html">off your screen</a>.</div>
+  <div class="warn"><span class="label">A hook is code that runs itself, with your access</span> Everything else
+     in your context layer is text the agent reads. A hook is a script your machine executes automatically,
+     holding whatever your session holds — your keys, your network, your filesystem. So read one before you
+     install it, exactly the way you'd read a change to your build pipeline, and be deliberate about hooks handed
+     round a team or copied from the internet. The property that makes hooks trustworthy — they run without
+     asking — is the same property that makes an untrusted one worth worrying about.</div>
+
+  <h2>Where hooks buy back your attention</h2>
+  <p>There's a failure mode most people arrive with: the agent asks permission for everything, you approve
+     everything, and after twenty prompts you're clicking approve without reading. That isn't safety, it's
+     ceremony — a habit of consent that's stopped carrying any judgment. Hooks are the way out of it. Hard-block
+     the short list of things that must never happen, and then let the agent run freely everywhere else. You end
+     up interrupted less <em>and</em> protected more, because the protection stopped depending on you reading
+     carefully at the end of a long session.</p>
+
   <p>That also means hooks are cheap to reuse across projects. Like skills, a hook is behavior, not
      codebase-specific truth — "always run the formatter on save" is just as true on your next project as this
      one, so a well-written hook tends to travel with you.</p>
