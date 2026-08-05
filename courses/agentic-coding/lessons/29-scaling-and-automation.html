@@ -101,6 +101,13 @@
       is the entire decision you're making when you automate a step.</p>
   </figure>
 
+  <p>Which raises the question of how small the steps should be. Cut the chain finely and each step becomes
+     <strong>gateable</strong> (you can stand at any boundary), <strong>measurable</strong> (you can see which
+     step is the weak one), <strong>swappable</strong> (you can replace one without touching the rest), and
+     <strong>composable</strong> (the same step joins a different chain). Note what isn't on that list: the
+     model's ability to cope. You're not chopping the work up because the agent can't hold it — you're chopping
+     it up so <em>you</em> can inspect, measure, and rearrange it.</p>
+
   <h2>Five ways to chain — and none of them is the standard yet</h2>
   <p>Here's something worth noticing about the state of the field. Nearly everything else in your context layer
      has settled on a shape: rules became plain text files, reusable workflows became a named folder with
@@ -167,12 +174,20 @@
      probably been asking. If you run each stage by hand, then <em>every boundary is already a gate</em>. So the
      real question isn't "where do I add gates?" It's <strong>which boundaries have earned being
      removed?</strong></p>
+  <p>And there's a mechanical answer to when a boundary has earned it, which beats waiting to feel brave.
+     <strong>A gate is a teacher.</strong> Every time it shows you what the agent proposed and you choose
+     something else, you've learned something specific about the gap between its judgment and yours — so put that
+     in the prompt. Tell it the reasoning you actually use. Do that a few times and its proposals start matching
+     what you'd have picked anyway. <strong>The gate comes out when it stops surprising you</strong>, not when
+     you're tired of it. And the move is reversible: it was one sentence, so you can put it back.</p>
   <div class="note"><span class="label">Make gate removal a decision, not a mood</span> Keep a
      <strong>standing-decisions log</strong>: the calls you've already made, each with a scope. When the chain
      reaches a gate, that list is what it checks. Covered by a standing decision? Act, and record that it acted
      automatically. Not covered? Stop and ask — and your answer becomes the next standing decision. Without the
      log, gates quietly disappear because you got bored of them. With it, every removal is something you can
-     read, argue with, and hand to somebody else.</div>
+     read, argue with, and hand to somebody else. And when the run genuinely has to interrupt you,
+     <strong>escalate a digest, not a dump</strong>: what happened in two lines, what needs deciding, the
+     recommendation and its risk.</div>
   <p>And be clear about what success looks like here, because it isn't "the whole thing ran without me."
      <strong>Success is knowing where you belong in your own loop and being able to say why.</strong> If you
      finish this course and your time still goes into planning and reviewing — that's not your automation

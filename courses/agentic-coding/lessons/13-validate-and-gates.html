@@ -156,6 +156,32 @@
      as the "no prior knowledge" bar from the plan — a fresh perspective, with no bias from what came before,
      gives you the most honest judgment.</div>
 
+  <h2>Sort findings by who acts, not by how bad they are</h2>
+  <p>A review hands you back a list. The instinct is to order it by severity — but severity doesn't tell anyone
+     what to do next. <strong>Route each finding to whoever should handle it</strong> instead, and the list stops
+     being a report and starts being a set of work queues.</p>
+  <table>
+    <tr><th>Bucket</th><th>What lands there</th></tr>
+    <tr><td><strong>The agent fixes</strong></td><td>Anything with an objective signal attached — a failing test,
+      a type error, a lint rule. This bucket is machine-executable, which is exactly why it can be handed to an
+      agent later and left to run.</td></tr>
+    <tr><td><strong>You decide</strong></td><td>A trade-off, a naming call, a scope question. No objective signal
+      exists, so no agent can close it.</td></tr>
+    <tr><td><strong>You read</strong></td><td>Changes you want to see with your own eyes regardless of what any
+      check says.</td></tr>
+    <tr><td><strong>You test</strong></td><td>Things only a human driving the real thing can confirm.</td></tr>
+    <tr><td><strong>For information</strong></td><td>Noticed, not actionable. Says so, and stops there.</td></tr>
+  </table>
+  <p>Look at what that actually is: the division of labour between you and your agent, applied to every
+     individual finding at the moment work changes hands. It's also where you write down the line you won't cross
+     — <em>anything touching these particular paths goes to "you read", never to "the agent fixes"</em>. Name the
+     paths. That sentence is the boundary between what you've automated and what you still own, and it belongs in
+     a file rather than in your head.</p>
+  <div class="tip"><span class="label">Two rules that keep routing honest</span> <strong>Cap the human
+     buckets</strong> at three to five items — a router that routes everything to you has routed nothing. And
+     <strong>never assert what you didn't run</strong>: "tests pass" is a grounded claim, only true if something
+     actually executed. An agent saying it's done is a claim; a green pipeline is a fact.</div>
+
   <h2>The human is the final gate</h2>
   <p>None of this — self-correction, the pyramid, fresh-eyes review — replaces a human making the final call.
      After the agent's checks pass and a fresh review weighs in, a person still does their own manual check and
